@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miolo documentation &mdash; Miolo  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Miolo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Miolo documentation</a><ul>
+<li><a class="reference internal" href="#miolo.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a><ul>
+<li><a class="reference internal" href="#miolo.Graph.ctype"><code class="docutils literal notranslate"><span class="pre">Graph.ctype</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Graph.degree"><code class="docutils literal notranslate"><span class="pre">Graph.degree()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Graph.edges"><code class="docutils literal notranslate"><span class="pre">Graph.edges</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Graph.isolatedNodes"><code class="docutils literal notranslate"><span class="pre">Graph.isolatedNodes()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Graph.laplacian"><code class="docutils literal notranslate"><span class="pre">Graph.laplacian()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Graph.nodes"><code class="docutils literal notranslate"><span class="pre">Graph.nodes</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Graph.normalize"><code class="docutils literal notranslate"><span class="pre">Graph.normalize()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Graph.numpy"><code class="docutils literal notranslate"><span class="pre">Graph.numpy</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Graph.propagate"><code class="docutils literal notranslate"><span class="pre">Graph.propagate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#miolo.Layer"><code class="docutils literal notranslate"><span class="pre">Layer</span></code></a><ul>
+<li><a class="reference internal" href="#miolo.Layer.activate"><code class="docutils literal notranslate"><span class="pre">Layer.activate()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Layer.convolve"><code class="docutils literal notranslate"><span class="pre">Layer.convolve()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Layer.ctype"><code class="docutils literal notranslate"><span class="pre">Layer.ctype</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Layer.mask"><code class="docutils literal notranslate"><span class="pre">Layer.mask</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#miolo.Matrix"><code class="docutils literal notranslate"><span class="pre">Matrix</span></code></a><ul>
+<li><a class="reference internal" href="#miolo.Matrix.argmax"><code class="docutils literal notranslate"><span class="pre">Matrix.argmax()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.argmin"><code class="docutils literal notranslate"><span class="pre">Matrix.argmin()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.cols"><code class="docutils literal notranslate"><span class="pre">Matrix.cols</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.copy"><code class="docutils literal notranslate"><span class="pre">Matrix.copy()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.ctype"><code class="docutils literal notranslate"><span class="pre">Matrix.ctype</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.flatten"><code class="docutils literal notranslate"><span class="pre">Matrix.flatten()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.normalize"><code class="docutils literal notranslate"><span class="pre">Matrix.normalize()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.numpy"><code class="docutils literal notranslate"><span class="pre">Matrix.numpy</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.reshape"><code class="docutils literal notranslate"><span class="pre">Matrix.reshape()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.rowDistance"><code class="docutils literal notranslate"><span class="pre">Matrix.rowDistance()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.rows"><code class="docutils literal notranslate"><span class="pre">Matrix.rows</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.sumAll"><code class="docutils literal notranslate"><span class="pre">Matrix.sumAll()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.transpose"><code class="docutils literal notranslate"><span class="pre">Matrix.transpose()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#miolo.Potential"><code class="docutils literal notranslate"><span class="pre">Potential</span></code></a><ul>
+<li><a class="reference internal" href="#miolo.Potential.grad"><code class="docutils literal notranslate"><span class="pre">Potential.grad()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#miolo.ReLU"><code class="docutils literal notranslate"><span class="pre">ReLU</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Softmax"><code class="docutils literal notranslate"><span class="pre">Softmax</span></code></a></li>
+<li><a class="reference internal" href="#miolo.dot"><code class="docutils literal notranslate"><span class="pre">dot()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.kronecker"><code class="docutils literal notranslate"><span class="pre">kronecker()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.mioloObject"><code class="docutils literal notranslate"><span class="pre">mioloObject</span></code></a><ul>
+<li><a class="reference internal" href="#miolo.mioloObject.ctype"><code class="docutils literal notranslate"><span class="pre">mioloObject.ctype</span></code></a></li>
+<li><a class="reference internal" href="#miolo.mioloObject.isGraph"><code class="docutils literal notranslate"><span class="pre">mioloObject.isGraph()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.mioloObject.isMatrix"><code class="docutils literal notranslate"><span class="pre">mioloObject.isMatrix()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#miolo.sparsifyKNN"><code class="docutils literal notranslate"><span class="pre">sparsifyKNN()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.sparsifyThreshold"><code class="docutils literal notranslate"><span class="pre">sparsifyThreshold()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.squaredError"><code class="docutils literal notranslate"><span class="pre">squaredError</span></code></a></li>
+<li><a class="reference internal" href="#miolo.txtGraph"><code class="docutils literal notranslate"><span class="pre">txtGraph()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.txtMatrix"><code class="docutils literal notranslate"><span class="pre">txtMatrix()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Miolo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Miolo documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="miolo-documentation">
+<h1>Miolo documentation<a class="headerlink" href="#miolo-documentation" title="Link to this heading"></a></h1>
+<p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
+documentation for details.</p>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="py class" id="module-miolo">
+<dt class="sig sig-object py" id="miolo.Graph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><a class="headerlink" href="#miolo.Graph" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#miolo.mioloObject" title="miolo.mioloObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">mioloObject</span></code></a></p>
+<p>A class for undirected graphs.
+Initializes a C++ object that stores a sparse weighted adjacency
+matrix.
+nodes: number of nodes in Graph
+edges: number of edges in Graph
+ctype: underlying C type for Graph weights</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="miolo.Graph.ctype">
+<span class="sig-name descname"><span class="pre">ctype</span></span><a class="headerlink" href="#miolo.Graph.ctype" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Graph.degree">
+<span class="sig-name descname"><span class="pre">degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Graph.degree" title="Link to this definition"></a></dt>
+<dd><p>Returns a column Matrix where each entry is the degree of the
+corresponding verterx.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="miolo.Graph.edges">
+<span class="sig-name descname"><span class="pre">edges</span></span><a class="headerlink" href="#miolo.Graph.edges" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Graph.isolatedNodes">
+<span class="sig-name descname"><span class="pre">isolatedNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Graph.isolatedNodes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Graph.laplacian">
+<span class="sig-name descname"><span class="pre">laplacian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Graph.laplacian" title="Link to this definition"></a></dt>
+<dd><p>Returns the graph corresponding to the normalized laplacian of
+current graph.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="miolo.Graph.nodes">
+<span class="sig-name descname"><span class="pre">nodes</span></span><a class="headerlink" href="#miolo.Graph.nodes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Graph.normalize">
+<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Graph.normalize" title="Link to this definition"></a></dt>
+<dd><p>Symmetric normalization of edge weights.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="miolo.Graph.numpy">
+<span class="sig-name descname"><span class="pre">numpy</span></span><a class="headerlink" href="#miolo.Graph.numpy" title="Link to this definition"></a></dt>
+<dd><p>Interaction with numpy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Graph.propagate">
+<span class="sig-name descname"><span class="pre">propagate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool[:]</span> <span class="pre">clamped=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Graph.propagate" title="Link to this definition"></a></dt>
+<dd><p>When clamped is None, returns the matrix product of self and M.
+When clamped is not None, it acts as a copy indicator: if clamped[i]
+is True, row i of M is copied to output. If clamped[i] is False,
+matrix multiplication is done as usual.
+clamped must have length equal to M.rows.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="miolo.Layer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">Layer</span></span><a class="headerlink" href="#miolo.Layer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Layer.activate">
+<span class="sig-name descname"><span class="pre">activate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Layer.activate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Layer.convolve">
+<span class="sig-name descname"><span class="pre">convolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Graph</span> <span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Layer.convolve" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="miolo.Layer.ctype">
+<span class="sig-name descname"><span class="pre">ctype</span></span><a class="headerlink" href="#miolo.Layer.ctype" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="miolo.Layer.mask">
+<span class="sig-name descname"><span class="pre">mask</span></span><a class="headerlink" href="#miolo.Layer.mask" title="Link to this definition"></a></dt>
+<dd><p>miolo.Matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mask</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="miolo.Matrix">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">Matrix</span></span><a class="headerlink" href="#miolo.Matrix" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#miolo.mioloObject" title="miolo.mioloObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">mioloObject</span></code></a></p>
+<p>A class for dense matrices.
+Initializes a C++ object that stores a dense matrix.
+rows: number of rows of Matrix
+cols: number of cols of Matrix
+ctype: underlying C type for Matrix data</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.argmax">
+<span class="sig-name descname"><span class="pre">argmax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.argmax" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.argmin">
+<span class="sig-name descname"><span class="pre">argmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.argmin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="miolo.Matrix.cols">
+<span class="sig-name descname"><span class="pre">cols</span></span><a class="headerlink" href="#miolo.Matrix.cols" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.copy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="miolo.Matrix.ctype">
+<span class="sig-name descname"><span class="pre">ctype</span></span><a class="headerlink" href="#miolo.Matrix.ctype" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.flatten">
+<span class="sig-name descname"><span class="pre">flatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool</span> <span class="pre">rows=True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.flatten" title="Link to this definition"></a></dt>
+<dd><p>Inplace flattening of a Matrix.
+If rows is True, Matrix is flattened to have a single row. If rows
+is False, flattened to a single column.
+NOTE: This only changes a view on the Matrix data. No changes are
+made on stored data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.normalize">
+<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.normalize" title="Link to this definition"></a></dt>
+<dd><p>Row normalization in order to elements in a same row sum to 1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="miolo.Matrix.numpy">
+<span class="sig-name descname"><span class="pre">numpy</span></span><a class="headerlink" href="#miolo.Matrix.numpy" title="Link to this definition"></a></dt>
+<dd><p>Interaction with numpy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.reshape">
+<span class="sig-name descname"><span class="pre">reshape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">rows</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">cols</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.reshape" title="Link to this definition"></a></dt>
+<dd><p>Inplace reshape of a Matrix. Can be done only if rows*cols is equal
+to self.rows*self.cols.
+NOTE: This only changes a view on the Matrix data. No changes are
+made on stored data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.rowDistance">
+<span class="sig-name descname"><span class="pre">rowDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.rowDistance" title="Link to this definition"></a></dt>
+<dd><p>Returns the self.rows x self.rows Matrix for which each entry (i,j)
+is the euclidean distance between rows i and j of self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="miolo.Matrix.rows">
+<span class="sig-name descname"><span class="pre">rows</span></span><a class="headerlink" href="#miolo.Matrix.rows" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.sumAll">
+<span class="sig-name descname"><span class="pre">sumAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.sumAll" title="Link to this definition"></a></dt>
+<dd><p>Returns the sum of all elements in a Matrix.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.transpose">
+<span class="sig-name descname"><span class="pre">transpose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.transpose" title="Link to this definition"></a></dt>
+<dd><p>Returns the transpose of a Matrix.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="miolo.Potential">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">Potential</span></span><a class="headerlink" href="#miolo.Potential" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Potential.grad">
+<span class="sig-name descname"><span class="pre">grad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Layer</span> <span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">Bias</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Potential.grad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="miolo.ReLU">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">ReLU</span></span><a class="headerlink" href="#miolo.ReLU" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#miolo.Layer" title="miolo.Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Layer</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="miolo.Softmax">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">Softmax</span></span><a class="headerlink" href="#miolo.Softmax" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#miolo.Layer" title="miolo.Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Layer</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="miolo.dot">
+<span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">dot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.dot" title="Link to this definition"></a></dt>
+<dd><p>Frobenius dot product between two matrices.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="miolo.kronecker">
+<span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">kronecker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Graph</span> <span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Graph</span> <span class="pre">H</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.kronecker" title="Link to this definition"></a></dt>
+<dd><p>Kronecker (element-wise) product between two matrices. Both matrices
+must have same shape.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="miolo.mioloObject">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">mioloObject</span></span><a class="headerlink" href="#miolo.mioloObject" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A container object for two objects in the miolo library. This is usually
+not useful outside Cython.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="miolo.mioloObject.ctype">
+<span class="sig-name descname"><span class="pre">ctype</span></span><a class="headerlink" href="#miolo.mioloObject.ctype" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.mioloObject.isGraph">
+<span class="sig-name descname"><span class="pre">isGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.mioloObject.isGraph" title="Link to this definition"></a></dt>
+<dd><p>Returns true if object is miolo.Graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.mioloObject.isMatrix">
+<span class="sig-name descname"><span class="pre">isMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.mioloObject.isMatrix" title="Link to this definition"></a></dt>
+<dd><p>Returns true if object is a miolo.Matrix.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="miolo.sparsifyKNN">
+<span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">sparsifyKNN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.sparsifyKNN" title="Link to this definition"></a></dt>
+<dd><p>Returns a Graph where each entry corresponds to elements of M which are
+the k largets values of each row. Only applicable to square matrices.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="miolo.sparsifyThreshold">
+<span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">sparsifyThreshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span> <span class="pre">threshold=0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.sparsifyThreshold" title="Link to this definition"></a></dt>
+<dd><p>Returns a Graph where each entry corresponds to elements of M which
+have absolute value greater than threshold.
+Only applicable to square matrices.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="miolo.squaredError">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">squaredError</span></span><a class="headerlink" href="#miolo.squaredError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#miolo.Potential" title="miolo.Potential"><code class="xref py py-class docutils literal notranslate"><span class="pre">Potential</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="miolo.txtGraph">
+<span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">txtGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.txtGraph" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="miolo.txtMatrix">
+<span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">txtMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.txtMatrix" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Emílio Bergamim.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
