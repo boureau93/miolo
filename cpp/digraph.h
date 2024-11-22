@@ -2,6 +2,9 @@
 #include "graph.h"
 #include <vector>
 
+#ifndef DIGRAPH_H
+#define DIGRAPH_H
+
 template <typename T>
 class neighbor{
 public:
@@ -26,6 +29,14 @@ public:
     neighbor<T>& operator[](ulong k){
         return (*this->nb)[k];
     }
+
+    T weight(ulong idx){
+        for (ulong k=0; k<this->size(); k++){
+            if (this->ngb.idx==idx)
+                return this->ngb.w;
+        }
+        return 0;
+    }
 };
 
 template <typename T>
@@ -49,6 +60,8 @@ public:
     digraph<T>* copy();
     ulong* shape();
     digraph<T>* transpose();
+    digraph<T>* symmetrize();
+    graph<T>* toGraph();
 
     digraph<T>* add(digraph<T> D);
     digraph<T>* sub(digraph<T> D);
@@ -175,6 +188,25 @@ digraph<T>* digraph<T>::transpose(){
     return out;
 }
 
+template <typename T>
+digraph<T>* digraph<T>::symmetrize(){
+    digraph<T>* out = new digraph<T>(this->nodes);
+    if (out->null())
+        return nullptr;
+    for (ulong i=0; i<this->nodes; i++){
+        for (ulong k=0; k<this->hood[i].size(); k++){
+            ulong p = this->hood[i][k].idx;
+            if (p>i){
+                T aux = (this->hood[i][k].w+this->hood[p].weight(i))/2;
+                out->connect(i,p,aux);
+                out->connect(p,i,aux);
+            }
+        }
+    }
+    return out;
+}
+
+
 /*------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
     Algebra
@@ -238,11 +270,42 @@ mtx<T>* digraph<T>::mmul(mtx<T> M){
     mtx<T>* out = new mtx<T>(M.rows,M.cols);
     if (out->null())
         return nullptr;
-    for (ulong i=0; i<this->nodes; i++){
-        for (ulong j=0; j<this->hood[i].size(); j++){
-            for (ulong s=0; s<M.cols; s++)
-                (*out)(i,s) += this->hood[i][j].w*M(this->hood[i][j].idx,s);
+    if (M.rows==this->nodes){
+        for (ulong i=0; i<this->nodes; i++){
+            for (ulong j=0; j<this->hood[i].size(); j++){
+                for (ulong s=0; s<M.cols; s++)
+                    (*out)(i,s) += this->hood[i][j].w*M(this->hood[i][j].idx,s);
+            }
+        }
+    }
+    else if (M.cols==this->nodes){
+        for (ulong i=0; i<this->nodes; i++){
+            for (ulong j=0; j<this->hood[i].size(); j++){
+                for (ulong s=0; s<M.rows; s++)
+                    (*out)(s,i) += this->hood[i][j].w*M(s,this->hood[i][j].idx);
+            }
         }
     }
     return out;
 }
+
+/*------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+    Interaction with graphs
+--------------------------------------------------------------------------------
+------------------------------------------------------------------------------*/
+
+template <typename T>
+digraph<T>* toDigraph(graph<T> G){
+    digraph<T>* out = new digraph<T>(G.nodes);
+    if (out->null())
+        return nullptr;
+    for (ulong k=0; k<G.edges; k++){
+        out->connect(G[k].i,G[k].j,G[k].w);
+        out->connect(G[k].j,G[k].i,G[k].w);
+    }
+    return out;
+}
+
+
+#endif

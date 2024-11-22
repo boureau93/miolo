@@ -132,12 +132,42 @@ cdef extern from "cpp/digraph.h":
         digraph[T]* copy()
         unsigned long* shape()
         digraph[T]* transpose()
+        digraph[T]* symmetrize()
 
         digraph[T]* add(digraph[T] D)
         digraph[T]* sub(digraph[T] D)
         digraph[T]* hmul(digraph[T] D)
         digraph[T]* smul(T value)
         mtx[T]* mmul(mtx[T] D)
+    
+    digraph[T]* toDigraph[T](graph[T] G)
+
+cdef extern from "cpp/diagonal.h":
+
+    cdef cppclass diagonal[T]:
+
+        unsigned long dim
+        T* data
+
+        diagonal();
+        diagonal(unsigned long dim)
+        diagonal(unsigned long dim, T init)
+
+        bint null()
+
+        mtx[T]* lmul(mtx[T] M)
+        mtx[T]* rmul(mtx[T] M)
+
+        digraph[T]* lmul(digraph[T] G)
+        digraph[T]* rmul(digraph[T] G)
+
+        digraph[T]* lmul(graph[T] G)
+        digraph[T]* rmul(graph[T] G)
+
+        diagonal[T]* mul(diagonal[T] D)
+        diagonal[T]* add(diagonal[T] D)
+        diagonal[T]* sub(diagonal[T] D)
+        diagonal[T]* smul(T value)
 
 cdef extern from "cpp/sphere.h":
 

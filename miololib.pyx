@@ -30,6 +30,10 @@ cdef class mioloObject:
     cdef mld.digraph[int]* digraphInt
     cdef mld.digraph[float]* digraphFloat
     cdef mld.digraph[double]* digraphDouble
+    #Diagonal matrices
+    cdef mld.diagonal[int]* diagonalInt
+    cdef mld.diagonal[float]* diagonalFloat
+    cdef mld.diagonal[double]* diagonalDouble
 
     def isMatrix(self):
         """
@@ -59,7 +63,19 @@ cdef class mioloObject:
         """ 
             Returns true if object is miolo.Digraph
         """
+        if self.digraphInt is not NULL:
+            return True
         if self.digraphFloat is not NULL:
+            return True
+        if self.digraphDouble is not NULL:
+            return True
+        return False
+    
+    def isDiagonal(self):
+        """ 
+            Returns true if object is miolo.Digraph
+        """
+        if self.diagonalInt is not NULL:
             return True
         if self.digraphFloat is not NULL:
             return True
@@ -69,6 +85,18 @@ cdef class mioloObject:
     
     @property
     def ctype(self):
+        pass
+    @property
+    def rows(self):
+        pass
+    @property
+    def cols(self):
+        pass
+    @property
+    def nodes(self):
+        pass
+    @property
+    def dim(self):
         pass
 
 ctypes = ["int","float","double"]
@@ -104,11 +132,11 @@ cdef class Matrix(mioloObject):
                     self.mtxDouble = new mld.mtx[double](rows,cols,init)
             else:
                 if ctype=="int":
-                    self.mtxInt = new mld.mtx[int]()
+                    self.mtxInt = NULL
                 if ctype=="float":
-                    self.mtxFloat = new mld.mtx[float]()
+                    self.mtxFloat = NULL
                 if ctype=="double":
-                    self.mtxDouble = new mld.mtx[double]()
+                    self.mtxDouble = NULL
         else:
             raise Exception("Unknown ctype.")
     
@@ -360,7 +388,7 @@ cdef class Matrix(mioloObject):
         if self.ctype!=A.ctype:
             raise Exception("Matrix operations require same ctype.")
         if self.rows!=A.rows or self.cols!=A.cols:
-            raise Exception("Incompatible shape for Kronecker product.")
+            raise Exception("Incompatible shape for Hadamard product.")
         if self.ctype=="int":
             out = Matrix(ctype="int")
             out.mtxInt.wrap(self.mtxInt.hmul(A.mtxInt))
@@ -708,7 +736,22 @@ cdef class Graph(mioloObject):
             return out
     
     def __rand__(self, Matrix A):
-        return self&A
+        if self.ctype!=A.ctype:
+            raise Exception("Graph-Matrix operations require same ctype.")
+        if self.nodes!=A.cols:
+            raise Exception("Incompatible shape for product.")
+        if self.ctype=="int":
+            out = Matrix(ctype="int")
+            out.mtxInt = self.graphInt.mmul(A.mtxInt)
+            return out
+        if self.ctype=="float":
+            out = Matrix(ctype="float")
+            out.mtxFloat = self.graphFloat.mmul(A.mtxFloat)
+            return out
+        if self.ctype=="double":
+            out = Matrix(ctype="double")
+            out.mtxDouble = self.graphDouble.mmul(A.mtxDouble)
+            return out
     
     #---------------------------------------------------------------------------
     #   Useful stuff
@@ -936,6 +979,7 @@ cdef class Digraph(mioloObject):
             if ashape[k]!=gshape[k]:
                 return False
         return True
+    
     #---------------------------------------------------------------------------
     #   Algebra
     #---------------------------------------------------------------------------
@@ -991,6 +1035,248 @@ cdef class Digraph(mioloObject):
         if self.ctype=="double":
             out.mtxDouble = self.digraphDouble.mmul(drf(M.mtxDouble))
         return out
+
+    def __rand__(self, Matrix M):
+        if self.nodes!=Matrix.cols:
+            raise Exception("Incompatible shape for matrix multiplication.")
+        if self.ctype!=M.ctype:
+            raise TypeError("Digraph and Matrix must share same ctype.")
+        out = Matrix(self.ctype)
+        if self.ctype=="int":
+            out.mtxInt = self.digraphInt.mmul(drf(M.mtxInt))
+        if self.ctype=="float":
+            out.mtxFloat = self.digraphFloat.mmul(drf(M.mtxFloat))
+        if self.ctype=="double":
+            out.mtxDouble = self.digraphDouble.mmul(drf(M.mtxDouble))
+        return out
+
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+# Diagonal matrices
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+
+cdef class Diagonal(mioloObject):
+
+    """
+        A class for dense matrices. 
+        Initializes a C++ object that stores a diagonal matrix.
+        dim: dimension of square matrix (number of rows is equal to cols)
+        Elements of can be acessed via the __getitem__ method, ie Diagonal[k]
+    """
+
+    cdef object cType
+
+    def __cinit__(self, unsigned long dim=0, init=0, ctype=global_ctype):
+        if ctype in ctypes:
+            self.cType = ctype
+            if dim>0:
+                if ctype=="int":
+                    self.diagonalInt = new mld.diagonal[int](dim,init)
+                if ctype=="float":
+                    self.diagonalFloat = new mld.diagonal[float](dim,init)
+                if ctype=="double":
+                    self.diagonalDouble = new mld.diagonal[double](dim,init)
+            else:
+                if ctype=="int":
+                    self.mtxInt = NULL
+                if ctype=="float":
+                    self.mtxFloat = NULL
+                if ctype=="double":
+                    self.mtxDouble = NULL
+        else:
+            raise Exception("Unknown ctype.")
+    
+    def __dealloc__(self):
+        if self.ctype=="int":
+            del self.diagonalInt
+        if self.ctype=="float":
+            del self.diagonalFloat
+        if self.ctype=="double":
+            del self.diagonalDouble
+
+    @property
+    def ctype(self):
+        return str(self.cType)
+    
+    @property
+    def rows(self):
+        if self.ctype=="int":
+            return self.diagonalInt.dim
+        if self.ctype=="float":
+            return self.diagonalFloat.dim
+        if self.ctype=="double":
+            return self.diagonalDouble.dim
+    
+    @property
+    def cols(self):
+        return self.rows
+
+    def __len__(self):
+        return self.rows
+
+    def __getitem__(self, unsigned long k):
+        if k >= <unsigned long>self.rows:
+            raise Exception("Index k is out of bounds.")
+        if self.ctype=="int":
+            return self.diagonalInt.data[k]
+        if self.ctype=="float":
+            return self.diagonalFloat.data[k]
+        if self.ctype=="double":
+            return self.diagonalDouble.data[k]
+    
+    def __setitem__(self, unsigned long k, value):
+        if k >= <unsigned long>self.rows*self.cols:
+            raise Exception("Index k is out of bounds.")
+        if self.ctype=="int":
+            self.diagonalInt.data[k] = <int>value
+        if self.ctype=="float":
+            self.diagonalFloat.data[k] = <float>value
+        if self.ctype=="double":
+            self.diagonalDouble.data[k] = value
+
+    #---------------------------------------------------------------------------
+    #   Algebra
+    #---------------------------------------------------------------------------
+
+    def __add__(self, Diagonal D):
+        if len(self)!=len(D):
+            raise Exception("Incompatible shapes for addition")
+        if self.ctype!=D.ctype:
+            raise TypeError("Diagonals must have same ctype")
+        out = Diagonal(ctype=D.ctype)
+        if self.ctype=="int":
+            out.diagonalInt = self.diagonalInt.add(drf(D.diagonalInt))
+        if self.ctype=="float":
+            out.diagonalFloat = self.diagonalFloat.add(drf(D.diagonalFloat))
+        if self.ctype=="double":
+            out.diagonalDouble = self.diagonalDouble.add(drf(D.diagonalDouble))
+        return out
+    
+    def __sub__(self, Diagonal D):
+        if len(self)!=len(D):
+            raise Exception("Incompatible shapes for subtraction")
+        if self.ctype!=D.ctype:
+            raise TypeError("Diagonals must have same ctype")
+        out = Diagonal(ctype=D.ctype)
+        if self.ctype=="int":
+            out.diagonalInt = self.diagonalInt.sub(drf(D.diagonalInt))
+        if self.ctype=="float":
+            out.diagonalFloat = self.diagonalFloat.sub(drf(D.diagonalFloat))
+        if self.ctype=="double":
+            out.diagonalDouble = self.diagonalDouble.sub(drf(D.diagonalDouble))
+        return out
+
+    def __and__(self, mioloObject D):
+        if D.ctype!=self.ctype:
+            raise TypeError("Objects must share same ctype.")
+        if isinstance(D,Matrix):
+            if (D.rows!=self.dim):
+                raise Exception("Number of rows must be equal to Diagonal.cols")
+            out = Matrix(self.ctype)
+            if self.ctype=="int":
+                out.mtxInt = self.diagonalInt.lmul(drf(D.mtxInt))
+            if self.ctype=="float":
+                out.mtxFloat = self.diagonalFloat.lmul(drf(D.mtxFloat))
+            if self.ctype=="double":
+                out.mtxDouble = self.diagonalDouble.lmul(drf(D.mtxDouble))
+            return out
+        if isinstance(D,Graph):
+            if (D.nodes!=self.dim):
+                raise Exception("Number of nodes must be equal to Diagonal.cols")
+            out = Digraph(self.ctype)
+            if self.ctype=="int":
+                out.digraphInt = self.diagonalInt.lmul(drf(D.graphInt))
+            if self.ctype=="float":
+                out.digraphFloat = self.diagonalFloat.lmul(drf(D.graphFloat))
+            if self.ctype=="double":
+                out.digraphDouble = self.diagonalDouble.lmul(drf(D.graphDouble))
+            return out
+        if isinstance(D,Digraph):
+            if (D.nodes!=self.dim):
+                raise Exception("Number of nodes must be equal to Diagonal.cols")
+            out = Digraph(self.ctype)
+            if self.ctype=="int":
+                out.digraphInt = self.diagonalInt.lmul(drf(D.digraphInt))
+            if self.ctype=="float":
+                out.digraphFloat = self.diagonalFloat.lmul(drf(D.digraphFloat))
+            if self.ctype=="double":
+                out.digraphDouble = self.diagonalDouble.lmul(drf(D.digraphDouble))
+            return out
+        if isinstance(D,Diagonal):
+            if (D.dim!=self.dim):
+                raise Exception("Dimension of diagonals must be equal.")
+            out = Diagonal(self.ctype)
+            if self.ctype=="int":
+                out.diagonalInt = self.diagonalInt.mul(drf(D.diagonalInt))
+            if self.ctype=="float":
+                out.diagonalFloat = self.diagonalFloat.mul(drf(D.diagonalFloat))
+            if self.ctype=="double":
+                out.diagonalDouble = self.diagonalDouble.mul(drf(D.diagonalDouble))
+            return out
+    
+    def __rand__(self, mioloObject D):
+        if D.ctype!=self.ctype:
+            raise TypeError("Objects must share same ctype.")
+        if isinstance(D,Matrix):
+            if (D.cols!=self.dim):
+                raise Exception("Number of rows must be equal to Diagonal.cols")
+            out = Matrix(self.ctype)
+            if self.ctype=="int":
+                out.mtxInt = self.diagonalInt.rmul(drf(D.mtxInt))
+            if self.ctype=="float":
+                out.mtxFloat = self.diagonalFloat.rmul(drf(D.mtxFloat))
+            if self.ctype=="double":
+                out.mtxDouble = self.diagonalDouble.rmul(drf(D.mtxDouble))
+            return out
+        if isinstance(D,Graph):
+            if (D.nodes!=self.dim):
+                raise Exception("Number of nodes must be equal to Diagonal.cols")
+            out = Digraph(self.ctype)
+            if self.ctype=="int":
+                out.digraphInt = self.diagonalInt.rmul(drf(D.graphInt))
+            if self.ctype=="float":
+                out.digraphFloat = self.diagonalFloat.rmul(drf(D.graphFloat))
+            if self.ctype=="double":
+                out.digraphDouble = self.diagonalDouble.rmul(drf(D.graphDouble))
+            return out
+        if isinstance(D,Digraph):
+            if (D.nodes!=self.dim):
+                raise Exception("Number of nodes must be equal to Diagonal.cols")
+            out = Digraph(self.ctype)
+            if self.ctype=="int":
+                out.digraphInt = self.diagonalInt.rmul(drf(D.digraphInt))
+            if self.ctype=="float":
+                out.digraphFloat = self.diagonalFloat.rmul(drf(D.digraphFloat))
+            if self.ctype=="double":
+                out.digraphDouble = self.diagonalDouble.rmul(drf(D.digraphDouble))
+            return out
+        if isinstance(D,Diagonal):
+            if (D.dim!=self.dim):
+                raise Exception("Dimension of diagonals must be equal.")
+            out = Diagonal(self.ctype)
+            if self.ctype=="int":
+                out.diagonalInt = self.diagonalInt.mul(drf(D.diagonalInt))
+            if self.ctype=="float":
+                out.diagonalFloat = self.diagonalFloat.mul(drf(D.diagonalFloat))
+            if self.ctype=="double":
+                out.diagonalDouble = self.diagonalDouble.mul(drf(D.diagonalDouble))
+            return out
+
+    def __mul__(self, value):
+        out = Diagonal(ctype=self.ctype)
+        if self.ctype=="int":
+            out.diagonalInt = self.diagonalInt.smul(value)
+        if self.ctype=="float":
+            out.diagonalFloat = self.diagonalFloat.smul(value)
+        if self.ctype=="double":
+            out.diagonalDouble = self.diagonalDouble.smul(value)
+        return out
+    
+    def __truediv__(self, value):
+        if (value==0):
+            raise ValueError("Cannot divide by zero.")
+        return self*(1/value)
 
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
