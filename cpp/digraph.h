@@ -32,8 +32,8 @@ public:
 
     T weight(ulong idx){
         for (ulong k=0; k<this->size(); k++){
-            if (this->ngb.idx==idx)
-                return this->ngb.w;
+            if ((*this->nb)[k].idx==idx)
+                return (*this->nb)[k].w;
         }
         return 0;
     }

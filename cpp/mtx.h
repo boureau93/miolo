@@ -44,6 +44,7 @@ public:
     mtx<T>* transpose();
     void flatten(bool rows);
     void reshape(unsigned long rows, unsigned long cols);
+    mtx<T>* cut(bool* targets);
 
     //Algebra
     mtx<T>* add(mtx<T>* A);
@@ -196,6 +197,27 @@ void mtx<T>::reshape(unsigned long rows, unsigned long cols){
     this->cols = cols;
 }
 
+template <typename T>
+mtx<T>* mtx<T>::cut(bool* targets){
+    unsigned long count = 0;
+    for (ulong i=0; i<this->rows; i++){
+        if (targets[i])
+            count++;
+    }
+    mtx<T>* out = new mtx<T>(count,this->cols);
+    if (out->null())
+        return nullptr;
+    unsigned long k=0;
+    for (ulong i=0; i<this->rows; i++){
+        if (targets[i]){
+            for (ulong s=0; s<this->cols; s++){
+                (*out)(k,s) = (*this)(i,s);
+            }
+            k++;
+        }
+    }
+    return out;
+}
 /*------------------------------------------------------------------------------
     Algebra
 ------------------------------------------------------------------------------*/
@@ -260,7 +282,7 @@ mtx<T>* mtx<T>::hmul(mtx<T>* A){
 }
 
 /*------------------------------------------------------------------------------
-    Other operations
+    Other mathematical operations
 ------------------------------------------------------------------------------*/
 
 template <typename T>
@@ -329,6 +351,28 @@ T mtx<T>::sumAll(){
     T out = 0;
     for (ulong k=0; k<this->rows*this->cols; k++){
         out += this->data[k];
+    }
+    return out;
+}
+
+/*------------------------------------------------------------------------------
+    Matrix concatenation
+------------------------------------------------------------------------------*/
+
+template <typename T>
+mtx<T>* concat(mtx<T> A, mtx<T> B){
+    mtx<T>* out = new mtx<T>(A.rows+B.rows,A.cols);
+    if (out->null())
+        return nullptr;
+    for (ulong i=0; i<out->rows; i++){
+        if (i<A.rows)
+            for (ulong s=0; s<out->cols; s++){
+                (*out)(i,s) = A(i,s);
+            }
+        else
+            for (ulong s=0; s<out->cols; s++){
+                (*out)(i,s) = B(i-A.rows,s);
+            }
     }
     return out;
 }

@@ -54,6 +54,7 @@ cdef extern from "cpp/mtx.h":
         void copy(mtx[T]* cp)
         void flatten(bint rows)
         void reshape(unsigned long rows, unsigned long cols)
+        mtx[T]* cut(bint* )
 
         mtx[T]* add(mtx[T]* A)
         mtx[T]* sub(mtx[T]* A)
@@ -70,6 +71,8 @@ cdef extern from "cpp/mtx.h":
 
     mtx[int]* argmax[T](mtx[T]* A)
     mtx[int]* argmin[T](mtx[T]* A)
+
+    mtx[T]* concat[T](mtx[T],mtx[T])
 
 cdef extern from "cpp/graph.h":
 
@@ -169,6 +172,13 @@ cdef extern from "cpp/diagonal.h":
         diagonal[T]* sub(diagonal[T] D)
         diagonal[T]* smul(T value)
 
+cdef extern from "cpp/euclidean.h":
+
+    mtx[T]* mean[T](mtx[T] M)
+    mtx[T]* dot[T](mtx[T] A)
+    mtx[T]* distance[T](mtx[T] A)
+
+
 cdef extern from "cpp/sphere.h":
 
     cdef cppclass sphere[T]:
@@ -195,3 +205,20 @@ cdef extern from "cpp/simplex.h":
         
         bint isIn[T](mtx[T],T)
         bint isTangent[T](mtx[T],mtx[T],T)
+
+cdef extern from "cpp/kmeans.h":
+
+    cdef cppclass kmeans:
+        mtx[bint]* clamped
+        mtx[bint]* labels
+        unsigned long N, q
+
+        kmeans()
+        kmeans(unsigned long, unsigned long)
+        kmeans(mtx[bint]* , unsigned long, unsigned long)
+
+        void clamp(int* targets)
+        mtx[int]* getLabels()
+        void setLabels[T](mtx[T],mtx[T])
+        mtx[T]* groupFeatures[T](mtx[T] data, unsigned long gNum)
+

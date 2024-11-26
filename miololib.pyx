@@ -9,13 +9,55 @@ global_ctype = "float"
 
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
+#   An useful object
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+
+cdef class Booler:
+    """
+        An object for storing boolean matrices.
+        rows: number of rows
+        cols: number of columns
+        init: value for initilization of data
+    """
+
+    cdef mld.mtx[bool]* booler
+
+    def __cinit__(self, unsigned long rows=0, unsigned long cols=1, 
+        bool init=True):
+        if rows!=0 and cols!=0:
+            self.booler = new mld.mtx[bool](rows,cols,init)
+        else:
+            self.booler = NULL
+    
+    def __dealloc__(self):
+        del self.booler
+    
+    @property
+    def rows(self):
+        return self.booler.rows
+    @property
+    def cols(self):
+        return self.booler.cols
+    @property
+    def shape(self):
+        return (self.booler.rows,self.booler.cols)
+    
+    def __call__(self, unsigned long i, unsigned long j):
+        if i<self.booler.rows and j<self.booler.cols:
+            return self.booler.data[i*self.booler.cols+j]
+        else:
+            raise Exception("Index out of range.")
+
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 #   Wrapper for miolo objects
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 
 cdef class mioloObject:
     """
-        A container object for two objects in the miolo library. This is usually
+        A container object for four objects in the miolo library. This is usually
         not useful outside Cython.
     """
     #Matrix
@@ -115,6 +157,11 @@ cdef class Matrix(mioloObject):
         rows: number of rows of Matrix
         cols: number of cols of Matrix
         ctype: underlying C type for Matrix data
+
+        Operators +-*/ are defined between matrices and scalars to replicate 
+        vector space operations. Matrix multiplication is done via the __and__
+        and __rand__ operators (&). Absolute value operator __abs__ is also
+        overloaded and returns the max absolute value of elements of matrix.
     """
 
     cdef object cType
@@ -292,11 +339,11 @@ cdef class Matrix(mioloObject):
         """
             Inplace reshape of a Matrix. Can be done only if rows*cols is equal
             to self.rows*self.cols.
-            NOTE: This only changes a view on the Matrix data. No changes are
+            NOTE: This only changes a 'view' on the Matrix data. No changes are
             made on stored data.
         """
         if self.rows*self.cols!=rows*cols:
-            raise Exception("Invalid new shape")
+            raise Exception("Invalid new shape.")
         if self.ctype=="int":
             self.mtxInt.reshape(rows,cols)
         if self.ctype=="float":
@@ -415,6 +462,9 @@ cdef class Matrix(mioloObject):
     #---------------------------------------------------------------------------
 
     def argmax(self):
+        """
+            Returns the argmax of each row.
+        """
         out = Matrix(ctype="int")
         if self.ctype=="int":
             out.mtxInt = mld.argmax(self.mtxInt)
@@ -425,6 +475,9 @@ cdef class Matrix(mioloObject):
         return out
     
     def argmin(self):
+        """
+            Returns the argmin of each row.
+        """
         out = Matrix(ctype="int")
         if self.ctype=="int":
             out.mtxInt = mld.argmin(self.mtxInt)
@@ -472,6 +525,24 @@ def dot(Matrix A, Matrix B):
     if A.ctype=="double":
         return A.mtxDouble.dot(B.mtxDouble)
 
+def concat(Matrix A, Matrix B):
+    """
+        Concatenates A and B if both have same number of columns and share same
+        ctype. Rowise concatenation is performed.
+    """
+    if A.ctype!=B.ctype:
+        raise TypeError("A and B must have same ctype.")
+    if A.cols!=B.cols:
+        raise Exception("A and B must have same number of columns.")
+    out = Matrix(ctype=A.ctype)
+    if out.ctype=="int":
+        out.mtxInt = mld.concat(drf(A.mtxInt),drf(B.mtxInt))
+    if out.ctype=="float":
+        out.mtxFloat = mld.concat(drf(A.mtxFloat),drf(B.mtxFloat))
+    if out.ctype=="double":
+        out.mtxDouble = mld.concat(drf(A.mtxDouble),drf(B.mtxDouble))
+    return out
+
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 #   Graph
@@ -487,6 +558,11 @@ cdef class Graph(mioloObject):
         nodes: number of nodes in Graph
         edges: number of edges in Graph
         ctype: underlying C type for Graph weights
+
+        Vector space operators +- are defined for graphs with same number of 
+        edges. Multiplication and division by scalar is defined.
+        Matrix multiplication can be done with objects of type Matrix, returning
+        another matrix.
     """
     
     cdef object cType
@@ -796,7 +872,7 @@ cdef class Graph(mioloObject):
             out.graphDouble = self.graphDouble.laplacian()
         return out
     
-    def densify(self):
+    def toMatrix(self):
         """
             Returns a Matrix corresponding to the dense representation of self.
         """
@@ -807,6 +883,19 @@ cdef class Graph(mioloObject):
             out.mtxFloat = self.graphFloat.densify()
         if self.ctype=="double":
             out.mtxDouble = self.graphDouble.densify()
+        return out
+    
+    def toDigraph(self):
+        """
+            Returns a Matrix corresponding to the dense representation of self.
+        """
+        out = Digraph(ctype=self.ctype)
+        if self.ctype=="int":
+            out.digraphInt = mld.toDigraph(drf(self.graphInt))
+        if self.ctype=="float":
+            out.digraphFloat = mld.toDigraph(drf(self.graphFloat))
+        if self.ctype=="double":
+            out.digraphDouble = mld.toDigraph(drf(self.graphDouble))
         return out
 
 #---------------------------------------------------------------------------
@@ -841,7 +930,15 @@ def hadamard(Graph G, Graph H):
 cdef class Digraph(mioloObject):
 
     """
-        A class for directed graphs. 
+        A class for directed graphs.
+
+        nodes: number of nodes in graph
+        ctype: underlying ctype. 
+
+        Vector space operators +- are defined for graphs with same number of 
+        edges. Multiplication and division by scalar is defined.
+        Matrix multiplication can be done with objects of type Matrix, returning
+        another matrix.
     """
 
     cdef object cType
@@ -937,7 +1034,7 @@ cdef class Digraph(mioloObject):
     
     def shape(self):
         """
-            Returns the size number of elements of each row in the adjacency
+            Returns the number of nonzero elements of each row in the adjacency
             matrix.
         """
         cdef unsigned long* view 
@@ -959,6 +1056,9 @@ cdef class Digraph(mioloObject):
         return out
     
     def transpose(self):
+        """
+            Matrix transposition of Digraphs.
+        """
         out = Digraph(ctype=self.ctype)
         if self.ctype=="int":
             out.digraphInt = self.digraphInt.transpose()
@@ -969,6 +1069,9 @@ cdef class Digraph(mioloObject):
         return out
     
     def sameShape(self, Digraph G):
+        """
+            Checks if both Digraphs have the same shapes.
+        """
         cdef unsigned long k, n
         if self.nodes!=G.nodes:
             return False
@@ -979,6 +1082,19 @@ cdef class Digraph(mioloObject):
             if ashape[k]!=gshape[k]:
                 return False
         return True
+    
+    def symmetrize(self):
+        """
+            Returns a Digraph with the symmetrization of self.
+        """
+        out = Digraph(ctype=self.ctype)
+        if self.ctype=="int":
+            out.digraphInt = self.digraphInt.symmetrize()
+        if self.ctype=="float":
+            out.digraphFloat = self.digraphFloat.symmetrize()
+        if self.ctype=="double":
+            out.digraphDouble = self.digraphDouble.symmetrize()
+        return out
     
     #---------------------------------------------------------------------------
     #   Algebra
@@ -1059,10 +1175,14 @@ cdef class Digraph(mioloObject):
 cdef class Diagonal(mioloObject):
 
     """
-        A class for dense matrices. 
+        A class for diagonal matrices. 
         Initializes a C++ object that stores a diagonal matrix.
         dim: dimension of square matrix (number of rows is equal to cols)
-        Elements of can be acessed via the __getitem__ method, ie Diagonal[k]
+        Elements can be acessed via the __getitem__ method, ie Diagonal[k]
+
+        Vector space +- are defined. Scalar multiplication and division are also
+        defined via */ operator. Matrix multiplication can be done for Matrix,
+        Graph and Digraph objects via the & operator.
     """
 
     cdef object cType
@@ -1285,12 +1405,20 @@ cdef class Diagonal(mioloObject):
 #-------------------------------------------------------------------------------
 
 def txtMatrix(filename,ctype=global_ctype):
+    """
+        Loads Matrix from txt file. Uses numpy.
+    """
     m = np.loadtxt(filename)
     out = Matrix(m.shape[0],m.shape[1],0,ctype)
     out.numpy = m
     return out
 
 def txtGraph(filename,ctype=global_ctype):
+    """
+        Loads Graph from txt file. Uses numpy.
+        It is expected a file consisting of rows of triplets (i,j,w), the two
+        first being unsigned integers and w the weight of corresponde edge.
+    """
     g = np.transpose(np.loadtxt(filename))
     max_0 = max(g[0])
     max_1 = max(g[1])
@@ -1303,11 +1431,138 @@ def txtGraph(filename,ctype=global_ctype):
 
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
+#   K-means
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+
+cdef class Kmeans:
+
+    cdef mld.kmeans* wrap
+    cdef Matrix data
+    cdef Matrix center
+
+    def __init__(self, Matrix data, Matrix center, unsigned long q=2, 
+        Booler clamped=None):
+        self.data = data
+        self.center = Matrix(q,self.data.cols,0,ctype=data.ctype)
+        if clamped.shape[1]!=1:
+            raise Exception("clamped must have a single column.")
+        if clamped.shape[0]!=data.rows:
+            raise Exception("clmaped must have same number of rows of data.")
+        if clamped is None:
+            self.wrap = new mld.kmeans(self.data.rows,q)
+        else:
+            self.wrap = new mld.kmeans(clamped.booler,self.data.rows,q)
+
+    @property
+    def numGroups(self):
+        return self.wrap.q
+    
+    def clamp(self, int[:] To):
+        if To.size!=self.data.rows:
+            raise Exception("Length of To must be equal to self.data.rows")
+        if max(To)>=self.numGroups:
+            raise Exception("To entries must not exceed self.numGroups-1")
+        if min(To)<0:
+            raise Exception("To entries cannot be negative.")
+        self.wrap.clamp(&To[0])
+    
+    def getGroups(self):
+        out = Matrix(ctype="int")
+        out.mtxInt = self.wrap.getLabels()
+        return out
+    
+    def setGroups(self):
+        if self.data.ctype=="int":
+            self.wrap.setLabels(drf(self.data.mtxInt),drf(self.center.mtxInt))
+        if self.data.ctype=="float":
+            self.wrap.setLabels(drf(self.data.mtxFloat),drf(self.center.mtxFloat))
+        if self.data.ctype=="double":
+            self.wrap.setLabels(drf(self.data.mtxDouble),drf(self.center.mtxDouble))
+    
+    def groupFeatures(self, groupNum):
+        out = Matrix(ctype=self.data.ctype)
+        if groupNum<0 or groupNum>self.numGroups:
+            raise Exception("Invalid groupNum.")
+        if self.data.ctype=="int":
+            out.mtxInt = self.wrap.groupFeatures(drf(self.data.mtxInt),groupNum)
+        if self.data.ctype=="float":
+            out.mtxFloat = self.wrap.groupFeatures(drf(self.data.mtxFloat),groupNum)
+        if self.data.ctype=="double":
+            out.mtxDouble = self.wrap.groupFeatures(drf(self.data.mtxDouble),groupNum)
+        return out
+    
+    def train(self, tmax=1000, eps=0.005, Manifold embedding=Euclidean()):
+        t = 0
+        delta = 1+eps
+        while t<tmax and delta>eps:
+            self.setGroups()
+            for k in range(self.numGroups):
+                F = self.groupFeatures(k)
+                if k==0:
+                    M = embedding.mean(F)
+                else:
+                    M = concat(M,embedding.mean(F))
+            delta = abs(self.center-M)
+            self.center = M
+        return t
+
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 #   Manifolds
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 
-cdef class Sphere:
+cdef class Manifold:
+    pass
+
+cdef class Euclidean(Manifold):
+    
+    def __init__(self):
+        pass
+    
+    def dot(self, Matrix A):
+        """
+            Dot product between rows of A. This is different from miolo.dot, 
+            that computes the frobenius dot product between matrices.
+        """
+        out = Matrix(A.ctype)
+        if out.ctype=="int":
+            out.mtxInt = mld.dot(drf(A.mtxInt))
+        if out.ctype=="float":
+            out.mtxFloat = mld.dot(drf(A.mtxFloat))
+        if out.ctype=="double":
+            out.mtxDouble = mld.dot(drf(A.mtxDouble))
+        return out
+
+    def distance(self, Matrix A):
+        """
+            Euclidean distance between rows of A.
+        """
+        out = Matrix(A.ctype)
+        if out.ctype=="int":
+            out.mtxInt = mld.distance(drf(A.mtxInt))
+        if out.ctype=="float":
+            out.mtxFloat = mld.distance(drf(A.mtxFloat))
+        if out.ctype=="double":
+            out.mtxDouble = mld.distance(drf(A.mtxDouble))
+        return out
+
+    def mean(self, Matrix A):
+        """
+            Returns a row Matrix which is the arithmetic average of rows of A.
+        """
+        out = Matrix(A.ctype)
+        if out.ctype=="int":
+            out.mtxInt = mld.mean(drf(A.mtxInt))
+        if out.ctype=="float":
+            out.mtxFloat = mld.mean(drf(A.mtxFloat))
+        if out.ctype=="double":
+            out.mtxDouble = mld.mean(drf(A.mtxDouble))
+        return out
+    
+cdef class Sphere(Manifold):
+
     """
         This class treats each row of a Matrix as a unit sphere. Therefore, it
         views a Matrix as the product manifold of Matrix.rows unit spheres 
@@ -1423,59 +1678,3 @@ cdef class Sphere:
             return self.sphereFloat.isTangent(drf(at.mtxFloat),drf(M.mtxFloat),<float>tolerance)
         if M.ctype=="double":
             return self.sphereDouble.isTangent(drf(at.mtxDouble),drf(M.mtxDouble),tolerance)
-
-cdef class Simplex:
-    """
-        This class treats each row of a Matrix as a simplex. Therefore, it
-        views a Matrix as the product manifold of Matrix.rows unit simplexes 
-        embedded in the euclidean space of dimension Matrix.cols.
-    """
-
-    cdef mld.simplex sp
-    
-    def softmaxRetraction(self, Matrix at, Matrix M):
-        """
-            A retraction based on the softmax function.
-        """
-        out = Matrix(ctype=M.ctype)
-        if M.ctype=="int":
-            out.mtxInt = self.sp.softmaxRetraction(drf(at.mtxInt),drf(M.mtxInt))
-        if M.ctype=="float":
-            out.mtxFloat = self.sp.softmaxRetraction(drf(at.mtxFloat),drf(M.mtxFloat))
-        if M.ctype=="double":
-            out.mtxDouble = self.sp.softmaxRetraction(drf(at.mtxDouble),drf(M.mtxDouble))
-        return out
-    
-    def tangentProjection(self, Matrix at, Matrix M):
-        """
-            Returns the matrix for which each row r is the projection of the 
-            r-th row in M onto the tangent space of the r-th row of at.
-        """
-        out = Matrix(ctype=M.ctype)
-        if M.ctype=="int":
-            out.mtxInt = self.sp.tangentProjection(drf(at.mtxInt),drf(M.mtxInt))
-        if M.ctype=="float":
-            out.mtxFloat = self.sp.tangentProjection(drf(at.mtxFloat),drf(M.mtxFloat))
-        if M.ctype=="double":
-            out.mtxDouble = self.sp.tangentProjection(drf(at.mtxDouble),drf(M.mtxDouble))
-        return out
-    
-    def isIn(self, Matrix M, double tolerance=0.001):
-        if M.ctype=="int":
-            return self.sp.isIn(drf(M.mtxInt),<int>tolerance)
-        if M.ctype=="float":
-            return self.sp.isIn(drf(M.mtxFloat),<float>tolerance)
-        if M.ctype=="double":
-            return self.sp.isIn(drf(M.mtxDouble),tolerance)
-    
-    def isTangent(self, Matrix at, Matrix M, double tolerance=0.001):
-        if at.rows!=M.rows or at.cols!=M.cols:
-            raise Exception("at and M must have same shape.")
-        if at.ctype!=M.ctype:
-            raise TypeError("at and M must have same ctype.")
-        if M.ctype=="int":
-            return self.sp.isTangent(drf(at.mtxInt),drf(M.mtxInt),<int>tolerance)
-        if M.ctype=="float":
-            return self.sp.isTangent(drf(at.mtxFloat),drf(M.mtxFloat),<float>tolerance)
-        if M.ctype=="double":
-            return self.sp.isTangent(drf(at.mtxDouble),drf(M.mtxDouble),tolerance)
