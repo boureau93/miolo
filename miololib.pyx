@@ -194,6 +194,19 @@ cdef class Matrix(mioloObject):
             del self.mtxFloat
         if self.ctype=="double":
             del self.mtxDouble
+    
+    @property
+    def null(self):
+        if not self.isMatrix():
+            raise Warning("Null matrix in use.")
+        else:
+            if self.mtxInt is not NULL and self.mtxInt.null():
+                raise Warning("Null matrix in use.")
+            if self.mtxFloat is not NULL and self.mtxFloat.null():
+                raise Warning("Null matrix in use.")
+            if self.mtxDouble is not NULL and self.mtxDouble.null():
+                raise Warning("Null matrix in use.")
+            return False
 
     @property
     def ctype(self):
@@ -201,6 +214,8 @@ cdef class Matrix(mioloObject):
     
     @property
     def rows(self):
+        if self.null:
+            pass
         if self.ctype=="int":
             return self.mtxInt.rows
         if self.ctype=="float":
@@ -210,6 +225,8 @@ cdef class Matrix(mioloObject):
     
     @property
     def cols(self):
+        if self.null:
+            pass
         if self.ctype=="int":
             return self.mtxInt.cols
         if self.ctype=="float":
@@ -246,15 +263,15 @@ cdef class Matrix(mioloObject):
         if self.ctype == "int":
             for i in range(self.mtxInt.rows):
                 for j in range(self.mtxInt.cols):
-                    self.mtxInt.data[i*self.mtxInt.cols+j] = data[i][j]
+                    self.mtxInt.data[i*self.mtxInt.cols+j] = <int>data[i][j]
         if self.ctype == "float":
             for i in range(self.mtxFloat.rows):
                 for j in range(self.mtxFloat.cols):
-                    self.mtxFloat.data[i*self.mtxFloat.cols+j] = data[i][j]
+                    self.mtxFloat.data[i*self.mtxFloat.cols+j] = <float>data[i][j]
         if self.ctype == "double":
             for i in range(self.mtxDouble.rows):
                 for j in range(self.mtxDouble.cols):
-                    self.mtxDouble.data[i*self.mtxDouble.cols+j] = data[i][j]
+                    self.mtxDouble.data[i*self.mtxDouble.cols+j] = <double>data[i][j]
 
     def __len__(self):
         return self.rows*self.cols
@@ -290,6 +307,14 @@ cdef class Matrix(mioloObject):
             self.mtxFloat.copy(M.mtxFloat)
         if self.ctype=="double":
             self.mtxDouble.copy(M.mtxDouble)
+    
+    def print(self):
+        if self.ctype=="int":
+            self.mtxInt.print()
+        if self.ctype=="float":
+            self.mtxFloat.print()
+        if self.ctype=="double":
+            self.mtxDouble.print()
 
     #---------------------------------------------------------------------------
     #   Other useful stuff
@@ -534,6 +559,10 @@ def concat(Matrix A, Matrix B):
         raise TypeError("A and B must have same ctype.")
     if A.cols!=B.cols:
         raise Exception("A and B must have same number of columns.")
+    if A.null:
+        return B
+    if B.null:
+        return A
     out = Matrix(ctype=A.ctype)
     if out.ctype=="int":
         out.mtxInt = mld.concat(drf(A.mtxInt),drf(B.mtxInt))
@@ -1435,78 +1464,27 @@ def txtGraph(filename,ctype=global_ctype):
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 
-cdef class Kmeans:
+cdef class KmeansUtil:
 
-    cdef mld.kmeans* wrap
-    cdef Matrix data
-    cdef Matrix center
+    cdef mld.kmeans util
 
-    def __init__(self, Matrix data, Matrix center, unsigned long q=2, 
-        Booler clamped=None):
-        self.data = data
-        self.center = Matrix(q,self.data.cols,0,ctype=data.ctype)
-        if clamped.shape[1]!=1:
-            raise Exception("clamped must have a single column.")
-        if clamped.shape[0]!=data.rows:
-            raise Exception("clmaped must have same number of rows of data.")
-        if clamped is None:
-            self.wrap = new mld.kmeans(self.data.rows,q)
-        else:
-            self.wrap = new mld.kmeans(clamped.booler,self.data.rows,q)
-
-    @property
-    def numGroups(self):
-        return self.wrap.q
-    
-    def clamp(self, int[:] To):
-        if To.size!=self.data.rows:
-            raise Exception("Length of To must be equal to self.data.rows")
-        if max(To)>=self.numGroups:
-            raise Exception("To entries must not exceed self.numGroups-1")
-        if min(To)<0:
-            raise Exception("To entries cannot be negative.")
-        self.wrap.clamp(&To[0])
-    
-    def getGroups(self):
-        out = Matrix(ctype="int")
-        out.mtxInt = self.wrap.getLabels()
+    def centroidDistance(self, Matrix data, Matrix center):
+        if data.ctype!=center.ctype:
+            raise TypeError("data and center must shares same ctype.")
+        if data.cols!=center.cols:
+            raise TypeError("data and center must have same number of columns")
+        out = Matrix(ctype=data.ctype)
+        if data.ctype=="int":
+            out.mtxInt = self.util.centroidDistance(
+                drf(data.mtxInt),drf(center.mtxInt))
+        if data.ctype=="float":
+            out.mtxFloat = self.util.centroidDistance(
+                drf(data.mtxFloat),drf(center.mtxFloat))
+        if data.ctype=="double":
+            out.mtxDouble = self.util.centroidDistance(
+                drf(data.mtxDouble),drf(center.mtxDouble))
         return out
     
-    def setGroups(self):
-        if self.data.ctype=="int":
-            self.wrap.setLabels(drf(self.data.mtxInt),drf(self.center.mtxInt))
-        if self.data.ctype=="float":
-            self.wrap.setLabels(drf(self.data.mtxFloat),drf(self.center.mtxFloat))
-        if self.data.ctype=="double":
-            self.wrap.setLabels(drf(self.data.mtxDouble),drf(self.center.mtxDouble))
-    
-    def groupFeatures(self, groupNum):
-        out = Matrix(ctype=self.data.ctype)
-        if groupNum<0 or groupNum>self.numGroups:
-            raise Exception("Invalid groupNum.")
-        if self.data.ctype=="int":
-            out.mtxInt = self.wrap.groupFeatures(drf(self.data.mtxInt),groupNum)
-        if self.data.ctype=="float":
-            out.mtxFloat = self.wrap.groupFeatures(drf(self.data.mtxFloat),groupNum)
-        if self.data.ctype=="double":
-            out.mtxDouble = self.wrap.groupFeatures(drf(self.data.mtxDouble),groupNum)
-        return out
-    
-    def train(self, tmax=1000, eps=0.005, Manifold embedding=Euclidean()):
-        t = 0
-        delta = 1+eps
-        while t<tmax and delta>eps:
-            self.setGroups()
-            for k in range(self.numGroups):
-                F = self.groupFeatures(k)
-                if k==0:
-                    M = embedding.mean(F)
-                else:
-                    M = concat(M,embedding.mean(F))
-            delta = abs(self.center-M)
-            self.center = M
-        return t
-
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 #   Manifolds
@@ -1526,7 +1504,7 @@ cdef class Euclidean(Manifold):
             Dot product between rows of A. This is different from miolo.dot, 
             that computes the frobenius dot product between matrices.
         """
-        out = Matrix(A.ctype)
+        out = Matrix(ctype=A.ctype)
         if out.ctype=="int":
             out.mtxInt = mld.dot(drf(A.mtxInt))
         if out.ctype=="float":
@@ -1539,7 +1517,7 @@ cdef class Euclidean(Manifold):
         """
             Euclidean distance between rows of A.
         """
-        out = Matrix(A.ctype)
+        out = Matrix(ctype=A.ctype)
         if out.ctype=="int":
             out.mtxInt = mld.distance(drf(A.mtxInt))
         if out.ctype=="float":
@@ -1552,7 +1530,7 @@ cdef class Euclidean(Manifold):
         """
             Returns a row Matrix which is the arithmetic average of rows of A.
         """
-        out = Matrix(A.ctype)
+        out = Matrix(ctype=A.ctype)
         if out.ctype=="int":
             out.mtxInt = mld.mean(drf(A.mtxInt))
         if out.ctype=="float":

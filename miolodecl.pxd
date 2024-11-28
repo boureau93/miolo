@@ -46,6 +46,8 @@ cdef extern from "cpp/mtx.h":
 
         bint null()
         void wrap(mtx[T]* target)
+
+        void print()
         
         T& operator()(unsigned long i, unsigned long j)
         T& operator[](unsigned long k)
@@ -209,16 +211,4 @@ cdef extern from "cpp/simplex.h":
 cdef extern from "cpp/kmeans.h":
 
     cdef cppclass kmeans:
-        mtx[bint]* clamped
-        mtx[bint]* labels
-        unsigned long N, q
-
-        kmeans()
-        kmeans(unsigned long, unsigned long)
-        kmeans(mtx[bint]* , unsigned long, unsigned long)
-
-        void clamp(int* targets)
-        mtx[int]* getLabels()
-        void setLabels[T](mtx[T],mtx[T])
-        mtx[T]* groupFeatures[T](mtx[T] data, unsigned long gNum)
-
+        mtx[T]* centroidDistance[T](mtx[T]& data, mtx[T]& center)

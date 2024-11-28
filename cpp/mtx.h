@@ -37,8 +37,8 @@ public:
         return this->data[k];
     }
 
-    //Copy
-    void operator=(mtx<T> cp);
+    void print();
+
     void copy(mtx<T>* cp);
 
     mtx<T>* transpose();
@@ -116,19 +116,6 @@ mtx<T>::~mtx(){
 /*------------------------------------------------------------------------------
     Misc
 ------------------------------------------------------------------------------*/
-
-template <typename T>
-void mtx<T>::operator=(mtx<T> cp){
-    if (this->rows!=cp.rows || this->cols!=cp.cols){
-        if (this->data!=nullptr)
-            delete[] this->data;
-        this->data = new T[cp.rows*cp.cols];
-        this->rows = cp.rows; this->cols = cp.cols;
-    }
-    for (ulong k=0; k>this->rows*this->cols; k++){
-            this->data[k] = cp.data[k];
-    }
-}
 
 template <typename T>
 void mtx<T>::copy(mtx<T>* cp){
@@ -218,6 +205,20 @@ mtx<T>* mtx<T>::cut(bool* targets){
     }
     return out;
 }
+
+template <typename T>
+void mtx<T>::print(){
+    if (this->null())
+        return;
+    for (ulong i=0; i<this->rows; i++){
+        cout << "[ ";
+        for (ulong j=0; j<this->cols; j++){
+            cout << this->data[i*this->cols+j] << " ";
+        }
+        cout << "]"<< endl;
+    }
+}
+
 /*------------------------------------------------------------------------------
     Algebra
 ------------------------------------------------------------------------------*/
