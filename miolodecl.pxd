@@ -53,7 +53,8 @@ cdef extern from "cpp/mtx.h":
         T& operator[](unsigned long k)
 
         mtx[T]* transpose()
-        void copy(mtx[T]* cp)
+        void copy(mtx[T]& cp)
+        void copy(mtx[T]& cp, unsigned long* only, unsigned long lenOnly);
         void flatten(bint rows)
         void reshape(unsigned long rows, unsigned long cols)
         mtx[T]* cut(bint* )
@@ -176,9 +177,10 @@ cdef extern from "cpp/diagonal.h":
 
 cdef extern from "cpp/euclidean.h":
 
-    mtx[T]* mean[T](mtx[T] M)
-    mtx[T]* dot[T](mtx[T] A)
-    mtx[T]* distance[T](mtx[T] A)
+    cdef cppclass euclidean:
+        mtx[T]* mean[T](mtx[T] M)
+        mtx[T]* dot[T](mtx[T] A)
+        mtx[T]* distance[T](mtx[T] A)
 
 
 cdef extern from "cpp/sphere.h":
@@ -187,16 +189,16 @@ cdef extern from "cpp/sphere.h":
         
         T r
 
-        mtx[T]* stereographicProjection(mtx[T] M)
-        mtx[T]* tangentProjection(mtx[T] base, mtx[T] M)
+        mtx[T]* stereographicProjection(mtx[T]& M)
+        mtx[T]* tangentProjection(mtx[T]& base, mtx[T]& M)
 
-        mtx[T]* fromEuclidean(mtx[T] M)
-        mtx[T]* toEuclidean(mtx[T] M)
+        mtx[T]* fromEuclidean(mtx[T]& M)
+        mtx[T]* toEuclidean(mtx[T]& M)
 
-        mtx[T]* distance(mtx[T] M)
+        mtx[T]* distance(mtx[T]& M)
 
-        bint isIn(mtx[T],T)
-        bint isTangent(mtx[T],mtx[T],T)
+        bint isIn(mtx[T]&,T)
+        bint isTangent(mtx[T]&,mtx[T]&,T)
 
 cdef extern from "cpp/simplex.h":
 
@@ -211,4 +213,5 @@ cdef extern from "cpp/simplex.h":
 cdef extern from "cpp/kmeans.h":
 
     cdef cppclass kmeans:
-        mtx[T]* centroidDistance[T](mtx[T]& data, mtx[T]& center)
+        mtx[T]* euclideanCentroidDistance[T](mtx[T]& data, mtx[T]& center)
+        mtx[T]* euclideanCentroid[T](mtx[T]& data, mtx[int]& labels)

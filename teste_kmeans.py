@@ -6,12 +6,22 @@ from os import listdir
 import matplotlib.pyplot as plt
 import time
 
-mlo.global_ctype="double"
+X = mlo.txtMatrix("gauss/xgauss.dat")
+y = np.loadtxt("gauss/ygauss.dat")
 
-X = mlo.txtMatrix("gauss/xgauss.dat",ctype="double")
-C = mlo.Matrix(2,2,ctype="double")
-C.numpy = np.array([[-1.,-1.],[1.,1.]],dtype=np.float64)
-C.print()
-K = mlo.KmeansUtil()
-P = K.centroidDistance(X,C)
-P.print()
+C = mlo.Matrix(2,2)
+C.numpy = [[-0.1,1],[0.2,-0.1]]
+
+kmeans = models.Kmeans(X,C)
+
+def randIndex():
+    return rand_score(kmeans.labels.numpy.reshape(5000),y)
+
+track = [randIndex]
+
+t, tracked = kmeans.train(tmax=5,track=track)
+
+print(tracked)
+
+plt.plot(tracked[0])
+plt.show()

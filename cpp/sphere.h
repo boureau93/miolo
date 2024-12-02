@@ -7,22 +7,22 @@ public:
     
     T r; //radius
 
-    mtx<T>* stereographicProjection(mtx<T> M);
-    mtx<T>* tangentProjection(mtx<T> base, mtx<T> M);
+    mtx<T>* stereographicProjection(mtx<T>& M);
+    mtx<T>* tangentProjection(mtx<T>& base, mtx<T>& M);
 
-    mtx<T>* distance(mtx<T> M);
+    mtx<T>* distance(mtx<T>& M);
     T distance(T); 
 
-    mtx<T>* fromEuclidean(mtx<T> M);
-    mtx<T>* toEuclidean(mtx<T> M);
+    mtx<T>* fromEuclidean(mtx<T>& M);
+    mtx<T>* toEuclidean(mtx<T>& M);
 
-    bool isIn(mtx<T> M, T tolerance);
+    bool isIn(mtx<T>& M, T tolerance);
 
-    bool isTangent(mtx<T> at, mtx<T> M, T tolerance);
+    bool isTangent(mtx<T>& at, mtx<T>& M, T tolerance);
 };
 
 template <typename T>
-mtx<T>* sphere<T>::stereographicProjection(mtx<T> M){
+mtx<T>* sphere<T>::stereographicProjection(mtx<T>& M){
     mtx<T>* out = new mtx<T>(M.rows,M.cols);
     for (ulong i=0; i<M.rows; i++){
         T z = 0;
@@ -44,7 +44,7 @@ mtx<T>* sphere<T>::stereographicProjection(mtx<T> M){
 }
 
 template <typename T>
-mtx<T>* sphere<T>::tangentProjection(mtx<T> base, mtx<T> M){
+mtx<T>* sphere<T>::tangentProjection(mtx<T>& base, mtx<T>& M){
     mtx<T>* out = new mtx<T>(base.rows,base.cols);
     if (out->null())
         return nullptr;
@@ -59,7 +59,7 @@ mtx<T>* sphere<T>::tangentProjection(mtx<T> base, mtx<T> M){
 }
 
 template <typename T>
-mtx<T>* sphere<T>::fromEuclidean(mtx<T> M){
+mtx<T>* sphere<T>::fromEuclidean(mtx<T>& M){
     mtx<T>* out = new mtx<T>(M.rows,M.cols+1,this->r);
     if (out->null())
         return nullptr;
@@ -77,7 +77,7 @@ mtx<T>* sphere<T>::fromEuclidean(mtx<T> M){
 }
 
 template <typename T>
-mtx<T>* sphere<T>::toEuclidean(mtx<T> M){
+mtx<T>* sphere<T>::toEuclidean(mtx<T>& M){
     mtx<T>* out = new mtx<T>(M.rows,M.cols-1.1);
     if (out->null())
         return nullptr;
@@ -91,7 +91,7 @@ mtx<T>* sphere<T>::toEuclidean(mtx<T> M){
 }
 
 template <typename T>
-bool sphere<T>::isIn(mtx<T> M, T tolerance){
+bool sphere<T>::isIn(mtx<T>& M, T tolerance){
     for (ulong i=0; i<M.rows; i++){
         T sum = 0;
         for (ulong j=0; j<M.cols; j++){
@@ -104,7 +104,7 @@ bool sphere<T>::isIn(mtx<T> M, T tolerance){
 }
 
 template <typename T>
-bool sphere<T>::isTangent(mtx<T> at, mtx<T> M, T tolerance){
+bool sphere<T>::isTangent(mtx<T>& at, mtx<T>& M, T tolerance){
     for (ulong i=0; i<at.rows; i++){
         T sum = 0;
         for (ulong j=0; j<at.cols; j++){
@@ -117,7 +117,7 @@ bool sphere<T>::isTangent(mtx<T> at, mtx<T> M, T tolerance){
 }
 
 template <typename T>
-mtx<T>* sphere<T>::distance(mtx<T> M){
+mtx<T>* sphere<T>::distance(mtx<T>& M){
     mtx<T>* out = new mtx<T>(M.rows,M.rows);
     if (out->null())
         return nullptr;

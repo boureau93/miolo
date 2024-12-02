@@ -39,7 +39,8 @@ public:
 
     void print();
 
-    void copy(mtx<T>* cp);
+    void copy(mtx<T>& cp);
+    void copy(mtx<T>& cp, ulong* only, ulong lenOnly);
 
     mtx<T>* transpose();
     void flatten(bool rows);
@@ -52,6 +53,9 @@ public:
     mtx<T>* mmul(mtx<T>* A);
     mtx<T>* smul(T value);
     mtx<T>* hmul(mtx<T>* value);
+
+    T max(); 
+    T min();
 
     T dot(mtx<T>* A);
     void normalize();
@@ -118,14 +122,24 @@ mtx<T>::~mtx(){
 ------------------------------------------------------------------------------*/
 
 template <typename T>
-void mtx<T>::copy(mtx<T>* cp){
-    if (this->rows!=cp->rows || this->cols!=cp->cols)
+void mtx<T>::copy(mtx<T>& cp){
+    if (this->rows!=cp.rows || this->cols!=cp.cols)
         return;
     for (ulong k=0; k<this->rows*this->cols; k++){
-        this->data[k] = cp->data[k];
+        this->data[k] = cp.data[k];
     }
 }
 
+template <typename T>
+void mtx<T>::copy(mtx<T>& cp, ulong* only, ulong lenOnly){
+    if (this->rows!=cp.rows || this->cols!=cp.cols)
+        return;
+    for (ulong k=0; k<lenOnly; k++){
+        for (ulong s=0; s<this->cols; s++){
+            (*this)(only[k],s) = cp(only[k],s);
+        }
+    }
+}
 template <typename T>
 mtx<T>* mtx<T>::transpose(){
     mtx<T>* out = new mtx<T>(this->cols,this->rows);
@@ -137,8 +151,30 @@ mtx<T>* mtx<T>::transpose(){
 }
 
 template <typename T>
+T mtx<T>::max(){
+    T out = this->data[0];
+    for (ulong k=1; k<this->rows*this->cols; k++){
+        if (out<this->data[k])
+            out = this->data[k];
+    }
+    return out;
+}
+
+template <typename T>
+T mtx<T>::min(){
+    T out = this->data[0];
+    for (ulong k=1; k<this->rows*this->cols; k++){
+        if (out>this->data[k])
+            out = this->data[k];
+    }
+    return out;
+}
+
+template <typename T>
 mtx<int>* argmax(mtx<T>* A){
     mtx<int>* out = new mtx<int>(A->rows,1);
+    if (out->null())
+        return nullptr;
     for (ulong i=0; i<A->rows; i++){
         int max = 0;
         for (ulong j=1; j<A->cols; j++){
@@ -154,6 +190,8 @@ mtx<int>* argmax(mtx<T>* A){
 template <typename T>
 mtx<int>* argmin(mtx<T>* A){
     mtx<int>* out = new mtx<int>(A->rows,1);
+    if (out->null())
+        return nullptr;
     for (ulong i=0; i<A->rows; i++){
         int min = 0;
         for (ulong j=1; j<A->cols; j++){

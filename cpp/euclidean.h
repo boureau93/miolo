@@ -1,8 +1,19 @@
 #include "mtx.h"
 #include <cmath>
 
+class euclidean{
+public:
+
+    template <typename T>
+    mtx<T>* mean(mtx<T>& M);
+    template <typename T>
+    mtx<T>* dot(mtx<T>& M);
+    template <typename T>
+    mtx<T>* distance(mtx<T>& M);
+};
+
 template <typename T>
-mtx<T>* mean(mtx<T> M){
+mtx<T>* euclidean::mean(mtx<T>& M){
     mtx<T>* out = new mtx<T>(1,M.cols,0);
     if (out->null())
         return nullptr;
@@ -17,7 +28,7 @@ mtx<T>* mean(mtx<T> M){
 }
 
 template <typename T>
-mtx<T>* dot(mtx<T> A){
+mtx<T>* euclidean::dot(mtx<T>& A){
     mtx<T>* out = new mtx<T>(A.rows,A.rows);
     if (out->null())
         return nullptr;
@@ -33,7 +44,7 @@ mtx<T>* dot(mtx<T> A){
 }
 
 template <typename T>
-mtx<T>* distance(mtx<T> A){
+mtx<T>* euclidean::distance(mtx<T>& A){
     mtx<T>* out = new mtx<T>(A.rows,A.rows);
     if (out->null())
         return nullptr;

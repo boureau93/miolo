@@ -296,17 +296,33 @@ cdef class Matrix(mioloObject):
         if self.ctype=="double":
             self.mtxDouble.data[k] = value
     
-    def copy(self, Matrix M):
+    def copy(self, Matrix M, unsigned long[:] only=None):
+        """
+            Copies M into self if both have same shape.
+            only: if not None, copies only rows in only.
+        """
+        cdef unsigned long n
         if M.rows!=self.rows or M.cols!=self.cols:
             raise Exception("Matrices must have same shape.")
         if self.ctype!=M.ctype:
             raise TypeError("Matrices must share same ctype.")
-        if self.ctype=="int":
-            self.mtxInt.copy(M.mtxInt)
-        if self.ctype=="float":
-            self.mtxFloat.copy(M.mtxFloat)
-        if self.ctype=="double":
-            self.mtxDouble.copy(M.mtxDouble)
+        if only is None:
+            if self.ctype=="int":
+                self.mtxInt.copy(drf(M.mtxInt))
+            if self.ctype=="float":
+                self.mtxFloat.copy(drf(M.mtxFloat))
+            if self.ctype=="double":
+                self.mtxDouble.copy(drf(M.mtxDouble))
+        else:
+            if np.max(only)+1>self.rows:
+                raise Exception("Entries of only exceed self.rows.")
+            n = only.size
+            if self.ctype=="int":
+                self.mtxInt.copy(drf(M.mtxInt),&only[0],n)
+            if self.ctype=="float":
+                self.mtxFloat.copy(drf(M.mtxFloat),&only[0],n)
+            if self.ctype=="double":
+                self.mtxDouble.copy(drf(M.mtxDouble),&only[0],n)
     
     def print(self):
         if self.ctype=="int":
@@ -359,7 +375,6 @@ cdef class Matrix(mioloObject):
         if self.ctype=="int":
             self.mtxDouble.flatten(rows)
     
-    
     def reshape(self, unsigned long rows, unsigned long cols):
         """
             Inplace reshape of a Matrix. Can be done only if rows*cols is equal
@@ -387,15 +402,15 @@ cdef class Matrix(mioloObject):
             raise Exception("Incompatible shape for Matrix addition.")
         if self.ctype=="int":
             out = Matrix(ctype="int")
-            out.mtxInt.wrap(self.mtxInt.add(A.mtxInt))
+            out.mtxInt = self.mtxInt.add(A.mtxInt)
             return out
         if self.ctype=="float":
             out = Matrix(ctype="float")
-            out.mtxFloat.wrap(self.mtxFloat.add(A.mtxFloat))
+            out.mtxFloat = self.mtxFloat.add(A.mtxFloat)
             return out
         if self.ctype=="double":
             out = Matrix(ctype="double")
-            out.mtxDouble.wrap(self.mtxDouble.add(A.mtxDouble))
+            out.mtxDouble = self.mtxDouble.add(A.mtxDouble)
             return out
     
     def __sub__(self, Matrix A):
@@ -405,15 +420,15 @@ cdef class Matrix(mioloObject):
             raise Exception("Incompatible shape for Matrix subtraction.")
         if self.ctype=="int":
             out = Matrix(ctype="int")
-            out.mtxInt.wrap(self.mtxInt.sub(A.mtxInt))
+            out.mtxInt = self.mtxInt.sub(A.mtxInt)
             return out
         if self.ctype=="float":
             out = Matrix(ctype="float")
-            out.mtxFloat.wrap(self.mtxFloat.sub(A.mtxFloat))
+            out.mtxFloat = self.mtxFloat.sub(A.mtxFloat)
             return out
         if self.ctype=="double":
             out = Matrix(ctype="double")
-            out.mtxDouble.wrap(self.mtxDouble.sub(A.mtxDouble))
+            out.mtxDouble = self.mtxDouble.sub(A.mtxDouble)
             return out
     
     def __mul__(self, value):
@@ -445,15 +460,15 @@ cdef class Matrix(mioloObject):
             raise Exception("Incompatible shape for Matrix product.")
         if self.ctype=="int":
             out = Matrix(ctype="int")
-            out.mtxInt.wrap(self.mtxInt.mmul(A.mtxInt))
+            out.mtxInt = self.mtxInt.mmul(A.mtxInt)
             return out
         if self.ctype=="float":
             out = Matrix(ctype="float")
-            out.mtxFloat.wrap(self.mtxFloat.mmul(A.mtxFloat))
+            out.mtxFloat = self.mtxFloat.mmul(A.mtxFloat)
             return out
         if self.ctype=="double":
             out = Matrix(ctype="double")
-            out.mtxDouble.wrap(self.mtxDouble.mmul(A.mtxDouble))
+            out.mtxDouble = self.mtxDouble.mmul(A.mtxDouble)
             return out
 
     def __mod__(self, Matrix A):
@@ -463,15 +478,15 @@ cdef class Matrix(mioloObject):
             raise Exception("Incompatible shape for Hadamard product.")
         if self.ctype=="int":
             out = Matrix(ctype="int")
-            out.mtxInt.wrap(self.mtxInt.hmul(A.mtxInt))
+            out.mtxInt = self.mtxInt.hmul(A.mtxInt)
             return out
         if self.ctype=="float":
             out = Matrix(ctype="float")
-            out.mtxFloat.wrap(self.mtxFloat.hmul(A.mtxFloat))
+            out.mtxFloat = (self.mtxFloat.hmul(A.mtxFloat))
             return out
         if self.ctype=="double":
             out = Matrix(ctype="double")
-            out.mtxDouble.wrap(self.mtxDouble.hmul(A.mtxDouble))
+            out.mtxDouble = (self.mtxDouble.hmul(A.mtxDouble))
             return out
     
     def __abs__(self):
@@ -1468,21 +1483,38 @@ cdef class KmeansUtil:
 
     cdef mld.kmeans util
 
-    def centroidDistance(self, Matrix data, Matrix center):
+    def euclideanCentroidDistance(self, Matrix data, Matrix center):
         if data.ctype!=center.ctype:
             raise TypeError("data and center must shares same ctype.")
         if data.cols!=center.cols:
             raise TypeError("data and center must have same number of columns")
         out = Matrix(ctype=data.ctype)
         if data.ctype=="int":
-            out.mtxInt = self.util.centroidDistance(
+            out.mtxInt = self.util.euclideanCentroidDistance(
                 drf(data.mtxInt),drf(center.mtxInt))
         if data.ctype=="float":
-            out.mtxFloat = self.util.centroidDistance(
+            out.mtxFloat = self.util.euclideanCentroidDistance(
                 drf(data.mtxFloat),drf(center.mtxFloat))
         if data.ctype=="double":
-            out.mtxDouble = self.util.centroidDistance(
+            out.mtxDouble = self.util.euclideanCentroidDistance(
                 drf(data.mtxDouble),drf(center.mtxDouble))
+        return out
+    
+    def euclideanCentroid(self, Matrix data, Matrix labels):
+        if labels.ctype!="int":
+            raise TypeError("labels must have int ctype.")
+        if labels.rows!=data.rows:
+            raise Exception("data and labels must have same number of rows")
+        out = Matrix(ctype=data.ctype)
+        if out.ctype=="int":
+            out.mtxInt = self.util.euclideanCentroid(
+                drf(data.mtxInt),drf(labels.mtxInt))
+        if out.ctype=="float":
+            out.mtxFloat = self.util.euclideanCentroid(
+                drf(data.mtxFloat),drf(labels.mtxInt))
+        if out.ctype=="double":
+            out.mtxDouble = self.util.euclideanCentroid(
+                drf(data.mtxDouble),drf(labels.mtxInt))
         return out
     
 #-------------------------------------------------------------------------------
@@ -1495,6 +1527,8 @@ cdef class Manifold:
     pass
 
 cdef class Euclidean(Manifold):
+
+    cdef mld.euclidean view
     
     def __init__(self):
         pass
@@ -1506,11 +1540,11 @@ cdef class Euclidean(Manifold):
         """
         out = Matrix(ctype=A.ctype)
         if out.ctype=="int":
-            out.mtxInt = mld.dot(drf(A.mtxInt))
+            out.mtxInt = self.view.dot(drf(A.mtxInt))
         if out.ctype=="float":
-            out.mtxFloat = mld.dot(drf(A.mtxFloat))
+            out.mtxFloat = self.view.dot(drf(A.mtxFloat))
         if out.ctype=="double":
-            out.mtxDouble = mld.dot(drf(A.mtxDouble))
+            out.mtxDouble = self.view.dot(drf(A.mtxDouble))
         return out
 
     def distance(self, Matrix A):
@@ -1519,11 +1553,11 @@ cdef class Euclidean(Manifold):
         """
         out = Matrix(ctype=A.ctype)
         if out.ctype=="int":
-            out.mtxInt = mld.distance(drf(A.mtxInt))
+            out.mtxInt = self.view.distance(drf(A.mtxInt))
         if out.ctype=="float":
-            out.mtxFloat = mld.distance(drf(A.mtxFloat))
+            out.mtxFloat = self.view.distance(drf(A.mtxFloat))
         if out.ctype=="double":
-            out.mtxDouble = mld.distance(drf(A.mtxDouble))
+            out.mtxDouble = self.view.distance(drf(A.mtxDouble))
         return out
 
     def mean(self, Matrix A):
@@ -1532,11 +1566,11 @@ cdef class Euclidean(Manifold):
         """
         out = Matrix(ctype=A.ctype)
         if out.ctype=="int":
-            out.mtxInt = mld.mean(drf(A.mtxInt))
+            out.mtxInt = self.view.mean(drf(A.mtxInt))
         if out.ctype=="float":
-            out.mtxFloat = mld.mean(drf(A.mtxFloat))
+            out.mtxFloat = self.view.mean(drf(A.mtxFloat))
         if out.ctype=="double":
-            out.mtxDouble = mld.mean(drf(A.mtxDouble))
+            out.mtxDouble = self.view.mean(drf(A.mtxDouble))
         return out
     
 cdef class Sphere(Manifold):
