@@ -10,7 +10,7 @@ X = mlo.txtMatrix("gauss/xgauss.dat")
 y = np.loadtxt("gauss/ygauss.dat")
 
 C = mlo.Matrix(2,2)
-C.numpy = [[-0.1,1],[0.2,-0.1]]
+C.numpy = [[-1,-1],[1,1]]
 
 kmeans = models.Kmeans(X,C)
 

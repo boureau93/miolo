@@ -399,7 +399,7 @@ T mtx<T>::sumAll(){
 ------------------------------------------------------------------------------*/
 
 template <typename T>
-mtx<T>* concat(mtx<T> A, mtx<T> B){
+mtx<T>* concat(mtx<T>& A, mtx<T>& B){
     mtx<T>* out = new mtx<T>(A.rows+B.rows,A.cols);
     if (out->null())
         return nullptr;

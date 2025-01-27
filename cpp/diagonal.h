@@ -21,18 +21,22 @@ public:
         return this->data==nullptr;
     }
 
-    mtx<T>* lmul(mtx<T> M);
-    mtx<T>* rmul(mtx<T> M);
+    T& operator[](ulong i){
+        return this->data[i];
+    }
 
-    digraph<T>* lmul(digraph<T> G);
-    digraph<T>* rmul(digraph<T> G);
+    mtx<T>* lmul(mtx<T>& M);
+    mtx<T>* rmul(mtx<T>& M);
 
-    digraph<T>* lmul(graph<T> G);
-    digraph<T>* rmul(graph<T> G);
+    digraph<T>* lmul(digraph<T>& G);
+    digraph<T>* rmul(digraph<T>& G);
 
-    diagonal<T>* mul(diagonal<T> D);
-    diagonal<T>* add(diagonal<T> D);
-    diagonal<T>* sub(diagonal<T> D);
+    digraph<T>* lmul(graph<T>& G);
+    digraph<T>* rmul(graph<T>& G);
+
+    diagonal<T>* mul(diagonal<T>& D);
+    diagonal<T>* add(diagonal<T>& D);
+    diagonal<T>* sub(diagonal<T>& D);
     diagonal<T>* smul(T value);
 
 };
@@ -66,7 +70,7 @@ diagonal<T>::~diagonal(){
 }
 
 template <typename T>
-mtx<T>* diagonal<T>::lmul(mtx<T> M){
+mtx<T>* diagonal<T>::lmul(mtx<T> &M){
     mtx<T>* out = new mtx<T>(M.rows,M.cols);
     if (out->null())
         return nullptr;
@@ -78,7 +82,7 @@ mtx<T>* diagonal<T>::lmul(mtx<T> M){
 }
 
 template <typename T>
-mtx<T>* diagonal<T>::rmul(mtx<T> M){
+mtx<T>* diagonal<T>::rmul(mtx<T>& M){
     mtx<T>* out = new mtx<T>(M.rows,M.cols);
     if (out->null())
         return nullptr;
@@ -90,7 +94,7 @@ mtx<T>* diagonal<T>::rmul(mtx<T> M){
 }
 
 template <typename T>
-digraph<T>* diagonal<T>::lmul(digraph<T> G){
+digraph<T>* diagonal<T>::lmul(digraph<T>& G){
     digraph<T>* out = G.copyStructure();
     if (out->null())
         return nullptr;
@@ -103,7 +107,7 @@ digraph<T>* diagonal<T>::lmul(digraph<T> G){
 }
 
 template <typename T>
-digraph<T>* diagonal<T>::rmul(digraph<T> G){
+digraph<T>* diagonal<T>::rmul(digraph<T>& G){
     digraph<T>* out = G.copyStructure();
     if (out->null())
         return nullptr;
@@ -116,7 +120,7 @@ digraph<T>* diagonal<T>::rmul(digraph<T> G){
 }
 
 template <typename T>
-digraph<T>* diagonal<T>::lmul(graph<T> G){
+digraph<T>* diagonal<T>::lmul(graph<T>& G){
     digraph<T>* aux = toDigraph(G);
     if (aux==nullptr)
         return nullptr;
@@ -126,7 +130,7 @@ digraph<T>* diagonal<T>::lmul(graph<T> G){
 }
 
 template <typename T>
-digraph<T>* diagonal<T>::rmul(graph<T> G){
+digraph<T>* diagonal<T>::rmul(graph<T>& G){
     digraph<T>* aux = toDigraph(G);
     if (aux==nullptr)
         return nullptr;
@@ -136,7 +140,7 @@ digraph<T>* diagonal<T>::rmul(graph<T> G){
 }
 
 template <typename T>
-diagonal<T>* diagonal<T>::mul(diagonal<T> D){
+diagonal<T>* diagonal<T>::mul(diagonal<T>& D){
     diagonal<T>* out = new diagonal<T>(D.dim);
     if (out->null())
         return nullptr;
@@ -147,7 +151,7 @@ diagonal<T>* diagonal<T>::mul(diagonal<T> D){
 }
 
 template <typename T>
-diagonal<T>* diagonal<T>::add(diagonal<T> D){
+diagonal<T>* diagonal<T>::add(diagonal<T>& D){
     diagonal<T>* out = new diagonal<T>(D.dim);
     if (out->null())
         return nullptr;
@@ -158,7 +162,7 @@ diagonal<T>* diagonal<T>::add(diagonal<T> D){
 }
 
 template <typename T>
-diagonal<T>* diagonal<T>::sub(diagonal<T> D){
+diagonal<T>* diagonal<T>::sub(diagonal<T>& D){
     diagonal<T>* out = new diagonal<T>(D.dim);
     if (out->null())
         return nullptr;

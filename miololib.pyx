@@ -9,48 +9,6 @@ global_ctype = "float"
 
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
-#   An useful object
-#-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
-
-cdef class Booler:
-    """
-        An object for storing boolean matrices.
-        rows: number of rows
-        cols: number of columns
-        init: value for initilization of data
-    """
-
-    cdef mld.mtx[bool]* booler
-
-    def __cinit__(self, unsigned long rows=0, unsigned long cols=1, 
-        bool init=True):
-        if rows!=0 and cols!=0:
-            self.booler = new mld.mtx[bool](rows,cols,init)
-        else:
-            self.booler = NULL
-    
-    def __dealloc__(self):
-        del self.booler
-    
-    @property
-    def rows(self):
-        return self.booler.rows
-    @property
-    def cols(self):
-        return self.booler.cols
-    @property
-    def shape(self):
-        return (self.booler.rows,self.booler.cols)
-    
-    def __call__(self, unsigned long i, unsigned long j):
-        if i<self.booler.rows and j<self.booler.cols:
-            return self.booler.data[i*self.booler.cols+j]
-        else:
-            raise Exception("Index out of range.")
-
-#-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
 #   Wrapper for miolo objects
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
@@ -336,9 +294,26 @@ cdef class Matrix(mioloObject):
     #   Other useful stuff
     #---------------------------------------------------------------------------
 
+    def max(self):
+        if self.ctype=="int":
+            return self.mtxInt.max()
+        if self.ctype=="float":
+            return self.mtxFloat.max()
+        if self.ctype=="double":
+            return self.mtxDouble.max()
+
+    def min(self):
+        if self.ctype=="int":
+            return self.mtxInt.min()
+        if self.ctype=="float":
+            return self.mtxFloat.min()
+        if self.ctype=="double":
+            return self.mtxDouble.min()
+
     def normalize(self):
         """
-            Row normalization in order to elements in a same row sum to 1.
+            Row normalization in to make elements in the same row sum to 1.
+            This operation is done inplace.
         """
         if self.ctype=="int":
             self.mtxInt.normalize()
@@ -358,6 +333,7 @@ cdef class Matrix(mioloObject):
             out.mtxFloat = self.mtxFloat.transpose()
         if self.ctype == "double":
             out.mtxDouble = self.mtxDouble.transpose()
+        return out 
     
 
     def flatten(self, bool rows=True):
@@ -434,15 +410,15 @@ cdef class Matrix(mioloObject):
     def __mul__(self, value):
         if self.ctype=="int":
             out = Matrix(ctype="int")
-            out.mtxInt.wrap(self.mtxInt.smul(value))
+            out.mtxInt = self.mtxInt.smul(value)
             return out
         if self.ctype=="float":
             out = Matrix(ctype="float")
-            out.mtxFloat.wrap(self.mtxFloat.smul(value))
+            out.mtxFloat = self.mtxFloat.smul(value)
             return out
         if self.ctype=="double":
             out = Matrix(ctype="double")
-            out.mtxDouble.wrap(self.mtxDouble.smul(value))
+            out.mtxDouble = self.mtxDouble.smul(value)
             return out
     
     def __rmul__(self, value):
@@ -1500,6 +1476,40 @@ cdef class KmeansUtil:
                 drf(data.mtxDouble),drf(center.mtxDouble))
         return out
     
+    def sphereCentroidDistance(self, Matrix data, Matrix center):
+        if data.ctype!=center.ctype:
+            raise TypeError("data and center must shares same ctype.")
+        if data.cols!=center.cols:
+            raise TypeError("data and center must have same number of columns")
+        out = Matrix(ctype=data.ctype)
+        if data.ctype=="int":
+            out.mtxInt = self.util.sphereCentroidDistance(
+                drf(data.mtxInt),drf(center.mtxInt))
+        if data.ctype=="float":
+            out.mtxFloat = self.util.sphereCentroidDistance(
+                drf(data.mtxFloat),drf(center.mtxFloat))
+        if data.ctype=="double":
+            out.mtxDouble = self.util.sphereCentroidDistance(
+                drf(data.mtxDouble),drf(center.mtxDouble))
+        return out
+    
+    def hyperbolicCentroidDistance(self, Matrix data, Matrix center):
+        if data.ctype!=center.ctype:
+            raise TypeError("data and center must shares same ctype.")
+        if data.cols!=center.cols:
+            raise TypeError("data and center must have same number of columns")
+        out = Matrix(ctype=data.ctype)
+        if data.ctype=="int":
+            out.mtxInt = self.util.hyperbolicCentroidDistance(
+                drf(data.mtxInt),drf(center.mtxInt))
+        if data.ctype=="float":
+            out.mtxFloat = self.util.hyperbolicCentroidDistance(
+                drf(data.mtxFloat),drf(center.mtxFloat))
+        if data.ctype=="double":
+            out.mtxDouble = self.util.hyperbolicCentroidDistance(
+                drf(data.mtxDouble),drf(center.mtxDouble))
+        return out
+    
     def euclideanCentroid(self, Matrix data, Matrix labels):
         if labels.ctype!="int":
             raise TypeError("labels must have int ctype.")
@@ -1515,6 +1525,42 @@ cdef class KmeansUtil:
         if out.ctype=="double":
             out.mtxDouble = self.util.euclideanCentroid(
                 drf(data.mtxDouble),drf(labels.mtxInt))
+        return out
+    
+    def partition(self, Matrix data, Matrix labels, int labelNum):
+        if labels.ctype!="int":
+            raise TypeError("labels must have int ctype.")
+        if labels.rows!=data.rows:
+            raise Exception("data and labels must have same number of rows")
+        out = Matrix(ctype=data.ctype)
+        if out.ctype=="int":
+            out.mtxInt = self.util.partition(
+                drf(data.mtxInt),drf(labels.mtxInt),labelNum)
+        if out.ctype=="float":
+            out.mtxFloat = self.util.partition(
+                drf(data.mtxFloat),drf(labels.mtxInt),labelNum)
+        if out.ctype=="double":
+            out.mtxDouble = self.util.partition(
+                drf(data.mtxDouble),drf(labels.mtxInt),labelNum)
+        return out
+    
+    def seed(self, Matrix data, int k_centroids):
+        """
+            Runs k-means++ to return seeds for k-means. This is done using
+            euclidean distance.
+            data: data matrix
+            k_centroids: number of centroids desired.
+        """
+        out = Matrix(ctype=data.ctype)
+        if out.ctype=="int":
+            out.mtxInt = self.util.kmpp(
+                drf(data.mtxInt),k_centroids)
+        if out.ctype=="float":
+            out.mtxFloat = self.util.kmpp(
+                drf(data.mtxFloat),k_centroids)
+        if out.ctype=="double":
+            out.mtxDouble = self.util.kmpp(
+                drf(data.mtxDouble),k_centroids)
         return out
     
 #-------------------------------------------------------------------------------
@@ -1562,7 +1608,7 @@ cdef class Euclidean(Manifold):
 
     def mean(self, Matrix A):
         """
-            Returns a row Matrix which is the arithmetic average of rows of A.
+            Returns a row Matrix which is the mean of the rows of A.
         """
         out = Matrix(ctype=A.ctype)
         if out.ctype=="int":
@@ -1573,44 +1619,88 @@ cdef class Euclidean(Manifold):
             out.mtxDouble = self.view.mean(drf(A.mtxDouble))
         return out
     
+    def variance(self, Matrix A):
+        """
+            Returns a row Matrix which is the variance of the rows of A.
+        """
+        out = Matrix(ctype=A.ctype)
+        if out.ctype=="int":
+            out.mtxInt = self.view.variance(drf(A.mtxInt))
+        if out.ctype=="float":
+            out.mtxFloat = self.view.variance(drf(A.mtxFloat))
+        if out.ctype=="double":
+            out.mtxDouble = self.view.variance(drf(A.mtxDouble))
+        return out
+    
+    def minmaxNormalize(self, Matrix A):
+        """
+            For each column, calculates min and max values, and then returns
+            a matrix for which each element is (A_ij-min_j)/(max_j-min_j).
+        """
+        out = Matrix(ctype=A.ctype)
+        if out.ctype=="int":
+            out.mtxInt = self.view.minmaxNormalize(drf(A.mtxInt))
+        if out.ctype=="float":
+            out.mtxFloat = self.view.minmaxNormalize(drf(A.mtxFloat))
+        if out.ctype=="double":
+            out.mtxDouble = self.view.minmaxNormalize(drf(A.mtxDouble))
+        return out
+
+    def rowNormalize(self, Matrix A):
+        """
+            Returns A with rows normalized to sum 1.
+        """
+        out = Matrix(ctype=A.ctype)
+        if out.ctype=="int":
+            out.mtxInt = self.view.rowNormalize(drf(A.mtxInt))
+        if out.ctype=="float":
+            out.mtxFloat = self.view.rowNormalize(drf(A.mtxFloat))
+        if out.ctype=="double":
+            out.mtxDouble = self.view.rowNormalize(drf(A.mtxDouble))
+        return out
+
+    def gaussianNormalize(self, Matrix A):
+        """
+            Returns A normalized to have columns with mean 0 and variance 1.
+        """
+        out = Matrix(ctype=A.ctype)
+        if out.ctype=="int":
+            out.mtxInt = self.view.gaussianNormalize(drf(A.mtxInt))
+        if out.ctype=="float":
+            out.mtxFloat = self.view.gaussianNormalize(drf(A.mtxFloat))
+        if out.ctype=="double":
+            out.mtxDouble = self.view.gaussianNormalize(drf(A.mtxDouble))
+        return out
+
 cdef class Sphere(Manifold):
 
     """
         This class treats each row of a Matrix as a unit sphere. Therefore, it
         views a Matrix as the product manifold of Matrix.rows unit spheres 
-        embedded in the euclidean space of dimension Matrix.cols.
+        embedded in the euclidean space of dimension Matrix.cols. Initialization
+        parameters are relative to the mean calculation algorithm
     """
 
-    cdef mld.sphere[int] sphereInt
-    cdef mld.sphere[float] sphereFloat
-    cdef mld.sphere[double] sphereDouble
+    cdef mld.sphere view
+    cdef int tmax
+    cdef double precision
 
-    def __init__(self, double radius=1):
-        self.radius = radius 
-    
-    @property
-    def radius(self):
-        return self.sphereDouble.r
-    @radius.setter
-    def radius(self, double value):
-        if value<=0:
-            raise ValueError("WTF radius is less than or equal to zero.")
-        self.sphereInt.r = <int>value
-        self.sphereFloat.r = <float>value
-        self.sphereDouble.r = value
+    def __init__(self, tmax=1000, precision=0.005):
+        self.tmax = tmax
+        self.precision = precision
     
     def stereographicProjection(self, Matrix M):
         """
             Returns the matrix for which each row is the stereographic 
-            projection of the corresponding row in M over the unit sphere.
+            projection of the corresponding row in M over the sphere.
         """
         out = Matrix(ctype=M.ctype)
         if M.ctype=="int":
-            out.mtxInt = self.sphereInt.stereographicProjection(drf(M.mtxInt))
+            out.mtxInt = self.view.stereographicProjection(drf(M.mtxInt))
         if M.ctype=="float":
-            out.mtxFloat = self.sphereFloat.stereographicProjection(drf(M.mtxFloat))
+            out.mtxFloat = self.view.stereographicProjection(drf(M.mtxFloat))
         if M.ctype=="double":
-            out.mtxDouble = self.sphereDouble.stereographicProjection(drf(M.mtxDouble))
+            out.mtxDouble = self.view.stereographicProjection(drf(M.mtxDouble))
         return out
     
     def tangentProjection(self, Matrix at, Matrix M):
@@ -1620,11 +1710,11 @@ cdef class Sphere(Manifold):
         """
         out = Matrix(ctype=M.ctype)
         if M.ctype=="int":
-            out.mtxInt = self.sphereInt.tangentProjection(drf(at.mtxInt),drf(M.mtxInt))
+            out.mtxInt = self.view.tangentProjection(drf(at.mtxInt),drf(M.mtxInt))
         if M.ctype=="float":
-            out.mtxFloat = self.sphereFloat.tangentProjection(drf(at.mtxFloat),drf(M.mtxFloat))
+            out.mtxFloat = self.view.tangentProjection(drf(at.mtxFloat),drf(M.mtxFloat))
         if M.ctype=="double":
-            out.mtxDouble = self.sphereDouble.tangentProjection(drf(at.mtxDouble),drf(M.mtxDouble))
+            out.mtxDouble = self.view.tangentProjection(drf(at.mtxDouble),drf(M.mtxDouble))
         return out
     
     def fromEuclidean(self, Matrix M):
@@ -1635,11 +1725,11 @@ cdef class Sphere(Manifold):
         """
         out = Matrix(ctype=M.ctype)
         if M.ctype=="int":
-            out.mtxInt = self.sphereInt.fromEuclidean(drf(M.mtxInt))
+            out.mtxInt = self.view.fromEuclidean(drf(M.mtxInt))
         if M.ctype=="float":
-            out.mtxFloat = self.sphereFloat.fromEuclidean(drf(M.mtxFloat))
+            out.mtxFloat = self.view.fromEuclidean(drf(M.mtxFloat))
         if M.ctype=="double":
-            out.mtxDouble = self.sphereDouble.fromEuclidean(drf(M.mtxDouble))
+            out.mtxDouble = self.view.fromEuclidean(drf(M.mtxDouble))
         return out
     
     def toEuclidean(self, Matrix M):
@@ -1650,11 +1740,28 @@ cdef class Sphere(Manifold):
         """
         out = Matrix(ctype=M.ctype)
         if M.ctype=="int":
-            out.mtxInt = self.sphereInt.toEuclidean(drf(M.mtxInt))
+            out.mtxInt = self.view.toEuclidean(drf(M.mtxInt))
         if M.ctype=="float":
-            out.mtxFloat = self.sphereFloat.toEuclidean(drf(M.mtxFloat))
+            out.mtxFloat = self.view.toEuclidean(drf(M.mtxFloat))
         if M.ctype=="double":
-            out.mtxDouble = self.sphereDouble.toEuclidean(drf(M.mtxDouble))
+            out.mtxDouble = self.view.toEuclidean(drf(M.mtxDouble))
+        return out
+    
+    def coordinateReady(self, Matrix M, unsigned long azimuth=0):
+        """
+            Transforms M in order to make its rows suitable spherical coordinates.
+            First, minmax normalization is done and then columns are multiplied
+            by PI, with the exception of azimuth, which is multiplied by 2*PI
+        """
+        if azimuth>=M.cols:
+            raise ValueError("azimuth must be smaller than M.cols.")
+        out = Matrix(ctype=M.ctype)
+        if M.ctype=="int":
+            out.mtxInt = self.view.coordinateReady(drf(M.mtxInt),azimuth)
+        if M.ctype=="float":
+            out.mtxFloat = self.view.coordinateReady(drf(M.mtxFloat),azimuth)
+        if M.ctype=="double":
+            out.mtxDouble = self.view.coordinateReady(drf(M.mtxDouble),azimuth)
         return out
     
     def distance(self, Matrix M):
@@ -1664,29 +1771,243 @@ cdef class Sphere(Manifold):
         """
         out = Matrix(ctype=M.ctype)
         if M.ctype=="int":
-            out.mtxInt = self.sphereInt.distance(drf(M.mtxInt))
+            out.mtxInt = self.view.distance(drf(M.mtxInt))
         if M.ctype=="float":
-            out.mtxFloat = self.sphereFloat.distance(drf(M.mtxFloat))
+            out.mtxFloat = self.view.distance(drf(M.mtxFloat))
         if M.ctype=="double":
-            out.mtxDouble = self.sphereDouble.distance(drf(M.mtxDouble))
+            out.mtxDouble = self.view.distance(drf(M.mtxDouble))
         return out
     
     def isIn(self, Matrix M, double tolerance=0.001):
+        """
+            Checks if each row of M is on the unit sphere.
+            tolerance: numerical tolerance for acceptance.
+        """
         if M.ctype=="int":
-            return self.sphereInt.isIn(drf(M.mtxInt),<int>tolerance)
+            return self.view.isIn(drf(M.mtxInt),<int>tolerance)
         if M.ctype=="float":
-            return self.sphereFloat.isIn(drf(M.mtxFloat),<float>tolerance)
+            return self.view.isIn(drf(M.mtxFloat),<float>tolerance)
         if M.ctype=="double":
-            return self.sphereDouble.isIn(drf(M.mtxDouble),tolerance)
+            return self.view.isIn(drf(M.mtxDouble),tolerance)
     
     def isTangent(self, Matrix at, Matrix M, double tolerance=0.001):
+        """
+            Checks if each row of M is on the tangent space of the corresponding
+            row of at.
+            tolerance: numerical tolerance for acceptance.
+        """
         if at.rows!=M.rows or at.cols!=M.cols:
             raise Exception("at and M must have same shape.")
         if at.ctype!=M.ctype:
             raise TypeError("at and M must have same ctype.")
         if M.ctype=="int":
-            return self.sphereInt.isTangent(drf(at.mtxInt),drf(M.mtxInt),<int>tolerance)
+            return self.view.isTangent(drf(at.mtxInt),drf(M.mtxInt),<int>tolerance)
         if M.ctype=="float":
-            return self.sphereFloat.isTangent(drf(at.mtxFloat),drf(M.mtxFloat),<float>tolerance)
+            return self.view.isTangent(drf(at.mtxFloat),drf(M.mtxFloat),<float>tolerance)
         if M.ctype=="double":
-            return self.sphereDouble.isTangent(drf(at.mtxDouble),drf(M.mtxDouble),tolerance)
+            return self.view.isTangent(drf(at.mtxDouble),drf(M.mtxDouble),tolerance)
+    
+    def exp(self, Matrix at, Matrix tangent):
+        """
+            Exponential map on the unit sphere. 
+            at: point on the sphere
+            tangent: a tangent vector of at. 
+            Note: no checking is done for either at or tangent. Ensure before
+            applying.
+        """
+        if at.cols!=tangent.cols:
+            raise Exception("at and tangent must have same number of cols.")
+        if at.rows!=1 and at.rows!=tangent.rows:
+            raise Exception("Invalid shape for at.")
+        if at.ctype!=tangent.ctype:
+            raise TypeError("at and tanget must have same ctype.")
+        out = Matrix(ctype=at.ctype)
+        if at.rows==tangent.rows:
+            if out.ctype=="int":
+                out.mtxInt = self.view.exponential(
+                    drf(at.mtxInt),drf(tangent.mtxInt)
+                )
+            if out.ctype=="float":
+                out.mtxFloat = self.view.exponential(
+                    drf(at.mtxFloat),drf(tangent.mtxFloat)
+                )
+            if out.ctype=="double":
+                out.mtxDouble = self.view.exponential(
+                    drf(at.mtxDouble),drf(tangent.mtxDouble)
+                )
+        else:
+            if out.ctype=="int":
+                out.mtxInt = self.view.exponential(
+                    at.mtxInt.data,drf(tangent.mtxInt)
+                )
+            if out.ctype=="float":
+                out.mtxFloat = self.view.exponential(
+                    at.mtxFloat.data,drf(tangent.mtxFloat)
+                )
+            if out.ctype=="double":
+                out.mtxDouble = self.view.exponential(
+                    at.mtxDouble.data,drf(tangent.mtxDouble)
+                )
+        return out
+    
+    def log(self, Matrix start, Matrix end):
+        """
+            Logarithmic map on the sphere. 
+            start: starting point on the sphere
+            end: ending point on the sphere. 
+            Neither start or end are checked. Ensure before using.
+        """
+        if start.cols!=end.cols:
+            raise Exception("at and tangent must have same number of cols.")
+        if start.rows!=1 and start.rows!=end.rows:
+            raise Exception("Invalid shape for at.")
+        if start.ctype!=end.ctype:
+            raise TypeError("start and end must have same ctype.")
+        out = Matrix(ctype=start.ctype)
+        if start.rows==end.rows:
+            if out.ctype=="int":
+                out.mtxInt = self.view.logarithm(
+                    drf(start.mtxInt),drf(end.mtxInt)
+                )
+            if out.ctype=="float":
+                out.mtxFloat = self.view.logarithm(
+                    drf(start.mtxFloat),drf(end.mtxFloat)
+                )
+            if out.ctype=="double":
+                out.mtxDouble = self.view.logarithm(
+                    drf(start.mtxDouble),drf(end.mtxDouble)
+                )
+        else:
+            if out.ctype=="int":
+                out.mtxInt = self.view.logarithm(
+                    start.mtxInt.data,drf(end.mtxInt)
+                )
+            if out.ctype=="float":
+                out.mtxFloat = self.view.logarithm(
+                    start.mtxFloat.data,drf(end.mtxFloat)
+                )
+            if out.ctype=="double":
+                out.mtxDouble = self.view.logarithm(
+                    start.mtxDouble.data,drf(end.mtxDouble)
+                )
+        return out
+    
+    def mean(self, Matrix M, Matrix init=None):
+        """
+            Returns a row Matrix which is the Riemmaninan mean of rows of M.
+            This is done via an interative algorithm.
+            init: starting point for the algorithm
+            Control parameters are stored in self.tmax and self.precision.
+        """
+        t = 0 
+        delta = 1+self.precision
+        E = Euclidean()
+        if init is None:
+            prev = Matrix(1,M.cols,1/np.sqrt(M.cols))
+        else:
+            prev = init
+        while t<self.tmax and delta>self.precision:
+            logsum = M.rows*E.mean(self.log(prev,M))
+            nxt = self.exp(prev,logsum)
+            delta = abs(prev-nxt)
+            prev = nxt
+            t += 1
+        return nxt
+
+cdef class Hyperbolic(Manifold):
+
+    """
+        This class treats each row of a Matrix as a point in the Poincare disk.
+        Convertions to and from the Klein model are also available.
+    """
+
+    cdef mld.hyperbolic view
+
+    def distance(self, Matrix M):
+        """
+            Return a square Matrix for which each entry is the geodesic distance
+            between the pair of (i,j) rows of M.
+        """
+        out = Matrix(ctype=M.ctype)
+        if M.ctype=="int":
+            out.mtxInt = self.view.distance(drf(M.mtxInt))
+        if M.ctype=="float":
+            out.mtxFloat = self.view.distance(drf(M.mtxFloat))
+        if M.ctype=="double":
+            out.mtxDouble = self.view.distance(drf(M.mtxDouble))
+        return out
+    
+    def isIn(self, Matrix M):
+        """
+            Check if rows of M belong to the M.cols-dimensional Poincare Disk.
+        """
+        if M.ctype=="int":
+            return self.view.isIn(drf(M.mtxInt))
+        if M.ctype=="float":
+            return self.view.isIn(drf(M.mtxFloat))
+        if M.ctype=="double":
+            return self.view.isIn(drf(M.mtxDouble))
+    
+    def madd(self, Matrix A, Matrix B):
+        """
+            Mobius addition.
+        """
+        if A.rows!=B.rows or A.cols!=B.cols:
+            raise Exception("Matrices must have same shape.")
+        if A.ctype!=B.ctype:
+            raise TypeError("Matrices must have same ctype.")
+        out = Matrix(ctype=A.ctype)
+        if out.ctype=="int":
+            out.mtxInt = self.view.madd(drf(A.mtxInt),drf(B.mtxInt))
+        if out.ctype=="float":
+            out.mtxFloat = self.view.madd(drf(A.mtxFloat),drf(B.mtxFloat))
+        if out.ctype=="double":
+            out.mtxDouble = self.view.madd(drf(A.mtxDouble),drf(B.mtxDouble))
+        return out
+    
+    def exp(self, Matrix at, Matrix M):
+        """
+            Mobius addition.
+        """
+        if at.rows!=M.rows or at.cols!=M.cols:
+            raise Exception("Matrices must have same shape.")
+        if at.ctype!=M.ctype:
+            raise TypeError("Matrices must have same ctype.")
+        out = Matrix(ctype=at.ctype)
+        if out.ctype=="int":
+            out.mtxInt = self.view.exponential(drf(at.mtxInt),drf(M.mtxInt))
+        if out.ctype=="float":
+            out.mtxFloat = self.view.exponential(drf(at.mtxFloat),drf(M.mtxFloat))
+        if out.ctype=="double":
+            out.mtxDouble = self.view.exponential(drf(at.mtxDouble),drf(M.mtxDouble))
+        return out
+    
+    def log(self, Matrix start, Matrix end):
+        """
+            Mobius addition.
+        """
+        if start.rows!=end.rows or start.cols!=end.cols:
+            raise Exception("Matrices must have same shape.")
+        if start.ctype!=end.ctype:
+            raise TypeError("Matrices must have same ctype.")
+        out = Matrix(ctype=start.ctype)
+        if out.ctype=="int":
+            out.mtxInt = self.view.logarithm(drf(start.mtxInt),drf(end.mtxInt))
+        if out.ctype=="float":
+            out.mtxFloat = self.view.logarithm(drf(start.mtxFloat),drf(end.mtxFloat))
+        if out.ctype=="double":
+            out.mtxDouble = self.view.logarithm(drf(start.mtxDouble),drf(end.mtxDouble))
+        return out
+    
+    def mean(self, Matrix M):
+        """
+            Returns the Einstein Midpoint of rows of M.
+        """
+        out = Matrix(ctype=M.ctype)
+        if M.ctype=="int":
+            out.mtxInt = self.view.mean(drf(M.mtxInt))
+        if M.ctype=="float":
+            out.mtxFloat = self.view.mean(drf(M.mtxFloat))
+        if M.ctype=="double":
+            out.mtxDouble = self.view.mean(drf(M.mtxDouble))
+        return out

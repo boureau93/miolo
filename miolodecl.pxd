@@ -52,6 +52,9 @@ cdef extern from "cpp/mtx.h":
         T& operator()(unsigned long i, unsigned long j)
         T& operator[](unsigned long k)
 
+        T max()
+        T min()
+
         mtx[T]* transpose()
         void copy(mtx[T]& cp)
         void copy(mtx[T]& cp, unsigned long* only, unsigned long lenOnly);
@@ -75,7 +78,7 @@ cdef extern from "cpp/mtx.h":
     mtx[int]* argmax[T](mtx[T]* A)
     mtx[int]* argmin[T](mtx[T]* A)
 
-    mtx[T]* concat[T](mtx[T],mtx[T])
+    mtx[T]* concat[T](mtx[T]&, mtx[T]&)
 
 cdef extern from "cpp/graph.h":
 
@@ -161,57 +164,73 @@ cdef extern from "cpp/diagonal.h":
 
         bint null()
 
-        mtx[T]* lmul(mtx[T] M)
-        mtx[T]* rmul(mtx[T] M)
+        mtx[T]* lmul(mtx[T]& M)
+        mtx[T]* rmul(mtx[T]& M)
 
-        digraph[T]* lmul(digraph[T] G)
-        digraph[T]* rmul(digraph[T] G)
+        digraph[T]* lmul(digraph[T]& G)
+        digraph[T]* rmul(digraph[T]& G)
 
-        digraph[T]* lmul(graph[T] G)
-        digraph[T]* rmul(graph[T] G)
+        digraph[T]* lmul(graph[T]& G)
+        digraph[T]* rmul(graph[T]& G)
 
-        diagonal[T]* mul(diagonal[T] D)
-        diagonal[T]* add(diagonal[T] D)
-        diagonal[T]* sub(diagonal[T] D)
+        diagonal[T]* mul(diagonal[T]& D)
+        diagonal[T]* add(diagonal[T]& D)
+        diagonal[T]* sub(diagonal[T]& D)
         diagonal[T]* smul(T value)
 
 cdef extern from "cpp/euclidean.h":
 
     cdef cppclass euclidean:
-        mtx[T]* mean[T](mtx[T] M)
-        mtx[T]* dot[T](mtx[T] A)
-        mtx[T]* distance[T](mtx[T] A)
+        mtx[T]* mean[T](mtx[T]& M)
+        mtx[T]* variance[T](mtx[T]& M)
+        mtx[T]* dot[T](mtx[T]& A)
+        mtx[T]* distance[T](mtx[T]& A)
 
+        mtx[T]* minmaxNormalize[T](mtx[T]& M)
+        mtx[T]* rowNormalize[T](mtx[T]& M)
+        mtx[T]* colNormalize[T](mtx[T]& M)
+        mtx[T]* gaussianNormalize[T](mtx[T]& M)
 
 cdef extern from "cpp/sphere.h":
 
-    cdef cppclass sphere[T]:
-        
-        T r
+    cdef cppclass sphere:
 
-        mtx[T]* stereographicProjection(mtx[T]& M)
-        mtx[T]* tangentProjection(mtx[T]& base, mtx[T]& M)
+        mtx[T]* stereographicProjection[T](mtx[T]& M)
+        mtx[T]* tangentProjection[T](mtx[T]& base, mtx[T]& M)
 
-        mtx[T]* fromEuclidean(mtx[T]& M)
-        mtx[T]* toEuclidean(mtx[T]& M)
+        mtx[T]* fromEuclidean[T](mtx[T]& M)
+        mtx[T]* toEuclidean[T](mtx[T]& M)
+        mtx[T]* coordinateReady[T](mtx[T]& M, unsigned long azimuth)
 
-        mtx[T]* distance(mtx[T]& M)
+        mtx[T]* distance[T](mtx[T]& M)
 
-        bint isIn(mtx[T]&,T)
-        bint isTangent(mtx[T]&,mtx[T]&,T)
+        bint isIn[T](mtx[T]&,T)
+        bint isTangent[T](mtx[T]&,mtx[T]&,T)
 
-cdef extern from "cpp/simplex.h":
+        mtx[T]* exponential[T](mtx[T]& at, mtx[T]& M)
+        mtx[T]* exponential[T](T* at, mtx[T]& M)
+        mtx[T]* logarithm[T](mtx[T]& frm, mtx[T]& to)
+        mtx[T]* logarithm[T](T* frm, mtx[T]& to)
 
-    cdef cppclass simplex:
+cdef extern from "cpp/hyperbolic.h":
 
-        mtx[T]* softmaxRetraction[T](mtx[T] at, mtx[T] M)
-        mtx[T]* tangentProjection[T](mtx[T] base, mtx[T] M)
-        
-        bint isIn[T](mtx[T],T)
-        bint isTangent[T](mtx[T],mtx[T],T)
+    cdef cppclass hyperbolic:
+
+        mtx[T]* distance[T](mtx[T]& M)
+        bint isIn[T](mtx[T]& M)
+        mtx[T]* madd[T](mtx[T]& A, mtx[T]& B)
+
+        mtx[T]* exponential[T](mtx[T]& at, mtx[T] M)
+        mtx[T]* logarithm[T](mtx[T]& start, mtx[T] end)
+
+        mtx[T]* mean[T](mtx[T]& M)
 
 cdef extern from "cpp/kmeans.h":
 
     cdef cppclass kmeans:
         mtx[T]* euclideanCentroidDistance[T](mtx[T]& data, mtx[T]& center)
+        mtx[T]* sphereCentroidDistance[T](mtx[T]& data, mtx[T]& center)
+        mtx[T]* hyperbolicCentroidDistance[T](mtx[T]& data, mtx[T]& center)
         mtx[T]* euclideanCentroid[T](mtx[T]& data, mtx[int]& labels)
+        mtx[T]* partition[T](mtx[T]& data, mtx[int]& labels, int idLabel)
+        mtx[T]* kmpp[T](mtx[T]& data, int k)
