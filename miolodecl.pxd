@@ -216,14 +216,18 @@ cdef extern from "cpp/hyperbolic.h":
 
     cdef cppclass hyperbolic:
 
+        double c
+
         mtx[T]* distance[T](mtx[T]& M)
         bint isIn[T](mtx[T]& M)
         mtx[T]* madd[T](mtx[T]& A, mtx[T]& B)
 
-        mtx[T]* exponential[T](mtx[T]& at, mtx[T] M)
-        mtx[T]* logarithm[T](mtx[T]& start, mtx[T] end)
+        mtx[T]* exponential[T](mtx[T]& at, mtx[T]& M)
+        mtx[T]* logarithm[T](mtx[T]& start, mtx[T]& end)
 
         mtx[T]* mean[T](mtx[T]& M)
+
+        double hyperbolicity[T](mtx[T]& M)
 
 cdef extern from "cpp/kmeans.h":
 

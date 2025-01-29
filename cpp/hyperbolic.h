@@ -6,6 +6,8 @@ class hyperbolic{
 
 public:
 
+    double c;
+
     template <typename T>
     mtx<T>* distance(mtx<T>& M);
 
@@ -27,6 +29,9 @@ public:
 
     template <typename T>
     mtx<T>* mean(mtx<T>& M);
+
+    template <typename T>
+    double hyperbolicity(mtx<T>& M);
 };
 
 template <typename T>
@@ -38,12 +43,20 @@ mtx<T>* hyperbolic::distance(mtx<T>& M){
         for (ulong j=i+1; j<M.rows; j++){
             T aux[3] = {0,0,0};
             for (ulong k=0; k<M.cols; k++){
-                aux[0] += (M(i,k)-M(j,k))*M(i,k)-M(j,k);
+                aux[0] -= M(i,k)*M(j,k);
                 aux[1] += M(i,k)*M(i,k);
                 aux[2] += M(j,k)*M(j,k);
             }
-            (*out)(i,j) = acosh(1+2*aux[0]/((1-aux[1])*(1-aux[2])));
-            (*out)(j,i) = (*out)(i,j);
+            T z = 1+2*this->c*aux[0]+this->c*this->c*aux[1]*aux[2];
+            (*out)(i,j) = 0;
+            for (ulong k=0; k<M.cols; k++){
+                T mobius = -(1+2*this->c+aux[0]+this->c*aux[2])*M(i,k);
+                mobius += (1-this->c*aux[1])*M(j,k);
+                mobius /= z;
+                (*out)(i,j) += mobius*mobius;
+            }
+            (*out)(i,j) = atanh(sqrt(this->c*(*out)(i,j)));
+            (*out)(i,j) *= 2/sqrt(this->c); 
         }
     }
     return out;
@@ -56,7 +69,7 @@ bool hyperbolic::isIn(mtx<T> &M){
         for (ulong j=0; j<M.cols; j++){
             aux += M(i,j)*M(i,j);
         }
-        if (aux>=1)
+        if (this->c*aux>=1)
             return false;
     }
     return true;
@@ -74,10 +87,10 @@ mtx<T>* hyperbolic::madd(mtx<T>& A, mtx<T>& B){
             aux[1] += A(i,j)*A(i,j);
             aux[2] += B(i,j)*B(i,j);
         }
-        T z = 1+2*aux[0]+aux[1]*aux[2];
+        T z = 1+2*this->c*aux[0]+this->c*this->c*aux[1]*aux[2];
         for (ulong j=0; j<A.cols; j++){
-            (*out)(i,j) += (1+2*aux[0]+aux[2])*A(i,j);
-            (*out)(i,j) += (1-aux[1])*B(i,j);
+            (*out)(i,j) += (1+2*this->c*aux[0]+this->c*aux[2])*A(i,j);
+            (*out)(i,j) += (1-this->c*aux[1])*B(i,j);
             (*out)(i,j) /= z;
         }
     }
@@ -98,9 +111,10 @@ mtx<T>* hyperbolic::exponential(mtx<T> &at, mtx<T> &M){
             norm_M += M(i,j);
         }
         //Calculate right-hand
-        T lambda = 2/(1-norm_at);
+        T lambda = 2/(1-this->c*norm_at);
         for (ulong j=0; j<M.cols; j++){
-            (*aux)(i,j) = tanh(lambda*norm_M/2)*M(i,j)/norm_M;
+            (*aux)(i,j) = tanh(sqrt(this->c)*lambda*norm_M/2);
+            (*aux)(i,j) *= M(i,j)/(this->c*norm_M);
         }
     }
     mtx<T>* out = this->madd(at,*aux);
@@ -113,7 +127,7 @@ mtx<T>* hyperbolic::logarithm(mtx<T> &start, mtx<T> &end){
     mtx<T>* aux = start.smul(-1);
     if (aux==nullptr)
         return nullptr;
-    mtx<T>* dir = this->madd(start,end);
+    mtx<T>* dir = this->madd(*aux,end);
     if (dir==nullptr)
         return nullptr;
     delete aux;
@@ -125,8 +139,8 @@ mtx<T>* hyperbolic::logarithm(mtx<T> &start, mtx<T> &end){
             lambda += start(i,j)*start(i,j);
             norm += (*dir)(i,j)*(*dir)(i,j);
         }
-        lambda = 2/(1-lambda);
-        D[i] = 2*atanh(norm)/(norm*lambda);
+        lambda = 2/(1-this->c*lambda);
+        D[i] = 2*atanh(sqrt(this->c)*norm)/(sqrt(this->c)*norm*lambda);
     }
     mtx<T>* out = D.lmul(*dir);
     delete dir;
@@ -144,7 +158,7 @@ mtx<T>* hyperbolic::toKlein(mtx<T> &M){
             norm += M(i,j)*M(i,j);
         }
         for (ulong j=0; j<M.cols; j++){
-            (*out)(i,j) = 2*M(i,j)/(1+norm);
+            (*out)(i,j) = 2*M(i,j)/(1+this->c*norm);
         }
     }
     return out;
@@ -161,7 +175,7 @@ mtx<T>* hyperbolic::toPoincare(mtx<T> &M){
             norm += M(i,j)*M(i,j);
         }
         for (ulong j=0; j<M.cols; j++){
-            (*out)(i,j) = M(i,j)/(1+sqrt(1-norm));
+            (*out)(i,j) = M(i,j)/(1+sqrt(1-this->c*norm));
         }
     }
     return out;
@@ -179,7 +193,7 @@ mtx<T>* hyperbolic::mean(mtx<T> &M){
         for (ulong j=0; j<M.cols; j++){
             gamma += (*K)(i,j)*(*K)(i,j);
         }
-        gamma = 1/sqrt(1-gamma);
+        gamma = 1/sqrt(1-this->c*gamma);
         z += gamma;
         for (ulong j=0; j<M.cols; j++){
             (*out)(0,j) += (*K)(i,j)*gamma;
@@ -192,4 +206,42 @@ mtx<T>* hyperbolic::mean(mtx<T> &M){
     delete out;
     delete K;
     return outP;
+}
+
+template <typename T>
+double hyperbolic::hyperbolicity(mtx<T> &M){
+    //Gromov product
+    mtx<T> G(M.rows,M.rows);
+    for (ulong i=0; i<M.rows; i++){
+        for (ulong j=0; j<M.rows; j++){
+            T aux[3] = {0,0,0};
+            for (ulong k=0; k<M.cols; k++){
+                aux[0] += (M(i,k)-M(j,k))*(M(i,k)-M(j,k));
+                aux[1] += M(i,k)*M(i,k);
+                aux[2] += M(j,k)*M(j,k);
+            }
+            G(i,j) = (sqrt(aux[1])+sqrt(aux[2])-sqrt(aux[0]))/2;
+        }
+    }
+    //Calculate product, subtract and find maximum
+    double out = 0;
+    for (ulong i=0; i<M.rows; i++){
+        for (ulong j=0; j<M.rows; j++){
+            T Aij = -10000000; //Auxiliary variable for matrix entry
+            for (ulong k=0; k<M.rows; k++){
+                if (G(i,k)>G(k,j)){
+                    if (Aij<G(k,j))
+                        Aij = G(k,j);
+                }
+                else{
+                    if (Aij<G(i,k))
+                        Aij = G(i,k);
+                }
+            }
+            Aij -= G(i,j);
+            if ((i==0 && j==0) || out<Aij)
+                out = Aij;
+        }
+    }
+    return out;
 }

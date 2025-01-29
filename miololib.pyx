@@ -1461,7 +1461,7 @@ cdef class KmeansUtil:
 
     def euclideanCentroidDistance(self, Matrix data, Matrix center):
         if data.ctype!=center.ctype:
-            raise TypeError("data and center must shares same ctype.")
+            raise TypeError("data and center must share same ctype.")
         if data.cols!=center.cols:
             raise TypeError("data and center must have same number of columns")
         out = Matrix(ctype=data.ctype)
@@ -1923,6 +1923,9 @@ cdef class Hyperbolic(Manifold):
 
     cdef mld.hyperbolic view
 
+    def __init__(self, c=1):
+        self.view.c = c
+
     def distance(self, Matrix M):
         """
             Return a square Matrix for which each entry is the geodesic distance
@@ -2011,3 +2014,14 @@ cdef class Hyperbolic(Manifold):
         if M.ctype=="double":
             out.mtxDouble = self.view.mean(drf(M.mtxDouble))
         return out
+    
+    def hyperbolicity(self, Matrix M):
+        """
+            Returns the Gromov hiperbolicity of the rows of M.
+        """
+        if M.ctype=="int":
+            return self.view.hyperbolicity(drf(M.mtxInt))
+        if M.ctype=="float":
+            return self.view.hyperbolicity(drf(M.mtxFloat))
+        if M.ctype=="double":
+            return self.view.hyperbolicity(drf(M.mtxDouble))

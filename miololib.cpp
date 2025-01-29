@@ -3546,7 +3546,7 @@ static const char __pyx_k_nxt[] = "nxt";
 static const char __pyx_k_obj[] = "obj";
 static const char __pyx_k_out[] = "out";
 static const char __pyx_k_sys[] = "sys";
-static const char __pyx_k__204[] = "?";
+static const char __pyx_k__206[] = "?";
 static const char __pyx_k_base[] = "base";
 static const char __pyx_k_cols[] = "cols";
 static const char __pyx_k_copy[] = "copy";
@@ -3721,6 +3721,7 @@ static const char __pyx_k_Matrix_sumAll[] = "Matrix.sumAll";
 static const char __pyx_k_Unknown_ctype[] = "Unknown ctype.";
 static const char __pyx_k_class_getitem[] = "__class_getitem__";
 static const char __pyx_k_fromEuclidean[] = "fromEuclidean";
+static const char __pyx_k_hyperbolicity[] = "hyperbolicity";
 static const char __pyx_k_isolatedNodes[] = "isolatedNodes";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_AssertionError[] = "AssertionError";
@@ -3796,6 +3797,7 @@ static const char __pyx_k_MemoryView_of_r_at_0x_x[] = "<MemoryView of %r at 0x%x
 static const char __pyx_k_contiguous_and_indirect[] = "<contiguous and indirect>";
 static const char __pyx_k_stereographicProjection[] = "stereographicProjection";
 static const char __pyx_k_Diagonal___reduce_cython[] = "Diagonal.__reduce_cython__";
+static const char __pyx_k_Hyperbolic_hyperbolicity[] = "Hyperbolic.hyperbolicity";
 static const char __pyx_k_Index_k_is_out_of_bounds[] = "Index k is out of bounds.";
 static const char __pyx_k_Manifold___reduce_cython[] = "Manifold.__reduce_cython__";
 static const char __pyx_k_Matrix___setstate_cython[] = "Matrix.__setstate_cython__";
@@ -3844,6 +3846,7 @@ static const char __pyx_k_Graph_and_Matrix_must_have_same[] = "Graph and Matrix 
 static const char __pyx_k_Graphs_must_have_same_number_of[] = "Graphs must have same number of edges";
 static const char __pyx_k_Incompatible_shape_for_Hadamard[] = "Incompatible shape for Hadamard product.";
 static const char __pyx_k_Number_of_rows_must_be_equal_to[] = "Number of rows must be equal to Diagonal.cols";
+static const char __pyx_k_data_and_center_must_share_same[] = "data and center must share same ctype.";
 static const char __pyx_k_A_and_B_must_have_same_number_of[] = "A and B must have same number of columns.";
 static const char __pyx_k_All_dimensions_preceding_dimensi[] = "All dimensions preceding dimension %d must be indexed and not sliced";
 static const char __pyx_k_Buffer_view_does_not_expose_stri[] = "Buffer view does not expose strides";
@@ -4081,14 +4084,16 @@ static PyObject *__pyx_pf_5miolo_6Sphere_20log(struct __pyx_obj_5miolo_Sphere *_
 static PyObject *__pyx_pf_5miolo_6Sphere_22mean(struct __pyx_obj_5miolo_Sphere *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M, struct __pyx_obj_5miolo_Matrix *__pyx_v_init); /* proto */
 static PyObject *__pyx_pf_5miolo_6Sphere_24__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5miolo_Sphere *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5miolo_6Sphere_26__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5miolo_Sphere *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_distance(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M); /* proto */
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_2isIn(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M); /* proto */
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_A, struct __pyx_obj_5miolo_Matrix *__pyx_v_B); /* proto */
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_at, struct __pyx_obj_5miolo_Matrix *__pyx_v_M); /* proto */
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_start, struct __pyx_obj_5miolo_Matrix *__pyx_v_end); /* proto */
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_10mean(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M); /* proto */
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_12__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_14__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_5miolo_10Hyperbolic___init__(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, PyObject *__pyx_v_c); /* proto */
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_2distance(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M); /* proto */
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_4isIn(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M); /* proto */
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_6madd(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_A, struct __pyx_obj_5miolo_Matrix *__pyx_v_B); /* proto */
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_8exp(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_at, struct __pyx_obj_5miolo_Matrix *__pyx_v_M); /* proto */
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_10log(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_start, struct __pyx_obj_5miolo_Matrix *__pyx_v_end); /* proto */
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_12mean(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M); /* proto */
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_14hyperbolicity(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M); /* proto */
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_16__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_18__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_5miolo_10__pyx_unpickle_Manifold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_tp_new_5miolo_mioloObject(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_5miolo_Matrix(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -4269,6 +4274,7 @@ typedef struct {
   PyObject *__pyx_n_s_Hyperbolic___setstate_cython;
   PyObject *__pyx_n_s_Hyperbolic_distance;
   PyObject *__pyx_n_s_Hyperbolic_exp;
+  PyObject *__pyx_n_s_Hyperbolic_hyperbolicity;
   PyObject *__pyx_n_s_Hyperbolic_isIn;
   PyObject *__pyx_n_s_Hyperbolic_log;
   PyObject *__pyx_n_s_Hyperbolic_madd;
@@ -4363,7 +4369,7 @@ typedef struct {
   PyObject *__pyx_n_s_View_MemoryView;
   PyObject *__pyx_n_s_Warning;
   PyObject *__pyx_kp_u__2;
-  PyObject *__pyx_n_s__204;
+  PyObject *__pyx_n_s__206;
   PyObject *__pyx_n_s__3;
   PyObject *__pyx_kp_u__6;
   PyObject *__pyx_kp_u__7;
@@ -4405,6 +4411,7 @@ typedef struct {
   PyObject *__pyx_n_s_ctypes;
   PyObject *__pyx_n_s_data;
   PyObject *__pyx_kp_s_data_and_center_must_have_same_n;
+  PyObject *__pyx_kp_s_data_and_center_must_share_same;
   PyObject *__pyx_kp_s_data_and_center_must_shares_same;
   PyObject *__pyx_kp_s_data_and_labels_must_have_same_n;
   PyObject *__pyx_n_s_degree;
@@ -4446,6 +4453,7 @@ typedef struct {
   PyObject *__pyx_n_s_gshape;
   PyObject *__pyx_n_s_hadamard;
   PyObject *__pyx_n_s_hyperbolicCentroidDistance;
+  PyObject *__pyx_n_s_hyperbolicity;
   PyObject *__pyx_n_s_i;
   PyObject *__pyx_kp_s_i_is_not_a_valid_index_for_Digra;
   PyObject *__pyx_n_s_id;
@@ -4680,69 +4688,69 @@ typedef struct {
   PyObject *__pyx_tuple__77;
   PyObject *__pyx_tuple__78;
   PyObject *__pyx_tuple__79;
-  PyObject *__pyx_tuple__81;
-  PyObject *__pyx_tuple__87;
-  PyObject *__pyx_tuple__89;
-  PyObject *__pyx_tuple__95;
-  PyObject *__pyx_tuple__97;
-  PyObject *__pyx_tuple__99;
+  PyObject *__pyx_tuple__80;
+  PyObject *__pyx_tuple__82;
+  PyObject *__pyx_tuple__88;
+  PyObject *__pyx_tuple__90;
+  PyObject *__pyx_tuple__96;
+  PyObject *__pyx_tuple__98;
   PyObject *__pyx_tuple__100;
-  PyObject *__pyx_tuple__108;
-  PyObject *__pyx_tuple__110;
-  PyObject *__pyx_tuple__113;
-  PyObject *__pyx_tuple__122;
-  PyObject *__pyx_tuple__124;
-  PyObject *__pyx_tuple__126;
+  PyObject *__pyx_tuple__101;
+  PyObject *__pyx_tuple__109;
+  PyObject *__pyx_tuple__111;
+  PyObject *__pyx_tuple__114;
+  PyObject *__pyx_tuple__123;
+  PyObject *__pyx_tuple__125;
   PyObject *__pyx_tuple__127;
-  PyObject *__pyx_tuple__129;
+  PyObject *__pyx_tuple__128;
   PyObject *__pyx_tuple__130;
-  PyObject *__pyx_tuple__133;
-  PyObject *__pyx_tuple__140;
-  PyObject *__pyx_tuple__142;
-  PyObject *__pyx_tuple__144;
-  PyObject *__pyx_tuple__148;
-  PyObject *__pyx_tuple__150;
-  PyObject *__pyx_tuple__152;
-  PyObject *__pyx_tuple__156;
-  PyObject *__pyx_tuple__159;
-  PyObject *__pyx_tuple__169;
-  PyObject *__pyx_tuple__171;
-  PyObject *__pyx_tuple__175;
-  PyObject *__pyx_tuple__177;
-  PyObject *__pyx_tuple__179;
-  PyObject *__pyx_tuple__181;
+  PyObject *__pyx_tuple__131;
+  PyObject *__pyx_tuple__134;
+  PyObject *__pyx_tuple__141;
+  PyObject *__pyx_tuple__143;
+  PyObject *__pyx_tuple__145;
+  PyObject *__pyx_tuple__149;
+  PyObject *__pyx_tuple__151;
+  PyObject *__pyx_tuple__153;
+  PyObject *__pyx_tuple__157;
+  PyObject *__pyx_tuple__160;
+  PyObject *__pyx_tuple__170;
+  PyObject *__pyx_tuple__172;
+  PyObject *__pyx_tuple__176;
+  PyObject *__pyx_tuple__178;
+  PyObject *__pyx_tuple__180;
   PyObject *__pyx_tuple__182;
-  PyObject *__pyx_tuple__184;
-  PyObject *__pyx_tuple__186;
-  PyObject *__pyx_tuple__188;
-  PyObject *__pyx_tuple__190;
-  PyObject *__pyx_tuple__194;
-  PyObject *__pyx_tuple__196;
-  PyObject *__pyx_codeobj__80;
-  PyObject *__pyx_codeobj__82;
+  PyObject *__pyx_tuple__183;
+  PyObject *__pyx_tuple__185;
+  PyObject *__pyx_tuple__187;
+  PyObject *__pyx_tuple__189;
+  PyObject *__pyx_tuple__191;
+  PyObject *__pyx_tuple__195;
+  PyObject *__pyx_tuple__197;
+  PyObject *__pyx_codeobj__81;
   PyObject *__pyx_codeobj__83;
   PyObject *__pyx_codeobj__84;
   PyObject *__pyx_codeobj__85;
   PyObject *__pyx_codeobj__86;
-  PyObject *__pyx_codeobj__88;
-  PyObject *__pyx_codeobj__90;
+  PyObject *__pyx_codeobj__87;
+  PyObject *__pyx_codeobj__89;
   PyObject *__pyx_codeobj__91;
   PyObject *__pyx_codeobj__92;
   PyObject *__pyx_codeobj__93;
   PyObject *__pyx_codeobj__94;
-  PyObject *__pyx_codeobj__96;
-  PyObject *__pyx_codeobj__98;
-  PyObject *__pyx_codeobj__101;
+  PyObject *__pyx_codeobj__95;
+  PyObject *__pyx_codeobj__97;
+  PyObject *__pyx_codeobj__99;
   PyObject *__pyx_codeobj__102;
   PyObject *__pyx_codeobj__103;
   PyObject *__pyx_codeobj__104;
   PyObject *__pyx_codeobj__105;
   PyObject *__pyx_codeobj__106;
   PyObject *__pyx_codeobj__107;
-  PyObject *__pyx_codeobj__109;
-  PyObject *__pyx_codeobj__111;
+  PyObject *__pyx_codeobj__108;
+  PyObject *__pyx_codeobj__110;
   PyObject *__pyx_codeobj__112;
-  PyObject *__pyx_codeobj__114;
+  PyObject *__pyx_codeobj__113;
   PyObject *__pyx_codeobj__115;
   PyObject *__pyx_codeobj__116;
   PyObject *__pyx_codeobj__117;
@@ -4750,30 +4758,30 @@ typedef struct {
   PyObject *__pyx_codeobj__119;
   PyObject *__pyx_codeobj__120;
   PyObject *__pyx_codeobj__121;
-  PyObject *__pyx_codeobj__123;
-  PyObject *__pyx_codeobj__125;
-  PyObject *__pyx_codeobj__128;
-  PyObject *__pyx_codeobj__131;
+  PyObject *__pyx_codeobj__122;
+  PyObject *__pyx_codeobj__124;
+  PyObject *__pyx_codeobj__126;
+  PyObject *__pyx_codeobj__129;
   PyObject *__pyx_codeobj__132;
-  PyObject *__pyx_codeobj__134;
+  PyObject *__pyx_codeobj__133;
   PyObject *__pyx_codeobj__135;
   PyObject *__pyx_codeobj__136;
   PyObject *__pyx_codeobj__137;
   PyObject *__pyx_codeobj__138;
   PyObject *__pyx_codeobj__139;
-  PyObject *__pyx_codeobj__141;
-  PyObject *__pyx_codeobj__143;
-  PyObject *__pyx_codeobj__145;
+  PyObject *__pyx_codeobj__140;
+  PyObject *__pyx_codeobj__142;
+  PyObject *__pyx_codeobj__144;
   PyObject *__pyx_codeobj__146;
   PyObject *__pyx_codeobj__147;
-  PyObject *__pyx_codeobj__149;
-  PyObject *__pyx_codeobj__151;
-  PyObject *__pyx_codeobj__153;
+  PyObject *__pyx_codeobj__148;
+  PyObject *__pyx_codeobj__150;
+  PyObject *__pyx_codeobj__152;
   PyObject *__pyx_codeobj__154;
   PyObject *__pyx_codeobj__155;
-  PyObject *__pyx_codeobj__157;
+  PyObject *__pyx_codeobj__156;
   PyObject *__pyx_codeobj__158;
-  PyObject *__pyx_codeobj__160;
+  PyObject *__pyx_codeobj__159;
   PyObject *__pyx_codeobj__161;
   PyObject *__pyx_codeobj__162;
   PyObject *__pyx_codeobj__163;
@@ -4782,28 +4790,30 @@ typedef struct {
   PyObject *__pyx_codeobj__166;
   PyObject *__pyx_codeobj__167;
   PyObject *__pyx_codeobj__168;
-  PyObject *__pyx_codeobj__170;
-  PyObject *__pyx_codeobj__172;
+  PyObject *__pyx_codeobj__169;
+  PyObject *__pyx_codeobj__171;
   PyObject *__pyx_codeobj__173;
   PyObject *__pyx_codeobj__174;
-  PyObject *__pyx_codeobj__176;
-  PyObject *__pyx_codeobj__178;
-  PyObject *__pyx_codeobj__180;
-  PyObject *__pyx_codeobj__183;
-  PyObject *__pyx_codeobj__185;
-  PyObject *__pyx_codeobj__187;
-  PyObject *__pyx_codeobj__189;
-  PyObject *__pyx_codeobj__191;
+  PyObject *__pyx_codeobj__175;
+  PyObject *__pyx_codeobj__177;
+  PyObject *__pyx_codeobj__179;
+  PyObject *__pyx_codeobj__181;
+  PyObject *__pyx_codeobj__184;
+  PyObject *__pyx_codeobj__186;
+  PyObject *__pyx_codeobj__188;
+  PyObject *__pyx_codeobj__190;
   PyObject *__pyx_codeobj__192;
   PyObject *__pyx_codeobj__193;
-  PyObject *__pyx_codeobj__195;
-  PyObject *__pyx_codeobj__197;
+  PyObject *__pyx_codeobj__194;
+  PyObject *__pyx_codeobj__196;
   PyObject *__pyx_codeobj__198;
   PyObject *__pyx_codeobj__199;
   PyObject *__pyx_codeobj__200;
   PyObject *__pyx_codeobj__201;
   PyObject *__pyx_codeobj__202;
   PyObject *__pyx_codeobj__203;
+  PyObject *__pyx_codeobj__204;
+  PyObject *__pyx_codeobj__205;
 } __pyx_mstate;
 
 #if CYTHON_USE_MODULE_STATE
@@ -4960,6 +4970,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_Hyperbolic___setstate_cython);
   Py_CLEAR(clear_module_state->__pyx_n_s_Hyperbolic_distance);
   Py_CLEAR(clear_module_state->__pyx_n_s_Hyperbolic_exp);
+  Py_CLEAR(clear_module_state->__pyx_n_s_Hyperbolic_hyperbolicity);
   Py_CLEAR(clear_module_state->__pyx_n_s_Hyperbolic_isIn);
   Py_CLEAR(clear_module_state->__pyx_n_s_Hyperbolic_log);
   Py_CLEAR(clear_module_state->__pyx_n_s_Hyperbolic_madd);
@@ -5054,7 +5065,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_View_MemoryView);
   Py_CLEAR(clear_module_state->__pyx_n_s_Warning);
   Py_CLEAR(clear_module_state->__pyx_kp_u__2);
-  Py_CLEAR(clear_module_state->__pyx_n_s__204);
+  Py_CLEAR(clear_module_state->__pyx_n_s__206);
   Py_CLEAR(clear_module_state->__pyx_n_s__3);
   Py_CLEAR(clear_module_state->__pyx_kp_u__6);
   Py_CLEAR(clear_module_state->__pyx_kp_u__7);
@@ -5096,6 +5107,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_ctypes);
   Py_CLEAR(clear_module_state->__pyx_n_s_data);
   Py_CLEAR(clear_module_state->__pyx_kp_s_data_and_center_must_have_same_n);
+  Py_CLEAR(clear_module_state->__pyx_kp_s_data_and_center_must_share_same);
   Py_CLEAR(clear_module_state->__pyx_kp_s_data_and_center_must_shares_same);
   Py_CLEAR(clear_module_state->__pyx_kp_s_data_and_labels_must_have_same_n);
   Py_CLEAR(clear_module_state->__pyx_n_s_degree);
@@ -5137,6 +5149,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_gshape);
   Py_CLEAR(clear_module_state->__pyx_n_s_hadamard);
   Py_CLEAR(clear_module_state->__pyx_n_s_hyperbolicCentroidDistance);
+  Py_CLEAR(clear_module_state->__pyx_n_s_hyperbolicity);
   Py_CLEAR(clear_module_state->__pyx_n_s_i);
   Py_CLEAR(clear_module_state->__pyx_kp_s_i_is_not_a_valid_index_for_Digra);
   Py_CLEAR(clear_module_state->__pyx_n_s_id);
@@ -5371,69 +5384,69 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_tuple__77);
   Py_CLEAR(clear_module_state->__pyx_tuple__78);
   Py_CLEAR(clear_module_state->__pyx_tuple__79);
-  Py_CLEAR(clear_module_state->__pyx_tuple__81);
-  Py_CLEAR(clear_module_state->__pyx_tuple__87);
-  Py_CLEAR(clear_module_state->__pyx_tuple__89);
-  Py_CLEAR(clear_module_state->__pyx_tuple__95);
-  Py_CLEAR(clear_module_state->__pyx_tuple__97);
-  Py_CLEAR(clear_module_state->__pyx_tuple__99);
+  Py_CLEAR(clear_module_state->__pyx_tuple__80);
+  Py_CLEAR(clear_module_state->__pyx_tuple__82);
+  Py_CLEAR(clear_module_state->__pyx_tuple__88);
+  Py_CLEAR(clear_module_state->__pyx_tuple__90);
+  Py_CLEAR(clear_module_state->__pyx_tuple__96);
+  Py_CLEAR(clear_module_state->__pyx_tuple__98);
   Py_CLEAR(clear_module_state->__pyx_tuple__100);
-  Py_CLEAR(clear_module_state->__pyx_tuple__108);
-  Py_CLEAR(clear_module_state->__pyx_tuple__110);
-  Py_CLEAR(clear_module_state->__pyx_tuple__113);
-  Py_CLEAR(clear_module_state->__pyx_tuple__122);
-  Py_CLEAR(clear_module_state->__pyx_tuple__124);
-  Py_CLEAR(clear_module_state->__pyx_tuple__126);
+  Py_CLEAR(clear_module_state->__pyx_tuple__101);
+  Py_CLEAR(clear_module_state->__pyx_tuple__109);
+  Py_CLEAR(clear_module_state->__pyx_tuple__111);
+  Py_CLEAR(clear_module_state->__pyx_tuple__114);
+  Py_CLEAR(clear_module_state->__pyx_tuple__123);
+  Py_CLEAR(clear_module_state->__pyx_tuple__125);
   Py_CLEAR(clear_module_state->__pyx_tuple__127);
-  Py_CLEAR(clear_module_state->__pyx_tuple__129);
+  Py_CLEAR(clear_module_state->__pyx_tuple__128);
   Py_CLEAR(clear_module_state->__pyx_tuple__130);
-  Py_CLEAR(clear_module_state->__pyx_tuple__133);
-  Py_CLEAR(clear_module_state->__pyx_tuple__140);
-  Py_CLEAR(clear_module_state->__pyx_tuple__142);
-  Py_CLEAR(clear_module_state->__pyx_tuple__144);
-  Py_CLEAR(clear_module_state->__pyx_tuple__148);
-  Py_CLEAR(clear_module_state->__pyx_tuple__150);
-  Py_CLEAR(clear_module_state->__pyx_tuple__152);
-  Py_CLEAR(clear_module_state->__pyx_tuple__156);
-  Py_CLEAR(clear_module_state->__pyx_tuple__159);
-  Py_CLEAR(clear_module_state->__pyx_tuple__169);
-  Py_CLEAR(clear_module_state->__pyx_tuple__171);
-  Py_CLEAR(clear_module_state->__pyx_tuple__175);
-  Py_CLEAR(clear_module_state->__pyx_tuple__177);
-  Py_CLEAR(clear_module_state->__pyx_tuple__179);
-  Py_CLEAR(clear_module_state->__pyx_tuple__181);
+  Py_CLEAR(clear_module_state->__pyx_tuple__131);
+  Py_CLEAR(clear_module_state->__pyx_tuple__134);
+  Py_CLEAR(clear_module_state->__pyx_tuple__141);
+  Py_CLEAR(clear_module_state->__pyx_tuple__143);
+  Py_CLEAR(clear_module_state->__pyx_tuple__145);
+  Py_CLEAR(clear_module_state->__pyx_tuple__149);
+  Py_CLEAR(clear_module_state->__pyx_tuple__151);
+  Py_CLEAR(clear_module_state->__pyx_tuple__153);
+  Py_CLEAR(clear_module_state->__pyx_tuple__157);
+  Py_CLEAR(clear_module_state->__pyx_tuple__160);
+  Py_CLEAR(clear_module_state->__pyx_tuple__170);
+  Py_CLEAR(clear_module_state->__pyx_tuple__172);
+  Py_CLEAR(clear_module_state->__pyx_tuple__176);
+  Py_CLEAR(clear_module_state->__pyx_tuple__178);
+  Py_CLEAR(clear_module_state->__pyx_tuple__180);
   Py_CLEAR(clear_module_state->__pyx_tuple__182);
-  Py_CLEAR(clear_module_state->__pyx_tuple__184);
-  Py_CLEAR(clear_module_state->__pyx_tuple__186);
-  Py_CLEAR(clear_module_state->__pyx_tuple__188);
-  Py_CLEAR(clear_module_state->__pyx_tuple__190);
-  Py_CLEAR(clear_module_state->__pyx_tuple__194);
-  Py_CLEAR(clear_module_state->__pyx_tuple__196);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__80);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__82);
+  Py_CLEAR(clear_module_state->__pyx_tuple__183);
+  Py_CLEAR(clear_module_state->__pyx_tuple__185);
+  Py_CLEAR(clear_module_state->__pyx_tuple__187);
+  Py_CLEAR(clear_module_state->__pyx_tuple__189);
+  Py_CLEAR(clear_module_state->__pyx_tuple__191);
+  Py_CLEAR(clear_module_state->__pyx_tuple__195);
+  Py_CLEAR(clear_module_state->__pyx_tuple__197);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__81);
   Py_CLEAR(clear_module_state->__pyx_codeobj__83);
   Py_CLEAR(clear_module_state->__pyx_codeobj__84);
   Py_CLEAR(clear_module_state->__pyx_codeobj__85);
   Py_CLEAR(clear_module_state->__pyx_codeobj__86);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__88);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__90);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__87);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__89);
   Py_CLEAR(clear_module_state->__pyx_codeobj__91);
   Py_CLEAR(clear_module_state->__pyx_codeobj__92);
   Py_CLEAR(clear_module_state->__pyx_codeobj__93);
   Py_CLEAR(clear_module_state->__pyx_codeobj__94);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__96);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__98);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__101);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__95);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__97);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__99);
   Py_CLEAR(clear_module_state->__pyx_codeobj__102);
   Py_CLEAR(clear_module_state->__pyx_codeobj__103);
   Py_CLEAR(clear_module_state->__pyx_codeobj__104);
   Py_CLEAR(clear_module_state->__pyx_codeobj__105);
   Py_CLEAR(clear_module_state->__pyx_codeobj__106);
   Py_CLEAR(clear_module_state->__pyx_codeobj__107);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__109);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__111);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__108);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__110);
   Py_CLEAR(clear_module_state->__pyx_codeobj__112);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__114);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__113);
   Py_CLEAR(clear_module_state->__pyx_codeobj__115);
   Py_CLEAR(clear_module_state->__pyx_codeobj__116);
   Py_CLEAR(clear_module_state->__pyx_codeobj__117);
@@ -5441,30 +5454,30 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_codeobj__119);
   Py_CLEAR(clear_module_state->__pyx_codeobj__120);
   Py_CLEAR(clear_module_state->__pyx_codeobj__121);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__123);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__125);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__128);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__131);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__122);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__124);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__126);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__129);
   Py_CLEAR(clear_module_state->__pyx_codeobj__132);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__134);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__133);
   Py_CLEAR(clear_module_state->__pyx_codeobj__135);
   Py_CLEAR(clear_module_state->__pyx_codeobj__136);
   Py_CLEAR(clear_module_state->__pyx_codeobj__137);
   Py_CLEAR(clear_module_state->__pyx_codeobj__138);
   Py_CLEAR(clear_module_state->__pyx_codeobj__139);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__141);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__143);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__145);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__140);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__142);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__144);
   Py_CLEAR(clear_module_state->__pyx_codeobj__146);
   Py_CLEAR(clear_module_state->__pyx_codeobj__147);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__149);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__151);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__153);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__148);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__150);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__152);
   Py_CLEAR(clear_module_state->__pyx_codeobj__154);
   Py_CLEAR(clear_module_state->__pyx_codeobj__155);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__157);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__156);
   Py_CLEAR(clear_module_state->__pyx_codeobj__158);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__160);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__159);
   Py_CLEAR(clear_module_state->__pyx_codeobj__161);
   Py_CLEAR(clear_module_state->__pyx_codeobj__162);
   Py_CLEAR(clear_module_state->__pyx_codeobj__163);
@@ -5473,28 +5486,30 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_codeobj__166);
   Py_CLEAR(clear_module_state->__pyx_codeobj__167);
   Py_CLEAR(clear_module_state->__pyx_codeobj__168);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__170);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__172);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__169);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__171);
   Py_CLEAR(clear_module_state->__pyx_codeobj__173);
   Py_CLEAR(clear_module_state->__pyx_codeobj__174);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__176);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__178);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__180);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__183);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__185);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__187);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__189);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__191);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__175);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__177);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__179);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__181);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__184);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__186);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__188);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__190);
   Py_CLEAR(clear_module_state->__pyx_codeobj__192);
   Py_CLEAR(clear_module_state->__pyx_codeobj__193);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__195);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__197);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__194);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__196);
   Py_CLEAR(clear_module_state->__pyx_codeobj__198);
   Py_CLEAR(clear_module_state->__pyx_codeobj__199);
   Py_CLEAR(clear_module_state->__pyx_codeobj__200);
   Py_CLEAR(clear_module_state->__pyx_codeobj__201);
   Py_CLEAR(clear_module_state->__pyx_codeobj__202);
   Py_CLEAR(clear_module_state->__pyx_codeobj__203);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__204);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__205);
   return 0;
 }
 #endif
@@ -5629,6 +5644,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_Hyperbolic___setstate_cython);
   Py_VISIT(traverse_module_state->__pyx_n_s_Hyperbolic_distance);
   Py_VISIT(traverse_module_state->__pyx_n_s_Hyperbolic_exp);
+  Py_VISIT(traverse_module_state->__pyx_n_s_Hyperbolic_hyperbolicity);
   Py_VISIT(traverse_module_state->__pyx_n_s_Hyperbolic_isIn);
   Py_VISIT(traverse_module_state->__pyx_n_s_Hyperbolic_log);
   Py_VISIT(traverse_module_state->__pyx_n_s_Hyperbolic_madd);
@@ -5723,7 +5739,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_View_MemoryView);
   Py_VISIT(traverse_module_state->__pyx_n_s_Warning);
   Py_VISIT(traverse_module_state->__pyx_kp_u__2);
-  Py_VISIT(traverse_module_state->__pyx_n_s__204);
+  Py_VISIT(traverse_module_state->__pyx_n_s__206);
   Py_VISIT(traverse_module_state->__pyx_n_s__3);
   Py_VISIT(traverse_module_state->__pyx_kp_u__6);
   Py_VISIT(traverse_module_state->__pyx_kp_u__7);
@@ -5765,6 +5781,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_ctypes);
   Py_VISIT(traverse_module_state->__pyx_n_s_data);
   Py_VISIT(traverse_module_state->__pyx_kp_s_data_and_center_must_have_same_n);
+  Py_VISIT(traverse_module_state->__pyx_kp_s_data_and_center_must_share_same);
   Py_VISIT(traverse_module_state->__pyx_kp_s_data_and_center_must_shares_same);
   Py_VISIT(traverse_module_state->__pyx_kp_s_data_and_labels_must_have_same_n);
   Py_VISIT(traverse_module_state->__pyx_n_s_degree);
@@ -5806,6 +5823,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_gshape);
   Py_VISIT(traverse_module_state->__pyx_n_s_hadamard);
   Py_VISIT(traverse_module_state->__pyx_n_s_hyperbolicCentroidDistance);
+  Py_VISIT(traverse_module_state->__pyx_n_s_hyperbolicity);
   Py_VISIT(traverse_module_state->__pyx_n_s_i);
   Py_VISIT(traverse_module_state->__pyx_kp_s_i_is_not_a_valid_index_for_Digra);
   Py_VISIT(traverse_module_state->__pyx_n_s_id);
@@ -6040,69 +6058,69 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_tuple__77);
   Py_VISIT(traverse_module_state->__pyx_tuple__78);
   Py_VISIT(traverse_module_state->__pyx_tuple__79);
-  Py_VISIT(traverse_module_state->__pyx_tuple__81);
-  Py_VISIT(traverse_module_state->__pyx_tuple__87);
-  Py_VISIT(traverse_module_state->__pyx_tuple__89);
-  Py_VISIT(traverse_module_state->__pyx_tuple__95);
-  Py_VISIT(traverse_module_state->__pyx_tuple__97);
-  Py_VISIT(traverse_module_state->__pyx_tuple__99);
+  Py_VISIT(traverse_module_state->__pyx_tuple__80);
+  Py_VISIT(traverse_module_state->__pyx_tuple__82);
+  Py_VISIT(traverse_module_state->__pyx_tuple__88);
+  Py_VISIT(traverse_module_state->__pyx_tuple__90);
+  Py_VISIT(traverse_module_state->__pyx_tuple__96);
+  Py_VISIT(traverse_module_state->__pyx_tuple__98);
   Py_VISIT(traverse_module_state->__pyx_tuple__100);
-  Py_VISIT(traverse_module_state->__pyx_tuple__108);
-  Py_VISIT(traverse_module_state->__pyx_tuple__110);
-  Py_VISIT(traverse_module_state->__pyx_tuple__113);
-  Py_VISIT(traverse_module_state->__pyx_tuple__122);
-  Py_VISIT(traverse_module_state->__pyx_tuple__124);
-  Py_VISIT(traverse_module_state->__pyx_tuple__126);
+  Py_VISIT(traverse_module_state->__pyx_tuple__101);
+  Py_VISIT(traverse_module_state->__pyx_tuple__109);
+  Py_VISIT(traverse_module_state->__pyx_tuple__111);
+  Py_VISIT(traverse_module_state->__pyx_tuple__114);
+  Py_VISIT(traverse_module_state->__pyx_tuple__123);
+  Py_VISIT(traverse_module_state->__pyx_tuple__125);
   Py_VISIT(traverse_module_state->__pyx_tuple__127);
-  Py_VISIT(traverse_module_state->__pyx_tuple__129);
+  Py_VISIT(traverse_module_state->__pyx_tuple__128);
   Py_VISIT(traverse_module_state->__pyx_tuple__130);
-  Py_VISIT(traverse_module_state->__pyx_tuple__133);
-  Py_VISIT(traverse_module_state->__pyx_tuple__140);
-  Py_VISIT(traverse_module_state->__pyx_tuple__142);
-  Py_VISIT(traverse_module_state->__pyx_tuple__144);
-  Py_VISIT(traverse_module_state->__pyx_tuple__148);
-  Py_VISIT(traverse_module_state->__pyx_tuple__150);
-  Py_VISIT(traverse_module_state->__pyx_tuple__152);
-  Py_VISIT(traverse_module_state->__pyx_tuple__156);
-  Py_VISIT(traverse_module_state->__pyx_tuple__159);
-  Py_VISIT(traverse_module_state->__pyx_tuple__169);
-  Py_VISIT(traverse_module_state->__pyx_tuple__171);
-  Py_VISIT(traverse_module_state->__pyx_tuple__175);
-  Py_VISIT(traverse_module_state->__pyx_tuple__177);
-  Py_VISIT(traverse_module_state->__pyx_tuple__179);
-  Py_VISIT(traverse_module_state->__pyx_tuple__181);
+  Py_VISIT(traverse_module_state->__pyx_tuple__131);
+  Py_VISIT(traverse_module_state->__pyx_tuple__134);
+  Py_VISIT(traverse_module_state->__pyx_tuple__141);
+  Py_VISIT(traverse_module_state->__pyx_tuple__143);
+  Py_VISIT(traverse_module_state->__pyx_tuple__145);
+  Py_VISIT(traverse_module_state->__pyx_tuple__149);
+  Py_VISIT(traverse_module_state->__pyx_tuple__151);
+  Py_VISIT(traverse_module_state->__pyx_tuple__153);
+  Py_VISIT(traverse_module_state->__pyx_tuple__157);
+  Py_VISIT(traverse_module_state->__pyx_tuple__160);
+  Py_VISIT(traverse_module_state->__pyx_tuple__170);
+  Py_VISIT(traverse_module_state->__pyx_tuple__172);
+  Py_VISIT(traverse_module_state->__pyx_tuple__176);
+  Py_VISIT(traverse_module_state->__pyx_tuple__178);
+  Py_VISIT(traverse_module_state->__pyx_tuple__180);
   Py_VISIT(traverse_module_state->__pyx_tuple__182);
-  Py_VISIT(traverse_module_state->__pyx_tuple__184);
-  Py_VISIT(traverse_module_state->__pyx_tuple__186);
-  Py_VISIT(traverse_module_state->__pyx_tuple__188);
-  Py_VISIT(traverse_module_state->__pyx_tuple__190);
-  Py_VISIT(traverse_module_state->__pyx_tuple__194);
-  Py_VISIT(traverse_module_state->__pyx_tuple__196);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__80);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__82);
+  Py_VISIT(traverse_module_state->__pyx_tuple__183);
+  Py_VISIT(traverse_module_state->__pyx_tuple__185);
+  Py_VISIT(traverse_module_state->__pyx_tuple__187);
+  Py_VISIT(traverse_module_state->__pyx_tuple__189);
+  Py_VISIT(traverse_module_state->__pyx_tuple__191);
+  Py_VISIT(traverse_module_state->__pyx_tuple__195);
+  Py_VISIT(traverse_module_state->__pyx_tuple__197);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__81);
   Py_VISIT(traverse_module_state->__pyx_codeobj__83);
   Py_VISIT(traverse_module_state->__pyx_codeobj__84);
   Py_VISIT(traverse_module_state->__pyx_codeobj__85);
   Py_VISIT(traverse_module_state->__pyx_codeobj__86);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__88);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__90);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__87);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__89);
   Py_VISIT(traverse_module_state->__pyx_codeobj__91);
   Py_VISIT(traverse_module_state->__pyx_codeobj__92);
   Py_VISIT(traverse_module_state->__pyx_codeobj__93);
   Py_VISIT(traverse_module_state->__pyx_codeobj__94);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__96);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__98);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__101);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__95);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__97);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__99);
   Py_VISIT(traverse_module_state->__pyx_codeobj__102);
   Py_VISIT(traverse_module_state->__pyx_codeobj__103);
   Py_VISIT(traverse_module_state->__pyx_codeobj__104);
   Py_VISIT(traverse_module_state->__pyx_codeobj__105);
   Py_VISIT(traverse_module_state->__pyx_codeobj__106);
   Py_VISIT(traverse_module_state->__pyx_codeobj__107);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__109);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__111);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__108);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__110);
   Py_VISIT(traverse_module_state->__pyx_codeobj__112);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__114);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__113);
   Py_VISIT(traverse_module_state->__pyx_codeobj__115);
   Py_VISIT(traverse_module_state->__pyx_codeobj__116);
   Py_VISIT(traverse_module_state->__pyx_codeobj__117);
@@ -6110,30 +6128,30 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_codeobj__119);
   Py_VISIT(traverse_module_state->__pyx_codeobj__120);
   Py_VISIT(traverse_module_state->__pyx_codeobj__121);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__123);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__125);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__128);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__131);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__122);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__124);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__126);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__129);
   Py_VISIT(traverse_module_state->__pyx_codeobj__132);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__134);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__133);
   Py_VISIT(traverse_module_state->__pyx_codeobj__135);
   Py_VISIT(traverse_module_state->__pyx_codeobj__136);
   Py_VISIT(traverse_module_state->__pyx_codeobj__137);
   Py_VISIT(traverse_module_state->__pyx_codeobj__138);
   Py_VISIT(traverse_module_state->__pyx_codeobj__139);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__141);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__143);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__145);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__140);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__142);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__144);
   Py_VISIT(traverse_module_state->__pyx_codeobj__146);
   Py_VISIT(traverse_module_state->__pyx_codeobj__147);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__149);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__151);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__153);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__148);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__150);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__152);
   Py_VISIT(traverse_module_state->__pyx_codeobj__154);
   Py_VISIT(traverse_module_state->__pyx_codeobj__155);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__157);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__156);
   Py_VISIT(traverse_module_state->__pyx_codeobj__158);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__160);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__159);
   Py_VISIT(traverse_module_state->__pyx_codeobj__161);
   Py_VISIT(traverse_module_state->__pyx_codeobj__162);
   Py_VISIT(traverse_module_state->__pyx_codeobj__163);
@@ -6142,28 +6160,30 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_codeobj__166);
   Py_VISIT(traverse_module_state->__pyx_codeobj__167);
   Py_VISIT(traverse_module_state->__pyx_codeobj__168);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__170);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__172);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__169);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__171);
   Py_VISIT(traverse_module_state->__pyx_codeobj__173);
   Py_VISIT(traverse_module_state->__pyx_codeobj__174);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__176);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__178);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__180);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__183);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__185);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__187);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__189);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__191);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__175);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__177);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__179);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__181);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__184);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__186);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__188);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__190);
   Py_VISIT(traverse_module_state->__pyx_codeobj__192);
   Py_VISIT(traverse_module_state->__pyx_codeobj__193);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__195);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__197);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__194);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__196);
   Py_VISIT(traverse_module_state->__pyx_codeobj__198);
   Py_VISIT(traverse_module_state->__pyx_codeobj__199);
   Py_VISIT(traverse_module_state->__pyx_codeobj__200);
   Py_VISIT(traverse_module_state->__pyx_codeobj__201);
   Py_VISIT(traverse_module_state->__pyx_codeobj__202);
   Py_VISIT(traverse_module_state->__pyx_codeobj__203);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__204);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__205);
   return 0;
 }
 #endif
@@ -6330,6 +6350,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_Hyperbolic___setstate_cython __pyx_mstate_global->__pyx_n_s_Hyperbolic___setstate_cython
 #define __pyx_n_s_Hyperbolic_distance __pyx_mstate_global->__pyx_n_s_Hyperbolic_distance
 #define __pyx_n_s_Hyperbolic_exp __pyx_mstate_global->__pyx_n_s_Hyperbolic_exp
+#define __pyx_n_s_Hyperbolic_hyperbolicity __pyx_mstate_global->__pyx_n_s_Hyperbolic_hyperbolicity
 #define __pyx_n_s_Hyperbolic_isIn __pyx_mstate_global->__pyx_n_s_Hyperbolic_isIn
 #define __pyx_n_s_Hyperbolic_log __pyx_mstate_global->__pyx_n_s_Hyperbolic_log
 #define __pyx_n_s_Hyperbolic_madd __pyx_mstate_global->__pyx_n_s_Hyperbolic_madd
@@ -6424,7 +6445,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_View_MemoryView __pyx_mstate_global->__pyx_n_s_View_MemoryView
 #define __pyx_n_s_Warning __pyx_mstate_global->__pyx_n_s_Warning
 #define __pyx_kp_u__2 __pyx_mstate_global->__pyx_kp_u__2
-#define __pyx_n_s__204 __pyx_mstate_global->__pyx_n_s__204
+#define __pyx_n_s__206 __pyx_mstate_global->__pyx_n_s__206
 #define __pyx_n_s__3 __pyx_mstate_global->__pyx_n_s__3
 #define __pyx_kp_u__6 __pyx_mstate_global->__pyx_kp_u__6
 #define __pyx_kp_u__7 __pyx_mstate_global->__pyx_kp_u__7
@@ -6466,6 +6487,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_ctypes __pyx_mstate_global->__pyx_n_s_ctypes
 #define __pyx_n_s_data __pyx_mstate_global->__pyx_n_s_data
 #define __pyx_kp_s_data_and_center_must_have_same_n __pyx_mstate_global->__pyx_kp_s_data_and_center_must_have_same_n
+#define __pyx_kp_s_data_and_center_must_share_same __pyx_mstate_global->__pyx_kp_s_data_and_center_must_share_same
 #define __pyx_kp_s_data_and_center_must_shares_same __pyx_mstate_global->__pyx_kp_s_data_and_center_must_shares_same
 #define __pyx_kp_s_data_and_labels_must_have_same_n __pyx_mstate_global->__pyx_kp_s_data_and_labels_must_have_same_n
 #define __pyx_n_s_degree __pyx_mstate_global->__pyx_n_s_degree
@@ -6507,6 +6529,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_gshape __pyx_mstate_global->__pyx_n_s_gshape
 #define __pyx_n_s_hadamard __pyx_mstate_global->__pyx_n_s_hadamard
 #define __pyx_n_s_hyperbolicCentroidDistance __pyx_mstate_global->__pyx_n_s_hyperbolicCentroidDistance
+#define __pyx_n_s_hyperbolicity __pyx_mstate_global->__pyx_n_s_hyperbolicity
 #define __pyx_n_s_i __pyx_mstate_global->__pyx_n_s_i
 #define __pyx_kp_s_i_is_not_a_valid_index_for_Digra __pyx_mstate_global->__pyx_kp_s_i_is_not_a_valid_index_for_Digra
 #define __pyx_n_s_id __pyx_mstate_global->__pyx_n_s_id
@@ -6741,69 +6764,69 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_tuple__77 __pyx_mstate_global->__pyx_tuple__77
 #define __pyx_tuple__78 __pyx_mstate_global->__pyx_tuple__78
 #define __pyx_tuple__79 __pyx_mstate_global->__pyx_tuple__79
-#define __pyx_tuple__81 __pyx_mstate_global->__pyx_tuple__81
-#define __pyx_tuple__87 __pyx_mstate_global->__pyx_tuple__87
-#define __pyx_tuple__89 __pyx_mstate_global->__pyx_tuple__89
-#define __pyx_tuple__95 __pyx_mstate_global->__pyx_tuple__95
-#define __pyx_tuple__97 __pyx_mstate_global->__pyx_tuple__97
-#define __pyx_tuple__99 __pyx_mstate_global->__pyx_tuple__99
+#define __pyx_tuple__80 __pyx_mstate_global->__pyx_tuple__80
+#define __pyx_tuple__82 __pyx_mstate_global->__pyx_tuple__82
+#define __pyx_tuple__88 __pyx_mstate_global->__pyx_tuple__88
+#define __pyx_tuple__90 __pyx_mstate_global->__pyx_tuple__90
+#define __pyx_tuple__96 __pyx_mstate_global->__pyx_tuple__96
+#define __pyx_tuple__98 __pyx_mstate_global->__pyx_tuple__98
 #define __pyx_tuple__100 __pyx_mstate_global->__pyx_tuple__100
-#define __pyx_tuple__108 __pyx_mstate_global->__pyx_tuple__108
-#define __pyx_tuple__110 __pyx_mstate_global->__pyx_tuple__110
-#define __pyx_tuple__113 __pyx_mstate_global->__pyx_tuple__113
-#define __pyx_tuple__122 __pyx_mstate_global->__pyx_tuple__122
-#define __pyx_tuple__124 __pyx_mstate_global->__pyx_tuple__124
-#define __pyx_tuple__126 __pyx_mstate_global->__pyx_tuple__126
+#define __pyx_tuple__101 __pyx_mstate_global->__pyx_tuple__101
+#define __pyx_tuple__109 __pyx_mstate_global->__pyx_tuple__109
+#define __pyx_tuple__111 __pyx_mstate_global->__pyx_tuple__111
+#define __pyx_tuple__114 __pyx_mstate_global->__pyx_tuple__114
+#define __pyx_tuple__123 __pyx_mstate_global->__pyx_tuple__123
+#define __pyx_tuple__125 __pyx_mstate_global->__pyx_tuple__125
 #define __pyx_tuple__127 __pyx_mstate_global->__pyx_tuple__127
-#define __pyx_tuple__129 __pyx_mstate_global->__pyx_tuple__129
+#define __pyx_tuple__128 __pyx_mstate_global->__pyx_tuple__128
 #define __pyx_tuple__130 __pyx_mstate_global->__pyx_tuple__130
-#define __pyx_tuple__133 __pyx_mstate_global->__pyx_tuple__133
-#define __pyx_tuple__140 __pyx_mstate_global->__pyx_tuple__140
-#define __pyx_tuple__142 __pyx_mstate_global->__pyx_tuple__142
-#define __pyx_tuple__144 __pyx_mstate_global->__pyx_tuple__144
-#define __pyx_tuple__148 __pyx_mstate_global->__pyx_tuple__148
-#define __pyx_tuple__150 __pyx_mstate_global->__pyx_tuple__150
-#define __pyx_tuple__152 __pyx_mstate_global->__pyx_tuple__152
-#define __pyx_tuple__156 __pyx_mstate_global->__pyx_tuple__156
-#define __pyx_tuple__159 __pyx_mstate_global->__pyx_tuple__159
-#define __pyx_tuple__169 __pyx_mstate_global->__pyx_tuple__169
-#define __pyx_tuple__171 __pyx_mstate_global->__pyx_tuple__171
-#define __pyx_tuple__175 __pyx_mstate_global->__pyx_tuple__175
-#define __pyx_tuple__177 __pyx_mstate_global->__pyx_tuple__177
-#define __pyx_tuple__179 __pyx_mstate_global->__pyx_tuple__179
-#define __pyx_tuple__181 __pyx_mstate_global->__pyx_tuple__181
+#define __pyx_tuple__131 __pyx_mstate_global->__pyx_tuple__131
+#define __pyx_tuple__134 __pyx_mstate_global->__pyx_tuple__134
+#define __pyx_tuple__141 __pyx_mstate_global->__pyx_tuple__141
+#define __pyx_tuple__143 __pyx_mstate_global->__pyx_tuple__143
+#define __pyx_tuple__145 __pyx_mstate_global->__pyx_tuple__145
+#define __pyx_tuple__149 __pyx_mstate_global->__pyx_tuple__149
+#define __pyx_tuple__151 __pyx_mstate_global->__pyx_tuple__151
+#define __pyx_tuple__153 __pyx_mstate_global->__pyx_tuple__153
+#define __pyx_tuple__157 __pyx_mstate_global->__pyx_tuple__157
+#define __pyx_tuple__160 __pyx_mstate_global->__pyx_tuple__160
+#define __pyx_tuple__170 __pyx_mstate_global->__pyx_tuple__170
+#define __pyx_tuple__172 __pyx_mstate_global->__pyx_tuple__172
+#define __pyx_tuple__176 __pyx_mstate_global->__pyx_tuple__176
+#define __pyx_tuple__178 __pyx_mstate_global->__pyx_tuple__178
+#define __pyx_tuple__180 __pyx_mstate_global->__pyx_tuple__180
 #define __pyx_tuple__182 __pyx_mstate_global->__pyx_tuple__182
-#define __pyx_tuple__184 __pyx_mstate_global->__pyx_tuple__184
-#define __pyx_tuple__186 __pyx_mstate_global->__pyx_tuple__186
-#define __pyx_tuple__188 __pyx_mstate_global->__pyx_tuple__188
-#define __pyx_tuple__190 __pyx_mstate_global->__pyx_tuple__190
-#define __pyx_tuple__194 __pyx_mstate_global->__pyx_tuple__194
-#define __pyx_tuple__196 __pyx_mstate_global->__pyx_tuple__196
-#define __pyx_codeobj__80 __pyx_mstate_global->__pyx_codeobj__80
-#define __pyx_codeobj__82 __pyx_mstate_global->__pyx_codeobj__82
+#define __pyx_tuple__183 __pyx_mstate_global->__pyx_tuple__183
+#define __pyx_tuple__185 __pyx_mstate_global->__pyx_tuple__185
+#define __pyx_tuple__187 __pyx_mstate_global->__pyx_tuple__187
+#define __pyx_tuple__189 __pyx_mstate_global->__pyx_tuple__189
+#define __pyx_tuple__191 __pyx_mstate_global->__pyx_tuple__191
+#define __pyx_tuple__195 __pyx_mstate_global->__pyx_tuple__195
+#define __pyx_tuple__197 __pyx_mstate_global->__pyx_tuple__197
+#define __pyx_codeobj__81 __pyx_mstate_global->__pyx_codeobj__81
 #define __pyx_codeobj__83 __pyx_mstate_global->__pyx_codeobj__83
 #define __pyx_codeobj__84 __pyx_mstate_global->__pyx_codeobj__84
 #define __pyx_codeobj__85 __pyx_mstate_global->__pyx_codeobj__85
 #define __pyx_codeobj__86 __pyx_mstate_global->__pyx_codeobj__86
-#define __pyx_codeobj__88 __pyx_mstate_global->__pyx_codeobj__88
-#define __pyx_codeobj__90 __pyx_mstate_global->__pyx_codeobj__90
+#define __pyx_codeobj__87 __pyx_mstate_global->__pyx_codeobj__87
+#define __pyx_codeobj__89 __pyx_mstate_global->__pyx_codeobj__89
 #define __pyx_codeobj__91 __pyx_mstate_global->__pyx_codeobj__91
 #define __pyx_codeobj__92 __pyx_mstate_global->__pyx_codeobj__92
 #define __pyx_codeobj__93 __pyx_mstate_global->__pyx_codeobj__93
 #define __pyx_codeobj__94 __pyx_mstate_global->__pyx_codeobj__94
-#define __pyx_codeobj__96 __pyx_mstate_global->__pyx_codeobj__96
-#define __pyx_codeobj__98 __pyx_mstate_global->__pyx_codeobj__98
-#define __pyx_codeobj__101 __pyx_mstate_global->__pyx_codeobj__101
+#define __pyx_codeobj__95 __pyx_mstate_global->__pyx_codeobj__95
+#define __pyx_codeobj__97 __pyx_mstate_global->__pyx_codeobj__97
+#define __pyx_codeobj__99 __pyx_mstate_global->__pyx_codeobj__99
 #define __pyx_codeobj__102 __pyx_mstate_global->__pyx_codeobj__102
 #define __pyx_codeobj__103 __pyx_mstate_global->__pyx_codeobj__103
 #define __pyx_codeobj__104 __pyx_mstate_global->__pyx_codeobj__104
 #define __pyx_codeobj__105 __pyx_mstate_global->__pyx_codeobj__105
 #define __pyx_codeobj__106 __pyx_mstate_global->__pyx_codeobj__106
 #define __pyx_codeobj__107 __pyx_mstate_global->__pyx_codeobj__107
-#define __pyx_codeobj__109 __pyx_mstate_global->__pyx_codeobj__109
-#define __pyx_codeobj__111 __pyx_mstate_global->__pyx_codeobj__111
+#define __pyx_codeobj__108 __pyx_mstate_global->__pyx_codeobj__108
+#define __pyx_codeobj__110 __pyx_mstate_global->__pyx_codeobj__110
 #define __pyx_codeobj__112 __pyx_mstate_global->__pyx_codeobj__112
-#define __pyx_codeobj__114 __pyx_mstate_global->__pyx_codeobj__114
+#define __pyx_codeobj__113 __pyx_mstate_global->__pyx_codeobj__113
 #define __pyx_codeobj__115 __pyx_mstate_global->__pyx_codeobj__115
 #define __pyx_codeobj__116 __pyx_mstate_global->__pyx_codeobj__116
 #define __pyx_codeobj__117 __pyx_mstate_global->__pyx_codeobj__117
@@ -6811,30 +6834,30 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_codeobj__119 __pyx_mstate_global->__pyx_codeobj__119
 #define __pyx_codeobj__120 __pyx_mstate_global->__pyx_codeobj__120
 #define __pyx_codeobj__121 __pyx_mstate_global->__pyx_codeobj__121
-#define __pyx_codeobj__123 __pyx_mstate_global->__pyx_codeobj__123
-#define __pyx_codeobj__125 __pyx_mstate_global->__pyx_codeobj__125
-#define __pyx_codeobj__128 __pyx_mstate_global->__pyx_codeobj__128
-#define __pyx_codeobj__131 __pyx_mstate_global->__pyx_codeobj__131
+#define __pyx_codeobj__122 __pyx_mstate_global->__pyx_codeobj__122
+#define __pyx_codeobj__124 __pyx_mstate_global->__pyx_codeobj__124
+#define __pyx_codeobj__126 __pyx_mstate_global->__pyx_codeobj__126
+#define __pyx_codeobj__129 __pyx_mstate_global->__pyx_codeobj__129
 #define __pyx_codeobj__132 __pyx_mstate_global->__pyx_codeobj__132
-#define __pyx_codeobj__134 __pyx_mstate_global->__pyx_codeobj__134
+#define __pyx_codeobj__133 __pyx_mstate_global->__pyx_codeobj__133
 #define __pyx_codeobj__135 __pyx_mstate_global->__pyx_codeobj__135
 #define __pyx_codeobj__136 __pyx_mstate_global->__pyx_codeobj__136
 #define __pyx_codeobj__137 __pyx_mstate_global->__pyx_codeobj__137
 #define __pyx_codeobj__138 __pyx_mstate_global->__pyx_codeobj__138
 #define __pyx_codeobj__139 __pyx_mstate_global->__pyx_codeobj__139
-#define __pyx_codeobj__141 __pyx_mstate_global->__pyx_codeobj__141
-#define __pyx_codeobj__143 __pyx_mstate_global->__pyx_codeobj__143
-#define __pyx_codeobj__145 __pyx_mstate_global->__pyx_codeobj__145
+#define __pyx_codeobj__140 __pyx_mstate_global->__pyx_codeobj__140
+#define __pyx_codeobj__142 __pyx_mstate_global->__pyx_codeobj__142
+#define __pyx_codeobj__144 __pyx_mstate_global->__pyx_codeobj__144
 #define __pyx_codeobj__146 __pyx_mstate_global->__pyx_codeobj__146
 #define __pyx_codeobj__147 __pyx_mstate_global->__pyx_codeobj__147
-#define __pyx_codeobj__149 __pyx_mstate_global->__pyx_codeobj__149
-#define __pyx_codeobj__151 __pyx_mstate_global->__pyx_codeobj__151
-#define __pyx_codeobj__153 __pyx_mstate_global->__pyx_codeobj__153
+#define __pyx_codeobj__148 __pyx_mstate_global->__pyx_codeobj__148
+#define __pyx_codeobj__150 __pyx_mstate_global->__pyx_codeobj__150
+#define __pyx_codeobj__152 __pyx_mstate_global->__pyx_codeobj__152
 #define __pyx_codeobj__154 __pyx_mstate_global->__pyx_codeobj__154
 #define __pyx_codeobj__155 __pyx_mstate_global->__pyx_codeobj__155
-#define __pyx_codeobj__157 __pyx_mstate_global->__pyx_codeobj__157
+#define __pyx_codeobj__156 __pyx_mstate_global->__pyx_codeobj__156
 #define __pyx_codeobj__158 __pyx_mstate_global->__pyx_codeobj__158
-#define __pyx_codeobj__160 __pyx_mstate_global->__pyx_codeobj__160
+#define __pyx_codeobj__159 __pyx_mstate_global->__pyx_codeobj__159
 #define __pyx_codeobj__161 __pyx_mstate_global->__pyx_codeobj__161
 #define __pyx_codeobj__162 __pyx_mstate_global->__pyx_codeobj__162
 #define __pyx_codeobj__163 __pyx_mstate_global->__pyx_codeobj__163
@@ -6843,28 +6866,30 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_codeobj__166 __pyx_mstate_global->__pyx_codeobj__166
 #define __pyx_codeobj__167 __pyx_mstate_global->__pyx_codeobj__167
 #define __pyx_codeobj__168 __pyx_mstate_global->__pyx_codeobj__168
-#define __pyx_codeobj__170 __pyx_mstate_global->__pyx_codeobj__170
-#define __pyx_codeobj__172 __pyx_mstate_global->__pyx_codeobj__172
+#define __pyx_codeobj__169 __pyx_mstate_global->__pyx_codeobj__169
+#define __pyx_codeobj__171 __pyx_mstate_global->__pyx_codeobj__171
 #define __pyx_codeobj__173 __pyx_mstate_global->__pyx_codeobj__173
 #define __pyx_codeobj__174 __pyx_mstate_global->__pyx_codeobj__174
-#define __pyx_codeobj__176 __pyx_mstate_global->__pyx_codeobj__176
-#define __pyx_codeobj__178 __pyx_mstate_global->__pyx_codeobj__178
-#define __pyx_codeobj__180 __pyx_mstate_global->__pyx_codeobj__180
-#define __pyx_codeobj__183 __pyx_mstate_global->__pyx_codeobj__183
-#define __pyx_codeobj__185 __pyx_mstate_global->__pyx_codeobj__185
-#define __pyx_codeobj__187 __pyx_mstate_global->__pyx_codeobj__187
-#define __pyx_codeobj__189 __pyx_mstate_global->__pyx_codeobj__189
-#define __pyx_codeobj__191 __pyx_mstate_global->__pyx_codeobj__191
+#define __pyx_codeobj__175 __pyx_mstate_global->__pyx_codeobj__175
+#define __pyx_codeobj__177 __pyx_mstate_global->__pyx_codeobj__177
+#define __pyx_codeobj__179 __pyx_mstate_global->__pyx_codeobj__179
+#define __pyx_codeobj__181 __pyx_mstate_global->__pyx_codeobj__181
+#define __pyx_codeobj__184 __pyx_mstate_global->__pyx_codeobj__184
+#define __pyx_codeobj__186 __pyx_mstate_global->__pyx_codeobj__186
+#define __pyx_codeobj__188 __pyx_mstate_global->__pyx_codeobj__188
+#define __pyx_codeobj__190 __pyx_mstate_global->__pyx_codeobj__190
 #define __pyx_codeobj__192 __pyx_mstate_global->__pyx_codeobj__192
 #define __pyx_codeobj__193 __pyx_mstate_global->__pyx_codeobj__193
-#define __pyx_codeobj__195 __pyx_mstate_global->__pyx_codeobj__195
-#define __pyx_codeobj__197 __pyx_mstate_global->__pyx_codeobj__197
+#define __pyx_codeobj__194 __pyx_mstate_global->__pyx_codeobj__194
+#define __pyx_codeobj__196 __pyx_mstate_global->__pyx_codeobj__196
 #define __pyx_codeobj__198 __pyx_mstate_global->__pyx_codeobj__198
 #define __pyx_codeobj__199 __pyx_mstate_global->__pyx_codeobj__199
 #define __pyx_codeobj__200 __pyx_mstate_global->__pyx_codeobj__200
 #define __pyx_codeobj__201 __pyx_mstate_global->__pyx_codeobj__201
 #define __pyx_codeobj__202 __pyx_mstate_global->__pyx_codeobj__202
 #define __pyx_codeobj__203 __pyx_mstate_global->__pyx_codeobj__203
+#define __pyx_codeobj__204 __pyx_mstate_global->__pyx_codeobj__204
+#define __pyx_codeobj__205 __pyx_mstate_global->__pyx_codeobj__205
 /* #### Code section: module_code ### */
 
 /* "View.MemoryView":131
@@ -46633,7 +46658,7 @@ static PyObject *__pyx_pf_5miolo_8txtGraph(CYTHON_UNUSED PyObject *__pyx_self, P
  * 
  *     def euclideanCentroidDistance(self, Matrix data, Matrix center):             # <<<<<<<<<<<<<<
  *         if data.ctype!=center.ctype:
- *             raise TypeError("data and center must shares same ctype.")
+ *             raise TypeError("data and center must share same ctype.")
  */
 
 /* Python wrapper */
@@ -46771,7 +46796,7 @@ static PyObject *__pyx_pf_5miolo_10KmeansUtil_euclideanCentroidDistance(struct _
  * 
  *     def euclideanCentroidDistance(self, Matrix data, Matrix center):
  *         if data.ctype!=center.ctype:             # <<<<<<<<<<<<<<
- *             raise TypeError("data and center must shares same ctype.")
+ *             raise TypeError("data and center must share same ctype.")
  *         if data.cols!=center.cols:
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_data), __pyx_n_s_ctype); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1463, __pyx_L1_error)
@@ -46788,7 +46813,7 @@ static PyObject *__pyx_pf_5miolo_10KmeansUtil_euclideanCentroidDistance(struct _
     /* "miololib.pyx":1464
  *     def euclideanCentroidDistance(self, Matrix data, Matrix center):
  *         if data.ctype!=center.ctype:
- *             raise TypeError("data and center must shares same ctype.")             # <<<<<<<<<<<<<<
+ *             raise TypeError("data and center must share same ctype.")             # <<<<<<<<<<<<<<
  *         if data.cols!=center.cols:
  *             raise TypeError("data and center must have same number of columns")
  */
@@ -46802,14 +46827,14 @@ static PyObject *__pyx_pf_5miolo_10KmeansUtil_euclideanCentroidDistance(struct _
  * 
  *     def euclideanCentroidDistance(self, Matrix data, Matrix center):
  *         if data.ctype!=center.ctype:             # <<<<<<<<<<<<<<
- *             raise TypeError("data and center must shares same ctype.")
+ *             raise TypeError("data and center must share same ctype.")
  *         if data.cols!=center.cols:
  */
   }
 
   /* "miololib.pyx":1465
  *         if data.ctype!=center.ctype:
- *             raise TypeError("data and center must shares same ctype.")
+ *             raise TypeError("data and center must share same ctype.")
  *         if data.cols!=center.cols:             # <<<<<<<<<<<<<<
  *             raise TypeError("data and center must have same number of columns")
  *         out = Matrix(ctype=data.ctype)
@@ -46826,7 +46851,7 @@ static PyObject *__pyx_pf_5miolo_10KmeansUtil_euclideanCentroidDistance(struct _
   if (unlikely(__pyx_t_4)) {
 
     /* "miololib.pyx":1466
- *             raise TypeError("data and center must shares same ctype.")
+ *             raise TypeError("data and center must share same ctype.")
  *         if data.cols!=center.cols:
  *             raise TypeError("data and center must have same number of columns")             # <<<<<<<<<<<<<<
  *         out = Matrix(ctype=data.ctype)
@@ -46840,7 +46865,7 @@ static PyObject *__pyx_pf_5miolo_10KmeansUtil_euclideanCentroidDistance(struct _
 
     /* "miololib.pyx":1465
  *         if data.ctype!=center.ctype:
- *             raise TypeError("data and center must shares same ctype.")
+ *             raise TypeError("data and center must share same ctype.")
  *         if data.cols!=center.cols:             # <<<<<<<<<<<<<<
  *             raise TypeError("data and center must have same number of columns")
  *         out = Matrix(ctype=data.ctype)
@@ -46976,7 +47001,7 @@ static PyObject *__pyx_pf_5miolo_10KmeansUtil_euclideanCentroidDistance(struct _
  * 
  *     def euclideanCentroidDistance(self, Matrix data, Matrix center):             # <<<<<<<<<<<<<<
  *         if data.ctype!=center.ctype:
- *             raise TypeError("data and center must shares same ctype.")
+ *             raise TypeError("data and center must share same ctype.")
  */
 
   /* function exit code */
@@ -47157,7 +47182,7 @@ static PyObject *__pyx_pf_5miolo_10KmeansUtil_2sphereCentroidDistance(struct __p
  *         if data.cols!=center.cols:
  *             raise TypeError("data and center must have same number of columns")
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__57, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1481, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__59, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1481, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -47522,7 +47547,7 @@ static PyObject *__pyx_pf_5miolo_10KmeansUtil_4hyperbolicCentroidDistance(struct
  *         if data.cols!=center.cols:
  *             raise TypeError("data and center must have same number of columns")
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__57, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1498, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__59, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1498, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -47882,7 +47907,7 @@ static PyObject *__pyx_pf_5miolo_10KmeansUtil_6euclideanCentroid(struct __pyx_ob
  *         if labels.rows!=data.rows:
  *             raise Exception("data and labels must have same number of rows")
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__59, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1515, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__60, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1515, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -47922,7 +47947,7 @@ static PyObject *__pyx_pf_5miolo_10KmeansUtil_6euclideanCentroid(struct __pyx_ob
  *         out = Matrix(ctype=data.ctype)
  *         if out.ctype=="int":
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__60, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1517, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__61, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1517, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -48257,7 +48282,7 @@ static PyObject *__pyx_pf_5miolo_10KmeansUtil_8partition(struct __pyx_obj_5miolo
  *         if labels.rows!=data.rows:
  *             raise Exception("data and labels must have same number of rows")
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__59, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1532, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__60, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1532, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -48297,7 +48322,7 @@ static PyObject *__pyx_pf_5miolo_10KmeansUtil_8partition(struct __pyx_obj_5miolo
  *         out = Matrix(ctype=data.ctype)
  *         if out.ctype=="int":
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__60, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1534, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__61, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1534, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -52879,7 +52904,7 @@ static PyObject *__pyx_pf_5miolo_6Sphere_10coordinateReady(struct __pyx_obj_5mio
  *         out = Matrix(ctype=M.ctype)
  *         if M.ctype=="int":
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__61, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1757, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__62, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1757, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -53774,7 +53799,7 @@ static PyObject *__pyx_pf_5miolo_6Sphere_16isTangent(struct __pyx_obj_5miolo_Sph
  *         if at.ctype!=M.ctype:
  *             raise TypeError("at and M must have same ctype.")
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__62, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1800, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__63, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1800, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -53814,7 +53839,7 @@ static PyObject *__pyx_pf_5miolo_6Sphere_16isTangent(struct __pyx_obj_5miolo_Sph
  *         if M.ctype=="int":
  *             return self.view.isTangent(drf(at.mtxInt),drf(M.mtxInt),<int>tolerance)
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__63, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1802, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__64, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1802, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -54125,7 +54150,7 @@ static PyObject *__pyx_pf_5miolo_6Sphere_18exp(struct __pyx_obj_5miolo_Sphere *_
  *         if at.rows!=1 and at.rows!=tangent.rows:
  *             raise Exception("Invalid shape for at.")
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__64, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1819, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__65, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1819, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -54176,7 +54201,7 @@ static PyObject *__pyx_pf_5miolo_6Sphere_18exp(struct __pyx_obj_5miolo_Sphere *_
  *         if at.ctype!=tangent.ctype:
  *             raise TypeError("at and tanget must have same ctype.")
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__65, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1821, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__66, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1821, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -54216,7 +54241,7 @@ static PyObject *__pyx_pf_5miolo_6Sphere_18exp(struct __pyx_obj_5miolo_Sphere *_
  *         out = Matrix(ctype=at.ctype)
  *         if at.rows==tangent.rows:
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__66, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1823, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__67, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1823, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -54666,7 +54691,7 @@ static PyObject *__pyx_pf_5miolo_6Sphere_20log(struct __pyx_obj_5miolo_Sphere *_
  *         if start.rows!=1 and start.rows!=end.rows:
  *             raise Exception("Invalid shape for at.")
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__64, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1861, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__65, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1861, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -54717,7 +54742,7 @@ static PyObject *__pyx_pf_5miolo_6Sphere_20log(struct __pyx_obj_5miolo_Sphere *_
  *         if start.ctype!=end.ctype:
  *             raise TypeError("start and end must have same ctype.")
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__65, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1863, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__66, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1863, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -54757,7 +54782,7 @@ static PyObject *__pyx_pf_5miolo_6Sphere_20log(struct __pyx_obj_5miolo_Sphere *_
  *         out = Matrix(ctype=start.ctype)
  *         if start.rows==end.rows:
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__67, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1865, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__68, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1865, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -55746,22 +55771,147 @@ static PyObject *__pyx_pf_5miolo_6Sphere_26__setstate_cython__(CYTHON_UNUSED str
 /* "miololib.pyx":1926
  *     cdef mld.hyperbolic view
  * 
+ *     def __init__(self, c=1):             # <<<<<<<<<<<<<<
+ *         self.view.c = c
+ * 
+ */
+
+/* Python wrapper */
+static int __pyx_pw_5miolo_10Hyperbolic_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_5miolo_10Hyperbolic_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_c = 0;
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[1] = {0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
+  #if CYTHON_ASSUME_SAFE_MACROS
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return -1;
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
+  {
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_c,0};
+    values[0] = __Pyx_Arg_NewRef_VARARGS(((PyObject *)__pyx_int_1));
+    if (__pyx_kwds) {
+      Py_ssize_t kw_args;
+      switch (__pyx_nargs) {
+        case  1: values[0] = __Pyx_Arg_VARARGS(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = __Pyx_NumKwargs_VARARGS(__pyx_kwds);
+      switch (__pyx_nargs) {
+        case  0:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_GetKwValue_VARARGS(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_c);
+          if (value) { values[0] = __Pyx_Arg_NewRef_VARARGS(value); kw_args--; }
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1926, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        const Py_ssize_t kwd_pos_args = __pyx_nargs;
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__init__") < 0)) __PYX_ERR(1, 1926, __pyx_L3_error)
+      }
+    } else {
+      switch (__pyx_nargs) {
+        case  1: values[0] = __Pyx_Arg_VARARGS(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_c = values[0];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, __pyx_nargs); __PYX_ERR(1, 1926, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_VARARGS(values[__pyx_temp]);
+    }
+  }
+  __Pyx_AddTraceback("miolo.Hyperbolic.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return -1;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_5miolo_10Hyperbolic___init__(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_c);
+
+  /* function exit code */
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_VARARGS(values[__pyx_temp]);
+    }
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_5miolo_10Hyperbolic___init__(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, PyObject *__pyx_v_c) {
+  int __pyx_r;
+  double __pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+
+  /* "miololib.pyx":1927
+ * 
+ *     def __init__(self, c=1):
+ *         self.view.c = c             # <<<<<<<<<<<<<<
+ * 
+ *     def distance(self, Matrix M):
+ */
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_c); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 1927, __pyx_L1_error)
+  __pyx_v_self->view.c = __pyx_t_1;
+
+  /* "miololib.pyx":1926
+ *     cdef mld.hyperbolic view
+ * 
+ *     def __init__(self, c=1):             # <<<<<<<<<<<<<<
+ *         self.view.c = c
+ * 
+ */
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("miolo.Hyperbolic.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  return __pyx_r;
+}
+
+/* "miololib.pyx":1929
+ *         self.view.c = c
+ * 
  *     def distance(self, Matrix M):             # <<<<<<<<<<<<<<
  *         """
  *             Return a square Matrix for which each entry is the geodesic distance
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_1distance(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_3distance(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_distance, "Hyperbolic.distance(self, Matrix M)\n\n            Return a square Matrix for which each entry is the geodesic distance\n            between the pair of (i,j) rows of M.\n        ");
-static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_1distance = {"distance", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_1distance, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_distance};
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_1distance(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_2distance, "Hyperbolic.distance(self, Matrix M)\n\n            Return a square Matrix for which each entry is the geodesic distance\n            between the pair of (i,j) rows of M.\n        ");
+static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_3distance = {"distance", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_3distance, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_2distance};
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_3distance(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -55805,12 +55955,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1926, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1929, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "distance") < 0)) __PYX_ERR(1, 1926, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "distance") < 0)) __PYX_ERR(1, 1929, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -55821,7 +55971,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("distance", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 1926, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("distance", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 1929, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -55835,8 +55985,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_M), __pyx_ptype_5miolo_Matrix, 1, "M", 0))) __PYX_ERR(1, 1926, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_distance(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_M);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_M), __pyx_ptype_5miolo_Matrix, 1, "M", 0))) __PYX_ERR(1, 1929, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_2distance(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_M);
 
   /* function exit code */
   goto __pyx_L0;
@@ -55853,7 +56003,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_distance(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M) {
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_2distance(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M) {
   struct __pyx_obj_5miolo_Matrix *__pyx_v_out = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -55865,39 +56015,39 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_distance(struct __pyx_obj_5miolo_H
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("distance", 1);
 
-  /* "miololib.pyx":1931
+  /* "miololib.pyx":1934
  *             between the pair of (i,j) rows of M.
  *         """
  *         out = Matrix(ctype=M.ctype)             # <<<<<<<<<<<<<<
  *         if M.ctype=="int":
  *             out.mtxInt = self.view.distance(drf(M.mtxInt))
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1931, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1934, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1931, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1934, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ctype, __pyx_t_2) < 0) __PYX_ERR(1, 1931, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ctype, __pyx_t_2) < 0) __PYX_ERR(1, 1934, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5miolo_Matrix), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1931, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5miolo_Matrix), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1934, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_out = ((struct __pyx_obj_5miolo_Matrix *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "miololib.pyx":1932
+  /* "miololib.pyx":1935
  *         """
  *         out = Matrix(ctype=M.ctype)
  *         if M.ctype=="int":             # <<<<<<<<<<<<<<
  *             out.mtxInt = self.view.distance(drf(M.mtxInt))
  *         if M.ctype=="float":
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1932, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1935, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(1, 1932, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(1, 1935, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "miololib.pyx":1933
+    /* "miololib.pyx":1936
  *         out = Matrix(ctype=M.ctype)
  *         if M.ctype=="int":
  *             out.mtxInt = self.view.distance(drf(M.mtxInt))             # <<<<<<<<<<<<<<
@@ -55906,7 +56056,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_distance(struct __pyx_obj_5miolo_H
  */
     __pyx_v_out->__pyx_base.mtxInt = __pyx_v_self->view.distance((*__pyx_v_M->__pyx_base.mtxInt));
 
-    /* "miololib.pyx":1932
+    /* "miololib.pyx":1935
  *         """
  *         out = Matrix(ctype=M.ctype)
  *         if M.ctype=="int":             # <<<<<<<<<<<<<<
@@ -55915,20 +56065,20 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_distance(struct __pyx_obj_5miolo_H
  */
   }
 
-  /* "miololib.pyx":1934
+  /* "miololib.pyx":1937
  *         if M.ctype=="int":
  *             out.mtxInt = self.view.distance(drf(M.mtxInt))
  *         if M.ctype=="float":             # <<<<<<<<<<<<<<
  *             out.mtxFloat = self.view.distance(drf(M.mtxFloat))
  *         if M.ctype=="double":
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1934, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1937, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(1, 1934, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(1, 1937, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "miololib.pyx":1935
+    /* "miololib.pyx":1938
  *             out.mtxInt = self.view.distance(drf(M.mtxInt))
  *         if M.ctype=="float":
  *             out.mtxFloat = self.view.distance(drf(M.mtxFloat))             # <<<<<<<<<<<<<<
@@ -55937,7 +56087,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_distance(struct __pyx_obj_5miolo_H
  */
     __pyx_v_out->__pyx_base.mtxFloat = __pyx_v_self->view.distance((*__pyx_v_M->__pyx_base.mtxFloat));
 
-    /* "miololib.pyx":1934
+    /* "miololib.pyx":1937
  *         if M.ctype=="int":
  *             out.mtxInt = self.view.distance(drf(M.mtxInt))
  *         if M.ctype=="float":             # <<<<<<<<<<<<<<
@@ -55946,20 +56096,20 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_distance(struct __pyx_obj_5miolo_H
  */
   }
 
-  /* "miololib.pyx":1936
+  /* "miololib.pyx":1939
  *         if M.ctype=="float":
  *             out.mtxFloat = self.view.distance(drf(M.mtxFloat))
  *         if M.ctype=="double":             # <<<<<<<<<<<<<<
  *             out.mtxDouble = self.view.distance(drf(M.mtxDouble))
  *         return out
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1936, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1939, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(1, 1936, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(1, 1939, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "miololib.pyx":1937
+    /* "miololib.pyx":1940
  *             out.mtxFloat = self.view.distance(drf(M.mtxFloat))
  *         if M.ctype=="double":
  *             out.mtxDouble = self.view.distance(drf(M.mtxDouble))             # <<<<<<<<<<<<<<
@@ -55968,7 +56118,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_distance(struct __pyx_obj_5miolo_H
  */
     __pyx_v_out->__pyx_base.mtxDouble = __pyx_v_self->view.distance((*__pyx_v_M->__pyx_base.mtxDouble));
 
-    /* "miololib.pyx":1936
+    /* "miololib.pyx":1939
  *         if M.ctype=="float":
  *             out.mtxFloat = self.view.distance(drf(M.mtxFloat))
  *         if M.ctype=="double":             # <<<<<<<<<<<<<<
@@ -55977,7 +56127,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_distance(struct __pyx_obj_5miolo_H
  */
   }
 
-  /* "miololib.pyx":1938
+  /* "miololib.pyx":1941
  *         if M.ctype=="double":
  *             out.mtxDouble = self.view.distance(drf(M.mtxDouble))
  *         return out             # <<<<<<<<<<<<<<
@@ -55989,8 +56139,8 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_distance(struct __pyx_obj_5miolo_H
   __pyx_r = ((PyObject *)__pyx_v_out);
   goto __pyx_L0;
 
-  /* "miololib.pyx":1926
- *     cdef mld.hyperbolic view
+  /* "miololib.pyx":1929
+ *         self.view.c = c
  * 
  *     def distance(self, Matrix M):             # <<<<<<<<<<<<<<
  *         """
@@ -56010,7 +56160,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_distance(struct __pyx_obj_5miolo_H
   return __pyx_r;
 }
 
-/* "miololib.pyx":1940
+/* "miololib.pyx":1943
  *         return out
  * 
  *     def isIn(self, Matrix M):             # <<<<<<<<<<<<<<
@@ -56019,16 +56169,16 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_distance(struct __pyx_obj_5miolo_H
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_3isIn(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_5isIn(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_2isIn, "Hyperbolic.isIn(self, Matrix M)\n\n            Check if rows of M belong to the M.cols-dimensional Poincare Disk.\n        ");
-static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_3isIn = {"isIn", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_3isIn, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_2isIn};
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_3isIn(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_4isIn, "Hyperbolic.isIn(self, Matrix M)\n\n            Check if rows of M belong to the M.cols-dimensional Poincare Disk.\n        ");
+static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_5isIn = {"isIn", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_5isIn, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_4isIn};
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_5isIn(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -56072,12 +56222,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1940, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1943, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "isIn") < 0)) __PYX_ERR(1, 1940, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "isIn") < 0)) __PYX_ERR(1, 1943, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -56088,7 +56238,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("isIn", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 1940, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("isIn", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 1943, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -56102,8 +56252,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_M), __pyx_ptype_5miolo_Matrix, 1, "M", 0))) __PYX_ERR(1, 1940, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_2isIn(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_M);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_M), __pyx_ptype_5miolo_Matrix, 1, "M", 0))) __PYX_ERR(1, 1943, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_4isIn(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_M);
 
   /* function exit code */
   goto __pyx_L0;
@@ -56120,7 +56270,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_2isIn(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M) {
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_4isIn(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -56130,20 +56280,20 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_2isIn(struct __pyx_obj_5miolo_Hype
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("isIn", 1);
 
-  /* "miololib.pyx":1944
+  /* "miololib.pyx":1947
  *             Check if rows of M belong to the M.cols-dimensional Poincare Disk.
  *         """
  *         if M.ctype=="int":             # <<<<<<<<<<<<<<
  *             return self.view.isIn(drf(M.mtxInt))
  *         if M.ctype=="float":
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1944, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1947, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(1, 1944, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(1, 1947, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "miololib.pyx":1945
+    /* "miololib.pyx":1948
  *         """
  *         if M.ctype=="int":
  *             return self.view.isIn(drf(M.mtxInt))             # <<<<<<<<<<<<<<
@@ -56151,13 +56301,13 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_2isIn(struct __pyx_obj_5miolo_Hype
  *             return self.view.isIn(drf(M.mtxFloat))
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->view.isIn((*__pyx_v_M->__pyx_base.mtxInt))); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1945, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->view.isIn((*__pyx_v_M->__pyx_base.mtxInt))); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1948, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "miololib.pyx":1944
+    /* "miololib.pyx":1947
  *             Check if rows of M belong to the M.cols-dimensional Poincare Disk.
  *         """
  *         if M.ctype=="int":             # <<<<<<<<<<<<<<
@@ -56166,20 +56316,20 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_2isIn(struct __pyx_obj_5miolo_Hype
  */
   }
 
-  /* "miololib.pyx":1946
+  /* "miololib.pyx":1949
  *         if M.ctype=="int":
  *             return self.view.isIn(drf(M.mtxInt))
  *         if M.ctype=="float":             # <<<<<<<<<<<<<<
  *             return self.view.isIn(drf(M.mtxFloat))
  *         if M.ctype=="double":
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1946, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1949, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(1, 1946, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(1, 1949, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "miololib.pyx":1947
+    /* "miololib.pyx":1950
  *             return self.view.isIn(drf(M.mtxInt))
  *         if M.ctype=="float":
  *             return self.view.isIn(drf(M.mtxFloat))             # <<<<<<<<<<<<<<
@@ -56187,13 +56337,13 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_2isIn(struct __pyx_obj_5miolo_Hype
  *             return self.view.isIn(drf(M.mtxDouble))
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->view.isIn((*__pyx_v_M->__pyx_base.mtxFloat))); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1947, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->view.isIn((*__pyx_v_M->__pyx_base.mtxFloat))); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1950, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "miololib.pyx":1946
+    /* "miololib.pyx":1949
  *         if M.ctype=="int":
  *             return self.view.isIn(drf(M.mtxInt))
  *         if M.ctype=="float":             # <<<<<<<<<<<<<<
@@ -56202,20 +56352,20 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_2isIn(struct __pyx_obj_5miolo_Hype
  */
   }
 
-  /* "miololib.pyx":1948
+  /* "miololib.pyx":1951
  *         if M.ctype=="float":
  *             return self.view.isIn(drf(M.mtxFloat))
  *         if M.ctype=="double":             # <<<<<<<<<<<<<<
  *             return self.view.isIn(drf(M.mtxDouble))
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1948, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1951, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(1, 1948, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(1, 1951, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "miololib.pyx":1949
+    /* "miololib.pyx":1952
  *             return self.view.isIn(drf(M.mtxFloat))
  *         if M.ctype=="double":
  *             return self.view.isIn(drf(M.mtxDouble))             # <<<<<<<<<<<<<<
@@ -56223,13 +56373,13 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_2isIn(struct __pyx_obj_5miolo_Hype
  *     def madd(self, Matrix A, Matrix B):
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->view.isIn((*__pyx_v_M->__pyx_base.mtxDouble))); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1949, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->view.isIn((*__pyx_v_M->__pyx_base.mtxDouble))); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1952, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "miololib.pyx":1948
+    /* "miololib.pyx":1951
  *         if M.ctype=="float":
  *             return self.view.isIn(drf(M.mtxFloat))
  *         if M.ctype=="double":             # <<<<<<<<<<<<<<
@@ -56238,7 +56388,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_2isIn(struct __pyx_obj_5miolo_Hype
  */
   }
 
-  /* "miololib.pyx":1940
+  /* "miololib.pyx":1943
  *         return out
  * 
  *     def isIn(self, Matrix M):             # <<<<<<<<<<<<<<
@@ -56259,7 +56409,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_2isIn(struct __pyx_obj_5miolo_Hype
   return __pyx_r;
 }
 
-/* "miololib.pyx":1951
+/* "miololib.pyx":1954
  *             return self.view.isIn(drf(M.mtxDouble))
  * 
  *     def madd(self, Matrix A, Matrix B):             # <<<<<<<<<<<<<<
@@ -56268,16 +56418,16 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_2isIn(struct __pyx_obj_5miolo_Hype
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_5madd(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_7madd(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_4madd, "Hyperbolic.madd(self, Matrix A, Matrix B)\n\n            Mobius addition.\n        ");
-static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_5madd = {"madd", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_5madd, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_4madd};
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_5madd(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_6madd, "Hyperbolic.madd(self, Matrix A, Matrix B)\n\n            Mobius addition.\n        ");
+static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_7madd = {"madd", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_7madd, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_6madd};
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_7madd(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -56324,7 +56474,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1951, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1954, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -56332,14 +56482,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1951, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1954, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("madd", 1, 2, 2, 1); __PYX_ERR(1, 1951, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("madd", 1, 2, 2, 1); __PYX_ERR(1, 1954, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "madd") < 0)) __PYX_ERR(1, 1951, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "madd") < 0)) __PYX_ERR(1, 1954, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -56352,7 +56502,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("madd", 1, 2, 2, __pyx_nargs); __PYX_ERR(1, 1951, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("madd", 1, 2, 2, __pyx_nargs); __PYX_ERR(1, 1954, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -56366,9 +56516,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_A), __pyx_ptype_5miolo_Matrix, 1, "A", 0))) __PYX_ERR(1, 1951, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_B), __pyx_ptype_5miolo_Matrix, 1, "B", 0))) __PYX_ERR(1, 1951, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_4madd(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_A, __pyx_v_B);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_A), __pyx_ptype_5miolo_Matrix, 1, "A", 0))) __PYX_ERR(1, 1954, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_B), __pyx_ptype_5miolo_Matrix, 1, "B", 0))) __PYX_ERR(1, 1954, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_6madd(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_A, __pyx_v_B);
 
   /* function exit code */
   goto __pyx_L0;
@@ -56385,7 +56535,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_A, struct __pyx_obj_5miolo_Matrix *__pyx_v_B) {
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_6madd(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_A, struct __pyx_obj_5miolo_Matrix *__pyx_v_B) {
   struct __pyx_obj_5miolo_Matrix *__pyx_v_out = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -56399,54 +56549,54 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hype
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("madd", 1);
 
-  /* "miololib.pyx":1955
+  /* "miololib.pyx":1958
  *             Mobius addition.
  *         """
  *         if A.rows!=B.rows or A.cols!=B.cols:             # <<<<<<<<<<<<<<
  *             raise Exception("Matrices must have same shape.")
  *         if A.ctype!=B.ctype:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_A), __pyx_n_s_rows); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1955, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_A), __pyx_n_s_rows); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1958, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_B), __pyx_n_s_rows); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1955, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_B), __pyx_n_s_rows); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1958, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1955, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1958, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(1, 1955, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(1, 1958, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (!__pyx_t_5) {
   } else {
     __pyx_t_1 = __pyx_t_5;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_A), __pyx_n_s_cols); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1955, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_A), __pyx_n_s_cols); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1958, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_B), __pyx_n_s_cols); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1955, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_B), __pyx_n_s_cols); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1958, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1955, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1958, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(1, 1955, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(1, 1958, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_1 = __pyx_t_5;
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "miololib.pyx":1956
+    /* "miololib.pyx":1959
  *         """
  *         if A.rows!=B.rows or A.cols!=B.cols:
  *             raise Exception("Matrices must have same shape.")             # <<<<<<<<<<<<<<
  *         if A.ctype!=B.ctype:
  *             raise TypeError("Matrices must have same ctype.")
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1956, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1959, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(1, 1956, __pyx_L1_error)
+    __PYX_ERR(1, 1959, __pyx_L1_error)
 
-    /* "miololib.pyx":1955
+    /* "miololib.pyx":1958
  *             Mobius addition.
  *         """
  *         if A.rows!=B.rows or A.cols!=B.cols:             # <<<<<<<<<<<<<<
@@ -56455,38 +56605,38 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hype
  */
   }
 
-  /* "miololib.pyx":1957
+  /* "miololib.pyx":1960
  *         if A.rows!=B.rows or A.cols!=B.cols:
  *             raise Exception("Matrices must have same shape.")
  *         if A.ctype!=B.ctype:             # <<<<<<<<<<<<<<
  *             raise TypeError("Matrices must have same ctype.")
  *         out = Matrix(ctype=A.ctype)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_A), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1957, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_A), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1960, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_B), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1957, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_B), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1960, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1957, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1960, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1957, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1960, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (unlikely(__pyx_t_1)) {
 
-    /* "miololib.pyx":1958
+    /* "miololib.pyx":1961
  *             raise Exception("Matrices must have same shape.")
  *         if A.ctype!=B.ctype:
  *             raise TypeError("Matrices must have same ctype.")             # <<<<<<<<<<<<<<
  *         out = Matrix(ctype=A.ctype)
  *         if out.ctype=="int":
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__68, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1958, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__69, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1961, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(1, 1958, __pyx_L1_error)
+    __PYX_ERR(1, 1961, __pyx_L1_error)
 
-    /* "miololib.pyx":1957
+    /* "miololib.pyx":1960
  *         if A.rows!=B.rows or A.cols!=B.cols:
  *             raise Exception("Matrices must have same shape.")
  *         if A.ctype!=B.ctype:             # <<<<<<<<<<<<<<
@@ -56495,39 +56645,39 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hype
  */
   }
 
-  /* "miololib.pyx":1959
+  /* "miololib.pyx":1962
  *         if A.ctype!=B.ctype:
  *             raise TypeError("Matrices must have same ctype.")
  *         out = Matrix(ctype=A.ctype)             # <<<<<<<<<<<<<<
  *         if out.ctype=="int":
  *             out.mtxInt = self.view.madd(drf(A.mtxInt),drf(B.mtxInt))
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1959, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1962, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_A), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1959, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_A), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1962, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ctype, __pyx_t_3) < 0) __PYX_ERR(1, 1959, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ctype, __pyx_t_3) < 0) __PYX_ERR(1, 1962, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5miolo_Matrix), __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1959, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5miolo_Matrix), __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1962, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_out = ((struct __pyx_obj_5miolo_Matrix *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "miololib.pyx":1960
+  /* "miololib.pyx":1963
  *             raise TypeError("Matrices must have same ctype.")
  *         out = Matrix(ctype=A.ctype)
  *         if out.ctype=="int":             # <<<<<<<<<<<<<<
  *             out.mtxInt = self.view.madd(drf(A.mtxInt),drf(B.mtxInt))
  *         if out.ctype=="float":
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1960, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1963, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1960, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1963, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_1) {
 
-    /* "miololib.pyx":1961
+    /* "miololib.pyx":1964
  *         out = Matrix(ctype=A.ctype)
  *         if out.ctype=="int":
  *             out.mtxInt = self.view.madd(drf(A.mtxInt),drf(B.mtxInt))             # <<<<<<<<<<<<<<
@@ -56536,7 +56686,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hype
  */
     __pyx_v_out->__pyx_base.mtxInt = __pyx_v_self->view.madd((*__pyx_v_A->__pyx_base.mtxInt), (*__pyx_v_B->__pyx_base.mtxInt));
 
-    /* "miololib.pyx":1960
+    /* "miololib.pyx":1963
  *             raise TypeError("Matrices must have same ctype.")
  *         out = Matrix(ctype=A.ctype)
  *         if out.ctype=="int":             # <<<<<<<<<<<<<<
@@ -56545,20 +56695,20 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hype
  */
   }
 
-  /* "miololib.pyx":1962
+  /* "miololib.pyx":1965
  *         if out.ctype=="int":
  *             out.mtxInt = self.view.madd(drf(A.mtxInt),drf(B.mtxInt))
  *         if out.ctype=="float":             # <<<<<<<<<<<<<<
  *             out.mtxFloat = self.view.madd(drf(A.mtxFloat),drf(B.mtxFloat))
  *         if out.ctype=="double":
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1962, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1965, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1962, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1965, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_1) {
 
-    /* "miololib.pyx":1963
+    /* "miololib.pyx":1966
  *             out.mtxInt = self.view.madd(drf(A.mtxInt),drf(B.mtxInt))
  *         if out.ctype=="float":
  *             out.mtxFloat = self.view.madd(drf(A.mtxFloat),drf(B.mtxFloat))             # <<<<<<<<<<<<<<
@@ -56567,7 +56717,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hype
  */
     __pyx_v_out->__pyx_base.mtxFloat = __pyx_v_self->view.madd((*__pyx_v_A->__pyx_base.mtxFloat), (*__pyx_v_B->__pyx_base.mtxFloat));
 
-    /* "miololib.pyx":1962
+    /* "miololib.pyx":1965
  *         if out.ctype=="int":
  *             out.mtxInt = self.view.madd(drf(A.mtxInt),drf(B.mtxInt))
  *         if out.ctype=="float":             # <<<<<<<<<<<<<<
@@ -56576,20 +56726,20 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hype
  */
   }
 
-  /* "miololib.pyx":1964
+  /* "miololib.pyx":1967
  *         if out.ctype=="float":
  *             out.mtxFloat = self.view.madd(drf(A.mtxFloat),drf(B.mtxFloat))
  *         if out.ctype=="double":             # <<<<<<<<<<<<<<
  *             out.mtxDouble = self.view.madd(drf(A.mtxDouble),drf(B.mtxDouble))
  *         return out
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1964, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1967, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1964, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1967, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_1) {
 
-    /* "miololib.pyx":1965
+    /* "miololib.pyx":1968
  *             out.mtxFloat = self.view.madd(drf(A.mtxFloat),drf(B.mtxFloat))
  *         if out.ctype=="double":
  *             out.mtxDouble = self.view.madd(drf(A.mtxDouble),drf(B.mtxDouble))             # <<<<<<<<<<<<<<
@@ -56598,7 +56748,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hype
  */
     __pyx_v_out->__pyx_base.mtxDouble = __pyx_v_self->view.madd((*__pyx_v_A->__pyx_base.mtxDouble), (*__pyx_v_B->__pyx_base.mtxDouble));
 
-    /* "miololib.pyx":1964
+    /* "miololib.pyx":1967
  *         if out.ctype=="float":
  *             out.mtxFloat = self.view.madd(drf(A.mtxFloat),drf(B.mtxFloat))
  *         if out.ctype=="double":             # <<<<<<<<<<<<<<
@@ -56607,7 +56757,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hype
  */
   }
 
-  /* "miololib.pyx":1966
+  /* "miololib.pyx":1969
  *         if out.ctype=="double":
  *             out.mtxDouble = self.view.madd(drf(A.mtxDouble),drf(B.mtxDouble))
  *         return out             # <<<<<<<<<<<<<<
@@ -56619,7 +56769,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hype
   __pyx_r = ((PyObject *)__pyx_v_out);
   goto __pyx_L0;
 
-  /* "miololib.pyx":1951
+  /* "miololib.pyx":1954
  *             return self.view.isIn(drf(M.mtxDouble))
  * 
  *     def madd(self, Matrix A, Matrix B):             # <<<<<<<<<<<<<<
@@ -56641,7 +56791,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hype
   return __pyx_r;
 }
 
-/* "miololib.pyx":1968
+/* "miololib.pyx":1971
  *         return out
  * 
  *     def exp(self, Matrix at, Matrix M):             # <<<<<<<<<<<<<<
@@ -56650,16 +56800,16 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_4madd(struct __pyx_obj_5miolo_Hype
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_7exp(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_9exp(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_6exp, "Hyperbolic.exp(self, Matrix at, Matrix M)\n\n            Mobius addition.\n        ");
-static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_7exp = {"exp", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_7exp, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_6exp};
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_7exp(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_8exp, "Hyperbolic.exp(self, Matrix at, Matrix M)\n\n            Mobius addition.\n        ");
+static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_9exp = {"exp", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_9exp, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_8exp};
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_9exp(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -56706,7 +56856,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1968, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1971, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -56714,14 +56864,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1968, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1971, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("exp", 1, 2, 2, 1); __PYX_ERR(1, 1968, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("exp", 1, 2, 2, 1); __PYX_ERR(1, 1971, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "exp") < 0)) __PYX_ERR(1, 1968, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "exp") < 0)) __PYX_ERR(1, 1971, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -56734,7 +56884,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("exp", 1, 2, 2, __pyx_nargs); __PYX_ERR(1, 1968, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("exp", 1, 2, 2, __pyx_nargs); __PYX_ERR(1, 1971, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -56748,9 +56898,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_at), __pyx_ptype_5miolo_Matrix, 1, "at", 0))) __PYX_ERR(1, 1968, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_M), __pyx_ptype_5miolo_Matrix, 1, "M", 0))) __PYX_ERR(1, 1968, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_6exp(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_at, __pyx_v_M);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_at), __pyx_ptype_5miolo_Matrix, 1, "at", 0))) __PYX_ERR(1, 1971, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_M), __pyx_ptype_5miolo_Matrix, 1, "M", 0))) __PYX_ERR(1, 1971, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_8exp(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_at, __pyx_v_M);
 
   /* function exit code */
   goto __pyx_L0;
@@ -56767,7 +56917,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_at, struct __pyx_obj_5miolo_Matrix *__pyx_v_M) {
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_8exp(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_at, struct __pyx_obj_5miolo_Matrix *__pyx_v_M) {
   struct __pyx_obj_5miolo_Matrix *__pyx_v_out = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -56781,54 +56931,54 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyper
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("exp", 1);
 
-  /* "miololib.pyx":1972
+  /* "miololib.pyx":1975
  *             Mobius addition.
  *         """
  *         if at.rows!=M.rows or at.cols!=M.cols:             # <<<<<<<<<<<<<<
  *             raise Exception("Matrices must have same shape.")
  *         if at.ctype!=M.ctype:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_at), __pyx_n_s_rows); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1972, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_at), __pyx_n_s_rows); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1975, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_rows); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1972, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_rows); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1975, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1972, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1975, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(1, 1972, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(1, 1975, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (!__pyx_t_5) {
   } else {
     __pyx_t_1 = __pyx_t_5;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_at), __pyx_n_s_cols); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1972, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_at), __pyx_n_s_cols); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1975, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_cols); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1972, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_cols); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1975, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1972, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1975, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(1, 1972, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(1, 1975, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_1 = __pyx_t_5;
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "miololib.pyx":1973
+    /* "miololib.pyx":1976
  *         """
  *         if at.rows!=M.rows or at.cols!=M.cols:
  *             raise Exception("Matrices must have same shape.")             # <<<<<<<<<<<<<<
  *         if at.ctype!=M.ctype:
  *             raise TypeError("Matrices must have same ctype.")
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1973, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1976, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(1, 1973, __pyx_L1_error)
+    __PYX_ERR(1, 1976, __pyx_L1_error)
 
-    /* "miololib.pyx":1972
+    /* "miololib.pyx":1975
  *             Mobius addition.
  *         """
  *         if at.rows!=M.rows or at.cols!=M.cols:             # <<<<<<<<<<<<<<
@@ -56837,38 +56987,38 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyper
  */
   }
 
-  /* "miololib.pyx":1974
+  /* "miololib.pyx":1977
  *         if at.rows!=M.rows or at.cols!=M.cols:
  *             raise Exception("Matrices must have same shape.")
  *         if at.ctype!=M.ctype:             # <<<<<<<<<<<<<<
  *             raise TypeError("Matrices must have same ctype.")
  *         out = Matrix(ctype=at.ctype)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_at), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1974, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_at), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1977, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1974, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1977, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1974, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1977, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1974, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1977, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (unlikely(__pyx_t_1)) {
 
-    /* "miololib.pyx":1975
+    /* "miololib.pyx":1978
  *             raise Exception("Matrices must have same shape.")
  *         if at.ctype!=M.ctype:
  *             raise TypeError("Matrices must have same ctype.")             # <<<<<<<<<<<<<<
  *         out = Matrix(ctype=at.ctype)
  *         if out.ctype=="int":
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__68, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1975, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__69, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1978, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(1, 1975, __pyx_L1_error)
+    __PYX_ERR(1, 1978, __pyx_L1_error)
 
-    /* "miololib.pyx":1974
+    /* "miololib.pyx":1977
  *         if at.rows!=M.rows or at.cols!=M.cols:
  *             raise Exception("Matrices must have same shape.")
  *         if at.ctype!=M.ctype:             # <<<<<<<<<<<<<<
@@ -56877,39 +57027,39 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyper
  */
   }
 
-  /* "miololib.pyx":1976
+  /* "miololib.pyx":1979
  *         if at.ctype!=M.ctype:
  *             raise TypeError("Matrices must have same ctype.")
  *         out = Matrix(ctype=at.ctype)             # <<<<<<<<<<<<<<
  *         if out.ctype=="int":
  *             out.mtxInt = self.view.exponential(drf(at.mtxInt),drf(M.mtxInt))
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1976, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1979, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_at), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1976, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_at), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1979, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ctype, __pyx_t_3) < 0) __PYX_ERR(1, 1976, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ctype, __pyx_t_3) < 0) __PYX_ERR(1, 1979, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5miolo_Matrix), __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1976, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5miolo_Matrix), __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1979, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_out = ((struct __pyx_obj_5miolo_Matrix *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "miololib.pyx":1977
+  /* "miololib.pyx":1980
  *             raise TypeError("Matrices must have same ctype.")
  *         out = Matrix(ctype=at.ctype)
  *         if out.ctype=="int":             # <<<<<<<<<<<<<<
  *             out.mtxInt = self.view.exponential(drf(at.mtxInt),drf(M.mtxInt))
  *         if out.ctype=="float":
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1977, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1980, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1977, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1980, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_1) {
 
-    /* "miololib.pyx":1978
+    /* "miololib.pyx":1981
  *         out = Matrix(ctype=at.ctype)
  *         if out.ctype=="int":
  *             out.mtxInt = self.view.exponential(drf(at.mtxInt),drf(M.mtxInt))             # <<<<<<<<<<<<<<
@@ -56918,7 +57068,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyper
  */
     __pyx_v_out->__pyx_base.mtxInt = __pyx_v_self->view.exponential((*__pyx_v_at->__pyx_base.mtxInt), (*__pyx_v_M->__pyx_base.mtxInt));
 
-    /* "miololib.pyx":1977
+    /* "miololib.pyx":1980
  *             raise TypeError("Matrices must have same ctype.")
  *         out = Matrix(ctype=at.ctype)
  *         if out.ctype=="int":             # <<<<<<<<<<<<<<
@@ -56927,20 +57077,20 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyper
  */
   }
 
-  /* "miololib.pyx":1979
+  /* "miololib.pyx":1982
  *         if out.ctype=="int":
  *             out.mtxInt = self.view.exponential(drf(at.mtxInt),drf(M.mtxInt))
  *         if out.ctype=="float":             # <<<<<<<<<<<<<<
  *             out.mtxFloat = self.view.exponential(drf(at.mtxFloat),drf(M.mtxFloat))
  *         if out.ctype=="double":
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1979, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1982, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1979, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1982, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_1) {
 
-    /* "miololib.pyx":1980
+    /* "miololib.pyx":1983
  *             out.mtxInt = self.view.exponential(drf(at.mtxInt),drf(M.mtxInt))
  *         if out.ctype=="float":
  *             out.mtxFloat = self.view.exponential(drf(at.mtxFloat),drf(M.mtxFloat))             # <<<<<<<<<<<<<<
@@ -56949,7 +57099,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyper
  */
     __pyx_v_out->__pyx_base.mtxFloat = __pyx_v_self->view.exponential((*__pyx_v_at->__pyx_base.mtxFloat), (*__pyx_v_M->__pyx_base.mtxFloat));
 
-    /* "miololib.pyx":1979
+    /* "miololib.pyx":1982
  *         if out.ctype=="int":
  *             out.mtxInt = self.view.exponential(drf(at.mtxInt),drf(M.mtxInt))
  *         if out.ctype=="float":             # <<<<<<<<<<<<<<
@@ -56958,20 +57108,20 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyper
  */
   }
 
-  /* "miololib.pyx":1981
+  /* "miololib.pyx":1984
  *         if out.ctype=="float":
  *             out.mtxFloat = self.view.exponential(drf(at.mtxFloat),drf(M.mtxFloat))
  *         if out.ctype=="double":             # <<<<<<<<<<<<<<
  *             out.mtxDouble = self.view.exponential(drf(at.mtxDouble),drf(M.mtxDouble))
  *         return out
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1981, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1984, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1981, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1984, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_1) {
 
-    /* "miololib.pyx":1982
+    /* "miololib.pyx":1985
  *             out.mtxFloat = self.view.exponential(drf(at.mtxFloat),drf(M.mtxFloat))
  *         if out.ctype=="double":
  *             out.mtxDouble = self.view.exponential(drf(at.mtxDouble),drf(M.mtxDouble))             # <<<<<<<<<<<<<<
@@ -56980,7 +57130,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyper
  */
     __pyx_v_out->__pyx_base.mtxDouble = __pyx_v_self->view.exponential((*__pyx_v_at->__pyx_base.mtxDouble), (*__pyx_v_M->__pyx_base.mtxDouble));
 
-    /* "miololib.pyx":1981
+    /* "miololib.pyx":1984
  *         if out.ctype=="float":
  *             out.mtxFloat = self.view.exponential(drf(at.mtxFloat),drf(M.mtxFloat))
  *         if out.ctype=="double":             # <<<<<<<<<<<<<<
@@ -56989,7 +57139,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyper
  */
   }
 
-  /* "miololib.pyx":1983
+  /* "miololib.pyx":1986
  *         if out.ctype=="double":
  *             out.mtxDouble = self.view.exponential(drf(at.mtxDouble),drf(M.mtxDouble))
  *         return out             # <<<<<<<<<<<<<<
@@ -57001,7 +57151,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyper
   __pyx_r = ((PyObject *)__pyx_v_out);
   goto __pyx_L0;
 
-  /* "miololib.pyx":1968
+  /* "miololib.pyx":1971
  *         return out
  * 
  *     def exp(self, Matrix at, Matrix M):             # <<<<<<<<<<<<<<
@@ -57023,7 +57173,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyper
   return __pyx_r;
 }
 
-/* "miololib.pyx":1985
+/* "miololib.pyx":1988
  *         return out
  * 
  *     def log(self, Matrix start, Matrix end):             # <<<<<<<<<<<<<<
@@ -57032,16 +57182,16 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_6exp(struct __pyx_obj_5miolo_Hyper
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_9log(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_11log(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_8log, "Hyperbolic.log(self, Matrix start, Matrix end)\n\n            Mobius addition.\n        ");
-static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_9log = {"log", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_9log, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_8log};
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_9log(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_10log, "Hyperbolic.log(self, Matrix start, Matrix end)\n\n            Mobius addition.\n        ");
+static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_11log = {"log", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_11log, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_10log};
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_11log(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -57088,7 +57238,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1985, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1988, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -57096,14 +57246,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1985, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 1988, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("log", 1, 2, 2, 1); __PYX_ERR(1, 1985, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("log", 1, 2, 2, 1); __PYX_ERR(1, 1988, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "log") < 0)) __PYX_ERR(1, 1985, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "log") < 0)) __PYX_ERR(1, 1988, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -57116,7 +57266,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("log", 1, 2, 2, __pyx_nargs); __PYX_ERR(1, 1985, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("log", 1, 2, 2, __pyx_nargs); __PYX_ERR(1, 1988, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -57130,9 +57280,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_start), __pyx_ptype_5miolo_Matrix, 1, "start", 0))) __PYX_ERR(1, 1985, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_end), __pyx_ptype_5miolo_Matrix, 1, "end", 0))) __PYX_ERR(1, 1985, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_8log(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_start, __pyx_v_end);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_start), __pyx_ptype_5miolo_Matrix, 1, "start", 0))) __PYX_ERR(1, 1988, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_end), __pyx_ptype_5miolo_Matrix, 1, "end", 0))) __PYX_ERR(1, 1988, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_10log(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_start, __pyx_v_end);
 
   /* function exit code */
   goto __pyx_L0;
@@ -57149,7 +57299,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_start, struct __pyx_obj_5miolo_Matrix *__pyx_v_end) {
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_10log(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_start, struct __pyx_obj_5miolo_Matrix *__pyx_v_end) {
   struct __pyx_obj_5miolo_Matrix *__pyx_v_out = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -57163,54 +57313,54 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyper
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("log", 1);
 
-  /* "miololib.pyx":1989
+  /* "miololib.pyx":1992
  *             Mobius addition.
  *         """
  *         if start.rows!=end.rows or start.cols!=end.cols:             # <<<<<<<<<<<<<<
  *             raise Exception("Matrices must have same shape.")
  *         if start.ctype!=end.ctype:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_start), __pyx_n_s_rows); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1989, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_start), __pyx_n_s_rows); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1992, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_end), __pyx_n_s_rows); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1989, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_end), __pyx_n_s_rows); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1992, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1989, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1992, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(1, 1989, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(1, 1992, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (!__pyx_t_5) {
   } else {
     __pyx_t_1 = __pyx_t_5;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_start), __pyx_n_s_cols); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1989, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_start), __pyx_n_s_cols); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1992, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_end), __pyx_n_s_cols); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1989, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_end), __pyx_n_s_cols); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1992, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1989, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_4, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1992, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(1, 1989, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(1, 1992, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_1 = __pyx_t_5;
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "miololib.pyx":1990
+    /* "miololib.pyx":1993
  *         """
  *         if start.rows!=end.rows or start.cols!=end.cols:
  *             raise Exception("Matrices must have same shape.")             # <<<<<<<<<<<<<<
  *         if start.ctype!=end.ctype:
  *             raise TypeError("Matrices must have same ctype.")
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1990, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])), __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1993, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(1, 1990, __pyx_L1_error)
+    __PYX_ERR(1, 1993, __pyx_L1_error)
 
-    /* "miololib.pyx":1989
+    /* "miololib.pyx":1992
  *             Mobius addition.
  *         """
  *         if start.rows!=end.rows or start.cols!=end.cols:             # <<<<<<<<<<<<<<
@@ -57219,38 +57369,38 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyper
  */
   }
 
-  /* "miololib.pyx":1991
+  /* "miololib.pyx":1994
  *         if start.rows!=end.rows or start.cols!=end.cols:
  *             raise Exception("Matrices must have same shape.")
  *         if start.ctype!=end.ctype:             # <<<<<<<<<<<<<<
  *             raise TypeError("Matrices must have same ctype.")
  *         out = Matrix(ctype=start.ctype)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_start), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1991, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_start), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1994, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_end), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1991, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_end), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1994, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1991, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1994, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1991, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1994, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (unlikely(__pyx_t_1)) {
 
-    /* "miololib.pyx":1992
+    /* "miololib.pyx":1995
  *             raise Exception("Matrices must have same shape.")
  *         if start.ctype!=end.ctype:
  *             raise TypeError("Matrices must have same ctype.")             # <<<<<<<<<<<<<<
  *         out = Matrix(ctype=start.ctype)
  *         if out.ctype=="int":
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__68, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1992, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__69, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1995, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(1, 1992, __pyx_L1_error)
+    __PYX_ERR(1, 1995, __pyx_L1_error)
 
-    /* "miololib.pyx":1991
+    /* "miololib.pyx":1994
  *         if start.rows!=end.rows or start.cols!=end.cols:
  *             raise Exception("Matrices must have same shape.")
  *         if start.ctype!=end.ctype:             # <<<<<<<<<<<<<<
@@ -57259,39 +57409,39 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyper
  */
   }
 
-  /* "miololib.pyx":1993
+  /* "miololib.pyx":1996
  *         if start.ctype!=end.ctype:
  *             raise TypeError("Matrices must have same ctype.")
  *         out = Matrix(ctype=start.ctype)             # <<<<<<<<<<<<<<
  *         if out.ctype=="int":
  *             out.mtxInt = self.view.logarithm(drf(start.mtxInt),drf(end.mtxInt))
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1993, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1996, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_start), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1993, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_start), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1996, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ctype, __pyx_t_3) < 0) __PYX_ERR(1, 1993, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_ctype, __pyx_t_3) < 0) __PYX_ERR(1, 1996, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5miolo_Matrix), __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1993, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5miolo_Matrix), __pyx_empty_tuple, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1996, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_out = ((struct __pyx_obj_5miolo_Matrix *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "miololib.pyx":1994
+  /* "miololib.pyx":1997
  *             raise TypeError("Matrices must have same ctype.")
  *         out = Matrix(ctype=start.ctype)
  *         if out.ctype=="int":             # <<<<<<<<<<<<<<
  *             out.mtxInt = self.view.logarithm(drf(start.mtxInt),drf(end.mtxInt))
  *         if out.ctype=="float":
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1994, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1997, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1994, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1997, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_1) {
 
-    /* "miololib.pyx":1995
+    /* "miololib.pyx":1998
  *         out = Matrix(ctype=start.ctype)
  *         if out.ctype=="int":
  *             out.mtxInt = self.view.logarithm(drf(start.mtxInt),drf(end.mtxInt))             # <<<<<<<<<<<<<<
@@ -57300,7 +57450,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyper
  */
     __pyx_v_out->__pyx_base.mtxInt = __pyx_v_self->view.logarithm((*__pyx_v_start->__pyx_base.mtxInt), (*__pyx_v_end->__pyx_base.mtxInt));
 
-    /* "miololib.pyx":1994
+    /* "miololib.pyx":1997
  *             raise TypeError("Matrices must have same ctype.")
  *         out = Matrix(ctype=start.ctype)
  *         if out.ctype=="int":             # <<<<<<<<<<<<<<
@@ -57309,20 +57459,20 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyper
  */
   }
 
-  /* "miololib.pyx":1996
+  /* "miololib.pyx":1999
  *         if out.ctype=="int":
  *             out.mtxInt = self.view.logarithm(drf(start.mtxInt),drf(end.mtxInt))
  *         if out.ctype=="float":             # <<<<<<<<<<<<<<
  *             out.mtxFloat = self.view.logarithm(drf(start.mtxFloat),drf(end.mtxFloat))
  *         if out.ctype=="double":
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1996, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1999, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1996, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1999, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_1) {
 
-    /* "miololib.pyx":1997
+    /* "miololib.pyx":2000
  *             out.mtxInt = self.view.logarithm(drf(start.mtxInt),drf(end.mtxInt))
  *         if out.ctype=="float":
  *             out.mtxFloat = self.view.logarithm(drf(start.mtxFloat),drf(end.mtxFloat))             # <<<<<<<<<<<<<<
@@ -57331,7 +57481,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyper
  */
     __pyx_v_out->__pyx_base.mtxFloat = __pyx_v_self->view.logarithm((*__pyx_v_start->__pyx_base.mtxFloat), (*__pyx_v_end->__pyx_base.mtxFloat));
 
-    /* "miololib.pyx":1996
+    /* "miololib.pyx":1999
  *         if out.ctype=="int":
  *             out.mtxInt = self.view.logarithm(drf(start.mtxInt),drf(end.mtxInt))
  *         if out.ctype=="float":             # <<<<<<<<<<<<<<
@@ -57340,20 +57490,20 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyper
  */
   }
 
-  /* "miololib.pyx":1998
+  /* "miololib.pyx":2001
  *         if out.ctype=="float":
  *             out.mtxFloat = self.view.logarithm(drf(start.mtxFloat),drf(end.mtxFloat))
  *         if out.ctype=="double":             # <<<<<<<<<<<<<<
  *             out.mtxDouble = self.view.logarithm(drf(start.mtxDouble),drf(end.mtxDouble))
  *         return out
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1998, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_out), __pyx_n_s_ctype); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 2001, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 1998, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(1, 2001, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_1) {
 
-    /* "miololib.pyx":1999
+    /* "miololib.pyx":2002
  *             out.mtxFloat = self.view.logarithm(drf(start.mtxFloat),drf(end.mtxFloat))
  *         if out.ctype=="double":
  *             out.mtxDouble = self.view.logarithm(drf(start.mtxDouble),drf(end.mtxDouble))             # <<<<<<<<<<<<<<
@@ -57362,7 +57512,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyper
  */
     __pyx_v_out->__pyx_base.mtxDouble = __pyx_v_self->view.logarithm((*__pyx_v_start->__pyx_base.mtxDouble), (*__pyx_v_end->__pyx_base.mtxDouble));
 
-    /* "miololib.pyx":1998
+    /* "miololib.pyx":2001
  *         if out.ctype=="float":
  *             out.mtxFloat = self.view.logarithm(drf(start.mtxFloat),drf(end.mtxFloat))
  *         if out.ctype=="double":             # <<<<<<<<<<<<<<
@@ -57371,7 +57521,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyper
  */
   }
 
-  /* "miololib.pyx":2000
+  /* "miololib.pyx":2003
  *         if out.ctype=="double":
  *             out.mtxDouble = self.view.logarithm(drf(start.mtxDouble),drf(end.mtxDouble))
  *         return out             # <<<<<<<<<<<<<<
@@ -57383,7 +57533,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyper
   __pyx_r = ((PyObject *)__pyx_v_out);
   goto __pyx_L0;
 
-  /* "miololib.pyx":1985
+  /* "miololib.pyx":1988
  *         return out
  * 
  *     def log(self, Matrix start, Matrix end):             # <<<<<<<<<<<<<<
@@ -57405,7 +57555,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyper
   return __pyx_r;
 }
 
-/* "miololib.pyx":2002
+/* "miololib.pyx":2005
  *         return out
  * 
  *     def mean(self, Matrix M):             # <<<<<<<<<<<<<<
@@ -57414,16 +57564,16 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_8log(struct __pyx_obj_5miolo_Hyper
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_11mean(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_13mean(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_10mean, "Hyperbolic.mean(self, Matrix M)\n\n            Returns the Einstein Midpoint of rows of M.\n        ");
-static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_11mean = {"mean", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_11mean, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_10mean};
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_11mean(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_12mean, "Hyperbolic.mean(self, Matrix M)\n\n            Returns the Einstein Midpoint of rows of M.\n        ");
+static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_13mean = {"mean", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_13mean, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_12mean};
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_13mean(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -57467,12 +57617,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 2002, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 2005, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "mean") < 0)) __PYX_ERR(1, 2002, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "mean") < 0)) __PYX_ERR(1, 2005, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -57483,7 +57633,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("mean", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 2002, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("mean", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 2005, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -57497,8 +57647,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_M), __pyx_ptype_5miolo_Matrix, 1, "M", 0))) __PYX_ERR(1, 2002, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_10mean(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_M);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_M), __pyx_ptype_5miolo_Matrix, 1, "M", 0))) __PYX_ERR(1, 2005, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_12mean(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_M);
 
   /* function exit code */
   goto __pyx_L0;
@@ -57515,7 +57665,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_10mean(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M) {
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_12mean(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M) {
   struct __pyx_obj_5miolo_Matrix *__pyx_v_out = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -57527,39 +57677,39 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_10mean(struct __pyx_obj_5miolo_Hyp
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("mean", 1);
 
-  /* "miololib.pyx":2006
+  /* "miololib.pyx":2009
  *             Returns the Einstein Midpoint of rows of M.
  *         """
  *         out = Matrix(ctype=M.ctype)             # <<<<<<<<<<<<<<
  *         if M.ctype=="int":
  *             out.mtxInt = self.view.mean(drf(M.mtxInt))
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2006, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2009, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 2006, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 2009, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ctype, __pyx_t_2) < 0) __PYX_ERR(1, 2006, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ctype, __pyx_t_2) < 0) __PYX_ERR(1, 2009, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5miolo_Matrix), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 2006, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5miolo_Matrix), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 2009, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_out = ((struct __pyx_obj_5miolo_Matrix *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "miololib.pyx":2007
+  /* "miololib.pyx":2010
  *         """
  *         out = Matrix(ctype=M.ctype)
  *         if M.ctype=="int":             # <<<<<<<<<<<<<<
  *             out.mtxInt = self.view.mean(drf(M.mtxInt))
  *         if M.ctype=="float":
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 2007, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 2010, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(1, 2007, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(1, 2010, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "miololib.pyx":2008
+    /* "miololib.pyx":2011
  *         out = Matrix(ctype=M.ctype)
  *         if M.ctype=="int":
  *             out.mtxInt = self.view.mean(drf(M.mtxInt))             # <<<<<<<<<<<<<<
@@ -57568,7 +57718,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_10mean(struct __pyx_obj_5miolo_Hyp
  */
     __pyx_v_out->__pyx_base.mtxInt = __pyx_v_self->view.mean((*__pyx_v_M->__pyx_base.mtxInt));
 
-    /* "miololib.pyx":2007
+    /* "miololib.pyx":2010
  *         """
  *         out = Matrix(ctype=M.ctype)
  *         if M.ctype=="int":             # <<<<<<<<<<<<<<
@@ -57577,20 +57727,20 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_10mean(struct __pyx_obj_5miolo_Hyp
  */
   }
 
-  /* "miololib.pyx":2009
+  /* "miololib.pyx":2012
  *         if M.ctype=="int":
  *             out.mtxInt = self.view.mean(drf(M.mtxInt))
  *         if M.ctype=="float":             # <<<<<<<<<<<<<<
  *             out.mtxFloat = self.view.mean(drf(M.mtxFloat))
  *         if M.ctype=="double":
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 2009, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 2012, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(1, 2009, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(1, 2012, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "miololib.pyx":2010
+    /* "miololib.pyx":2013
  *             out.mtxInt = self.view.mean(drf(M.mtxInt))
  *         if M.ctype=="float":
  *             out.mtxFloat = self.view.mean(drf(M.mtxFloat))             # <<<<<<<<<<<<<<
@@ -57599,7 +57749,7 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_10mean(struct __pyx_obj_5miolo_Hyp
  */
     __pyx_v_out->__pyx_base.mtxFloat = __pyx_v_self->view.mean((*__pyx_v_M->__pyx_base.mtxFloat));
 
-    /* "miololib.pyx":2009
+    /* "miololib.pyx":2012
  *         if M.ctype=="int":
  *             out.mtxInt = self.view.mean(drf(M.mtxInt))
  *         if M.ctype=="float":             # <<<<<<<<<<<<<<
@@ -57608,28 +57758,29 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_10mean(struct __pyx_obj_5miolo_Hyp
  */
   }
 
-  /* "miololib.pyx":2011
+  /* "miololib.pyx":2014
  *         if M.ctype=="float":
  *             out.mtxFloat = self.view.mean(drf(M.mtxFloat))
  *         if M.ctype=="double":             # <<<<<<<<<<<<<<
  *             out.mtxDouble = self.view.mean(drf(M.mtxDouble))
  *         return out
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 2011, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 2014, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(1, 2011, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(1, 2014, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "miololib.pyx":2012
+    /* "miololib.pyx":2015
  *             out.mtxFloat = self.view.mean(drf(M.mtxFloat))
  *         if M.ctype=="double":
  *             out.mtxDouble = self.view.mean(drf(M.mtxDouble))             # <<<<<<<<<<<<<<
  *         return out
+ * 
  */
     __pyx_v_out->__pyx_base.mtxDouble = __pyx_v_self->view.mean((*__pyx_v_M->__pyx_base.mtxDouble));
 
-    /* "miololib.pyx":2011
+    /* "miololib.pyx":2014
  *         if M.ctype=="float":
  *             out.mtxFloat = self.view.mean(drf(M.mtxFloat))
  *         if M.ctype=="double":             # <<<<<<<<<<<<<<
@@ -57638,17 +57789,19 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_10mean(struct __pyx_obj_5miolo_Hyp
  */
   }
 
-  /* "miololib.pyx":2013
+  /* "miololib.pyx":2016
  *         if M.ctype=="double":
  *             out.mtxDouble = self.view.mean(drf(M.mtxDouble))
  *         return out             # <<<<<<<<<<<<<<
+ * 
+ *     def hyperbolicity(self, Matrix M):
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF((PyObject *)__pyx_v_out);
   __pyx_r = ((PyObject *)__pyx_v_out);
   goto __pyx_L0;
 
-  /* "miololib.pyx":2002
+  /* "miololib.pyx":2005
  *         return out
  * 
  *     def mean(self, Matrix M):             # <<<<<<<<<<<<<<
@@ -57669,6 +57822,251 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_10mean(struct __pyx_obj_5miolo_Hyp
   return __pyx_r;
 }
 
+/* "miololib.pyx":2018
+ *         return out
+ * 
+ *     def hyperbolicity(self, Matrix M):             # <<<<<<<<<<<<<<
+ *         """
+ *             Returns the Gromov hiperbolicity of the rows of M.
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_15hyperbolicity(PyObject *__pyx_v_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_14hyperbolicity, "Hyperbolic.hyperbolicity(self, Matrix M)\n\n            Returns the Gromov hiperbolicity of the rows of M.\n        ");
+static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_15hyperbolicity = {"hyperbolicity", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_15hyperbolicity, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_14hyperbolicity};
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_15hyperbolicity(PyObject *__pyx_v_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  struct __pyx_obj_5miolo_Matrix *__pyx_v_M = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[1] = {0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("hyperbolicity (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_MACROS
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_M,0};
+    if (__pyx_kwds) {
+      Py_ssize_t kw_args;
+      switch (__pyx_nargs) {
+        case  1: values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = __Pyx_NumKwargs_FASTCALL(__pyx_kwds);
+      switch (__pyx_nargs) {
+        case  0:
+        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_M)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 2018, __pyx_L3_error)
+        else goto __pyx_L5_argtuple_error;
+      }
+      if (unlikely(kw_args > 0)) {
+        const Py_ssize_t kwd_pos_args = __pyx_nargs;
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "hyperbolicity") < 0)) __PYX_ERR(1, 2018, __pyx_L3_error)
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+    }
+    __pyx_v_M = ((struct __pyx_obj_5miolo_Matrix *)values[0]);
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("hyperbolicity", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 2018, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_AddTraceback("miolo.Hyperbolic.hyperbolicity", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_M), __pyx_ptype_5miolo_Matrix, 1, "M", 0))) __PYX_ERR(1, 2018, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_14hyperbolicity(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v_M);
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_14hyperbolicity(struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, struct __pyx_obj_5miolo_Matrix *__pyx_v_M) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_t_2;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("hyperbolicity", 1);
+
+  /* "miololib.pyx":2022
+ *             Returns the Gromov hiperbolicity of the rows of M.
+ *         """
+ *         if M.ctype=="int":             # <<<<<<<<<<<<<<
+ *             return self.view.hyperbolicity(drf(M.mtxInt))
+ *         if M.ctype=="float":
+ */
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2022, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_int, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(1, 2022, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_2) {
+
+    /* "miololib.pyx":2023
+ *         """
+ *         if M.ctype=="int":
+ *             return self.view.hyperbolicity(drf(M.mtxInt))             # <<<<<<<<<<<<<<
+ *         if M.ctype=="float":
+ *             return self.view.hyperbolicity(drf(M.mtxFloat))
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->view.hyperbolicity((*__pyx_v_M->__pyx_base.mtxInt))); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2023, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_r = __pyx_t_1;
+    __pyx_t_1 = 0;
+    goto __pyx_L0;
+
+    /* "miololib.pyx":2022
+ *             Returns the Gromov hiperbolicity of the rows of M.
+ *         """
+ *         if M.ctype=="int":             # <<<<<<<<<<<<<<
+ *             return self.view.hyperbolicity(drf(M.mtxInt))
+ *         if M.ctype=="float":
+ */
+  }
+
+  /* "miololib.pyx":2024
+ *         if M.ctype=="int":
+ *             return self.view.hyperbolicity(drf(M.mtxInt))
+ *         if M.ctype=="float":             # <<<<<<<<<<<<<<
+ *             return self.view.hyperbolicity(drf(M.mtxFloat))
+ *         if M.ctype=="double":
+ */
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2024, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_float, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(1, 2024, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_2) {
+
+    /* "miololib.pyx":2025
+ *             return self.view.hyperbolicity(drf(M.mtxInt))
+ *         if M.ctype=="float":
+ *             return self.view.hyperbolicity(drf(M.mtxFloat))             # <<<<<<<<<<<<<<
+ *         if M.ctype=="double":
+ *             return self.view.hyperbolicity(drf(M.mtxDouble))
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->view.hyperbolicity((*__pyx_v_M->__pyx_base.mtxFloat))); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2025, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_r = __pyx_t_1;
+    __pyx_t_1 = 0;
+    goto __pyx_L0;
+
+    /* "miololib.pyx":2024
+ *         if M.ctype=="int":
+ *             return self.view.hyperbolicity(drf(M.mtxInt))
+ *         if M.ctype=="float":             # <<<<<<<<<<<<<<
+ *             return self.view.hyperbolicity(drf(M.mtxFloat))
+ *         if M.ctype=="double":
+ */
+  }
+
+  /* "miololib.pyx":2026
+ *         if M.ctype=="float":
+ *             return self.view.hyperbolicity(drf(M.mtxFloat))
+ *         if M.ctype=="double":             # <<<<<<<<<<<<<<
+ *             return self.view.hyperbolicity(drf(M.mtxDouble))
+ */
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_M), __pyx_n_s_ctype); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2026, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_double, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(1, 2026, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_2) {
+
+    /* "miololib.pyx":2027
+ *             return self.view.hyperbolicity(drf(M.mtxFloat))
+ *         if M.ctype=="double":
+ *             return self.view.hyperbolicity(drf(M.mtxDouble))             # <<<<<<<<<<<<<<
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->view.hyperbolicity((*__pyx_v_M->__pyx_base.mtxDouble))); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2027, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_r = __pyx_t_1;
+    __pyx_t_1 = 0;
+    goto __pyx_L0;
+
+    /* "miololib.pyx":2026
+ *         if M.ctype=="float":
+ *             return self.view.hyperbolicity(drf(M.mtxFloat))
+ *         if M.ctype=="double":             # <<<<<<<<<<<<<<
+ *             return self.view.hyperbolicity(drf(M.mtxDouble))
+ */
+  }
+
+  /* "miololib.pyx":2018
+ *         return out
+ * 
+ *     def hyperbolicity(self, Matrix M):             # <<<<<<<<<<<<<<
+ *         """
+ *             Returns the Gromov hiperbolicity of the rows of M.
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("miolo.Hyperbolic.hyperbolicity", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
 /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
@@ -57676,16 +58074,16 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_10mean(struct __pyx_obj_5miolo_Hyp
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_13__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_17__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_12__reduce_cython__, "Hyperbolic.__reduce_cython__(self)");
-static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_13__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_13__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_12__reduce_cython__};
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_13__reduce_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_16__reduce_cython__, "Hyperbolic.__reduce_cython__(self)");
+static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_17__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_17__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_16__reduce_cython__};
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_17__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -57710,14 +58108,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(__pyx_nargs > 0)) {
     __Pyx_RaiseArgtupleInvalid("__reduce_cython__", 1, 0, 0, __pyx_nargs); return NULL;}
   if (unlikely(__pyx_kwds) && __Pyx_NumKwargs_FASTCALL(__pyx_kwds) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__reduce_cython__", 0))) return NULL;
-  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_12__reduce_cython__(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_16__reduce_cython__(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_12__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self) {
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_16__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -57757,16 +58155,16 @@ static PyObject *__pyx_pf_5miolo_10Hyperbolic_12__reduce_cython__(CYTHON_UNUSED 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_15__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_19__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_14__setstate_cython__, "Hyperbolic.__setstate_cython__(self, __pyx_state)");
-static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_15__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_15__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_14__setstate_cython__};
-static PyObject *__pyx_pw_5miolo_10Hyperbolic_15__setstate_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_5miolo_10Hyperbolic_18__setstate_cython__, "Hyperbolic.__setstate_cython__(self, __pyx_state)");
+static PyMethodDef __pyx_mdef_5miolo_10Hyperbolic_19__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_19__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_18__setstate_cython__};
+static PyObject *__pyx_pw_5miolo_10Hyperbolic_19__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -57840,7 +58238,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_14__setstate_cython__(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_5miolo_10Hyperbolic_18__setstate_cython__(((struct __pyx_obj_5miolo_Hyperbolic *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   {
@@ -57853,7 +58251,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5miolo_10Hyperbolic_14__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_5miolo_10Hyperbolic_18__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5miolo_Hyperbolic *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -58042,7 +58440,7 @@ static PyObject *__pyx_pf_5miolo_10__pyx_unpickle_Manifold(CYTHON_UNUSED PyObjec
  */
   __pyx_t_1 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_tuple__69, Py_NE)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_tuple__70, Py_NE)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
@@ -60954,21 +61352,23 @@ static void __pyx_tp_dealloc_5miolo_Hyperbolic(PyObject *o) {
 }
 
 static PyMethodDef __pyx_methods_5miolo_Hyperbolic[] = {
-  {"distance", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_1distance, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_distance},
-  {"isIn", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_3isIn, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_2isIn},
-  {"madd", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_5madd, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_4madd},
-  {"exp", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_7exp, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_6exp},
-  {"log", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_9log, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_8log},
-  {"mean", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_11mean, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_10mean},
-  {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_13__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_12__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_15__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_14__setstate_cython__},
+  {"distance", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_3distance, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_2distance},
+  {"isIn", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_5isIn, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_4isIn},
+  {"madd", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_7madd, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_6madd},
+  {"exp", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_9exp, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_8exp},
+  {"log", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_11log, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_10log},
+  {"mean", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_13mean, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_12mean},
+  {"hyperbolicity", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_15hyperbolicity, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_14hyperbolicity},
+  {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_17__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_16__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5miolo_10Hyperbolic_19__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5miolo_10Hyperbolic_18__setstate_cython__},
   {0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
 static PyType_Slot __pyx_type_5miolo_Hyperbolic_slots[] = {
   {Py_tp_dealloc, (void *)__pyx_tp_dealloc_5miolo_Hyperbolic},
-  {Py_tp_doc, (void *)PyDoc_STR("\n        This class treats each row of a Matrix as a point in the Poincare disk.\n        Convertions to and from the Klein model are also available.\n    ")},
+  {Py_tp_doc, (void *)PyDoc_STR("Hyperbolic(c=1)\n\n        This class treats each row of a Matrix as a point in the Poincare disk.\n        Convertions to and from the Klein model are also available.\n    ")},
   {Py_tp_methods, (void *)__pyx_methods_5miolo_Hyperbolic},
+  {Py_tp_init, (void *)__pyx_pw_5miolo_10Hyperbolic_1__init__},
   {Py_tp_new, (void *)__pyx_tp_new_5miolo_Hyperbolic},
   {0, 0},
 };
@@ -61012,7 +61412,7 @@ static PyTypeObject __pyx_type_5miolo_Hyperbolic = {
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE, /*tp_flags*/
-  PyDoc_STR("\n        This class treats each row of a Matrix as a point in the Poincare disk.\n        Convertions to and from the Klein model are also available.\n    "), /*tp_doc*/
+  PyDoc_STR("Hyperbolic(c=1)\n\n        This class treats each row of a Matrix as a point in the Poincare disk.\n        Convertions to and from the Klein model are also available.\n    "), /*tp_doc*/
   0, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
@@ -61029,7 +61429,7 @@ static PyTypeObject __pyx_type_5miolo_Hyperbolic = {
   #if !CYTHON_USE_TYPE_SPECS
   0, /*tp_dictoffset*/
   #endif
-  0, /*tp_init*/
+  __pyx_pw_5miolo_10Hyperbolic_1__init__, /*tp_init*/
   0, /*tp_alloc*/
   __pyx_tp_new_5miolo_Hyperbolic, /*tp_new*/
   0, /*tp_free*/
@@ -62097,6 +62497,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_Hyperbolic___setstate_cython, __pyx_k_Hyperbolic___setstate_cython, sizeof(__pyx_k_Hyperbolic___setstate_cython), 0, 0, 1, 1},
     {&__pyx_n_s_Hyperbolic_distance, __pyx_k_Hyperbolic_distance, sizeof(__pyx_k_Hyperbolic_distance), 0, 0, 1, 1},
     {&__pyx_n_s_Hyperbolic_exp, __pyx_k_Hyperbolic_exp, sizeof(__pyx_k_Hyperbolic_exp), 0, 0, 1, 1},
+    {&__pyx_n_s_Hyperbolic_hyperbolicity, __pyx_k_Hyperbolic_hyperbolicity, sizeof(__pyx_k_Hyperbolic_hyperbolicity), 0, 0, 1, 1},
     {&__pyx_n_s_Hyperbolic_isIn, __pyx_k_Hyperbolic_isIn, sizeof(__pyx_k_Hyperbolic_isIn), 0, 0, 1, 1},
     {&__pyx_n_s_Hyperbolic_log, __pyx_k_Hyperbolic_log, sizeof(__pyx_k_Hyperbolic_log), 0, 0, 1, 1},
     {&__pyx_n_s_Hyperbolic_madd, __pyx_k_Hyperbolic_madd, sizeof(__pyx_k_Hyperbolic_madd), 0, 0, 1, 1},
@@ -62191,7 +62592,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_View_MemoryView, __pyx_k_View_MemoryView, sizeof(__pyx_k_View_MemoryView), 0, 0, 1, 1},
     {&__pyx_n_s_Warning, __pyx_k_Warning, sizeof(__pyx_k_Warning), 0, 0, 1, 1},
     {&__pyx_kp_u__2, __pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0, 0},
-    {&__pyx_n_s__204, __pyx_k__204, sizeof(__pyx_k__204), 0, 0, 1, 1},
+    {&__pyx_n_s__206, __pyx_k__206, sizeof(__pyx_k__206), 0, 0, 1, 1},
     {&__pyx_n_s__3, __pyx_k__3, sizeof(__pyx_k__3), 0, 0, 1, 1},
     {&__pyx_kp_u__6, __pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0, 0},
     {&__pyx_kp_u__7, __pyx_k__7, sizeof(__pyx_k__7), 0, 1, 0, 0},
@@ -62233,6 +62634,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_ctypes, __pyx_k_ctypes, sizeof(__pyx_k_ctypes), 0, 0, 1, 1},
     {&__pyx_n_s_data, __pyx_k_data, sizeof(__pyx_k_data), 0, 0, 1, 1},
     {&__pyx_kp_s_data_and_center_must_have_same_n, __pyx_k_data_and_center_must_have_same_n, sizeof(__pyx_k_data_and_center_must_have_same_n), 0, 0, 1, 0},
+    {&__pyx_kp_s_data_and_center_must_share_same, __pyx_k_data_and_center_must_share_same, sizeof(__pyx_k_data_and_center_must_share_same), 0, 0, 1, 0},
     {&__pyx_kp_s_data_and_center_must_shares_same, __pyx_k_data_and_center_must_shares_same, sizeof(__pyx_k_data_and_center_must_shares_same), 0, 0, 1, 0},
     {&__pyx_kp_s_data_and_labels_must_have_same_n, __pyx_k_data_and_labels_must_have_same_n, sizeof(__pyx_k_data_and_labels_must_have_same_n), 0, 0, 1, 0},
     {&__pyx_n_s_degree, __pyx_k_degree, sizeof(__pyx_k_degree), 0, 0, 1, 1},
@@ -62274,6 +62676,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_gshape, __pyx_k_gshape, sizeof(__pyx_k_gshape), 0, 0, 1, 1},
     {&__pyx_n_s_hadamard, __pyx_k_hadamard, sizeof(__pyx_k_hadamard), 0, 0, 1, 1},
     {&__pyx_n_s_hyperbolicCentroidDistance, __pyx_k_hyperbolicCentroidDistance, sizeof(__pyx_k_hyperbolicCentroidDistance), 0, 0, 1, 1},
+    {&__pyx_n_s_hyperbolicity, __pyx_k_hyperbolicity, sizeof(__pyx_k_hyperbolicity), 0, 0, 1, 1},
     {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
     {&__pyx_kp_s_i_is_not_a_valid_index_for_Digra, __pyx_k_i_is_not_a_valid_index_for_Digra, sizeof(__pyx_k_i_is_not_a_valid_index_for_Digra), 0, 0, 1, 0},
     {&__pyx_n_s_id, __pyx_k_id, sizeof(__pyx_k_id), 0, 0, 1, 1},
@@ -62948,16 +63351,16 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "miololib.pyx":1464
  *     def euclideanCentroidDistance(self, Matrix data, Matrix center):
  *         if data.ctype!=center.ctype:
- *             raise TypeError("data and center must shares same ctype.")             # <<<<<<<<<<<<<<
+ *             raise TypeError("data and center must share same ctype.")             # <<<<<<<<<<<<<<
  *         if data.cols!=center.cols:
  *             raise TypeError("data and center must have same number of columns")
  */
-  __pyx_tuple__57 = PyTuple_Pack(1, __pyx_kp_s_data_and_center_must_shares_same); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(1, 1464, __pyx_L1_error)
+  __pyx_tuple__57 = PyTuple_Pack(1, __pyx_kp_s_data_and_center_must_share_same); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(1, 1464, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__57);
   __Pyx_GIVEREF(__pyx_tuple__57);
 
   /* "miololib.pyx":1466
- *             raise TypeError("data and center must shares same ctype.")
+ *             raise TypeError("data and center must share same ctype.")
  *         if data.cols!=center.cols:
  *             raise TypeError("data and center must have same number of columns")             # <<<<<<<<<<<<<<
  *         out = Matrix(ctype=data.ctype)
@@ -62967,6 +63370,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__58);
   __Pyx_GIVEREF(__pyx_tuple__58);
 
+  /* "miololib.pyx":1481
+ *     def sphereCentroidDistance(self, Matrix data, Matrix center):
+ *         if data.ctype!=center.ctype:
+ *             raise TypeError("data and center must shares same ctype.")             # <<<<<<<<<<<<<<
+ *         if data.cols!=center.cols:
+ *             raise TypeError("data and center must have same number of columns")
+ */
+  __pyx_tuple__59 = PyTuple_Pack(1, __pyx_kp_s_data_and_center_must_shares_same); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(1, 1481, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__59);
+  __Pyx_GIVEREF(__pyx_tuple__59);
+
   /* "miololib.pyx":1515
  *     def euclideanCentroid(self, Matrix data, Matrix labels):
  *         if labels.ctype!="int":
@@ -62974,9 +63388,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if labels.rows!=data.rows:
  *             raise Exception("data and labels must have same number of rows")
  */
-  __pyx_tuple__59 = PyTuple_Pack(1, __pyx_kp_s_labels_must_have_int_ctype); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(1, 1515, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__59);
-  __Pyx_GIVEREF(__pyx_tuple__59);
+  __pyx_tuple__60 = PyTuple_Pack(1, __pyx_kp_s_labels_must_have_int_ctype); if (unlikely(!__pyx_tuple__60)) __PYX_ERR(1, 1515, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__60);
+  __Pyx_GIVEREF(__pyx_tuple__60);
 
   /* "miololib.pyx":1517
  *             raise TypeError("labels must have int ctype.")
@@ -62985,9 +63399,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         out = Matrix(ctype=data.ctype)
  *         if out.ctype=="int":
  */
-  __pyx_tuple__60 = PyTuple_Pack(1, __pyx_kp_s_data_and_labels_must_have_same_n); if (unlikely(!__pyx_tuple__60)) __PYX_ERR(1, 1517, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__60);
-  __Pyx_GIVEREF(__pyx_tuple__60);
+  __pyx_tuple__61 = PyTuple_Pack(1, __pyx_kp_s_data_and_labels_must_have_same_n); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(1, 1517, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__61);
+  __Pyx_GIVEREF(__pyx_tuple__61);
 
   /* "miololib.pyx":1757
  *         """
@@ -62996,9 +63410,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         out = Matrix(ctype=M.ctype)
  *         if M.ctype=="int":
  */
-  __pyx_tuple__61 = PyTuple_Pack(1, __pyx_kp_s_azimuth_must_be_smaller_than_M_c); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(1, 1757, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__61);
-  __Pyx_GIVEREF(__pyx_tuple__61);
+  __pyx_tuple__62 = PyTuple_Pack(1, __pyx_kp_s_azimuth_must_be_smaller_than_M_c); if (unlikely(!__pyx_tuple__62)) __PYX_ERR(1, 1757, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__62);
+  __Pyx_GIVEREF(__pyx_tuple__62);
 
   /* "miololib.pyx":1800
  *         """
@@ -63007,9 +63421,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if at.ctype!=M.ctype:
  *             raise TypeError("at and M must have same ctype.")
  */
-  __pyx_tuple__62 = PyTuple_Pack(1, __pyx_kp_s_at_and_M_must_have_same_shape); if (unlikely(!__pyx_tuple__62)) __PYX_ERR(1, 1800, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__62);
-  __Pyx_GIVEREF(__pyx_tuple__62);
+  __pyx_tuple__63 = PyTuple_Pack(1, __pyx_kp_s_at_and_M_must_have_same_shape); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(1, 1800, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__63);
+  __Pyx_GIVEREF(__pyx_tuple__63);
 
   /* "miololib.pyx":1802
  *             raise Exception("at and M must have same shape.")
@@ -63018,9 +63432,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if M.ctype=="int":
  *             return self.view.isTangent(drf(at.mtxInt),drf(M.mtxInt),<int>tolerance)
  */
-  __pyx_tuple__63 = PyTuple_Pack(1, __pyx_kp_s_at_and_M_must_have_same_ctype); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(1, 1802, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__63);
-  __Pyx_GIVEREF(__pyx_tuple__63);
+  __pyx_tuple__64 = PyTuple_Pack(1, __pyx_kp_s_at_and_M_must_have_same_ctype); if (unlikely(!__pyx_tuple__64)) __PYX_ERR(1, 1802, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__64);
+  __Pyx_GIVEREF(__pyx_tuple__64);
 
   /* "miololib.pyx":1819
  *         """
@@ -63029,9 +63443,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if at.rows!=1 and at.rows!=tangent.rows:
  *             raise Exception("Invalid shape for at.")
  */
-  __pyx_tuple__64 = PyTuple_Pack(1, __pyx_kp_s_at_and_tangent_must_have_same_nu); if (unlikely(!__pyx_tuple__64)) __PYX_ERR(1, 1819, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__64);
-  __Pyx_GIVEREF(__pyx_tuple__64);
+  __pyx_tuple__65 = PyTuple_Pack(1, __pyx_kp_s_at_and_tangent_must_have_same_nu); if (unlikely(!__pyx_tuple__65)) __PYX_ERR(1, 1819, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__65);
+  __Pyx_GIVEREF(__pyx_tuple__65);
 
   /* "miololib.pyx":1821
  *             raise Exception("at and tangent must have same number of cols.")
@@ -63040,9 +63454,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if at.ctype!=tangent.ctype:
  *             raise TypeError("at and tanget must have same ctype.")
  */
-  __pyx_tuple__65 = PyTuple_Pack(1, __pyx_kp_s_Invalid_shape_for_at); if (unlikely(!__pyx_tuple__65)) __PYX_ERR(1, 1821, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__65);
-  __Pyx_GIVEREF(__pyx_tuple__65);
+  __pyx_tuple__66 = PyTuple_Pack(1, __pyx_kp_s_Invalid_shape_for_at); if (unlikely(!__pyx_tuple__66)) __PYX_ERR(1, 1821, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__66);
+  __Pyx_GIVEREF(__pyx_tuple__66);
 
   /* "miololib.pyx":1823
  *             raise Exception("Invalid shape for at.")
@@ -63051,9 +63465,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         out = Matrix(ctype=at.ctype)
  *         if at.rows==tangent.rows:
  */
-  __pyx_tuple__66 = PyTuple_Pack(1, __pyx_kp_s_at_and_tanget_must_have_same_cty); if (unlikely(!__pyx_tuple__66)) __PYX_ERR(1, 1823, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__66);
-  __Pyx_GIVEREF(__pyx_tuple__66);
+  __pyx_tuple__67 = PyTuple_Pack(1, __pyx_kp_s_at_and_tanget_must_have_same_cty); if (unlikely(!__pyx_tuple__67)) __PYX_ERR(1, 1823, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__67);
+  __Pyx_GIVEREF(__pyx_tuple__67);
 
   /* "miololib.pyx":1865
  *             raise Exception("Invalid shape for at.")
@@ -63062,20 +63476,20 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         out = Matrix(ctype=start.ctype)
  *         if start.rows==end.rows:
  */
-  __pyx_tuple__67 = PyTuple_Pack(1, __pyx_kp_s_start_and_end_must_have_same_cty); if (unlikely(!__pyx_tuple__67)) __PYX_ERR(1, 1865, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__67);
-  __Pyx_GIVEREF(__pyx_tuple__67);
+  __pyx_tuple__68 = PyTuple_Pack(1, __pyx_kp_s_start_and_end_must_have_same_cty); if (unlikely(!__pyx_tuple__68)) __PYX_ERR(1, 1865, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__68);
+  __Pyx_GIVEREF(__pyx_tuple__68);
 
-  /* "miololib.pyx":1958
+  /* "miololib.pyx":1961
  *             raise Exception("Matrices must have same shape.")
  *         if A.ctype!=B.ctype:
  *             raise TypeError("Matrices must have same ctype.")             # <<<<<<<<<<<<<<
  *         out = Matrix(ctype=A.ctype)
  *         if out.ctype=="int":
  */
-  __pyx_tuple__68 = PyTuple_Pack(1, __pyx_kp_s_Matrices_must_have_same_ctype); if (unlikely(!__pyx_tuple__68)) __PYX_ERR(1, 1958, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__68);
-  __Pyx_GIVEREF(__pyx_tuple__68);
+  __pyx_tuple__69 = PyTuple_Pack(1, __pyx_kp_s_Matrices_must_have_same_ctype); if (unlikely(!__pyx_tuple__69)) __PYX_ERR(1, 1961, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__69);
+  __Pyx_GIVEREF(__pyx_tuple__69);
 
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
@@ -63084,9 +63498,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError, "Incompatible checksums (0x%x vs (0xe3b0c44, 0xda39a3e, 0xd41d8cd) = ())" % __pyx_checksum
  */
-  __pyx_tuple__69 = PyTuple_Pack(3, __pyx_int_238750788, __pyx_int_228825662, __pyx_int_222419149); if (unlikely(!__pyx_tuple__69)) __PYX_ERR(0, 4, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__69);
-  __Pyx_GIVEREF(__pyx_tuple__69);
+  __pyx_tuple__70 = PyTuple_Pack(3, __pyx_int_238750788, __pyx_int_228825662, __pyx_int_222419149); if (unlikely(!__pyx_tuple__70)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__70);
+  __Pyx_GIVEREF(__pyx_tuple__70);
 
   /* "View.MemoryView":100
  * cdef object __pyx_collections_abc_Sequence "__pyx_collections_abc_Sequence"
@@ -63095,12 +63509,12 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         __pyx_collections_abc_Sequence = __import__("collections.abc").abc.Sequence
  *     else:
  */
-  __pyx_tuple__70 = PyTuple_Pack(1, __pyx_n_s_sys); if (unlikely(!__pyx_tuple__70)) __PYX_ERR(0, 100, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__70);
-  __Pyx_GIVEREF(__pyx_tuple__70);
-  __pyx_tuple__71 = PyTuple_Pack(2, __pyx_int_3, __pyx_int_3); if (unlikely(!__pyx_tuple__71)) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_tuple__71 = PyTuple_Pack(1, __pyx_n_s_sys); if (unlikely(!__pyx_tuple__71)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__71);
   __Pyx_GIVEREF(__pyx_tuple__71);
+  __pyx_tuple__72 = PyTuple_Pack(2, __pyx_int_3, __pyx_int_3); if (unlikely(!__pyx_tuple__72)) __PYX_ERR(0, 100, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__72);
+  __Pyx_GIVEREF(__pyx_tuple__72);
 
   /* "View.MemoryView":101
  * try:
@@ -63109,9 +63523,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     else:
  *         __pyx_collections_abc_Sequence = __import__("collections").Sequence
  */
-  __pyx_tuple__72 = PyTuple_Pack(1, __pyx_kp_s_collections_abc); if (unlikely(!__pyx_tuple__72)) __PYX_ERR(0, 101, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__72);
-  __Pyx_GIVEREF(__pyx_tuple__72);
+  __pyx_tuple__73 = PyTuple_Pack(1, __pyx_kp_s_collections_abc); if (unlikely(!__pyx_tuple__73)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__73);
+  __Pyx_GIVEREF(__pyx_tuple__73);
 
   /* "View.MemoryView":103
  *         __pyx_collections_abc_Sequence = __import__("collections.abc").abc.Sequence
@@ -63120,9 +63534,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * except:
  * 
  */
-  __pyx_tuple__73 = PyTuple_Pack(1, __pyx_n_s_collections); if (unlikely(!__pyx_tuple__73)) __PYX_ERR(0, 103, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__73);
-  __Pyx_GIVEREF(__pyx_tuple__73);
+  __pyx_tuple__74 = PyTuple_Pack(1, __pyx_n_s_collections); if (unlikely(!__pyx_tuple__74)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__74);
+  __Pyx_GIVEREF(__pyx_tuple__74);
 
   /* "View.MemoryView":309
  *         return self.name
@@ -63131,9 +63545,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef strided = Enum("<strided and direct>") # default
  * cdef indirect = Enum("<strided and indirect>")
  */
-  __pyx_tuple__74 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct_or_indirect); if (unlikely(!__pyx_tuple__74)) __PYX_ERR(0, 309, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__74);
-  __Pyx_GIVEREF(__pyx_tuple__74);
+  __pyx_tuple__75 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct_or_indirect); if (unlikely(!__pyx_tuple__75)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__75);
+  __Pyx_GIVEREF(__pyx_tuple__75);
 
   /* "View.MemoryView":310
  * 
@@ -63142,9 +63556,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef indirect = Enum("<strided and indirect>")
  * 
  */
-  __pyx_tuple__75 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct); if (unlikely(!__pyx_tuple__75)) __PYX_ERR(0, 310, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__75);
-  __Pyx_GIVEREF(__pyx_tuple__75);
+  __pyx_tuple__76 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct); if (unlikely(!__pyx_tuple__76)) __PYX_ERR(0, 310, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__76);
+  __Pyx_GIVEREF(__pyx_tuple__76);
 
   /* "View.MemoryView":311
  * cdef generic = Enum("<strided and direct or indirect>")
@@ -63153,9 +63567,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
-  __pyx_tuple__76 = PyTuple_Pack(1, __pyx_kp_s_strided_and_indirect); if (unlikely(!__pyx_tuple__76)) __PYX_ERR(0, 311, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__76);
-  __Pyx_GIVEREF(__pyx_tuple__76);
+  __pyx_tuple__77 = PyTuple_Pack(1, __pyx_kp_s_strided_and_indirect); if (unlikely(!__pyx_tuple__77)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__77);
+  __Pyx_GIVEREF(__pyx_tuple__77);
 
   /* "View.MemoryView":314
  * 
@@ -63164,9 +63578,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef indirect_contiguous = Enum("<contiguous and indirect>")
  * 
  */
-  __pyx_tuple__77 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_direct); if (unlikely(!__pyx_tuple__77)) __PYX_ERR(0, 314, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__77);
-  __Pyx_GIVEREF(__pyx_tuple__77);
+  __pyx_tuple__78 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_direct); if (unlikely(!__pyx_tuple__78)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__78);
+  __Pyx_GIVEREF(__pyx_tuple__78);
 
   /* "View.MemoryView":315
  * 
@@ -63175,19 +63589,19 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
-  __pyx_tuple__78 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_indirect); if (unlikely(!__pyx_tuple__78)) __PYX_ERR(0, 315, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__78);
-  __Pyx_GIVEREF(__pyx_tuple__78);
+  __pyx_tuple__79 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_indirect); if (unlikely(!__pyx_tuple__79)) __PYX_ERR(0, 315, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__79);
+  __Pyx_GIVEREF(__pyx_tuple__79);
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_Enum(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_tuple__79 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__79)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__79);
-  __Pyx_GIVEREF(__pyx_tuple__79);
-  __pyx_codeobj__80 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__79, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__80)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_tuple__80 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__80)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__80);
+  __Pyx_GIVEREF(__pyx_tuple__80);
+  __pyx_codeobj__81 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__80, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__81)) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* "miololib.pyx":38
  *     cdef mld.diagonal[double]* diagonalDouble
@@ -63196,10 +63610,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns true if object is a miolo.Matrix.
  */
-  __pyx_tuple__81 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__81)) __PYX_ERR(1, 38, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__81);
-  __Pyx_GIVEREF(__pyx_tuple__81);
-  __pyx_codeobj__82 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isMatrix, 38, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__82)) __PYX_ERR(1, 38, __pyx_L1_error)
+  __pyx_tuple__82 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__82)) __PYX_ERR(1, 38, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__82);
+  __Pyx_GIVEREF(__pyx_tuple__82);
+  __pyx_codeobj__83 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isMatrix, 38, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__83)) __PYX_ERR(1, 38, __pyx_L1_error)
 
   /* "miololib.pyx":50
  *         return False
@@ -63208,7 +63622,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns true if object is miolo.Graph.
  */
-  __pyx_codeobj__83 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isGraph, 50, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__83)) __PYX_ERR(1, 50, __pyx_L1_error)
+  __pyx_codeobj__84 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isGraph, 50, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__84)) __PYX_ERR(1, 50, __pyx_L1_error)
 
   /* "miololib.pyx":62
  *         return False
@@ -63217,7 +63631,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns true if object is miolo.Digraph
  */
-  __pyx_codeobj__84 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isDigraph, 62, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__84)) __PYX_ERR(1, 62, __pyx_L1_error)
+  __pyx_codeobj__85 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isDigraph, 62, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__85)) __PYX_ERR(1, 62, __pyx_L1_error)
 
   /* "miololib.pyx":74
  *         return False
@@ -63226,14 +63640,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns true if object is miolo.Digraph
  */
-  __pyx_codeobj__85 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isDiagonal, 74, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__85)) __PYX_ERR(1, 74, __pyx_L1_error)
+  __pyx_codeobj__86 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isDiagonal, 74, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__86)) __PYX_ERR(1, 74, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.diagonalDouble,self.diagonalFloat,self.diagonalInt,self.digraphDouble,self.digraphFloat,self.digraphInt,self.graphDouble,self.graphFloat,self.graphInt,self.mtxDouble,self.mtxFloat,self.mtxInt cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_codeobj__86 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__86)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_codeobj__87 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__87)) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -63241,10 +63655,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.diagonalDouble,self.diagonalFloat,self.diagonalInt,self.digraphDouble,self.digraphFloat,self.digraphInt,self.graphDouble,self.graphFloat,self.graphInt,self.mtxDouble,self.mtxFloat,self.mtxInt cannot be converted to a Python object for pickling"
  */
-  __pyx_tuple__87 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__87)) __PYX_ERR(0, 3, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__87);
-  __Pyx_GIVEREF(__pyx_tuple__87);
-  __pyx_codeobj__88 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__87, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__88)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_tuple__88 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__88)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__88);
+  __Pyx_GIVEREF(__pyx_tuple__88);
+  __pyx_codeobj__89 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__89)) __PYX_ERR(0, 3, __pyx_L1_error)
 
   /* "miololib.pyx":257
  *             self.mtxDouble.data[k] = value
@@ -63253,10 +63667,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Copies M into self if both have same shape.
  */
-  __pyx_tuple__89 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_M, __pyx_n_s_only, __pyx_n_s_n); if (unlikely(!__pyx_tuple__89)) __PYX_ERR(1, 257, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__89);
-  __Pyx_GIVEREF(__pyx_tuple__89);
-  __pyx_codeobj__90 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__89, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_copy, 257, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__90)) __PYX_ERR(1, 257, __pyx_L1_error)
+  __pyx_tuple__90 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_M, __pyx_n_s_only, __pyx_n_s_n); if (unlikely(!__pyx_tuple__90)) __PYX_ERR(1, 257, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__90);
+  __Pyx_GIVEREF(__pyx_tuple__90);
+  __pyx_codeobj__91 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__90, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_copy, 257, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__91)) __PYX_ERR(1, 257, __pyx_L1_error)
 
   /* "miololib.pyx":285
  *                 self.mtxDouble.copy(drf(M.mtxDouble),&only[0],n)
@@ -63265,7 +63679,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if self.ctype=="int":
  *             self.mtxInt.print()
  */
-  __pyx_codeobj__91 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_print, 285, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__91)) __PYX_ERR(1, 285, __pyx_L1_error)
+  __pyx_codeobj__92 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_print, 285, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__92)) __PYX_ERR(1, 285, __pyx_L1_error)
 
   /* "miololib.pyx":297
  *     #---------------------------------------------------------------------------
@@ -63274,7 +63688,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if self.ctype=="int":
  *             return self.mtxInt.max()
  */
-  __pyx_codeobj__92 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_max, 297, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__92)) __PYX_ERR(1, 297, __pyx_L1_error)
+  __pyx_codeobj__93 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_max, 297, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__93)) __PYX_ERR(1, 297, __pyx_L1_error)
 
   /* "miololib.pyx":305
  *             return self.mtxDouble.max()
@@ -63283,7 +63697,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if self.ctype=="int":
  *             return self.mtxInt.min()
  */
-  __pyx_codeobj__93 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_min, 305, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__93)) __PYX_ERR(1, 305, __pyx_L1_error)
+  __pyx_codeobj__94 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_min, 305, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__94)) __PYX_ERR(1, 305, __pyx_L1_error)
 
   /* "miololib.pyx":313
  *             return self.mtxDouble.min()
@@ -63292,7 +63706,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Row normalization in to make elements in the same row sum to 1.
  */
-  __pyx_codeobj__94 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_normalize, 313, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__94)) __PYX_ERR(1, 313, __pyx_L1_error)
+  __pyx_codeobj__95 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_normalize, 313, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__95)) __PYX_ERR(1, 313, __pyx_L1_error)
 
   /* "miololib.pyx":325
  *             self.mtxDouble.normalize()
@@ -63301,10 +63715,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns the transpose of a Matrix.
  */
-  __pyx_tuple__95 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_out); if (unlikely(!__pyx_tuple__95)) __PYX_ERR(1, 325, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__95);
-  __Pyx_GIVEREF(__pyx_tuple__95);
-  __pyx_codeobj__96 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__95, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_transpose, 325, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__96)) __PYX_ERR(1, 325, __pyx_L1_error)
+  __pyx_tuple__96 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_out); if (unlikely(!__pyx_tuple__96)) __PYX_ERR(1, 325, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__96);
+  __Pyx_GIVEREF(__pyx_tuple__96);
+  __pyx_codeobj__97 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__96, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_transpose, 325, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__97)) __PYX_ERR(1, 325, __pyx_L1_error)
 
   /* "miololib.pyx":339
  * 
@@ -63313,13 +63727,13 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Inplace flattening of a Matrix.
  */
-  __pyx_tuple__97 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_rows); if (unlikely(!__pyx_tuple__97)) __PYX_ERR(1, 339, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__97);
-  __Pyx_GIVEREF(__pyx_tuple__97);
-  __pyx_codeobj__98 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__97, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_flatten, 339, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__98)) __PYX_ERR(1, 339, __pyx_L1_error)
-  __pyx_tuple__99 = PyTuple_Pack(1, Py_True); if (unlikely(!__pyx_tuple__99)) __PYX_ERR(1, 339, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__99);
-  __Pyx_GIVEREF(__pyx_tuple__99);
+  __pyx_tuple__98 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_rows); if (unlikely(!__pyx_tuple__98)) __PYX_ERR(1, 339, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__98);
+  __Pyx_GIVEREF(__pyx_tuple__98);
+  __pyx_codeobj__99 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__98, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_flatten, 339, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__99)) __PYX_ERR(1, 339, __pyx_L1_error)
+  __pyx_tuple__100 = PyTuple_Pack(1, Py_True); if (unlikely(!__pyx_tuple__100)) __PYX_ERR(1, 339, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__100);
+  __Pyx_GIVEREF(__pyx_tuple__100);
 
   /* "miololib.pyx":354
  *             self.mtxDouble.flatten(rows)
@@ -63328,10 +63742,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Inplace reshape of a Matrix. Can be done only if rows*cols is equal
  */
-  __pyx_tuple__100 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_rows, __pyx_n_s_cols); if (unlikely(!__pyx_tuple__100)) __PYX_ERR(1, 354, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__100);
-  __Pyx_GIVEREF(__pyx_tuple__100);
-  __pyx_codeobj__101 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__100, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_reshape, 354, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__101)) __PYX_ERR(1, 354, __pyx_L1_error)
+  __pyx_tuple__101 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_rows, __pyx_n_s_cols); if (unlikely(!__pyx_tuple__101)) __PYX_ERR(1, 354, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__101);
+  __Pyx_GIVEREF(__pyx_tuple__101);
+  __pyx_codeobj__102 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__101, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_reshape, 354, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__102)) __PYX_ERR(1, 354, __pyx_L1_error)
 
   /* "miololib.pyx":480
  *     #---------------------------------------------------------------------------
@@ -63340,7 +63754,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns the argmax of each row.
  */
-  __pyx_codeobj__102 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__95, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_argmax, 480, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__102)) __PYX_ERR(1, 480, __pyx_L1_error)
+  __pyx_codeobj__103 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__96, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_argmax, 480, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__103)) __PYX_ERR(1, 480, __pyx_L1_error)
 
   /* "miololib.pyx":493
  *         return out
@@ -63349,7 +63763,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns the argmin of each row.
  */
-  __pyx_codeobj__103 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__95, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_argmin, 493, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__103)) __PYX_ERR(1, 493, __pyx_L1_error)
+  __pyx_codeobj__104 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__96, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_argmin, 493, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__104)) __PYX_ERR(1, 493, __pyx_L1_error)
 
   /* "miololib.pyx":506
  *         return out
@@ -63358,7 +63772,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns the self.rows x self.rows Matrix for which each entry (i,j)
  */
-  __pyx_codeobj__104 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__95, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_rowDistance, 506, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__104)) __PYX_ERR(1, 506, __pyx_L1_error)
+  __pyx_codeobj__105 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__96, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_rowDistance, 506, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__105)) __PYX_ERR(1, 506, __pyx_L1_error)
 
   /* "miololib.pyx":520
  *         return out
@@ -63367,14 +63781,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns the sum of all elements in a Matrix.
  */
-  __pyx_codeobj__105 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_sumAll, 520, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__105)) __PYX_ERR(1, 520, __pyx_L1_error)
+  __pyx_codeobj__106 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_sumAll, 520, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__106)) __PYX_ERR(1, 520, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_codeobj__106 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__106)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_codeobj__107 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__107)) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -63382,7 +63796,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_codeobj__107 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__87, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__107)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_codeobj__108 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__108)) __PYX_ERR(0, 3, __pyx_L1_error)
 
   /* "miololib.pyx":531
  *             return self.mtxDouble.sumAll()
@@ -63391,10 +63805,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *         Frobenius dot product between two matrices.
  */
-  __pyx_tuple__108 = PyTuple_Pack(2, __pyx_n_s_A, __pyx_n_s_B); if (unlikely(!__pyx_tuple__108)) __PYX_ERR(1, 531, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__108);
-  __Pyx_GIVEREF(__pyx_tuple__108);
-  __pyx_codeobj__109 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__108, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_dot, 531, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__109)) __PYX_ERR(1, 531, __pyx_L1_error)
+  __pyx_tuple__109 = PyTuple_Pack(2, __pyx_n_s_A, __pyx_n_s_B); if (unlikely(!__pyx_tuple__109)) __PYX_ERR(1, 531, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__109);
+  __Pyx_GIVEREF(__pyx_tuple__109);
+  __pyx_codeobj__110 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__109, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_dot, 531, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__110)) __PYX_ERR(1, 531, __pyx_L1_error)
 
   /* "miololib.pyx":544
  *         return A.mtxDouble.dot(B.mtxDouble)
@@ -63403,10 +63817,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *         Concatenates A and B if both have same number of columns and share same
  */
-  __pyx_tuple__110 = PyTuple_Pack(3, __pyx_n_s_A, __pyx_n_s_B, __pyx_n_s_out); if (unlikely(!__pyx_tuple__110)) __PYX_ERR(1, 544, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__110);
-  __Pyx_GIVEREF(__pyx_tuple__110);
-  __pyx_codeobj__111 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__110, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_concat, 544, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__111)) __PYX_ERR(1, 544, __pyx_L1_error)
+  __pyx_tuple__111 = PyTuple_Pack(3, __pyx_n_s_A, __pyx_n_s_B, __pyx_n_s_out); if (unlikely(!__pyx_tuple__111)) __PYX_ERR(1, 544, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__111);
+  __Pyx_GIVEREF(__pyx_tuple__111);
+  __pyx_codeobj__112 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__111, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_concat, 544, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__112)) __PYX_ERR(1, 544, __pyx_L1_error)
 
   /* "miololib.pyx":728
  *             return (self.graphDouble.e[k].i,self.graphDouble.e[k].j,self.graphDouble.e[k].w)
@@ -63415,7 +63829,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if self.ctype=="int":
  *             return self.graphInt.isolatedNodes()
  */
-  __pyx_codeobj__112 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isolatedNodes, 728, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__112)) __PYX_ERR(1, 728, __pyx_L1_error)
+  __pyx_codeobj__113 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isolatedNodes, 728, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__113)) __PYX_ERR(1, 728, __pyx_L1_error)
 
   /* "miololib.pyx":740
  *     #---------------------------------------------------------------------------
@@ -63424,10 +63838,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             When clamped is None, returns the matrix product of self and M.
  */
-  __pyx_tuple__113 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_M, __pyx_n_s_clamped, __pyx_n_s_out); if (unlikely(!__pyx_tuple__113)) __PYX_ERR(1, 740, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__113);
-  __Pyx_GIVEREF(__pyx_tuple__113);
-  __pyx_codeobj__114 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__113, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_propagate, 740, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__114)) __PYX_ERR(1, 740, __pyx_L1_error)
+  __pyx_tuple__114 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_M, __pyx_n_s_clamped, __pyx_n_s_out); if (unlikely(!__pyx_tuple__114)) __PYX_ERR(1, 740, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__114);
+  __Pyx_GIVEREF(__pyx_tuple__114);
+  __pyx_codeobj__115 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__114, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_propagate, 740, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__115)) __PYX_ERR(1, 740, __pyx_L1_error)
 
   /* "miololib.pyx":856
  *     #---------------------------------------------------------------------------
@@ -63436,7 +63850,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Symmetric normalization of edge weights.
  */
-  __pyx_codeobj__115 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_normalize, 856, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__115)) __PYX_ERR(1, 856, __pyx_L1_error)
+  __pyx_codeobj__116 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_normalize, 856, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__116)) __PYX_ERR(1, 856, __pyx_L1_error)
 
   /* "miololib.pyx":867
  *             self.graphDouble.normalize()
@@ -63445,7 +63859,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns a column Matrix where each entry is the degree of the
  */
-  __pyx_codeobj__116 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__95, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_degree, 867, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__116)) __PYX_ERR(1, 867, __pyx_L1_error)
+  __pyx_codeobj__117 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__96, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_degree, 867, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__117)) __PYX_ERR(1, 867, __pyx_L1_error)
 
   /* "miololib.pyx":881
  *         return out
@@ -63454,7 +63868,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns the graph corresponding to the normalized laplacian of
  */
-  __pyx_codeobj__117 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__95, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_laplacian, 881, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__117)) __PYX_ERR(1, 881, __pyx_L1_error)
+  __pyx_codeobj__118 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__96, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_laplacian, 881, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__118)) __PYX_ERR(1, 881, __pyx_L1_error)
 
   /* "miololib.pyx":895
  *         return out
@@ -63463,7 +63877,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns a Matrix corresponding to the dense representation of self.
  */
-  __pyx_codeobj__118 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__95, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_toMatrix, 895, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__118)) __PYX_ERR(1, 895, __pyx_L1_error)
+  __pyx_codeobj__119 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__96, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_toMatrix, 895, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__119)) __PYX_ERR(1, 895, __pyx_L1_error)
 
   /* "miololib.pyx":908
  *         return out
@@ -63472,14 +63886,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns a Matrix corresponding to the dense representation of self.
  */
-  __pyx_codeobj__119 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__95, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_toDigraph, 908, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__119)) __PYX_ERR(1, 908, __pyx_L1_error)
+  __pyx_codeobj__120 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__96, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_toDigraph, 908, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__120)) __PYX_ERR(1, 908, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_codeobj__120 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__120)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_codeobj__121 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__121)) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -63487,7 +63901,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_codeobj__121 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__87, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__121)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_codeobj__122 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__122)) __PYX_ERR(0, 3, __pyx_L1_error)
 
   /* "miololib.pyx":925
  * #---------------------------------------------------------------------------
@@ -63496,10 +63910,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *         Hadamard (element-wise) product between weights in Graphs. Both graphs
  */
-  __pyx_tuple__122 = PyTuple_Pack(3, __pyx_n_s_G, __pyx_n_s_H, __pyx_n_s_out); if (unlikely(!__pyx_tuple__122)) __PYX_ERR(1, 925, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__122);
-  __Pyx_GIVEREF(__pyx_tuple__122);
-  __pyx_codeobj__123 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__122, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_hadamard, 925, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__123)) __PYX_ERR(1, 925, __pyx_L1_error)
+  __pyx_tuple__123 = PyTuple_Pack(3, __pyx_n_s_G, __pyx_n_s_H, __pyx_n_s_out); if (unlikely(!__pyx_tuple__123)) __PYX_ERR(1, 925, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__123);
+  __Pyx_GIVEREF(__pyx_tuple__123);
+  __pyx_codeobj__124 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__123, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_hadamard, 925, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__124)) __PYX_ERR(1, 925, __pyx_L1_error)
 
   /* "miololib.pyx":1016
  *             return self.digraphDouble.null()
@@ -63508,13 +63922,13 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Create connection from i to j weighted by value.
  */
-  __pyx_tuple__124 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_value); if (unlikely(!__pyx_tuple__124)) __PYX_ERR(1, 1016, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__124);
-  __Pyx_GIVEREF(__pyx_tuple__124);
-  __pyx_codeobj__125 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__124, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_connect, 1016, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__125)) __PYX_ERR(1, 1016, __pyx_L1_error)
-  __pyx_tuple__126 = PyTuple_Pack(1, __pyx_float_0_0); if (unlikely(!__pyx_tuple__126)) __PYX_ERR(1, 1016, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__126);
-  __Pyx_GIVEREF(__pyx_tuple__126);
+  __pyx_tuple__125 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_value); if (unlikely(!__pyx_tuple__125)) __PYX_ERR(1, 1016, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__125);
+  __Pyx_GIVEREF(__pyx_tuple__125);
+  __pyx_codeobj__126 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__125, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_connect, 1016, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__126)) __PYX_ERR(1, 1016, __pyx_L1_error)
+  __pyx_tuple__127 = PyTuple_Pack(1, __pyx_float_0_0); if (unlikely(!__pyx_tuple__127)) __PYX_ERR(1, 1016, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__127);
+  __Pyx_GIVEREF(__pyx_tuple__127);
 
   /* "miololib.pyx":1031
  *             self.digraphDouble.connect(i,j,value)
@@ -63523,13 +63937,13 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns a copy of self.
  */
-  __pyx_tuple__127 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_mode, __pyx_n_s_out); if (unlikely(!__pyx_tuple__127)) __PYX_ERR(1, 1031, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__127);
-  __Pyx_GIVEREF(__pyx_tuple__127);
-  __pyx_codeobj__128 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__127, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_copy, 1031, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__128)) __PYX_ERR(1, 1031, __pyx_L1_error)
-  __pyx_tuple__129 = PyTuple_Pack(1, __pyx_n_s_whole); if (unlikely(!__pyx_tuple__129)) __PYX_ERR(1, 1031, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__129);
-  __Pyx_GIVEREF(__pyx_tuple__129);
+  __pyx_tuple__128 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_mode, __pyx_n_s_out); if (unlikely(!__pyx_tuple__128)) __PYX_ERR(1, 1031, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__128);
+  __Pyx_GIVEREF(__pyx_tuple__128);
+  __pyx_codeobj__129 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__128, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_copy, 1031, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__129)) __PYX_ERR(1, 1031, __pyx_L1_error)
+  __pyx_tuple__130 = PyTuple_Pack(1, __pyx_n_s_whole); if (unlikely(!__pyx_tuple__130)) __PYX_ERR(1, 1031, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__130);
+  __Pyx_GIVEREF(__pyx_tuple__130);
 
   /* "miololib.pyx":1055
  *         return out
@@ -63538,10 +63952,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns the number of nonzero elements of each row in the adjacency
  */
-  __pyx_tuple__130 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_view, __pyx_n_s_aux, __pyx_n_s_k, __pyx_n_s_n, __pyx_n_s_out); if (unlikely(!__pyx_tuple__130)) __PYX_ERR(1, 1055, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__130);
-  __Pyx_GIVEREF(__pyx_tuple__130);
-  __pyx_codeobj__131 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__130, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_shape, 1055, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__131)) __PYX_ERR(1, 1055, __pyx_L1_error)
+  __pyx_tuple__131 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_view, __pyx_n_s_aux, __pyx_n_s_k, __pyx_n_s_n, __pyx_n_s_out); if (unlikely(!__pyx_tuple__131)) __PYX_ERR(1, 1055, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__131);
+  __Pyx_GIVEREF(__pyx_tuple__131);
+  __pyx_codeobj__132 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__131, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_shape, 1055, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__132)) __PYX_ERR(1, 1055, __pyx_L1_error)
 
   /* "miololib.pyx":1078
  *         return out
@@ -63550,7 +63964,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Matrix transposition of Digraphs.
  */
-  __pyx_codeobj__132 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__95, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_transpose, 1078, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__132)) __PYX_ERR(1, 1078, __pyx_L1_error)
+  __pyx_codeobj__133 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__96, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_transpose, 1078, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__133)) __PYX_ERR(1, 1078, __pyx_L1_error)
 
   /* "miololib.pyx":1091
  *         return out
@@ -63559,10 +63973,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Checks if both Digraphs have the same shapes.
  */
-  __pyx_tuple__133 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_G, __pyx_n_s_k, __pyx_n_s_n, __pyx_n_s_ashape, __pyx_n_s_gshape); if (unlikely(!__pyx_tuple__133)) __PYX_ERR(1, 1091, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__133);
-  __Pyx_GIVEREF(__pyx_tuple__133);
-  __pyx_codeobj__134 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__133, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_sameShape, 1091, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__134)) __PYX_ERR(1, 1091, __pyx_L1_error)
+  __pyx_tuple__134 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_G, __pyx_n_s_k, __pyx_n_s_n, __pyx_n_s_ashape, __pyx_n_s_gshape); if (unlikely(!__pyx_tuple__134)) __PYX_ERR(1, 1091, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__134);
+  __Pyx_GIVEREF(__pyx_tuple__134);
+  __pyx_codeobj__135 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__134, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_sameShape, 1091, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__135)) __PYX_ERR(1, 1091, __pyx_L1_error)
 
   /* "miololib.pyx":1106
  *         return True
@@ -63571,14 +63985,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns a Digraph with the symmetrization of self.
  */
-  __pyx_codeobj__135 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__95, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_symmetrize, 1106, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__135)) __PYX_ERR(1, 1106, __pyx_L1_error)
+  __pyx_codeobj__136 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__96, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_symmetrize, 1106, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__136)) __PYX_ERR(1, 1106, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_codeobj__136 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__136)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_codeobj__137 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__137)) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -63586,14 +64000,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_codeobj__137 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__87, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__137)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_codeobj__138 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__138)) __PYX_ERR(0, 3, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_codeobj__138 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__138)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_codeobj__139 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__139)) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -63601,7 +64015,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_codeobj__139 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__87, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__139)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_codeobj__140 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__140)) __PYX_ERR(0, 3, __pyx_L1_error)
 
   /* "miololib.pyx":1427
  * #-------------------------------------------------------------------------------
@@ -63610,10 +64024,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *         Loads Matrix from txt file. Uses numpy.
  */
-  __pyx_tuple__140 = PyTuple_Pack(4, __pyx_n_s_filename, __pyx_n_s_ctype, __pyx_n_s_m, __pyx_n_s_out); if (unlikely(!__pyx_tuple__140)) __PYX_ERR(1, 1427, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__140);
-  __Pyx_GIVEREF(__pyx_tuple__140);
-  __pyx_codeobj__141 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__140, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_txtMatrix, 1427, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__141)) __PYX_ERR(1, 1427, __pyx_L1_error)
+  __pyx_tuple__141 = PyTuple_Pack(4, __pyx_n_s_filename, __pyx_n_s_ctype, __pyx_n_s_m, __pyx_n_s_out); if (unlikely(!__pyx_tuple__141)) __PYX_ERR(1, 1427, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__141);
+  __Pyx_GIVEREF(__pyx_tuple__141);
+  __pyx_codeobj__142 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__141, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_txtMatrix, 1427, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__142)) __PYX_ERR(1, 1427, __pyx_L1_error)
 
   /* "miololib.pyx":1436
  *     return out
@@ -63622,22 +64036,22 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     """
  *         Loads Graph from txt file. Uses numpy.
  */
-  __pyx_tuple__142 = PyTuple_Pack(8, __pyx_n_s_filename, __pyx_n_s_ctype, __pyx_n_s_g, __pyx_n_s_max_0, __pyx_n_s_max_1, __pyx_n_s_N, __pyx_n_s_E, __pyx_n_s_out); if (unlikely(!__pyx_tuple__142)) __PYX_ERR(1, 1436, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__142);
-  __Pyx_GIVEREF(__pyx_tuple__142);
-  __pyx_codeobj__143 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__142, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_txtGraph, 1436, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__143)) __PYX_ERR(1, 1436, __pyx_L1_error)
+  __pyx_tuple__143 = PyTuple_Pack(8, __pyx_n_s_filename, __pyx_n_s_ctype, __pyx_n_s_g, __pyx_n_s_max_0, __pyx_n_s_max_1, __pyx_n_s_N, __pyx_n_s_E, __pyx_n_s_out); if (unlikely(!__pyx_tuple__143)) __PYX_ERR(1, 1436, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__143);
+  __Pyx_GIVEREF(__pyx_tuple__143);
+  __pyx_codeobj__144 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__143, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_txtGraph, 1436, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__144)) __PYX_ERR(1, 1436, __pyx_L1_error)
 
   /* "miololib.pyx":1462
  *     cdef mld.kmeans util
  * 
  *     def euclideanCentroidDistance(self, Matrix data, Matrix center):             # <<<<<<<<<<<<<<
  *         if data.ctype!=center.ctype:
- *             raise TypeError("data and center must shares same ctype.")
+ *             raise TypeError("data and center must share same ctype.")
  */
-  __pyx_tuple__144 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_data, __pyx_n_s_center, __pyx_n_s_out); if (unlikely(!__pyx_tuple__144)) __PYX_ERR(1, 1462, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__144);
-  __Pyx_GIVEREF(__pyx_tuple__144);
-  __pyx_codeobj__145 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__144, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_euclideanCentroidDistance, 1462, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__145)) __PYX_ERR(1, 1462, __pyx_L1_error)
+  __pyx_tuple__145 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_data, __pyx_n_s_center, __pyx_n_s_out); if (unlikely(!__pyx_tuple__145)) __PYX_ERR(1, 1462, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__145);
+  __Pyx_GIVEREF(__pyx_tuple__145);
+  __pyx_codeobj__146 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__145, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_euclideanCentroidDistance, 1462, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__146)) __PYX_ERR(1, 1462, __pyx_L1_error)
 
   /* "miololib.pyx":1479
  *         return out
@@ -63646,7 +64060,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if data.ctype!=center.ctype:
  *             raise TypeError("data and center must shares same ctype.")
  */
-  __pyx_codeobj__146 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__144, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_sphereCentroidDistance, 1479, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__146)) __PYX_ERR(1, 1479, __pyx_L1_error)
+  __pyx_codeobj__147 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__145, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_sphereCentroidDistance, 1479, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__147)) __PYX_ERR(1, 1479, __pyx_L1_error)
 
   /* "miololib.pyx":1496
  *         return out
@@ -63655,7 +64069,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if data.ctype!=center.ctype:
  *             raise TypeError("data and center must shares same ctype.")
  */
-  __pyx_codeobj__147 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__144, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_hyperbolicCentroidDistance, 1496, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__147)) __PYX_ERR(1, 1496, __pyx_L1_error)
+  __pyx_codeobj__148 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__145, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_hyperbolicCentroidDistance, 1496, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__148)) __PYX_ERR(1, 1496, __pyx_L1_error)
 
   /* "miololib.pyx":1513
  *         return out
@@ -63664,10 +64078,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if labels.ctype!="int":
  *             raise TypeError("labels must have int ctype.")
  */
-  __pyx_tuple__148 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_data, __pyx_n_s_labels, __pyx_n_s_out); if (unlikely(!__pyx_tuple__148)) __PYX_ERR(1, 1513, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__148);
-  __Pyx_GIVEREF(__pyx_tuple__148);
-  __pyx_codeobj__149 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__148, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_euclideanCentroid, 1513, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__149)) __PYX_ERR(1, 1513, __pyx_L1_error)
+  __pyx_tuple__149 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_data, __pyx_n_s_labels, __pyx_n_s_out); if (unlikely(!__pyx_tuple__149)) __PYX_ERR(1, 1513, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__149);
+  __Pyx_GIVEREF(__pyx_tuple__149);
+  __pyx_codeobj__150 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__149, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_euclideanCentroid, 1513, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__150)) __PYX_ERR(1, 1513, __pyx_L1_error)
 
   /* "miololib.pyx":1530
  *         return out
@@ -63676,10 +64090,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if labels.ctype!="int":
  *             raise TypeError("labels must have int ctype.")
  */
-  __pyx_tuple__150 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_data, __pyx_n_s_labels, __pyx_n_s_labelNum, __pyx_n_s_out); if (unlikely(!__pyx_tuple__150)) __PYX_ERR(1, 1530, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__150);
-  __Pyx_GIVEREF(__pyx_tuple__150);
-  __pyx_codeobj__151 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__150, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_partition, 1530, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__151)) __PYX_ERR(1, 1530, __pyx_L1_error)
+  __pyx_tuple__151 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_data, __pyx_n_s_labels, __pyx_n_s_labelNum, __pyx_n_s_out); if (unlikely(!__pyx_tuple__151)) __PYX_ERR(1, 1530, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__151);
+  __Pyx_GIVEREF(__pyx_tuple__151);
+  __pyx_codeobj__152 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__151, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_partition, 1530, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__152)) __PYX_ERR(1, 1530, __pyx_L1_error)
 
   /* "miololib.pyx":1547
  *         return out
@@ -63688,17 +64102,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Runs k-means++ to return seeds for k-means. This is done using
  */
-  __pyx_tuple__152 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_data, __pyx_n_s_k_centroids, __pyx_n_s_out); if (unlikely(!__pyx_tuple__152)) __PYX_ERR(1, 1547, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__152);
-  __Pyx_GIVEREF(__pyx_tuple__152);
-  __pyx_codeobj__153 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__152, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_seed, 1547, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__153)) __PYX_ERR(1, 1547, __pyx_L1_error)
+  __pyx_tuple__153 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_data, __pyx_n_s_k_centroids, __pyx_n_s_out); if (unlikely(!__pyx_tuple__153)) __PYX_ERR(1, 1547, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__153);
+  __Pyx_GIVEREF(__pyx_tuple__153);
+  __pyx_codeobj__154 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__153, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_seed, 1547, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__154)) __PYX_ERR(1, 1547, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.util cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_codeobj__154 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__154)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_codeobj__155 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__155)) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -63706,17 +64120,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.util cannot be converted to a Python object for pickling"
  */
-  __pyx_codeobj__155 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__87, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__155)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_codeobj__156 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__156)) __PYX_ERR(0, 3, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__156 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__156)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__156);
-  __Pyx_GIVEREF(__pyx_tuple__156);
-  __pyx_codeobj__157 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__156, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__157)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_tuple__157 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__157)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__157);
+  __Pyx_GIVEREF(__pyx_tuple__157);
+  __pyx_codeobj__158 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__157, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__158)) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -63724,7 +64138,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Manifold__set_state(self, __pyx_state)
  */
-  __pyx_codeobj__158 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__87, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__158)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_codeobj__159 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__159)) __PYX_ERR(0, 16, __pyx_L1_error)
 
   /* "miololib.pyx":1582
  *         pass
@@ -63733,10 +64147,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Dot product between rows of A. This is different from miolo.dot,
  */
-  __pyx_tuple__159 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_A, __pyx_n_s_out); if (unlikely(!__pyx_tuple__159)) __PYX_ERR(1, 1582, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__159);
-  __Pyx_GIVEREF(__pyx_tuple__159);
-  __pyx_codeobj__160 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__159, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_dot, 1582, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__160)) __PYX_ERR(1, 1582, __pyx_L1_error)
+  __pyx_tuple__160 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_A, __pyx_n_s_out); if (unlikely(!__pyx_tuple__160)) __PYX_ERR(1, 1582, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__160);
+  __Pyx_GIVEREF(__pyx_tuple__160);
+  __pyx_codeobj__161 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__160, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_dot, 1582, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__161)) __PYX_ERR(1, 1582, __pyx_L1_error)
 
   /* "miololib.pyx":1596
  *         return out
@@ -63745,7 +64159,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Euclidean distance between rows of A.
  */
-  __pyx_codeobj__161 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__159, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_distance, 1596, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__161)) __PYX_ERR(1, 1596, __pyx_L1_error)
+  __pyx_codeobj__162 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__160, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_distance, 1596, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__162)) __PYX_ERR(1, 1596, __pyx_L1_error)
 
   /* "miololib.pyx":1609
  *         return out
@@ -63754,7 +64168,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns a row Matrix which is the mean of the rows of A.
  */
-  __pyx_codeobj__162 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__159, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_mean, 1609, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__162)) __PYX_ERR(1, 1609, __pyx_L1_error)
+  __pyx_codeobj__163 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__160, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_mean, 1609, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__163)) __PYX_ERR(1, 1609, __pyx_L1_error)
 
   /* "miololib.pyx":1622
  *         return out
@@ -63763,7 +64177,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns a row Matrix which is the variance of the rows of A.
  */
-  __pyx_codeobj__163 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__159, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_variance, 1622, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__163)) __PYX_ERR(1, 1622, __pyx_L1_error)
+  __pyx_codeobj__164 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__160, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_variance, 1622, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__164)) __PYX_ERR(1, 1622, __pyx_L1_error)
 
   /* "miololib.pyx":1635
  *         return out
@@ -63772,7 +64186,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             For each column, calculates min and max values, and then returns
  */
-  __pyx_codeobj__164 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__159, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_minmaxNormalize, 1635, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__164)) __PYX_ERR(1, 1635, __pyx_L1_error)
+  __pyx_codeobj__165 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__160, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_minmaxNormalize, 1635, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__165)) __PYX_ERR(1, 1635, __pyx_L1_error)
 
   /* "miololib.pyx":1649
  *         return out
@@ -63781,7 +64195,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns A with rows normalized to sum 1.
  */
-  __pyx_codeobj__165 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__159, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_rowNormalize, 1649, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__165)) __PYX_ERR(1, 1649, __pyx_L1_error)
+  __pyx_codeobj__166 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__160, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_rowNormalize, 1649, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__166)) __PYX_ERR(1, 1649, __pyx_L1_error)
 
   /* "miololib.pyx":1662
  *         return out
@@ -63790,14 +64204,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns A normalized to have columns with mean 0 and variance 1.
  */
-  __pyx_codeobj__166 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__159, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_gaussianNormalize, 1662, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__166)) __PYX_ERR(1, 1662, __pyx_L1_error)
+  __pyx_codeobj__167 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__160, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_gaussianNormalize, 1662, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__167)) __PYX_ERR(1, 1662, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_codeobj__167 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__167)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_codeobj__168 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__168)) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -63805,7 +64219,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
  */
-  __pyx_codeobj__168 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__87, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__168)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_codeobj__169 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__169)) __PYX_ERR(0, 3, __pyx_L1_error)
 
   /* "miololib.pyx":1692
  *         self.precision = precision
@@ -63814,10 +64228,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns the matrix for which each row is the stereographic
  */
-  __pyx_tuple__169 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_M, __pyx_n_s_out); if (unlikely(!__pyx_tuple__169)) __PYX_ERR(1, 1692, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__169);
-  __Pyx_GIVEREF(__pyx_tuple__169);
-  __pyx_codeobj__170 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__169, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_stereographicProjection, 1692, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__170)) __PYX_ERR(1, 1692, __pyx_L1_error)
+  __pyx_tuple__170 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_M, __pyx_n_s_out); if (unlikely(!__pyx_tuple__170)) __PYX_ERR(1, 1692, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__170);
+  __Pyx_GIVEREF(__pyx_tuple__170);
+  __pyx_codeobj__171 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__170, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_stereographicProjection, 1692, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__171)) __PYX_ERR(1, 1692, __pyx_L1_error)
 
   /* "miololib.pyx":1706
  *         return out
@@ -63826,10 +64240,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns the matrix for which each row r is the projection of the
  */
-  __pyx_tuple__171 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_at, __pyx_n_s_M, __pyx_n_s_out); if (unlikely(!__pyx_tuple__171)) __PYX_ERR(1, 1706, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__171);
-  __Pyx_GIVEREF(__pyx_tuple__171);
-  __pyx_codeobj__172 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__171, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_tangentProjection, 1706, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__172)) __PYX_ERR(1, 1706, __pyx_L1_error)
+  __pyx_tuple__172 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_at, __pyx_n_s_M, __pyx_n_s_out); if (unlikely(!__pyx_tuple__172)) __PYX_ERR(1, 1706, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__172);
+  __Pyx_GIVEREF(__pyx_tuple__172);
+  __pyx_codeobj__173 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__172, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_tangentProjection, 1706, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__173)) __PYX_ERR(1, 1706, __pyx_L1_error)
 
   /* "miololib.pyx":1720
  *         return out
@@ -63838,7 +64252,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns the Matrix for which each row r has M.cols+1 columns and is
  */
-  __pyx_codeobj__173 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__169, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_fromEuclidean, 1720, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__173)) __PYX_ERR(1, 1720, __pyx_L1_error)
+  __pyx_codeobj__174 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__170, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_fromEuclidean, 1720, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__174)) __PYX_ERR(1, 1720, __pyx_L1_error)
 
   /* "miololib.pyx":1735
  *         return out
@@ -63847,7 +64261,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns the Matrix for which each row r has M.cols-1 columns and is
  */
-  __pyx_codeobj__174 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__169, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_toEuclidean, 1735, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__174)) __PYX_ERR(1, 1735, __pyx_L1_error)
+  __pyx_codeobj__175 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__170, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_toEuclidean, 1735, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__175)) __PYX_ERR(1, 1735, __pyx_L1_error)
 
   /* "miololib.pyx":1750
  *         return out
@@ -63856,13 +64270,13 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Transforms M in order to make its rows suitable spherical coordinates.
  */
-  __pyx_tuple__175 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_M, __pyx_n_s_azimuth, __pyx_n_s_out); if (unlikely(!__pyx_tuple__175)) __PYX_ERR(1, 1750, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__175);
-  __Pyx_GIVEREF(__pyx_tuple__175);
-  __pyx_codeobj__176 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__175, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_coordinateReady, 1750, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__176)) __PYX_ERR(1, 1750, __pyx_L1_error)
-  __pyx_tuple__177 = PyTuple_Pack(1, __pyx_int_0); if (unlikely(!__pyx_tuple__177)) __PYX_ERR(1, 1750, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__177);
-  __Pyx_GIVEREF(__pyx_tuple__177);
+  __pyx_tuple__176 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_M, __pyx_n_s_azimuth, __pyx_n_s_out); if (unlikely(!__pyx_tuple__176)) __PYX_ERR(1, 1750, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__176);
+  __Pyx_GIVEREF(__pyx_tuple__176);
+  __pyx_codeobj__177 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__176, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_coordinateReady, 1750, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__177)) __PYX_ERR(1, 1750, __pyx_L1_error)
+  __pyx_tuple__178 = PyTuple_Pack(1, __pyx_int_0); if (unlikely(!__pyx_tuple__178)) __PYX_ERR(1, 1750, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__178);
+  __Pyx_GIVEREF(__pyx_tuple__178);
 
   /* "miololib.pyx":1767
  *         return out
@@ -63871,7 +64285,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Return a square Matrix for which each entry is the geodesic distance
  */
-  __pyx_codeobj__178 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__169, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_distance, 1767, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__178)) __PYX_ERR(1, 1767, __pyx_L1_error)
+  __pyx_codeobj__179 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__170, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_distance, 1767, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__179)) __PYX_ERR(1, 1767, __pyx_L1_error)
 
   /* "miololib.pyx":1781
  *         return out
@@ -63880,13 +64294,13 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Checks if each row of M is on the unit sphere.
  */
-  __pyx_tuple__179 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_M, __pyx_n_s_tolerance); if (unlikely(!__pyx_tuple__179)) __PYX_ERR(1, 1781, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__179);
-  __Pyx_GIVEREF(__pyx_tuple__179);
-  __pyx_codeobj__180 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__179, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isIn, 1781, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__180)) __PYX_ERR(1, 1781, __pyx_L1_error)
-  __pyx_tuple__181 = PyTuple_Pack(1, __pyx_float_0_001); if (unlikely(!__pyx_tuple__181)) __PYX_ERR(1, 1781, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__181);
-  __Pyx_GIVEREF(__pyx_tuple__181);
+  __pyx_tuple__180 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_M, __pyx_n_s_tolerance); if (unlikely(!__pyx_tuple__180)) __PYX_ERR(1, 1781, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__180);
+  __Pyx_GIVEREF(__pyx_tuple__180);
+  __pyx_codeobj__181 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__180, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isIn, 1781, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__181)) __PYX_ERR(1, 1781, __pyx_L1_error)
+  __pyx_tuple__182 = PyTuple_Pack(1, __pyx_float_0_001); if (unlikely(!__pyx_tuple__182)) __PYX_ERR(1, 1781, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__182);
+  __Pyx_GIVEREF(__pyx_tuple__182);
 
   /* "miololib.pyx":1793
  *             return self.view.isIn(drf(M.mtxDouble),tolerance)
@@ -63895,10 +64309,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Checks if each row of M is on the tangent space of the corresponding
  */
-  __pyx_tuple__182 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_at, __pyx_n_s_M, __pyx_n_s_tolerance); if (unlikely(!__pyx_tuple__182)) __PYX_ERR(1, 1793, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__182);
-  __Pyx_GIVEREF(__pyx_tuple__182);
-  __pyx_codeobj__183 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__182, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isTangent, 1793, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__183)) __PYX_ERR(1, 1793, __pyx_L1_error)
+  __pyx_tuple__183 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_at, __pyx_n_s_M, __pyx_n_s_tolerance); if (unlikely(!__pyx_tuple__183)) __PYX_ERR(1, 1793, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__183);
+  __Pyx_GIVEREF(__pyx_tuple__183);
+  __pyx_codeobj__184 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__183, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isTangent, 1793, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__184)) __PYX_ERR(1, 1793, __pyx_L1_error)
 
   /* "miololib.pyx":1810
  *             return self.view.isTangent(drf(at.mtxDouble),drf(M.mtxDouble),tolerance)
@@ -63907,10 +64321,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Exponential map on the unit sphere.
  */
-  __pyx_tuple__184 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_at, __pyx_n_s_tangent, __pyx_n_s_out); if (unlikely(!__pyx_tuple__184)) __PYX_ERR(1, 1810, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__184);
-  __Pyx_GIVEREF(__pyx_tuple__184);
-  __pyx_codeobj__185 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__184, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_exp, 1810, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__185)) __PYX_ERR(1, 1810, __pyx_L1_error)
+  __pyx_tuple__185 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_at, __pyx_n_s_tangent, __pyx_n_s_out); if (unlikely(!__pyx_tuple__185)) __PYX_ERR(1, 1810, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__185);
+  __Pyx_GIVEREF(__pyx_tuple__185);
+  __pyx_codeobj__186 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__185, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_exp, 1810, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__186)) __PYX_ERR(1, 1810, __pyx_L1_error)
 
   /* "miololib.pyx":1853
  *         return out
@@ -63919,10 +64333,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Logarithmic map on the sphere.
  */
-  __pyx_tuple__186 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_start, __pyx_n_s_end, __pyx_n_s_out); if (unlikely(!__pyx_tuple__186)) __PYX_ERR(1, 1853, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__186);
-  __Pyx_GIVEREF(__pyx_tuple__186);
-  __pyx_codeobj__187 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__186, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_log, 1853, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__187)) __PYX_ERR(1, 1853, __pyx_L1_error)
+  __pyx_tuple__187 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_start, __pyx_n_s_end, __pyx_n_s_out); if (unlikely(!__pyx_tuple__187)) __PYX_ERR(1, 1853, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__187);
+  __Pyx_GIVEREF(__pyx_tuple__187);
+  __pyx_codeobj__188 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__187, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_log, 1853, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__188)) __PYX_ERR(1, 1853, __pyx_L1_error)
 
   /* "miololib.pyx":1895
  *         return out
@@ -63931,20 +64345,20 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """
  *             Returns a row Matrix which is the Riemmaninan mean of rows of M.
  */
-  __pyx_tuple__188 = PyTuple_Pack(9, __pyx_n_s_self, __pyx_n_s_M, __pyx_n_s_init, __pyx_n_s_t, __pyx_n_s_delta, __pyx_n_s_E, __pyx_n_s_prev, __pyx_n_s_logsum, __pyx_n_s_nxt); if (unlikely(!__pyx_tuple__188)) __PYX_ERR(1, 1895, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__188);
-  __Pyx_GIVEREF(__pyx_tuple__188);
-  __pyx_codeobj__189 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__188, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_mean, 1895, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__189)) __PYX_ERR(1, 1895, __pyx_L1_error)
-  __pyx_tuple__190 = PyTuple_Pack(1, Py_None); if (unlikely(!__pyx_tuple__190)) __PYX_ERR(1, 1895, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__190);
-  __Pyx_GIVEREF(__pyx_tuple__190);
+  __pyx_tuple__189 = PyTuple_Pack(9, __pyx_n_s_self, __pyx_n_s_M, __pyx_n_s_init, __pyx_n_s_t, __pyx_n_s_delta, __pyx_n_s_E, __pyx_n_s_prev, __pyx_n_s_logsum, __pyx_n_s_nxt); if (unlikely(!__pyx_tuple__189)) __PYX_ERR(1, 1895, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__189);
+  __Pyx_GIVEREF(__pyx_tuple__189);
+  __pyx_codeobj__190 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__189, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_mean, 1895, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__190)) __PYX_ERR(1, 1895, __pyx_L1_error)
+  __pyx_tuple__191 = PyTuple_Pack(1, Py_None); if (unlikely(!__pyx_tuple__191)) __PYX_ERR(1, 1895, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__191);
+  __Pyx_GIVEREF(__pyx_tuple__191);
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_codeobj__191 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__191)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_codeobj__192 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__192)) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -63952,74 +64366,83 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
  */
-  __pyx_codeobj__192 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__87, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__192)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_codeobj__193 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__193)) __PYX_ERR(0, 3, __pyx_L1_error)
 
-  /* "miololib.pyx":1926
- *     cdef mld.hyperbolic view
+  /* "miololib.pyx":1929
+ *         self.view.c = c
  * 
  *     def distance(self, Matrix M):             # <<<<<<<<<<<<<<
  *         """
  *             Return a square Matrix for which each entry is the geodesic distance
  */
-  __pyx_codeobj__193 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__169, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_distance, 1926, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__193)) __PYX_ERR(1, 1926, __pyx_L1_error)
+  __pyx_codeobj__194 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__170, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_distance, 1929, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__194)) __PYX_ERR(1, 1929, __pyx_L1_error)
 
-  /* "miololib.pyx":1940
+  /* "miololib.pyx":1943
  *         return out
  * 
  *     def isIn(self, Matrix M):             # <<<<<<<<<<<<<<
  *         """
  *             Check if rows of M belong to the M.cols-dimensional Poincare Disk.
  */
-  __pyx_tuple__194 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_M); if (unlikely(!__pyx_tuple__194)) __PYX_ERR(1, 1940, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__194);
-  __Pyx_GIVEREF(__pyx_tuple__194);
-  __pyx_codeobj__195 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__194, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isIn, 1940, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__195)) __PYX_ERR(1, 1940, __pyx_L1_error)
+  __pyx_tuple__195 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_M); if (unlikely(!__pyx_tuple__195)) __PYX_ERR(1, 1943, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__195);
+  __Pyx_GIVEREF(__pyx_tuple__195);
+  __pyx_codeobj__196 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__195, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_isIn, 1943, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__196)) __PYX_ERR(1, 1943, __pyx_L1_error)
 
-  /* "miololib.pyx":1951
+  /* "miololib.pyx":1954
  *             return self.view.isIn(drf(M.mtxDouble))
  * 
  *     def madd(self, Matrix A, Matrix B):             # <<<<<<<<<<<<<<
  *         """
  *             Mobius addition.
  */
-  __pyx_tuple__196 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_A, __pyx_n_s_B, __pyx_n_s_out); if (unlikely(!__pyx_tuple__196)) __PYX_ERR(1, 1951, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__196);
-  __Pyx_GIVEREF(__pyx_tuple__196);
-  __pyx_codeobj__197 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__196, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_madd, 1951, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__197)) __PYX_ERR(1, 1951, __pyx_L1_error)
+  __pyx_tuple__197 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_A, __pyx_n_s_B, __pyx_n_s_out); if (unlikely(!__pyx_tuple__197)) __PYX_ERR(1, 1954, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__197);
+  __Pyx_GIVEREF(__pyx_tuple__197);
+  __pyx_codeobj__198 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__197, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_madd, 1954, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__198)) __PYX_ERR(1, 1954, __pyx_L1_error)
 
-  /* "miololib.pyx":1968
+  /* "miololib.pyx":1971
  *         return out
  * 
  *     def exp(self, Matrix at, Matrix M):             # <<<<<<<<<<<<<<
  *         """
  *             Mobius addition.
  */
-  __pyx_codeobj__198 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__171, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_exp, 1968, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__198)) __PYX_ERR(1, 1968, __pyx_L1_error)
+  __pyx_codeobj__199 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__172, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_exp, 1971, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__199)) __PYX_ERR(1, 1971, __pyx_L1_error)
 
-  /* "miololib.pyx":1985
+  /* "miololib.pyx":1988
  *         return out
  * 
  *     def log(self, Matrix start, Matrix end):             # <<<<<<<<<<<<<<
  *         """
  *             Mobius addition.
  */
-  __pyx_codeobj__199 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__186, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_log, 1985, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__199)) __PYX_ERR(1, 1985, __pyx_L1_error)
+  __pyx_codeobj__200 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__187, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_log, 1988, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__200)) __PYX_ERR(1, 1988, __pyx_L1_error)
 
-  /* "miololib.pyx":2002
+  /* "miololib.pyx":2005
  *         return out
  * 
  *     def mean(self, Matrix M):             # <<<<<<<<<<<<<<
  *         """
  *             Returns the Einstein Midpoint of rows of M.
  */
-  __pyx_codeobj__200 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__169, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_mean, 2002, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__200)) __PYX_ERR(1, 2002, __pyx_L1_error)
+  __pyx_codeobj__201 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__170, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_mean, 2005, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__201)) __PYX_ERR(1, 2005, __pyx_L1_error)
+
+  /* "miololib.pyx":2018
+ *         return out
+ * 
+ *     def hyperbolicity(self, Matrix M):             # <<<<<<<<<<<<<<
+ *         """
+ *             Returns the Gromov hiperbolicity of the rows of M.
+ */
+  __pyx_codeobj__202 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__195, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_miololib_pyx, __pyx_n_s_hyperbolicity, 2018, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__202)) __PYX_ERR(1, 2018, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_codeobj__201 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__201)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_codeobj__203 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__203)) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -64027,14 +64450,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
  */
-  __pyx_codeobj__202 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__87, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__202)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_codeobj__204 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__204)) __PYX_ERR(0, 3, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_Manifold(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_codeobj__203 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__79, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Manifold, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__203)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_codeobj__205 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__80, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Manifold, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__205)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -64928,12 +65351,12 @@ if (!__Pyx_RefNanny) {
  *         __pyx_collections_abc_Sequence = __import__("collections.abc").abc.Sequence
  *     else:
  */
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin___import__, __pyx_tuple__70, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L2_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin___import__, __pyx_tuple__71, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L2_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_version_info); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 100, __pyx_L2_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_5, __pyx_tuple__71, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L2_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_5, __pyx_tuple__72, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L2_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 100, __pyx_L2_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -64946,7 +65369,7 @@ if (!__Pyx_RefNanny) {
  *     else:
  *         __pyx_collections_abc_Sequence = __import__("collections").Sequence
  */
-        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin___import__, __pyx_tuple__72, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L2_error)
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin___import__, __pyx_tuple__73, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 101, __pyx_L2_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_abc); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 101, __pyx_L2_error)
         __Pyx_GOTREF(__pyx_t_5);
@@ -64977,7 +65400,7 @@ if (!__Pyx_RefNanny) {
  * 
  */
       /*else*/ {
-        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin___import__, __pyx_tuple__73, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L2_error)
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin___import__, __pyx_tuple__74, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L2_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_Sequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 103, __pyx_L2_error)
         __Pyx_GOTREF(__pyx_t_5);
@@ -65142,7 +65565,7 @@ if (!__Pyx_RefNanny) {
  * cdef strided = Enum("<strided and direct>") # default
  * cdef indirect = Enum("<strided and indirect>")
  */
-  __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__74, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__75, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_XGOTREF(generic);
   __Pyx_DECREF_SET(generic, __pyx_t_7);
@@ -65156,7 +65579,7 @@ if (!__Pyx_RefNanny) {
  * cdef indirect = Enum("<strided and indirect>")
  * 
  */
-  __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__75, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 310, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__76, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_XGOTREF(strided);
   __Pyx_DECREF_SET(strided, __pyx_t_7);
@@ -65170,7 +65593,7 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
-  __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__76, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__77, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_XGOTREF(indirect);
   __Pyx_DECREF_SET(indirect, __pyx_t_7);
@@ -65184,7 +65607,7 @@ if (!__Pyx_RefNanny) {
  * cdef indirect_contiguous = Enum("<contiguous and indirect>")
  * 
  */
-  __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__77, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__78, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_XGOTREF(contiguous);
   __Pyx_DECREF_SET(contiguous, __pyx_t_7);
@@ -65198,7 +65621,7 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
-  __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__78, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 315, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__79, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 315, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_XGOTREF(indirect_contiguous);
   __Pyx_DECREF_SET(indirect_contiguous, __pyx_t_7);
@@ -65454,7 +65877,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns true if object is a miolo.Matrix.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11mioloObject_1isMatrix, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_mioloObject_isMatrix, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__82)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 38, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11mioloObject_1isMatrix, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_mioloObject_isMatrix, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__83)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_mioloObject, __pyx_n_s_isMatrix, __pyx_t_7) < 0) __PYX_ERR(1, 38, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65467,7 +65890,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns true if object is miolo.Graph.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11mioloObject_3isGraph, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_mioloObject_isGraph, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__83)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 50, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11mioloObject_3isGraph, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_mioloObject_isGraph, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__84)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_mioloObject, __pyx_n_s_isGraph, __pyx_t_7) < 0) __PYX_ERR(1, 50, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65480,7 +65903,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns true if object is miolo.Digraph
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11mioloObject_5isDigraph, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_mioloObject_isDigraph, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__84)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 62, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11mioloObject_5isDigraph, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_mioloObject_isDigraph, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__85)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_mioloObject, __pyx_n_s_isDigraph, __pyx_t_7) < 0) __PYX_ERR(1, 62, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65493,7 +65916,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns true if object is miolo.Digraph
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11mioloObject_7isDiagonal, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_mioloObject_isDiagonal, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__85)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 74, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11mioloObject_7isDiagonal, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_mioloObject_isDiagonal, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__86)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_mioloObject, __pyx_n_s_isDiagonal, __pyx_t_7) < 0) __PYX_ERR(1, 74, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65504,7 +65927,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "self.diagonalDouble,self.diagonalFloat,self.diagonalInt,self.digraphDouble,self.digraphFloat,self.digraphInt,self.graphDouble,self.graphFloat,self.graphInt,self.mtxDouble,self.mtxFloat,self.mtxInt cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11mioloObject_9__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_mioloObject___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__86)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11mioloObject_9__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_mioloObject___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__87)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65515,7 +65938,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.diagonalDouble,self.diagonalFloat,self.diagonalInt,self.digraphDouble,self.digraphFloat,self.digraphInt,self.graphDouble,self.graphFloat,self.graphInt,self.mtxDouble,self.mtxFloat,self.mtxInt cannot be converted to a Python object for pickling"
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11mioloObject_11__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_mioloObject___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__88)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11mioloObject_11__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_mioloObject___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__89)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_7) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65575,7 +65998,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_t_7);
   if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_7)) __PYX_ERR(1, 257, __pyx_L1_error);
   __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_11copy, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_copy, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__90)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 257, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_11copy, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_copy, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__91)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -65590,7 +66013,7 @@ if (!__Pyx_RefNanny) {
  *         if self.ctype=="int":
  *             self.mtxInt.print()
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_13print, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_print, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__91)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 285, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_13print, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_print, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__92)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Matrix, __pyx_n_s_print, __pyx_t_7) < 0) __PYX_ERR(1, 285, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65603,7 +66026,7 @@ if (!__Pyx_RefNanny) {
  *         if self.ctype=="int":
  *             return self.mtxInt.max()
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_15max, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_max, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__92)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 297, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_15max, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_max, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__93)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 297, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Matrix, __pyx_n_s_max, __pyx_t_7) < 0) __PYX_ERR(1, 297, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65616,7 +66039,7 @@ if (!__Pyx_RefNanny) {
  *         if self.ctype=="int":
  *             return self.mtxInt.min()
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_17min, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_min, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__93)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 305, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_17min, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_min, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__94)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 305, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Matrix, __pyx_n_s_min, __pyx_t_7) < 0) __PYX_ERR(1, 305, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65629,7 +66052,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Row normalization in to make elements in the same row sum to 1.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_19normalize, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_normalize, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__94)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 313, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_19normalize, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_normalize, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__95)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Matrix, __pyx_n_s_normalize, __pyx_t_7) < 0) __PYX_ERR(1, 313, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65642,7 +66065,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns the transpose of a Matrix.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_21transpose, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_transpose, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__96)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 325, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_21transpose, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_transpose, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__97)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 325, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Matrix, __pyx_n_s_transpose, __pyx_t_7) < 0) __PYX_ERR(1, 325, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65655,9 +66078,9 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Inplace flattening of a Matrix.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_23flatten, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_flatten, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__98)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 339, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_23flatten, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_flatten, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__99)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__99);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__100);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Matrix, __pyx_n_s_flatten, __pyx_t_7) < 0) __PYX_ERR(1, 339, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Matrix);
@@ -65669,7 +66092,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Inplace reshape of a Matrix. Can be done only if rows*cols is equal
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_25reshape, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_reshape, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__101)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 354, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_25reshape, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_reshape, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__102)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 354, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Matrix, __pyx_n_s_reshape, __pyx_t_7) < 0) __PYX_ERR(1, 354, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65682,7 +66105,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns the argmax of each row.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_43argmax, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_argmax, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__102)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 480, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_43argmax, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_argmax, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__103)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 480, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Matrix, __pyx_n_s_argmax, __pyx_t_7) < 0) __PYX_ERR(1, 480, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65695,7 +66118,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns the argmin of each row.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_45argmin, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_argmin, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__103)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 493, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_45argmin, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_argmin, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__104)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 493, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Matrix, __pyx_n_s_argmin, __pyx_t_7) < 0) __PYX_ERR(1, 493, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65708,7 +66131,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns the self.rows x self.rows Matrix for which each entry (i,j)
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_47rowDistance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_rowDistance, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__104)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 506, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_47rowDistance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_rowDistance, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__105)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 506, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Matrix, __pyx_n_s_rowDistance, __pyx_t_7) < 0) __PYX_ERR(1, 506, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65721,7 +66144,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns the sum of all elements in a Matrix.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_49sumAll, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_sumAll, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__105)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 520, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_49sumAll, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix_sumAll, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__106)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 520, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Matrix, __pyx_n_s_sumAll, __pyx_t_7) < 0) __PYX_ERR(1, 520, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65732,7 +66155,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_51__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__106)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_51__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__107)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65743,7 +66166,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_53__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__107)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Matrix_53__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Matrix___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__108)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_7) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65755,7 +66178,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *         Frobenius dot product between two matrices.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_1dot, 0, __pyx_n_s_dot, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__109)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 531, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_1dot, 0, __pyx_n_s_dot, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__110)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 531, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_dot, __pyx_t_7) < 0) __PYX_ERR(1, 531, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65767,7 +66190,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *         Concatenates A and B if both have same number of columns and share same
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_3concat, 0, __pyx_n_s_concat, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__111)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 544, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_3concat, 0, __pyx_n_s_concat, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__112)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_concat, __pyx_t_7) < 0) __PYX_ERR(1, 544, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65792,7 +66215,7 @@ if (!__Pyx_RefNanny) {
  *         if self.ctype=="int":
  *             return self.graphInt.isolatedNodes()
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_9isolatedNodes, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_isolatedNodes, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__112)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 728, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_9isolatedNodes, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_isolatedNodes, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__113)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 728, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Graph, __pyx_n_s_isolatedNodes, __pyx_t_7) < 0) __PYX_ERR(1, 728, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65819,7 +66242,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_GIVEREF(__pyx_t_7);
   if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_7)) __PYX_ERR(1, 740, __pyx_L1_error);
   __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_11propagate, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_propagate, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__114)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 740, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_11propagate, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_propagate, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__115)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 740, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -65834,7 +66257,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Symmetric normalization of edge weights.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_27normalize, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_normalize, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__115)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 856, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_27normalize, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_normalize, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__116)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 856, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Graph, __pyx_n_s_normalize, __pyx_t_7) < 0) __PYX_ERR(1, 856, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65847,7 +66270,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns a column Matrix where each entry is the degree of the
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_29degree, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_degree, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__116)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 867, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_29degree, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_degree, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__117)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 867, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Graph, __pyx_n_s_degree, __pyx_t_7) < 0) __PYX_ERR(1, 867, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65860,7 +66283,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns the graph corresponding to the normalized laplacian of
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_31laplacian, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_laplacian, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__117)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 881, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_31laplacian, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_laplacian, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__118)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 881, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Graph, __pyx_n_s_laplacian, __pyx_t_7) < 0) __PYX_ERR(1, 881, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65873,7 +66296,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns a Matrix corresponding to the dense representation of self.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_33toMatrix, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_toMatrix, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__118)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 895, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_33toMatrix, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_toMatrix, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__119)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 895, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Graph, __pyx_n_s_toMatrix, __pyx_t_7) < 0) __PYX_ERR(1, 895, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65886,7 +66309,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns a Matrix corresponding to the dense representation of self.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_35toDigraph, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_toDigraph, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__119)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 908, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_35toDigraph, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_toDigraph, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__120)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 908, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Graph, __pyx_n_s_toDigraph, __pyx_t_7) < 0) __PYX_ERR(1, 908, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65897,7 +66320,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_37__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__120)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_37__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__121)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65908,7 +66331,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_39__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__121)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5Graph_39__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__122)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_7) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65920,7 +66343,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *         Hadamard (element-wise) product between weights in Graphs. Both graphs
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5hadamard, 0, __pyx_n_s_hadamard, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__123)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 925, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_5hadamard, 0, __pyx_n_s_hadamard, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__124)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 925, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_hadamard, __pyx_t_7) < 0) __PYX_ERR(1, 925, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65945,9 +66368,9 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Create connection from i to j weighted by value.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_5connect, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph_connect, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__125)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1016, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_5connect, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph_connect, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__126)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1016, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__126);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__127);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Digraph, __pyx_n_s_connect, __pyx_t_7) < 0) __PYX_ERR(1, 1016, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Digraph);
@@ -65959,9 +66382,9 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns a copy of self.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_7copy, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph_copy, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__128)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1031, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_7copy, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph_copy, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__129)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1031, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__129);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__130);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Digraph, __pyx_n_s_copy, __pyx_t_7) < 0) __PYX_ERR(1, 1031, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Digraph);
@@ -65973,7 +66396,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns the number of nonzero elements of each row in the adjacency
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_9shape, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph_shape, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__131)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1055, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_9shape, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph_shape, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__132)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1055, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Digraph, __pyx_n_s_shape, __pyx_t_7) < 0) __PYX_ERR(1, 1055, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65986,7 +66409,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Matrix transposition of Digraphs.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_11transpose, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph_transpose, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__132)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1078, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_11transpose, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph_transpose, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__133)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1078, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Digraph, __pyx_n_s_transpose, __pyx_t_7) < 0) __PYX_ERR(1, 1078, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -65999,7 +66422,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Checks if both Digraphs have the same shapes.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_13sameShape, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph_sameShape, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__134)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1091, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_13sameShape, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph_sameShape, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__135)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1091, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Digraph, __pyx_n_s_sameShape, __pyx_t_7) < 0) __PYX_ERR(1, 1091, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66012,7 +66435,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns a Digraph with the symmetrization of self.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_15symmetrize, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph_symmetrize, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__135)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1106, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_15symmetrize, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph_symmetrize, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__136)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1106, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Digraph, __pyx_n_s_symmetrize, __pyx_t_7) < 0) __PYX_ERR(1, 1106, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66023,7 +66446,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_27__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__136)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_27__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__137)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66034,7 +66457,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_29__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__137)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7Digraph_29__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Digraph___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__138)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_7) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66057,7 +66480,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_8Diagonal_23__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Diagonal___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__138)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_8Diagonal_23__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Diagonal___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__139)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66068,7 +66491,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_8Diagonal_25__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Diagonal___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__139)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_8Diagonal_25__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Diagonal___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__140)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_7) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66080,7 +66503,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *         Loads Matrix from txt file. Uses numpy.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7txtMatrix, 0, __pyx_n_s_txtMatrix, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__141)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1427, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_7txtMatrix, 0, __pyx_n_s_txtMatrix, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__142)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1427, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (!__Pyx_CyFunction_InitDefaults(__pyx_t_7, sizeof(__pyx_defaults), 1)) __PYX_ERR(1, 1427, __pyx_L1_error)
   __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_global_ctype); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1427, __pyx_L1_error)
@@ -66099,7 +66522,7 @@ if (!__Pyx_RefNanny) {
  *     """
  *         Loads Graph from txt file. Uses numpy.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9txtGraph, 0, __pyx_n_s_txtGraph, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__143)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1436, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9txtGraph, 0, __pyx_n_s_txtGraph, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__144)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (!__Pyx_CyFunction_InitDefaults(__pyx_t_7, sizeof(__pyx_defaults1), 1)) __PYX_ERR(1, 1436, __pyx_L1_error)
   __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_global_ctype); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 1436, __pyx_L1_error)
@@ -66116,9 +66539,9 @@ if (!__Pyx_RefNanny) {
  * 
  *     def euclideanCentroidDistance(self, Matrix data, Matrix center):             # <<<<<<<<<<<<<<
  *         if data.ctype!=center.ctype:
- *             raise TypeError("data and center must shares same ctype.")
+ *             raise TypeError("data and center must share same ctype.")
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_1euclideanCentroidDistance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil_euclideanCentroidDist, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__145)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1462, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_1euclideanCentroidDistance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil_euclideanCentroidDist, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__146)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1462, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_KmeansUtil, __pyx_n_s_euclideanCentroidDistance, __pyx_t_7) < 0) __PYX_ERR(1, 1462, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66131,7 +66554,7 @@ if (!__Pyx_RefNanny) {
  *         if data.ctype!=center.ctype:
  *             raise TypeError("data and center must shares same ctype.")
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_3sphereCentroidDistance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil_sphereCentroidDistanc, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__146)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1479, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_3sphereCentroidDistance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil_sphereCentroidDistanc, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__147)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1479, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_KmeansUtil, __pyx_n_s_sphereCentroidDistance, __pyx_t_7) < 0) __PYX_ERR(1, 1479, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66144,7 +66567,7 @@ if (!__Pyx_RefNanny) {
  *         if data.ctype!=center.ctype:
  *             raise TypeError("data and center must shares same ctype.")
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_5hyperbolicCentroidDistance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil_hyperbolicCentroidDis, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__147)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1496, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_5hyperbolicCentroidDistance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil_hyperbolicCentroidDis, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__148)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1496, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_KmeansUtil, __pyx_n_s_hyperbolicCentroidDistance, __pyx_t_7) < 0) __PYX_ERR(1, 1496, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66157,7 +66580,7 @@ if (!__Pyx_RefNanny) {
  *         if labels.ctype!="int":
  *             raise TypeError("labels must have int ctype.")
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_7euclideanCentroid, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil_euclideanCentroid, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__149)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1513, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_7euclideanCentroid, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil_euclideanCentroid, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__150)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1513, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_KmeansUtil, __pyx_n_s_euclideanCentroid, __pyx_t_7) < 0) __PYX_ERR(1, 1513, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66170,7 +66593,7 @@ if (!__Pyx_RefNanny) {
  *         if labels.ctype!="int":
  *             raise TypeError("labels must have int ctype.")
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_9partition, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil_partition, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__151)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1530, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_9partition, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil_partition, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__152)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1530, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_KmeansUtil, __pyx_n_s_partition, __pyx_t_7) < 0) __PYX_ERR(1, 1530, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66183,7 +66606,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Runs k-means++ to return seeds for k-means. This is done using
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_11seed, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil_seed, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__153)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1547, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_11seed, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil_seed, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__154)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1547, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_KmeansUtil, __pyx_n_s_seed, __pyx_t_7) < 0) __PYX_ERR(1, 1547, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66194,7 +66617,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "self.util cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__154)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__155)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66205,7 +66628,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.util cannot be converted to a Python object for pickling"
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__155)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10KmeansUtil_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_KmeansUtil___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__156)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_7) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66215,7 +66638,7 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_8Manifold_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Manifold___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__157)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_8Manifold_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Manifold___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__158)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Manifold, __pyx_n_s_reduce_cython, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66227,7 +66650,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Manifold__set_state(self, __pyx_state)
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_8Manifold_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Manifold___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__158)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_8Manifold_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Manifold___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__159)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Manifold, __pyx_n_s_setstate_cython, __pyx_t_7) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66240,7 +66663,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Dot product between rows of A. This is different from miolo.dot,
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_3dot, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_dot, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__160)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1582, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_3dot, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_dot, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__161)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1582, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Euclidean, __pyx_n_s_dot, __pyx_t_7) < 0) __PYX_ERR(1, 1582, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66253,7 +66676,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Euclidean distance between rows of A.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_5distance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_distance, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__161)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1596, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_5distance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_distance, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__162)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1596, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Euclidean, __pyx_n_s_distance, __pyx_t_7) < 0) __PYX_ERR(1, 1596, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66266,7 +66689,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns a row Matrix which is the mean of the rows of A.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_7mean, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_mean, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__162)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1609, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_7mean, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_mean, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__163)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1609, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Euclidean, __pyx_n_s_mean, __pyx_t_7) < 0) __PYX_ERR(1, 1609, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66279,7 +66702,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns a row Matrix which is the variance of the rows of A.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_9variance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_variance, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__163)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1622, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_9variance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_variance, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__164)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1622, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Euclidean, __pyx_n_s_variance, __pyx_t_7) < 0) __PYX_ERR(1, 1622, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66292,7 +66715,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             For each column, calculates min and max values, and then returns
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_11minmaxNormalize, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_minmaxNormalize, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__164)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1635, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_11minmaxNormalize, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_minmaxNormalize, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__165)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1635, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Euclidean, __pyx_n_s_minmaxNormalize, __pyx_t_7) < 0) __PYX_ERR(1, 1635, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66305,7 +66728,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns A with rows normalized to sum 1.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_13rowNormalize, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_rowNormalize, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__165)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1649, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_13rowNormalize, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_rowNormalize, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__166)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1649, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Euclidean, __pyx_n_s_rowNormalize, __pyx_t_7) < 0) __PYX_ERR(1, 1649, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66318,7 +66741,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns A normalized to have columns with mean 0 and variance 1.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_15gaussianNormalize, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_gaussianNormalize, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__166)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1662, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_15gaussianNormalize, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean_gaussianNormalize, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__167)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1662, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Euclidean, __pyx_n_s_gaussianNormalize, __pyx_t_7) < 0) __PYX_ERR(1, 1662, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66329,7 +66752,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_17__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__167)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_17__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__168)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66340,7 +66763,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_19__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__168)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_9Euclidean_19__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Euclidean___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__169)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_7) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66352,7 +66775,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns the matrix for which each row is the stereographic
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_3stereographicProjection, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_stereographicProjection, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__170)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1692, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_3stereographicProjection, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_stereographicProjection, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__171)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1692, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Sphere, __pyx_n_s_stereographicProjection, __pyx_t_7) < 0) __PYX_ERR(1, 1692, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66365,7 +66788,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns the matrix for which each row r is the projection of the
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_5tangentProjection, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_tangentProjection, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__172)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1706, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_5tangentProjection, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_tangentProjection, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__173)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1706, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Sphere, __pyx_n_s_tangentProjection, __pyx_t_7) < 0) __PYX_ERR(1, 1706, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66378,7 +66801,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns the Matrix for which each row r has M.cols+1 columns and is
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_7fromEuclidean, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_fromEuclidean, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__173)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1720, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_7fromEuclidean, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_fromEuclidean, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__174)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1720, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Sphere, __pyx_n_s_fromEuclidean, __pyx_t_7) < 0) __PYX_ERR(1, 1720, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66391,7 +66814,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns the Matrix for which each row r has M.cols-1 columns and is
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_9toEuclidean, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_toEuclidean, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__174)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1735, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_9toEuclidean, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_toEuclidean, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__175)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1735, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Sphere, __pyx_n_s_toEuclidean, __pyx_t_7) < 0) __PYX_ERR(1, 1735, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66404,9 +66827,9 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Transforms M in order to make its rows suitable spherical coordinates.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_11coordinateReady, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_coordinateReady, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__176)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1750, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_11coordinateReady, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_coordinateReady, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__177)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1750, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__177);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__178);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Sphere, __pyx_n_s_coordinateReady, __pyx_t_7) < 0) __PYX_ERR(1, 1750, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Sphere);
@@ -66418,7 +66841,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Return a square Matrix for which each entry is the geodesic distance
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_13distance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_distance, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__178)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1767, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_13distance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_distance, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__179)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1767, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Sphere, __pyx_n_s_distance, __pyx_t_7) < 0) __PYX_ERR(1, 1767, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66431,9 +66854,9 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Checks if each row of M is on the unit sphere.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_15isIn, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_isIn, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__180)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1781, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_15isIn, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_isIn, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__181)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1781, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__181);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__182);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Sphere, __pyx_n_s_isIn, __pyx_t_7) < 0) __PYX_ERR(1, 1781, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Sphere);
@@ -66445,9 +66868,9 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Checks if each row of M is on the tangent space of the corresponding
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_17isTangent, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_isTangent, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__183)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1793, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_17isTangent, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_isTangent, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__184)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1793, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__181);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__182);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Sphere, __pyx_n_s_isTangent, __pyx_t_7) < 0) __PYX_ERR(1, 1793, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Sphere);
@@ -66459,7 +66882,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Exponential map on the unit sphere.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_19exp, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_exp, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__185)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1810, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_19exp, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_exp, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__186)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1810, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Sphere, __pyx_n_s_exp, __pyx_t_7) < 0) __PYX_ERR(1, 1810, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66472,7 +66895,7 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Logarithmic map on the sphere.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_21log, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_log, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__187)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1853, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_21log, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_log, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__188)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1853, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Sphere, __pyx_n_s_log, __pyx_t_7) < 0) __PYX_ERR(1, 1853, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66485,9 +66908,9 @@ if (!__Pyx_RefNanny) {
  *         """
  *             Returns a row Matrix which is the Riemmaninan mean of rows of M.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_23mean, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_mean, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__189)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1895, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_23mean, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere_mean, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__190)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1895, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__190);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_tuple__191);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Sphere, __pyx_n_s_mean, __pyx_t_7) < 0) __PYX_ERR(1, 1895, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Sphere);
@@ -66497,7 +66920,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_25__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__191)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_25__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__192)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66508,86 +66931,99 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_27__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__192)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_6Sphere_27__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Sphere___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__193)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_7) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "miololib.pyx":1926
- *     cdef mld.hyperbolic view
+  /* "miololib.pyx":1929
+ *         self.view.c = c
  * 
  *     def distance(self, Matrix M):             # <<<<<<<<<<<<<<
  *         """
  *             Return a square Matrix for which each entry is the geodesic distance
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_1distance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_distance, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__193)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1926, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_3distance, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_distance, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__194)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1929, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_distance, __pyx_t_7) < 0) __PYX_ERR(1, 1926, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_distance, __pyx_t_7) < 0) __PYX_ERR(1, 1929, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Hyperbolic);
 
-  /* "miololib.pyx":1940
+  /* "miololib.pyx":1943
  *         return out
  * 
  *     def isIn(self, Matrix M):             # <<<<<<<<<<<<<<
  *         """
  *             Check if rows of M belong to the M.cols-dimensional Poincare Disk.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_3isIn, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_isIn, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__195)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1940, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_5isIn, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_isIn, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__196)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1943, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_isIn, __pyx_t_7) < 0) __PYX_ERR(1, 1940, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_isIn, __pyx_t_7) < 0) __PYX_ERR(1, 1943, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Hyperbolic);
 
-  /* "miololib.pyx":1951
+  /* "miololib.pyx":1954
  *             return self.view.isIn(drf(M.mtxDouble))
  * 
  *     def madd(self, Matrix A, Matrix B):             # <<<<<<<<<<<<<<
  *         """
  *             Mobius addition.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_5madd, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_madd, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__197)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1951, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_7madd, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_madd, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__198)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1954, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_madd, __pyx_t_7) < 0) __PYX_ERR(1, 1951, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_madd, __pyx_t_7) < 0) __PYX_ERR(1, 1954, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Hyperbolic);
 
-  /* "miololib.pyx":1968
+  /* "miololib.pyx":1971
  *         return out
  * 
  *     def exp(self, Matrix at, Matrix M):             # <<<<<<<<<<<<<<
  *         """
  *             Mobius addition.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_7exp, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_exp, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__198)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1968, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_9exp, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_exp, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__199)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1971, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_exp, __pyx_t_7) < 0) __PYX_ERR(1, 1968, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_exp, __pyx_t_7) < 0) __PYX_ERR(1, 1971, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Hyperbolic);
 
-  /* "miololib.pyx":1985
+  /* "miololib.pyx":1988
  *         return out
  * 
  *     def log(self, Matrix start, Matrix end):             # <<<<<<<<<<<<<<
  *         """
  *             Mobius addition.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_9log, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_log, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__199)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1985, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_11log, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_log, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__200)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 1988, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_log, __pyx_t_7) < 0) __PYX_ERR(1, 1985, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_log, __pyx_t_7) < 0) __PYX_ERR(1, 1988, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Hyperbolic);
 
-  /* "miololib.pyx":2002
+  /* "miololib.pyx":2005
  *         return out
  * 
  *     def mean(self, Matrix M):             # <<<<<<<<<<<<<<
  *         """
  *             Returns the Einstein Midpoint of rows of M.
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_11mean, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_mean, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__200)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 2002, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_13mean, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_mean, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__201)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 2005, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_mean, __pyx_t_7) < 0) __PYX_ERR(1, 2002, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_mean, __pyx_t_7) < 0) __PYX_ERR(1, 2005, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  PyType_Modified(__pyx_ptype_5miolo_Hyperbolic);
+
+  /* "miololib.pyx":2018
+ *         return out
+ * 
+ *     def hyperbolicity(self, Matrix M):             # <<<<<<<<<<<<<<
+ *         """
+ *             Returns the Gromov hiperbolicity of the rows of M.
+ */
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_15hyperbolicity, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic_hyperbolicity, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__202)); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 2018, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5miolo_Hyperbolic, __pyx_n_s_hyperbolicity, __pyx_t_7) < 0) __PYX_ERR(1, 2018, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   PyType_Modified(__pyx_ptype_5miolo_Hyperbolic);
 
@@ -66596,7 +67032,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__201)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_17__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic___reduce_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__203)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66607,7 +67043,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self.view cannot be converted to a Python object for pickling"
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__202)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_10Hyperbolic_19__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Hyperbolic___setstate_cython, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__204)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_7) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -66617,7 +67053,7 @@ if (!__Pyx_RefNanny) {
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11__pyx_unpickle_Manifold, 0, __pyx_n_s_pyx_unpickle_Manifold, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__203)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5miolo_11__pyx_unpickle_Manifold, 0, __pyx_n_s_pyx_unpickle_Manifold, NULL, __pyx_n_s_miolo, __pyx_d, ((PyObject *)__pyx_codeobj__205)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Manifold, __pyx_t_7) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -74770,7 +75206,7 @@ __Pyx_PyType_GetName(PyTypeObject* tp)
     if (unlikely(name == NULL) || unlikely(!PyUnicode_Check(name))) {
         PyErr_Clear();
         Py_XDECREF(name);
-        name = __Pyx_NewRef(__pyx_n_s__204);
+        name = __Pyx_NewRef(__pyx_n_s__206);
     }
     return name;
 }
