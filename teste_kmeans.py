@@ -1,4 +1,4 @@
-import models
+import kmeans_models as models
 import miolo as mlo
 from sklearn.metrics import accuracy_score, rand_score
 import numpy as np
@@ -9,17 +9,15 @@ import time
 X = mlo.txtMatrix("gauss/xgauss.dat")
 y = np.loadtxt("gauss/ygauss.dat")
 
-C = mlo.Matrix(2,2)
-C.numpy = [[-1,-1],[1,1]]
-
-kmeans = models.Kmeans(X,C)
+kmeans = models.Kmeans(X,2)
+kmeans.seed()
 
 def randIndex():
-    return rand_score(kmeans.labels.numpy.reshape(5000),y)
+    return rand_score(kmeans.labels,y)
 
 track = [randIndex]
 
-t, tracked = kmeans.train(tmax=5,track=track)
+t, tracked = kmeans.train(tmax=1000,precision=-1,track=track)
 
 print(tracked)
 

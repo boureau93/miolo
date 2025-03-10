@@ -1,5 +1,6 @@
 #include "mtx.h"
 #include "graph.h"
+#include "aux.h"
 #include <vector>
 
 #ifndef DIGRAPH_H
@@ -48,6 +49,8 @@ public:
     digraph(){this->hood=nullptr;}
     digraph(ulong nodes);
     ~digraph();
+    void clean(){delete this->hood;}
+    
     bool null();
     bool isNext(ulong i, ulong j);
     bool isPrevious(ulong i, ulong j);
@@ -56,18 +59,22 @@ public:
     void connect(ulong i, ulong j, T w);
     void connect(ulong i, ulong j);
 
+    void normalize();
+
     digraph<T>* copyStructure();
     digraph<T>* copy();
     ulong* shape();
     digraph<T>* transpose();
     digraph<T>* symmetrize();
-    graph<T>* toGraph();
+    void connectRegular(mtx<int>&, mtx<T>&);
 
-    digraph<T>* add(digraph<T> D);
-    digraph<T>* sub(digraph<T> D);
-    digraph<T>* hmul(digraph<T> D);
+    digraph<T>* add(digraph<T>& D);
+    digraph<T>* sub(digraph<T>& D);
+    digraph<T>* hmul(digraph<T>& D);
     digraph<T>* smul(T value);
-    mtx<T>* mmul(mtx<T> D);
+    mtx<T>* mmul(mtx<T>& D);
+
+    T gaussianScale();
 };
 
 /*------------------------------------------------------------------------------
@@ -83,8 +90,7 @@ digraph<T>::digraph(ulong nodes){
 }
 template <typename T>
 digraph<T>::~digraph(){
-    if (this->hood!=nullptr)
-        delete[] this->hood;
+    delete[] this->hood;
 }
 
 template <typename T>
@@ -136,6 +142,25 @@ void digraph<T>::connect(ulong i, ulong j){
 ------------------------------------------------------------------------------*/
 
 template <typename T>
+void digraph<T>::normalize(){
+    for (ulong i=0; i<this->nodes; i++){
+        T z = 0;
+        for (ulong k=0; k<this->hood[i].size(); k++){
+            z += this->hood[i][k].w;
+        }
+        if (z!=0){
+            for (ulong k=0; k<this->hood[i].size(); k++){
+                this->hood[i][k].w /= z;
+            }
+        }
+        else{
+            cout << "[miolo Warning] Preventing division by zero." << endl;
+            cout << "<< This occured in Digraph.normalize(). >>" << endl;
+        }
+    }
+}
+
+template <typename T>
 digraph<T>* digraph<T>::copyStructure(){
     digraph<T>* out = new digraph<T>(this->nodes);
     if (out->null())
@@ -143,7 +168,7 @@ digraph<T>* digraph<T>::copyStructure(){
 
     for (ulong i=0; i<this->nodes; i++){
         for (ulong n=0; n<this->hood[i].size(); n++){
-            out->connect(i,this->hood[i][n].idx,0);
+            out->connect(i,this->hood[i][n].idx,1);
         }
     }
     return out;
@@ -206,6 +231,15 @@ digraph<T>* digraph<T>::symmetrize(){
     return out;
 }
 
+template <typename T>
+void digraph<T>::connectRegular(mtx<int>& neighbors, mtx<T>& weights){
+    for (ulong i=0; i<this->nodes; i++){
+        for (ulong p=0; p<neighbors.cols; p++){
+            if ((ulong)neighbors(i,p)<this->nodes && (ulong)neighbors(i,p)>=0)
+                this->connect(i,neighbors(i,p),weights(i,neighbors(i,p)));
+        }
+    }
+}
 
 /*------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -214,7 +248,7 @@ digraph<T>* digraph<T>::symmetrize(){
 ------------------------------------------------------------------------------*/
 
 template <typename T>
-digraph<T>* digraph<T>::add(digraph<T> D){
+digraph<T>* digraph<T>::add(digraph<T>& D){
     digraph<T>* out = this->copy();
     if (out==nullptr)
         return nullptr;
@@ -227,7 +261,7 @@ digraph<T>* digraph<T>::add(digraph<T> D){
 }
 
 template <typename T>
-digraph<T>* digraph<T>::sub(digraph<T> D){
+digraph<T>* digraph<T>::sub(digraph<T>& D){
     digraph<T>* out = this->copy();
     if (out==nullptr)
         return nullptr;
@@ -240,7 +274,7 @@ digraph<T>* digraph<T>::sub(digraph<T> D){
 }
 
 template <typename T>
-digraph<T>* digraph<T>::hmul(digraph<T> D){
+digraph<T>* digraph<T>::hmul(digraph<T>& D){
     digraph<T>* out = this->copy();
     if (out==nullptr)
         return nullptr;
@@ -266,7 +300,7 @@ digraph<T>* digraph<T>::smul(T value){
 }
 
 template <typename T>
-mtx<T>* digraph<T>::mmul(mtx<T> M){
+mtx<T>* digraph<T>::mmul(mtx<T>& M){
     mtx<T>* out = new mtx<T>(M.rows,M.cols);
     if (out->null())
         return nullptr;
@@ -296,7 +330,7 @@ mtx<T>* digraph<T>::mmul(mtx<T> M){
 ------------------------------------------------------------------------------*/
 
 template <typename T>
-digraph<T>* toDigraph(graph<T> G){
+digraph<T>* toDigraph(graph<T>& G){
     digraph<T>* out = new digraph<T>(G.nodes);
     if (out->null())
         return nullptr;
@@ -307,5 +341,92 @@ digraph<T>* toDigraph(graph<T> G){
     return out;
 }
 
+template <typename T>
+graph<T>* toGraph(digraph<T>& G){
+    ulong size = 0;
+    for (ulong i=0; i<G.nodes; i++){
+        for (ulong k=0; k<G.hood[i].size(); k++){
+            ulong p = G.hood[i][k].idx;
+            if (p>i){
+                size++;
+            }
+        }
+    }
+    graph<T>* out = new graph<T>(G.nodes,size);
+    ulong iter = 0;
+    for (ulong i=0; i<G.nodes; i++){
+        for (ulong k=0; k<G.hood[i].size(); k++){
+            ulong p = G.hood[i][k].idx;
+            if (p>i){
+                T aux = (G.hood[i][k].w+G.hood[p].weight(i))/2;
+                out->e[iter].i = i;
+                out->e[iter].j = p;
+                out->e[iter].w = aux;
+                iter++;
+            }
+        }
+    }
+    return out;
+}
+
+
+/*------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+    Interaction with mtx
+--------------------------------------------------------------------------------
+------------------------------------------------------------------------------*/
+
+template <typename T>
+digraph<T>* sparsifyDigraphThreshold(mtx<T> &M, double thresh){
+    digraph<T>* out = new digraph<T>(M.rows);
+    if (out->null())
+        return nullptr;
+    for (ulong i=0; i<M.rows; i++){
+        for (ulong j=0; j<M.cols; j++){
+            if (fabs(M(i,j))<thresh){
+                out->connect(i,j,M(i,j));
+            }
+        }
+    }
+    return out;
+}
+
+template <typename T>
+digraph<T>* sparsifyDigraphKNN(mtx<T> &M, ulong k){
+    digraph<T>* out = new digraph<T>(M.rows);
+    if (out->null())
+        return nullptr;
+    T* cp = new T[M.cols];
+        if (cp==nullptr)
+            return nullptr;
+    for (ulong i=0; i<M.rows; i++){
+        for (ulong j=0; j<M.cols; j++)
+            cp[j] = M(i,j);
+        //argsort
+        ulong* args = argsort(cp,M.cols);
+        if (args==nullptr)
+            return nullptr;
+        for (ulong p=0; p<k; p++){
+            out->connect(i,args[p+1],M(i,args[p+1]));
+        }
+        delete[] args;
+    }
+    delete[] cp;
+    return out;
+}
+
+template <typename T>
+T digraph<T>::gaussianScale(){
+    T out = 0;
+    for (ulong i=0; i<this->nodes; i++){
+        T aux = 0;
+        for (ulong k=0; k<this->hood[i].size(); k++){
+            if (this->hood[i][k].w>aux)
+                aux = this->hood[i][k].w;
+        }
+        out += aux;
+    }
+    return out/(3*this->nodes);
+}
 
 #endif

@@ -101,30 +101,6 @@ mtx<T>* kmeans::euclideanCentroid(mtx<T>& data, mtx<int>& labels){
 }
 
 template <typename T>
-mtx<T>* kmeans::partition(mtx<T>& data, mtx<int>& labels, int idLabel){
-    ulong count = 0;
-    for (ulong i=0; i<labels.rows; i++){
-        if (labels(i,0)==idLabel)
-            count++;
-    }
-    if (count==0)
-        return nullptr;
-    mtx<T>* out = new mtx<T>(count,data.cols);
-    if (out->null())
-        return nullptr;
-    ulong k = 0;
-    for (ulong i=0; i<data.rows; i++){
-        if (labels(i,0)==idLabel){
-            for (ulong s=0; s<data.cols; s++){
-                (*out)(k,s) = data(i,s);
-            }
-            k++;
-        }
-    }
-    return out;
-}
-
-template <typename T>
 bool isIn(T* vec, T value, int size){
     for (int i=0; i<size; i++){
         if (vec[i]==value)
@@ -174,11 +150,11 @@ mtx<T>* kmeans::kmpp(mtx<T> &data, int k){
         double u = ((double)rand())/((double)RAND_MAX);
         double sum = 0;
         for (ulong i=-1; i<data.rows-1; i++){
-            if (u>sum && u<sum+dist[i+1]){
+            if (u>sum && u<sum+dist[i+1]/Z){
                 id = i+1; break;
             }
             else{
-                sum += dist[i+1];
+                sum += dist[i+1]/Z;
             }
         }
         //Insert centrod in out

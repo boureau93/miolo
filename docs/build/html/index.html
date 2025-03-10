@@ -45,12 +45,6 @@
               <!-- Local TOC -->
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">Miolo documentation</a><ul>
-<li><a class="reference internal" href="#miolo.Booler"><code class="docutils literal notranslate"><span class="pre">Booler</span></code></a><ul>
-<li><a class="reference internal" href="#miolo.Booler.cols"><code class="docutils literal notranslate"><span class="pre">Booler.cols</span></code></a></li>
-<li><a class="reference internal" href="#miolo.Booler.rows"><code class="docutils literal notranslate"><span class="pre">Booler.rows</span></code></a></li>
-<li><a class="reference internal" href="#miolo.Booler.shape"><code class="docutils literal notranslate"><span class="pre">Booler.shape</span></code></a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#miolo.Diagonal"><code class="docutils literal notranslate"><span class="pre">Diagonal</span></code></a><ul>
 <li><a class="reference internal" href="#miolo.Diagonal.cols"><code class="docutils literal notranslate"><span class="pre">Diagonal.cols</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Diagonal.ctype"><code class="docutils literal notranslate"><span class="pre">Diagonal.ctype</span></code></a></li>
@@ -72,7 +66,11 @@
 <li><a class="reference internal" href="#miolo.Euclidean"><code class="docutils literal notranslate"><span class="pre">Euclidean</span></code></a><ul>
 <li><a class="reference internal" href="#miolo.Euclidean.distance"><code class="docutils literal notranslate"><span class="pre">Euclidean.distance()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Euclidean.dot"><code class="docutils literal notranslate"><span class="pre">Euclidean.dot()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Euclidean.gaussianNormalize"><code class="docutils literal notranslate"><span class="pre">Euclidean.gaussianNormalize()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Euclidean.mean"><code class="docutils literal notranslate"><span class="pre">Euclidean.mean()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Euclidean.minmaxNormalize"><code class="docutils literal notranslate"><span class="pre">Euclidean.minmaxNormalize()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Euclidean.rowNormalize"><code class="docutils literal notranslate"><span class="pre">Euclidean.rowNormalize()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Euclidean.variance"><code class="docutils literal notranslate"><span class="pre">Euclidean.variance()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#miolo.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a><ul>
@@ -90,13 +88,23 @@
 <li><a class="reference internal" href="#miolo.Graph.weights"><code class="docutils literal notranslate"><span class="pre">Graph.weights</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#miolo.Kmeans"><code class="docutils literal notranslate"><span class="pre">Kmeans</span></code></a><ul>
-<li><a class="reference internal" href="#miolo.Kmeans.clamp"><code class="docutils literal notranslate"><span class="pre">Kmeans.clamp()</span></code></a></li>
-<li><a class="reference internal" href="#miolo.Kmeans.getGroups"><code class="docutils literal notranslate"><span class="pre">Kmeans.getGroups()</span></code></a></li>
-<li><a class="reference internal" href="#miolo.Kmeans.groupFeatures"><code class="docutils literal notranslate"><span class="pre">Kmeans.groupFeatures()</span></code></a></li>
-<li><a class="reference internal" href="#miolo.Kmeans.numGroups"><code class="docutils literal notranslate"><span class="pre">Kmeans.numGroups</span></code></a></li>
-<li><a class="reference internal" href="#miolo.Kmeans.setGroups"><code class="docutils literal notranslate"><span class="pre">Kmeans.setGroups()</span></code></a></li>
-<li><a class="reference internal" href="#miolo.Kmeans.train"><code class="docutils literal notranslate"><span class="pre">Kmeans.train()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Hyperbolic"><code class="docutils literal notranslate"><span class="pre">Hyperbolic</span></code></a><ul>
+<li><a class="reference internal" href="#miolo.Hyperbolic.distance"><code class="docutils literal notranslate"><span class="pre">Hyperbolic.distance()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Hyperbolic.exp"><code class="docutils literal notranslate"><span class="pre">Hyperbolic.exp()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Hyperbolic.hyperbolicity"><code class="docutils literal notranslate"><span class="pre">Hyperbolic.hyperbolicity()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Hyperbolic.isIn"><code class="docutils literal notranslate"><span class="pre">Hyperbolic.isIn()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Hyperbolic.log"><code class="docutils literal notranslate"><span class="pre">Hyperbolic.log()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Hyperbolic.madd"><code class="docutils literal notranslate"><span class="pre">Hyperbolic.madd()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Hyperbolic.mean"><code class="docutils literal notranslate"><span class="pre">Hyperbolic.mean()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#miolo.KmeansUtil"><code class="docutils literal notranslate"><span class="pre">KmeansUtil</span></code></a><ul>
+<li><a class="reference internal" href="#miolo.KmeansUtil.euclideanCentroid"><code class="docutils literal notranslate"><span class="pre">KmeansUtil.euclideanCentroid()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.KmeansUtil.euclideanCentroidDistance"><code class="docutils literal notranslate"><span class="pre">KmeansUtil.euclideanCentroidDistance()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.KmeansUtil.hyperbolicCentroidDistance"><code class="docutils literal notranslate"><span class="pre">KmeansUtil.hyperbolicCentroidDistance()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.KmeansUtil.partition"><code class="docutils literal notranslate"><span class="pre">KmeansUtil.partition()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.KmeansUtil.seed"><code class="docutils literal notranslate"><span class="pre">KmeansUtil.seed()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.KmeansUtil.sphereCentroidDistance"><code class="docutils literal notranslate"><span class="pre">KmeansUtil.sphereCentroidDistance()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#miolo.Manifold"><code class="docutils literal notranslate"><span class="pre">Manifold</span></code></a></li>
@@ -106,9 +114,14 @@
 <li><a class="reference internal" href="#miolo.Matrix.cols"><code class="docutils literal notranslate"><span class="pre">Matrix.cols</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Matrix.copy"><code class="docutils literal notranslate"><span class="pre">Matrix.copy()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Matrix.ctype"><code class="docutils literal notranslate"><span class="pre">Matrix.ctype</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.cut"><code class="docutils literal notranslate"><span class="pre">Matrix.cut()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Matrix.flatten"><code class="docutils literal notranslate"><span class="pre">Matrix.flatten()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.max"><code class="docutils literal notranslate"><span class="pre">Matrix.max()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.min"><code class="docutils literal notranslate"><span class="pre">Matrix.min()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Matrix.normalize"><code class="docutils literal notranslate"><span class="pre">Matrix.normalize()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.null"><code class="docutils literal notranslate"><span class="pre">Matrix.null</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Matrix.numpy"><code class="docutils literal notranslate"><span class="pre">Matrix.numpy</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Matrix.print"><code class="docutils literal notranslate"><span class="pre">Matrix.print()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Matrix.reshape"><code class="docutils literal notranslate"><span class="pre">Matrix.reshape()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Matrix.rowDistance"><code class="docutils literal notranslate"><span class="pre">Matrix.rowDistance()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Matrix.rows"><code class="docutils literal notranslate"><span class="pre">Matrix.rows</span></code></a></li>
@@ -117,11 +130,14 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#miolo.Sphere"><code class="docutils literal notranslate"><span class="pre">Sphere</span></code></a><ul>
+<li><a class="reference internal" href="#miolo.Sphere.coordinateReady"><code class="docutils literal notranslate"><span class="pre">Sphere.coordinateReady()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Sphere.distance"><code class="docutils literal notranslate"><span class="pre">Sphere.distance()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Sphere.exp"><code class="docutils literal notranslate"><span class="pre">Sphere.exp()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Sphere.fromEuclidean"><code class="docutils literal notranslate"><span class="pre">Sphere.fromEuclidean()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Sphere.isIn"><code class="docutils literal notranslate"><span class="pre">Sphere.isIn()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Sphere.isTangent"><code class="docutils literal notranslate"><span class="pre">Sphere.isTangent()</span></code></a></li>
-<li><a class="reference internal" href="#miolo.Sphere.radius"><code class="docutils literal notranslate"><span class="pre">Sphere.radius</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Sphere.log"><code class="docutils literal notranslate"><span class="pre">Sphere.log()</span></code></a></li>
+<li><a class="reference internal" href="#miolo.Sphere.mean"><code class="docutils literal notranslate"><span class="pre">Sphere.mean()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Sphere.stereographicProjection"><code class="docutils literal notranslate"><span class="pre">Sphere.stereographicProjection()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Sphere.tangentProjection"><code class="docutils literal notranslate"><span class="pre">Sphere.tangentProjection()</span></code></a></li>
 <li><a class="reference internal" href="#miolo.Sphere.toEuclidean"><code class="docutils literal notranslate"><span class="pre">Sphere.toEuclidean()</span></code></a></li>
@@ -180,31 +196,6 @@ documentation for details.</p>
 <div class="toctree-wrapper compound">
 </div>
 <dl class="py class" id="module-miolo">
-<dt class="sig sig-object py" id="miolo.Booler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">Booler</span></span><a class="headerlink" href="#miolo.Booler" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>An object for storing boolean matrices.
-rows: number of rows
-cols: number of columns
-init: value for initilization of data</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="miolo.Booler.cols">
-<span class="sig-name descname"><span class="pre">cols</span></span><a class="headerlink" href="#miolo.Booler.cols" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="miolo.Booler.rows">
-<span class="sig-name descname"><span class="pre">rows</span></span><a class="headerlink" href="#miolo.Booler.rows" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="miolo.Booler.shape">
-<span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#miolo.Booler.shape" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="miolo.Diagonal">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">Diagonal</span></span><a class="headerlink" href="#miolo.Diagonal" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#miolo.mioloObject" title="miolo.mioloObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">mioloObject</span></code></a></p>
@@ -318,9 +309,34 @@ that computes the frobenius dot product between matrices.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="miolo.Euclidean.gaussianNormalize">
+<span class="sig-name descname"><span class="pre">gaussianNormalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Euclidean.gaussianNormalize" title="Link to this definition"></a></dt>
+<dd><p>Returns A normalized to have columns with mean 0 and variance 1.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="miolo.Euclidean.mean">
 <span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Euclidean.mean" title="Link to this definition"></a></dt>
-<dd><p>Returns a row Matrix which is the arithmetic average of rows of A.</p>
+<dd><p>Returns a row Matrix which is the mean of the rows of A.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Euclidean.minmaxNormalize">
+<span class="sig-name descname"><span class="pre">minmaxNormalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Euclidean.minmaxNormalize" title="Link to this definition"></a></dt>
+<dd><p>For each column, calculates min and max values, and then returns
+a matrix for which each element is (A_ij-min_j)/(max_j-min_j).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Euclidean.rowNormalize">
+<span class="sig-name descname"><span class="pre">rowNormalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Euclidean.rowNormalize" title="Link to this definition"></a></dt>
+<dd><p>Returns A with rows normalized to sum 1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Euclidean.variance">
+<span class="sig-name descname"><span class="pre">variance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Euclidean.variance" title="Link to this definition"></a></dt>
+<dd><p>Returns a row Matrix which is the variance of the rows of A.</p>
 </dd></dl>
 
 </dd></dl>
@@ -418,37 +434,92 @@ works both as a getter and a setter.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="miolo.Kmeans">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">Kmeans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">center</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">q=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Booler</span> <span class="pre">clamped=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Kmeans" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="miolo.Hyperbolic">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">Hyperbolic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Hyperbolic" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#miolo.Manifold" title="miolo.Manifold"><code class="xref py py-class docutils literal notranslate"><span class="pre">Manifold</span></code></a></p>
+<p>This class treats each row of a Matrix as a point in the Poincare disk.
+Convertions to and from the Klein model are also available.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Hyperbolic.distance">
+<span class="sig-name descname"><span class="pre">distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Hyperbolic.distance" title="Link to this definition"></a></dt>
+<dd><p>Return a square Matrix for which each entry is the geodesic distance
+between the pair of (i,j) rows of M.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Hyperbolic.exp">
+<span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">at</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Hyperbolic.exp" title="Link to this definition"></a></dt>
+<dd><p>Mobius addition.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Hyperbolic.hyperbolicity">
+<span class="sig-name descname"><span class="pre">hyperbolicity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Hyperbolic.hyperbolicity" title="Link to this definition"></a></dt>
+<dd><p>Returns the Gromov hiperbolicity of the rows of M.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Hyperbolic.isIn">
+<span class="sig-name descname"><span class="pre">isIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Hyperbolic.isIn" title="Link to this definition"></a></dt>
+<dd><p>Check if rows of M belong to the M.cols-dimensional Poincare Disk.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Hyperbolic.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Hyperbolic.log" title="Link to this definition"></a></dt>
+<dd><p>Mobius addition.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Hyperbolic.madd">
+<span class="sig-name descname"><span class="pre">madd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Hyperbolic.madd" title="Link to this definition"></a></dt>
+<dd><p>Mobius addition.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Hyperbolic.mean">
+<span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Hyperbolic.mean" title="Link to this definition"></a></dt>
+<dd><p>Returns the Einstein Midpoint of rows of M.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="miolo.KmeansUtil">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">KmeansUtil</span></span><a class="headerlink" href="#miolo.KmeansUtil" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="miolo.Kmeans.clamp">
-<span class="sig-name descname"><span class="pre">clamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int[:]</span> <span class="pre">To</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Kmeans.clamp" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="miolo.KmeansUtil.euclideanCentroid">
+<span class="sig-name descname"><span class="pre">euclideanCentroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.KmeansUtil.euclideanCentroid" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="miolo.Kmeans.getGroups">
-<span class="sig-name descname"><span class="pre">getGroups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Kmeans.getGroups" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="miolo.KmeansUtil.euclideanCentroidDistance">
+<span class="sig-name descname"><span class="pre">euclideanCentroidDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">center</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.KmeansUtil.euclideanCentroidDistance" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="miolo.Kmeans.groupFeatures">
-<span class="sig-name descname"><span class="pre">groupFeatures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groupNum</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Kmeans.groupFeatures" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="miolo.Kmeans.numGroups">
-<span class="sig-name descname"><span class="pre">numGroups</span></span><a class="headerlink" href="#miolo.Kmeans.numGroups" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="miolo.KmeansUtil.hyperbolicCentroidDistance">
+<span class="sig-name descname"><span class="pre">hyperbolicCentroidDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">center</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.KmeansUtil.hyperbolicCentroidDistance" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="miolo.Kmeans.setGroups">
-<span class="sig-name descname"><span class="pre">setGroups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Kmeans.setGroups" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="miolo.KmeansUtil.partition">
+<span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int</span> <span class="pre">labelNum</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.KmeansUtil.partition" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="miolo.Kmeans.train">
-<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmax=1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps=0.005</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Manifold</span> <span class="pre">embedding=Euclidean()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Kmeans.train" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="miolo.KmeansUtil.seed">
+<span class="sig-name descname"><span class="pre">seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int</span> <span class="pre">k_centroids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.KmeansUtil.seed" title="Link to this definition"></a></dt>
+<dd><p>Runs k-means++ to return seeds for k-means. This is done using
+euclidean distance.
+data: data matrix
+k_centroids: number of centroids desired.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.KmeansUtil.sphereCentroidDistance">
+<span class="sig-name descname"><span class="pre">sphereCentroidDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">center</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.KmeansUtil.sphereCentroidDistance" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -491,13 +562,22 @@ overloaded and returns the max absolute value of elements of matrix.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="miolo.Matrix.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.copy" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsigned</span> <span class="pre">long[:]</span> <span class="pre">only=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.copy" title="Link to this definition"></a></dt>
+<dd><p>Copies M into self if both have same shape.
+only: if not None, copies only rows in only.</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="miolo.Matrix.ctype">
 <span class="sig-name descname"><span class="pre">ctype</span></span><a class="headerlink" href="#miolo.Matrix.ctype" title="Link to this definition"></a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.cut">
+<span class="sig-name descname"><span class="pre">cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsigned</span> <span class="pre">long[:]</span> <span class="pre">targets</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.cut" title="Link to this definition"></a></dt>
+<dd><p>Returns a new Matrix consisting of selected rows of self.
+targets: indexes of rows to be returned.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="miolo.Matrix.flatten">
@@ -510,16 +590,39 @@ made on stored data.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.max">
+<span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.max" title="Link to this definition"></a></dt>
+<dd><p>Returns max value in matrix.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.min">
+<span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.min" title="Link to this definition"></a></dt>
+<dd><p>Returns min value in matrix.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="miolo.Matrix.normalize">
 <span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.normalize" title="Link to this definition"></a></dt>
-<dd><p>Row normalization in order to elements in a same row sum to 1.</p>
+<dd><p>Row normalization in to make elements in the same row sum to 1.
+This operation is done inplace.</p>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="miolo.Matrix.null">
+<span class="sig-name descname"><span class="pre">null</span></span><a class="headerlink" href="#miolo.Matrix.null" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="miolo.Matrix.numpy">
 <span class="sig-name descname"><span class="pre">numpy</span></span><a class="headerlink" href="#miolo.Matrix.numpy" title="Link to this definition"></a></dt>
 <dd><p>Interaction with numpy.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Matrix.print">
+<span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Matrix.print" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="miolo.Matrix.reshape">
@@ -558,16 +661,35 @@ is the euclidean distance between rows i and j of self.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="miolo.Sphere">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">Sphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">double</span> <span class="pre">radius=1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Sphere" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">miolo.</span></span><span class="sig-name descname"><span class="pre">Sphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">precision</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.005</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Sphere" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#miolo.Manifold" title="miolo.Manifold"><code class="xref py py-class docutils literal notranslate"><span class="pre">Manifold</span></code></a></p>
 <p>This class treats each row of a Matrix as a unit sphere. Therefore, it
 views a Matrix as the product manifold of Matrix.rows unit spheres
-embedded in the euclidean space of dimension Matrix.cols.</p>
+embedded in the euclidean space of dimension Matrix.cols. Initialization
+parameters are relative to the mean calculation algorithm</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Sphere.coordinateReady">
+<span class="sig-name descname"><span class="pre">coordinateReady</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">azimuth=0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Sphere.coordinateReady" title="Link to this definition"></a></dt>
+<dd><p>Transforms M in order to make its rows suitable spherical coordinates.
+First, minmax normalization is done and then columns are multiplied
+by PI, with the exception of azimuth, which is multiplied by 2*PI</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="miolo.Sphere.distance">
 <span class="sig-name descname"><span class="pre">distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Sphere.distance" title="Link to this definition"></a></dt>
 <dd><p>Return a square Matrix for which each entry is the geodesic distance
 between the pair of (i,j) rows of M.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Sphere.exp">
+<span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">at</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">tangent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Sphere.exp" title="Link to this definition"></a></dt>
+<dd><p>Exponential map on the unit sphere.
+at: point on the sphere
+tangent: a tangent vector of at.
+Note: no checking is done for either at or tangent. Ensure before
+applying.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -581,23 +703,41 @@ space of dimension M.cols+1.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="miolo.Sphere.isIn">
 <span class="sig-name descname"><span class="pre">isIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span> <span class="pre">tolerance=0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Sphere.isIn" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Checks if each row of M is on the unit sphere.
+tolerance: numerical tolerance for acceptance.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="miolo.Sphere.isTangent">
 <span class="sig-name descname"><span class="pre">isTangent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">at</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span> <span class="pre">tolerance=0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Sphere.isTangent" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Checks if each row of M is on the tangent space of the corresponding
+row of at.
+tolerance: numerical tolerance for acceptance.</p>
+</dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="miolo.Sphere.radius">
-<span class="sig-name descname"><span class="pre">radius</span></span><a class="headerlink" href="#miolo.Sphere.radius" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Sphere.log">
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Sphere.log" title="Link to this definition"></a></dt>
+<dd><p>Logarithmic map on the sphere.
+start: starting point on the sphere
+end: ending point on the sphere.
+Neither start or end are checked. Ensure before using.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="miolo.Sphere.mean">
+<span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">init=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Sphere.mean" title="Link to this definition"></a></dt>
+<dd><p>Returns a row Matrix which is the Riemmaninan mean of rows of M.
+This is done via an interative algorithm.
+init: starting point for the algorithm
+Control parameters are stored in self.tmax and self.precision.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="miolo.Sphere.stereographicProjection">
 <span class="sig-name descname"><span class="pre">stereographicProjection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Matrix</span> <span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#miolo.Sphere.stereographicProjection" title="Link to this definition"></a></dt>
 <dd><p>Returns the matrix for which each row is the stereographic
-projection of the corresponding row in M over the unit sphere.</p>
+projection of the corresponding row in M over the sphere.</p>
 </dd></dl>
 
 <dl class="py method">

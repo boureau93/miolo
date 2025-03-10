@@ -1,6 +1,8 @@
 #include <new>
 #include <iostream>
+#include <algorithm>
 #include <sys/types.h>
+#include "aux.h"
 
 using namespace std;
 
@@ -21,6 +23,7 @@ public:
     mtx(ulong rows, ulong cols, T init);
     mtx(mtx<T>& cp);
     ~mtx();
+    void clean(){delete[] this->data;}
 
     bool null(){return this->data==nullptr;}
     void wrap(mtx<T>* target){
@@ -45,7 +48,7 @@ public:
     mtx<T>* transpose();
     void flatten(bool rows);
     void reshape(unsigned long rows, unsigned long cols);
-    mtx<T>* cut(bool* targets);
+    mtx<T>* cut(ulong rowMin, ulong rowMax, ulong colMin, ulong colMax);
 
     //Algebra
     mtx<T>* add(mtx<T>* A);
@@ -61,10 +64,13 @@ public:
     void normalize();
     T norm();
     T sumAll();
+    T trace();
 
     mtx<T>* symmetrize();
 
     mtx<T>* rowDistance();
+
+    mtx<T>* partition(int* labels, int idLabel);
 };
 
 /*------------------------------------------------------------------------------
@@ -83,7 +89,7 @@ mtx<T>::mtx(ulong rows, ulong cols){
     this->data = new T[rows*cols];
     if (this->data==nullptr){
         cout << "[miolo Error] Failed to allocate memory." << endl;
-        cout << "[This is ocurred at the creation of a Matrix]" << endl;
+        cout << "<< This is ocurred at the creation of a Matrix >>" << endl;
     }
 }
 
@@ -98,7 +104,7 @@ mtx<T>::mtx(ulong rows, ulong cols, T init){
     }
     else{
         cout << "[miolo Error] Failed to allocate memory." << endl;
-        cout << "[This is ocurred at the creation of a Matrix]" << endl;
+        cout << "[This ocurred at the creation of a Matrix]" << endl;
     }
 }
 
@@ -113,8 +119,7 @@ mtx<T>::mtx(mtx<T>& cp){
 
 template <typename T>
 mtx<T>::~mtx(){
-    if (this->data!=nullptr)
-        delete [] this->data;
+    delete[] this->data;
 }
 
 /*------------------------------------------------------------------------------
@@ -205,6 +210,46 @@ mtx<int>* argmin(mtx<T>* A){
 }
 
 template <typename T>
+mtx<int>* argkmin(mtx<T>& A, int k){
+    mtx<int>* out = new mtx<int>(A.rows,k);
+    if (out->null())
+        return nullptr;
+    mtx<T>* aux;
+    for (ulong i=0; i<A.rows; i++){
+        aux = A.cut(i,i+1,0,A.cols);
+        if (aux==nullptr)
+            return nullptr;
+        ulong* args = argsort(aux->data,aux->cols);
+        if (args==nullptr)
+            return nullptr;
+        for (ulong p=0; p<(ulong)k; p++){
+            (*out)(i,p) = args[p];
+        }
+    }
+    return out;
+}
+
+template <typename T>
+mtx<int>* argkmax(mtx<T>& A, int k){
+    mtx<int>* out = new mtx<int>(A.rows,k);
+    if (out->null())
+        return nullptr;
+    mtx<T>* aux;
+    for (ulong i=0; i<A.rows; i++){
+        aux = A.cut(i,i+1,0,A.cols);
+        if (aux==nullptr)
+            return nullptr;
+        ulong* args = argsort(aux->data,aux->cols);
+        if (args==nullptr)
+            return nullptr;
+        for (ulong p=0; p<(ulong)k; p++){
+            (*out)(i,p) = args[A.cols-p];
+        }
+    }
+    return out;
+}
+
+template <typename T>
 void mtx<T>::flatten(bool row){
     if (rows){
         this->cols = this->rows*this->cols;
@@ -223,24 +268,14 @@ void mtx<T>::reshape(unsigned long rows, unsigned long cols){
 }
 
 template <typename T>
-mtx<T>* mtx<T>::cut(bool* targets){
-    unsigned long count = 0;
-    for (ulong i=0; i<this->rows; i++){
-        if (targets[i])
-            count++;
-    }
-    mtx<T>* out = new mtx<T>(count,this->cols);
+mtx<T>* mtx<T>::cut(ulong rowMin, ulong rowMax, ulong colMin, ulong colMax){
+    mtx<T>* out = new mtx<T>(rowMax-rowMin,colMax-colMin);
     if (out->null())
         return nullptr;
-    unsigned long k=0;
-    for (ulong i=0; i<this->rows; i++){
-        if (targets[i]){
-            for (ulong s=0; s<this->cols; s++){
-                (*out)(k,s) = (*this)(i,s);
-            }
-            k++;
+    for (ulong i=0; i<out->rows; i++)
+        for (ulong j=0; j<out->cols; j++){
+            (*out)(i,j) = (*this)(i+rowMin,j+colMin);
         }
-    }
     return out;
 }
 
@@ -299,6 +334,8 @@ mtx<T>* mtx<T>::mmul(mtx<T>* A){
     mtx<T>* out = nullptr;
     if (A->rows==this->cols){
         out = new mtx<T>(this->rows,A->cols,0);
+        if (out->null())
+            return nullptr;
         for (ulong i=0; i<this->rows; i++)
             for (ulong j=0; j<A->cols; j++)
                 for (ulong k=0; k<this->cols; k++){
@@ -394,8 +431,17 @@ T mtx<T>::sumAll(){
     return out;
 }
 
+template <typename T>
+T mtx<T>::trace(){
+    T out = 0;
+    for (ulong i=0; i<this->rows && i<this->cols; i++){
+        out += (*this)(i,i);
+    }
+    return out;
+}
+
 /*------------------------------------------------------------------------------
-    Matrix concatenation
+    Matrix manipulation
 ------------------------------------------------------------------------------*/
 
 template <typename T>
@@ -412,6 +458,34 @@ mtx<T>* concat(mtx<T>& A, mtx<T>& B){
             for (ulong s=0; s<out->cols; s++){
                 (*out)(i,s) = B(i-A.rows,s);
             }
+    }
+    return out;
+}
+
+template <typename T>
+mtx<T>* mtx<T>::partition(int* labels, int idLabel){
+    ulong count = 0;
+    for (ulong i=0; i<this->rows; i++){
+        if (labels[i]==idLabel)
+            count++;
+    }
+    mtx<T>* out; 
+    if (count==0){
+        return nullptr;
+    }
+    else{
+        out = new mtx<T>(count,this->cols);
+    }
+    if (out->null())
+        return nullptr;
+    ulong k = 0;
+    for (ulong i=0; i<this->rows && k<count; i++){
+        if (labels[i]==idLabel){
+            for (ulong s=0; s<this->cols; s++){
+                (*out)(k,s) = (*this)(i,s);
+            }
+            k++;
+        }
     }
     return out;
 }

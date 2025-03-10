@@ -7,6 +7,8 @@
 
 class sphere{
 public:
+
+    double r;
     
     template <typename T>
     mtx<T>* stereographicProjection(mtx<T>& M);
@@ -37,6 +39,9 @@ public:
 
     template <typename T>
     bool isTangent(mtx<T>& at, mtx<T>& M, T tolerance);
+
+    template <typename T>
+    mtx<T>* centroidDistance(mtx<T>& data, mtx<T>& center);
 };
 
 template <typename T>
@@ -47,13 +52,13 @@ mtx<T>* sphere::stereographicProjection(mtx<T>& M){
         for (ulong s=0; s<M.cols; s++){
             z += M(i,s)*M(i,s);
         }
-        z = sqrt(z);
+        z = sqrt(z)/this->r;
         if (z>0)
             for (ulong s=0; s<M.cols; s++){
                 (*out)(i,s) = M(i,s)/z;
             }
         else{
-            cout << cout << "[miolo Warning] Preventing division by zero." << endl;
+            cout << "[miolo Warning] Preventing division by zero." << endl;
             cout << "<< This ocurred in Sphere.stereographicProjection at " ;
             cout << "row " << i << " >>" << endl;
         }
@@ -62,23 +67,8 @@ mtx<T>* sphere::stereographicProjection(mtx<T>& M){
 }
 
 template <typename T>
-mtx<T>* sphere::tangentProjection(mtx<T>& base, mtx<T>& M){
-    mtx<T>* out = new mtx<T>(base.rows,base.cols);
-    if (out->null())
-        return nullptr;
-    T prod = 0;
-    for (ulong i=0; i<M.rows*M.cols; i++){
-        prod += base.data[i]*M.data[i];
-    }
-    for (ulong k=0; k<M.rows*M.cols; k++){
-        out->data[k] = M.data[k]-prod*base.data[k];
-    }
-    return out;
-}
-
-template <typename T>
 mtx<T>* sphere::fromEuclidean(mtx<T>& M){
-    mtx<T>* out = new mtx<T>(M.rows,M.cols+1,1);
+    mtx<T>* out = new mtx<T>(M.rows,M.cols+1,this->r);
     if (out->null())
         return nullptr;
     for (ulong i=0; i<M.rows; i++){
@@ -96,7 +86,7 @@ mtx<T>* sphere::fromEuclidean(mtx<T>& M){
 
 template <typename T>
 mtx<T>* sphere::toEuclidean(mtx<T>& M){
-    mtx<T>* out = new mtx<T>(M.rows,M.cols-1.1);
+    mtx<T>* out = new mtx<T>(M.rows,M.cols-1);
     if (out->null())
         return nullptr;
     for (ulong i=0; i<M.rows; i++){
@@ -118,7 +108,7 @@ bool sphere::isIn(mtx<T>& M, T tolerance){
         for (ulong j=0; j<M.cols; j++){
             sum += M(i,j)*M(i,j);
         }
-        if (sum>1+tolerance || sum<1-tolerance)
+        if (sum>this->r*this->r+tolerance || sum<this->r*this->r-tolerance)
             return false;
     }
     return true;
@@ -149,6 +139,7 @@ mtx<T>* sphere::distance(mtx<T>& M){
             for (ulong s=0; s<M.rows; s++)
                 prod += M(i,s)*M(j,s);
             (*out)(i,j) = acos(prod);
+            (*out)(i,j) = this->r*(*out)(i,j);
             (*out)(j,i) = (*out)(i,j);
         }
     }
@@ -182,27 +173,11 @@ mtx<T>* sphere::exponential(mtx<T>& at, mtx<T> &M){
         for (ulong j=0; j<M.cols; j++){
             norm += M(i,j)*M(i,j);
         }
+        norm = sqrt(norm);
         for (ulong j=0; j<M.cols; j++){
-            (*out)(i,j) = cos(norm)*at(i,j);
-            (*out)(i,j) += sin(norm)*M(i,j)/norm;
-        }
-    }
-    return out;
-}
-
-template <typename T>
-mtx<T>* sphere::exponential(T* at, mtx<T> &M){
-    mtx<T>* out = new mtx<T>(M.rows,M.cols);
-    if (out->null())
-        return nullptr;
-    for (ulong i=0; i<M.rows; i++){
-        T norm = 0;
-        for (ulong j=0; j<M.cols; j++){
-            norm += M(i,j)*M(i,j);
-        }
-        for (ulong j=0; j<M.cols; j++){
-            (*out)(i,j) = cos(norm)*at[j];
-            (*out)(i,j) += sin(norm)*M(i,j)/norm;
+            (*out)(i,j) = cos(norm/this->r)*at(i,j);
+            (*out)(i,j) += sin(norm/this->r)*M(i,j)/norm;
+            (*out)(i,j) *= this->r;
         }
     }
     return out;
@@ -237,28 +212,17 @@ mtx<T>* sphere::logarithm(mtx<T>& from, mtx<T>& to){
 }
 
 template <typename T>
-mtx<T>* sphere::logarithm(T* from, mtx<T>& to){
-    mtx<T>* out = new mtx<T>(to.rows,to.cols);
+mtx<T>* sphere::centroidDistance(mtx<T>& data, mtx<T>& center){
+    mtx<T>* out = new mtx<T>(data.rows,center.rows);
     if (out->null())
         return nullptr;
-    for (ulong i=0; i<to.rows; i++){
-        //Inner product
-        T prod = 0;
-        for (ulong j=0; j<to.cols; j++){
-            prod += from[j]*to(i,j);
-        }
-        T dist = acos(prod);
-        T proj_norm = 0;
-        //Projection
-        for (ulong j=0; j<to.cols; j++){
-            (*out)(i,j) = dist*(
-                to(i,j)-prod*from[j]
-            );
-            proj_norm += (to(i,j)-prod*from[j])*(to(i,j)-prod*from[j]);
-        }
-        //Normalization
-        for (ulong j=0; j<to.cols; j++){
-            (*out)(i,j) /= sqrt(proj_norm);
+    for (ulong i=0; i<out->rows; i++){
+        for (ulong j=0; j<out->cols; j++){
+            (*out)(i,j) = 0;
+            for (ulong s=0; s<data.cols; s++){
+                (*out)(i,j) += data(i,s)*center(j,s);
+            }
+            (*out)(i,j) = this->r*acos((*out)(i,j));
         }
     }
     return out;

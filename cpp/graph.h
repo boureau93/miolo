@@ -2,6 +2,10 @@
 #include <cmath>
 #include <algorithm>
 #include <vector>
+#include "aux.h"
+#include <iostream>
+
+using namespace std;
 
 #ifndef GRAPH_H
 #define GRAPH_H
@@ -11,7 +15,15 @@ class edge{
 public:
     ulong i, j; //index of nodes in edge
     T w; //weight of edge
+
 };
+
+template <typename T>
+bool cmpEdge(edge<T>& u, edge<T>& v){
+    if (u.w<v.w)
+        return true;
+    return false;
+}
 
 template <typename T>
 class graph{
@@ -25,6 +37,7 @@ public:
     graph(ulong nodes, ulong edges, T init);
     graph(graph<T>& cp);
     ~graph();
+    void clean(){delete[] this->e;}
 
     bool null(){return this->e==nullptr;}
     void wrap(graph<T>* target){
@@ -39,6 +52,9 @@ public:
         return this->e[k];
     }
 
+    T max();
+    T min();
+
     bool isolatedNodes();
 
     //Algebra
@@ -48,11 +64,14 @@ public:
     graph<T>* sub(graph<T>* G);
     graph<T>* hmul(graph<T>* G);
 
-    mtx<T>* propagate(mtx<T>* M, bool* clamped);
+    mtx<T>* propagate(mtx<T>& M, bool* clamped);
 
     mtx<T>* degree();
     void normalize();
     graph<T>* laplacian();
+    void print();
+
+    T gaussianScale();
 
     mtx<T>* densify();
 };
@@ -99,9 +118,7 @@ graph<T>::graph(graph<T>& cp){
 
 template <typename T>
 graph<T>::~graph(){
-    if (this->e!=nullptr){
         delete[] this->e;
-    }
 }
 
 template <typename T>
@@ -121,6 +138,26 @@ void graph<T>::operator=(graph<T> &cp){
 /*------------------------------------------------------------------------------
     Utility
 ------------------------------------------------------------------------------*/
+
+template <typename T>
+T graph<T>::max(){
+    T out = this->e[0].w;
+    for (ulong k=1; k<this->edges; k++){
+        if (this->e[k].w>out)
+            out = this->e[k].w;
+    }
+    return out;
+}
+
+template <typename T>
+T graph<T>::min(){
+    T out = this->e[0].w;
+    for (ulong k=1; k<this->edges; k++){
+        if (this->e[k].w<out)
+            out = this->e[k].w;
+    }
+    return out;
+}
 
 template <typename T>
 mtx<T>* graph<T>::degree(){
@@ -179,6 +216,45 @@ bool graph<T>::isolatedNodes(){
         cout << "[This occured in Graph.isolatedNodes.]" << endl;
         return false;
     }
+}
+
+template <typename T>
+void graph<T>::print(){
+    for (ulong k=0; k<this->edges; k++){
+        cout << "(", 
+        cout << this->e[k].i << ",";
+        cout << this->e[k].j << ",";
+        cout << this->e[k].w << ")" << endl; 
+    }
+}
+
+/*------------------------------------------------------------------------------
+    Similarity
+------------------------------------------------------------------------------*/
+
+template <typename T>
+T graph<T>::gaussianScale(){
+    T* dg = new T[this->nodes];
+    if (dg==nullptr)
+        return -1;
+    for (ulong i=0; i<this->nodes; i++){
+        dg[i] = 0;
+    }
+    //Find most distant neighbor
+    for (ulong k=0; k<this->edges; k++){
+        if (dg[this->e[k].i]<this->e[k].w)
+            dg[this->e[k].i] = this->e[k].w;
+        if (dg[this->e[k].j]<this->e[k].w)
+            dg[this->e[k].j] = this->e[k].w;
+    }
+    //Calculate sigma
+    T sigma = 0;
+    for (ulong i=0; i<this->nodes; i++){
+        sigma += dg[i];
+    }
+    delete[] dg;
+    sigma /= 3*this->nodes;
+    return sigma;
 }
 
 /*------------------------------------------------------------------------------
@@ -256,22 +332,22 @@ graph<T>* graph<T>::hmul(graph<T>* G){
 }
 
 template <typename T>
-mtx<T>* graph<T>::propagate(mtx<T>* M, bool* clamped){
-    mtx<T>* out = new mtx<T>(M->rows,M->cols,0);
+mtx<T>* graph<T>::propagate(mtx<T>& M, bool* clamped){
+    mtx<T>* out = new mtx<T>(M.rows,M.cols,0);
     for (ulong k=0; k<this->edges; k++){
-        for (ulong s=0; s<M->cols; s++){
+        for (ulong s=0; s<M.cols; s++){
             if (!clamped[this->e[k].i]){
-                (*out)(this->e[k].i,s) += this->e[k].w*(*M)(this->e[k].j,s);
+                (*out)(this->e[k].i,s) += this->e[k].w*M(this->e[k].j,s);
             }
             if (!clamped[this->e[k].j]){
-                (*out)(this->e[k].j,s) += this->e[k].w*(*M)(this->e[k].i,s);
+                (*out)(this->e[k].j,s) += this->e[k].w*M(this->e[k].i,s);
             }
         }
     }
-    for (ulong i=0; i<M->rows; i++){
+    for (ulong i=0; i<M.rows; i++){
         if (clamped[i]){
-            for (ulong s=0; s<M->cols; s++){
-                (*out)(i,s) = (*M)(i,s);
+            for (ulong s=0; s<M.cols; s++){
+                (*out)(i,s) = M(i,s);
             }
         }
     }
@@ -304,59 +380,103 @@ vector<T>* slice(T* arr, ulong start, ulong end){
 }
 
 template <typename T>
-graph<T>* sparsifyThreshold(mtx<T>* M, T thresh){
-    mtx<T>* cop = new mtx<T>(M->rows,M->cols);
-    cop->copy(M);
+graph<T>* sparsifyGraphThreshold(mtx<T>& M, double thresh){
+    mtx<T>* cop = new mtx<T>(M.rows,M.rows);
     ulong counter = 0;
     //Symmetrize cop
-    for (ulong i=0; i<M->rows; i++)
-        for (ulong s=i+1; s<M->rows; s++){
-            (*cop)(i,s) = ((*cop)(i,s)+(*cop)(s,i))/2;
+    for (ulong i=0; i<M.rows; i++)
+        for (ulong s=i+1; s<M.rows; s++){
+            (*cop)(i,s) = (M(i,s)+M(s,i))/2;
             (*cop)(s,i) = (*cop)(i,s);
-            if (fabs((*cop)(i,s))>thresh){
+            if (fabs((*cop)(i,s))<thresh){
                 counter++;
             }
         }
-    graph<T>* out = new graph<T>(M->rows,counter);
+    graph<T>* out = new graph<T>(M.rows,counter);
     ulong k = 0;
     if (!out->null()){
-        for (ulong i=0; i<M->rows; i++){
-            for (ulong j=i+1; j<M->cols; j++){
-                if (fabs((*cop)(i,j))>thresh){
+        for (ulong i=0; i<M.rows; i++){
+            for (ulong j=i+1; j<M.cols; j++){
+                if (fabs((*cop)(i,j))<thresh){
                     out->e[k].i = i;
                     out->e[k].j = j;
-                    out->e[k].w = cop->data[i*M->cols+j];
+                    out->e[k].w = cop->data[i*M.cols+j];
                     k++;
                 }
             }
         }
     }
+    delete cop;
     return out;
 }
 
 template <typename T>
-graph<T>* sparsifyKNN(mtx<T>* M, ulong knn){
-    T* cop = new T[M->rows*(M->rows-1)/2+M->rows];
-    //Symmetrize M via cop
-    ulong counter = 0;
-    for (ulong i=0; i<M->rows; i++)
-        for (ulong s=i+1; s<M->rows; s++){
-            cop[counter] = ((*M)(i,s)+(*M)(s,i))/2;
-            counter++;
+graph<T>* mst(mtx<T>& M){
+    graph<T>* out = new graph<T>(M.rows,M.rows-1);
+    if (out->null())
+        return nullptr;
+    //Auxiliary array for all edges
+    ulong len = (M.rows-1)*M.rows/2;
+    edge<T>* aux = new edge<T>[len];
+    if (aux==nullptr)
+        return nullptr;
+    ulong k = 0;
+    for (ulong i=0; i<M.rows; i++)
+        for (ulong j=i+1; j<M.rows; j++){
+            aux[k].i = i;
+            aux[k].j = j;
+            aux[k].w = M(i,j); 
+            k++;
         }
-    sort(&cop[0],&cop[0]+M->rows*(M->rows-1)/2+M->rows);
-    graph<T>* out = new graph<T>(M->rows,knn*M->rows);
-    counter = 0;
-    for (ulong i=0; i<M->rows; i++){
-        for (ulong j=0; j<M->cols; j++){
-            if (cop[knn]<(*M)(i,j)){
-                out->e[counter].i = i;
-                out->e[counter].j = j;
-                out->e[counter].w = ((*M)(i,j)+(*M)(j,i))/2;
-            }
+    sort(aux,aux+len,cmpEdge<T>);
+    //Kruskal
+    DSU D(M.rows);
+    if (D.null())
+        return nullptr;
+    ulong count = 0;
+    for (ulong k=0; k<len && count<M.rows-1; k++){
+        if (D.find(aux[k].i)!=D.find(aux[k].j)){
+            D.unite(aux[k].i,aux[k].j);
+            out->e[count].i = aux[k].i;
+            out->e[count].j = aux[k].j;
+            out->e[count].w = aux[k].w;
+            count++; 
         }
     }
+    delete[] aux;
     return out;
 }
 
+template <typename T>
+graph<T>* mst(graph<T>& G){
+    graph<T>* out = new graph<T>(G.nodes,G.nodes-1);
+    if (out->null())
+        return nullptr;
+    //Auxiliary array for all edges
+    edge<T>* aux = new edge<T>[G.edges];
+    if (aux==nullptr)
+        return nullptr;
+    for (ulong k=0; k<G.edges; k++){
+        aux[k].i = G[k].i;
+        aux[k].j = G[k].j;
+        aux[k].w = G[k].w;
+    }
+    sort(&aux[0],&aux[0]+G.edges,cmpEdge<T>);
+    //Kruskal
+    DSU D(G.nodes);
+    if (D.null())
+        return nullptr;
+    ulong count = 0;
+    for (ulong k=0; k<G.edges && count<G.nodes-1; k++){
+        if (D.find(aux[k].i)!=D.find(aux[k].j)){
+            D.unite(aux[k].i,aux[k].j);
+            out->e[count].i = aux[k].i;
+            out->e[count].j = aux[k].j;
+            out->e[count].w = aux[k].w;
+            count++;
+        }
+    }
+    delete[] aux;
+    return out;
+}
 #endif

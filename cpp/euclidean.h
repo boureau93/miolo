@@ -1,4 +1,5 @@
 #include "mtx.h"
+#include "graph.h"
 #include <cmath>
 
 #ifndef EUCLIDEAN_H
@@ -24,6 +25,14 @@ public:
     mtx<T>* rowNormalize(mtx<T>& M);
     template <typename T>
     mtx<T>* colNormalize(mtx<T>& M);
+
+    template <typename T>
+    mtx<T>* centroidDistance(mtx<T>& M, mtx<T>& centroids);
+    template <typename T>
+    mtx<T>* kmpp(mtx<T>& M, int k);
+
+    template <typename T>
+    void conjugateGradient(mtx<T>& M, mtx<T>& b, mtx<T>& x_0, int tmax, double precision);
 };
 
 template <typename T>
@@ -177,8 +186,9 @@ mtx<T>* euclidean::gaussianNormalize(mtx<T> &M){
     for (ulong j=0; j<M.cols; j++)
         if ((*var)(0,j)==0){
             cout << "[miolo Warning]";
-            cout << " Zero variance in Euclidean.gaussianNormalize.";
-            cout << " - > Avoiding division by zero and returning nullptr.";
+            cout << " Zero variance in Euclidean.gaussianNormalize." << endl;
+            cout << " << Avoiding division by zero and returning nullptr. >>";
+            cout << endl;
             return nullptr;
         }
     
@@ -190,7 +200,92 @@ mtx<T>* euclidean::gaussianNormalize(mtx<T> &M){
         for (ulong j=0; j<M.cols; j++)
             (*out)(i,j) = (M(i,j)-(*mean)(0,j))/(*var)(0,j);
     }
+    delete mean; delete var;
     return out;
 }
+
+template <typename T>
+mtx<T>* euclidean::centroidDistance(mtx<T>& data, mtx<T>& center){
+    mtx<T>* out = new mtx<T>(data.rows,center.rows);
+    if (out->null())
+        return nullptr;
+    for (ulong i=0; i<out->rows; i++){
+        for (ulong j=0; j<out->cols; j++){
+            (*out)(i,j) = 0;
+            for (ulong s=0; s<data.cols; s++){
+                T aux = data(i,s)-center(j,s);
+                (*out)(i,j) += aux*aux;
+            }
+        }
+    }
+    return out;
+}
+
+template <typename T>
+bool isIn(T* vec, T value, int size){
+    for (int i=0; i<size; i++){
+        if (vec[i]==value)
+            return true;
+    }
+    return false;
+}
+
+template <typename T>
+mtx<T>* euclidean::kmpp(mtx<T> &data, int k){
+    mtx<T>* out = new mtx<T>(k,data.cols);
+    if (out->null())
+        return nullptr;
+    srand(time(0));
+    //Choose first centroid
+    ulong id = rand()%data.rows;
+    for (ulong l=0; l<data.cols; l++){
+        (*out)(0,l) = data(id,l);
+    }
+    ulong chosen[k]; chosen[0] = id;
+    //Determine next centroids
+    int aux_k = 1;
+    while (aux_k<k){
+        mtx<double> dist(data.rows,1);
+        T Z = 0; //normalizing constant
+        for (ulong i=0; i<data.rows; i++){
+            //If already chosen, zero distance
+            if (isIn(chosen,i,aux_k)){
+                dist[i] = 0;
+            }
+            //Else, calculate shortest distance
+            else{
+                dist[i] = 100000;
+                for (int a=0; a<aux_k; a++){
+                    T new_dist = 0;
+                    for (ulong p=0; p<data.cols; p++){
+                        new_dist += 
+                            (data(i,p)-(*out)(a,p))*(data(i,p)-(*out)(a,p));
+                    }
+                    if (new_dist<dist[i])
+                        dist[i] = new_dist;
+                }
+            }
+            Z += dist[i];
+        }
+        //Choose next centroid
+        double u = ((double)rand())/((double)RAND_MAX);
+        double sum = 0;
+        for (ulong i=-1; i<data.rows-1; i++){
+            if (u>sum && u<sum+dist[i+1]/Z){
+                id = i+1; break;
+            }
+            else{
+                sum += dist[i+1]/Z;
+            }
+        }
+        //Insert centrod in out
+        for (ulong l=0; l<data.cols; l++){
+            (*out)(aux_k,l) = data(id,l);
+        }
+        aux_k++;
+    }
+    return out;
+}
+
 
 #endif
